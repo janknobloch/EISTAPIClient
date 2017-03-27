@@ -63,7 +63,7 @@ public class DefaultApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/bot/tweet".replaceAll("\\{format\\}","json");
+        String localVarPath = "/bot/question".replaceAll("\\{format\\}","json");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
 
@@ -176,7 +176,7 @@ public class DefaultApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/bot/tweet/{id}".replaceAll("\\{format\\}","json");
+        String localVarPath = "/bot/question/{id}".replaceAll("\\{format\\}","json");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
 
@@ -399,7 +399,7 @@ public class DefaultApi {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/bot/tweet/DataItem".replaceAll("\\{format\\}","json");
+        String localVarPath = "/bot/dataitem".replaceAll("\\{format\\}","json");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
 
@@ -559,7 +559,7 @@ public class DefaultApi {
     }
 
     /**
-     * retrieves all Presenters
+     * Retrieves all Presenters
      * 
      * @return List&lt;String&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -570,7 +570,7 @@ public class DefaultApi {
     }
 
     /**
-     * retrieves all Presenters
+     * Retrieves all Presenters
      * 
      * @return ApiResponse&lt;List&lt;String&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -582,7 +582,7 @@ public class DefaultApi {
     }
 
     /**
-     * retrieves all Presenters (asynchronously)
+     * Retrieves all Presenters (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -619,7 +619,7 @@ public class DefaultApi {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/bot/tweet/replies".replaceAll("\\{format\\}","json");
+        String localVarPath = "/bot/question/replies".replaceAll("\\{format\\}","json");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
 
@@ -729,7 +729,7 @@ public class DefaultApi {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/bot/tweet".replaceAll("\\{format\\}","json");
+        String localVarPath = "/bot/question".replaceAll("\\{format\\}","json");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
 
@@ -1059,7 +1059,7 @@ public class DefaultApi {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/bot/tweet/{id}".replaceAll("\\{format\\}","json")
+        String localVarPath = "/bot/question/{id}".replaceAll("\\{format\\}","json")
         .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -2041,7 +2041,7 @@ public class DefaultApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/bot/tweet".replaceAll("\\{format\\}","json");
+        String localVarPath = "/bot/question".replaceAll("\\{format\\}","json");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
 
@@ -2154,7 +2154,7 @@ public class DefaultApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/bot/tweet".replaceAll("\\{format\\}","json");
+        String localVarPath = "/bot/question".replaceAll("\\{format\\}","json");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
 

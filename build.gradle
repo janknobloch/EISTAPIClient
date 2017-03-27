@@ -99,6 +99,6 @@ dependencies {
     compile 'com.squareup.okhttp:logging-interceptor:2.7.5'
     compile 'com.google.code.gson:gson:2.6.2'
     compile 'joda-time:joda-time:2.9.3'
-    compile 'org.projectlombok:lombok:1.16.16'
+    compile 'org.projectlombok:lombok:1.16.16’
     testCompile 'junit:junit:4.12'
 }

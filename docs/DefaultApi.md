@@ -4,16 +4,16 @@ All URIs are relative to *http://localhost/api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**deleteTweetInDB**](DefaultApi.md#deleteTweetInDB) | **DELETE** /bot/tweet | deletes a given Question
-[**deleteTweetInDBById**](DefaultApi.md#deleteTweetInDBById) | **DELETE** /bot/tweet/{id} | deletes a given Question by using its ID
+[**deleteTweetInDB**](DefaultApi.md#deleteTweetInDB) | **DELETE** /bot/question | deletes a given Question
+[**deleteTweetInDBById**](DefaultApi.md#deleteTweetInDBById) | **DELETE** /bot/question/{id} | deletes a given Question by using its ID
 [**getActiveSlides**](DefaultApi.md#getActiveSlides) | **GET** /bot/slide/live | Returns an Array of active slides for (ppt, key, and dev)
-[**getAllDatamodels**](DefaultApi.md#getAllDatamodels) | **GET** /bot/tweet/DataItem | retrieves all DataItem (mock)
-[**getAllPresenterSessions**](DefaultApi.md#getAllPresenterSessions) | **GET** /bot/presenter | retrieves all Presenters
-[**getAllReplies**](DefaultApi.md#getAllReplies) | **GET** /bot/tweet/replies | retrieves all Replys (mock)
-[**getAllTweets**](DefaultApi.md#getAllTweets) | **GET** /bot/tweet | retrieves all Questions
+[**getAllDatamodels**](DefaultApi.md#getAllDatamodels) | **GET** /bot/dataitem | retrieves all DataItem (mock)
+[**getAllPresenterSessions**](DefaultApi.md#getAllPresenterSessions) | **GET** /bot/presenter | Retrieves all Presenters
+[**getAllReplies**](DefaultApi.md#getAllReplies) | **GET** /bot/question/replies | retrieves all Replys (mock)
+[**getAllTweets**](DefaultApi.md#getAllTweets) | **GET** /bot/question | retrieves all Questions
 [**getAllTwitterWallSessions**](DefaultApi.md#getAllTwitterWallSessions) | **GET** /bot/twitterwalls | retrieves all twitter wall listeners
 [**getPresentations**](DefaultApi.md#getPresentations) | **GET** /bot/presentation | Returns a mapping ordered by timestamp of all presentationNames
-[**getSingleTweet**](DefaultApi.md#getSingleTweet) | **GET** /bot/tweet/{id} | retrieves question by Id
+[**getSingleTweet**](DefaultApi.md#getSingleTweet) | **GET** /bot/question/{id} | retrieves question by Id
 [**getSlideForPresentationNameAndSlideNumber**](DefaultApi.md#getSlideForPresentationNameAndSlideNumber) | **GET** /bot/presentation/name/{presentationName}/slide/number/{slideNumber} | Returns slidePath for PresentationName / SlideNumber
 [**getSlideForPresentationNumberAndSlideName**](DefaultApi.md#getSlideForPresentationNumberAndSlideName) | **GET** /bot/presentation/number/{presentationNumber}/slide/name/{slideName} | Returns slidePath for PresentationNumber / SlideName
 [**getSlideForPresentationNumberAndSlideNumber**](DefaultApi.md#getSlideForPresentationNumberAndSlideNumber) | **GET** /bot/presentation/number/{presentationNumber}/slide/number/{slideNumber} | Returns slidePath for PresentationNumber / SlideNumber
@@ -21,8 +21,8 @@ Method | HTTP request | Description
 [**getSlidesForPresentationNameAndSlideName**](DefaultApi.md#getSlidesForPresentationNameAndSlideName) | **GET** /bot/presentation/name/{presentationName}/slide/name/{slideName} | Returns slidePath for PresentationNumber / SlideName
 [**getSlidesForPresentationNumber**](DefaultApi.md#getSlidesForPresentationNumber) | **GET** /bot/presentation/number/{presentationNumber}/slide | Returns all Slides for PresentationNumber
 [**postFeedbackToDB**](DefaultApi.md#postFeedbackToDB) | **POST** /bot/feedback | saves a new Feedback, updates it if already existent
-[**postTweetInDB**](DefaultApi.md#postTweetInDB) | **POST** /bot/tweet | saves a new Question, updates it if already existent
-[**updateTweetInDB**](DefaultApi.md#updateTweetInDB) | **PUT** /bot/tweet | saves a new Question, updates it if already existent
+[**postTweetInDB**](DefaultApi.md#postTweetInDB) | **POST** /bot/question | saves a new Question, updates it if already existent
+[**updateTweetInDB**](DefaultApi.md#updateTweetInDB) | **PUT** /bot/question | saves a new Question, updates it if already existent
 
 
 <a name="deleteTweetInDB"></a>
@@ -201,7 +201,7 @@ No authorization required
 # **getAllPresenterSessions**
 > List&lt;String&gt; getAllPresenterSessions()
 
-retrieves all Presenters
+Retrieves all Presenters
 
 
 
