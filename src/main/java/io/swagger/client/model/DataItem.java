@@ -19,10 +19,10 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * Feedback
+ * DataItem
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-03-27T12:59:10.118+02:00")
-public class Feedback {
+public class DataItem {
   @SerializedName("id")
   private String id = null;
 
@@ -38,7 +38,7 @@ public class Feedback {
   @SerializedName("upvotes")
   private Integer upvotes = null;
 
-  public Feedback id(String id) {
+  public DataItem id(String id) {
     this.id = id;
     return this;
   }
@@ -56,7 +56,7 @@ public class Feedback {
     this.id = id;
   }
 
-  public Feedback content(String content) {
+  public DataItem content(String content) {
     this.content = content;
     return this;
   }
@@ -74,7 +74,7 @@ public class Feedback {
     this.content = content;
   }
 
-  public Feedback author(String author) {
+  public DataItem author(String author) {
     this.author = author;
     return this;
   }
@@ -92,7 +92,7 @@ public class Feedback {
     this.author = author;
   }
 
-  public Feedback date(String date) {
+  public DataItem date(String date) {
     this.date = date;
     return this;
   }
@@ -110,7 +110,7 @@ public class Feedback {
     this.date = date;
   }
 
-  public Feedback upvotes(Integer upvotes) {
+  public DataItem upvotes(Integer upvotes) {
     this.upvotes = upvotes;
     return this;
   }
@@ -137,12 +137,12 @@ public class Feedback {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    Feedback feedback = (Feedback) o;
-    return Objects.equals(this.id, feedback.id) &&
-        Objects.equals(this.content, feedback.content) &&
-        Objects.equals(this.author, feedback.author) &&
-        Objects.equals(this.date, feedback.date) &&
-        Objects.equals(this.upvotes, feedback.upvotes);
+    DataItem dataItem = (DataItem) o;
+    return Objects.equals(this.id, dataItem.id) &&
+        Objects.equals(this.content, dataItem.content) &&
+        Objects.equals(this.author, dataItem.author) &&
+        Objects.equals(this.date, dataItem.date) &&
+        Objects.equals(this.upvotes, dataItem.upvotes);
   }
 
   @Override
@@ -154,7 +154,7 @@ public class Feedback {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class Feedback {\n");
+    sb.append("class DataItem {\n");
     
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    content: ").append(toIndentedString(content)).append("\n");

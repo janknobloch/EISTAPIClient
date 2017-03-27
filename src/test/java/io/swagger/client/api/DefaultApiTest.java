@@ -15,8 +15,10 @@ package io.swagger.client.api;
 
 import io.swagger.client.ApiException;
 import io.swagger.client.model.ActiveSlidePathPPTKEY;
+import io.swagger.client.model.DataItem;
 import io.swagger.client.model.Feedback;
 import io.swagger.client.model.Question;
+import io.swagger.client.model.Reply;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -35,7 +37,7 @@ public class DefaultApiTest {
 
     
     /**
-     * deletes a given Question by using its ID
+     * deletes a given Question
      *
      * 
      *
@@ -46,6 +48,22 @@ public class DefaultApiTest {
     public void deleteTweetInDBTest() throws ApiException {
         Question body = null;
         Question response = api.deleteTweetInDB(body);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * deletes a given Question by using its ID
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void deleteTweetInDBByIdTest() throws ApiException {
+        String body = null;
+        Question response = api.deleteTweetInDBById(body);
 
         // TODO: test validations
     }
@@ -66,6 +84,21 @@ public class DefaultApiTest {
     }
     
     /**
+     * retrieves all DataItem (mock)
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getAllDatamodelsTest() throws ApiException {
+        List<DataItem> response = api.getAllDatamodels();
+
+        // TODO: test validations
+    }
+    
+    /**
      * retrieves all Presenters
      *
      * 
@@ -81,7 +114,22 @@ public class DefaultApiTest {
     }
     
     /**
-     * retrieves all questions
+     * retrieves all Replys (mock)
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getAllRepliesTest() throws ApiException {
+        List<Reply> response = api.getAllReplies();
+
+        // TODO: test validations
+    }
+    
+    /**
+     * retrieves all Questions
      *
      * 
      *
@@ -121,6 +169,22 @@ public class DefaultApiTest {
     @Test
     public void getPresentationsTest() throws ApiException {
         Map<String, String> response = api.getPresentations();
+
+        // TODO: test validations
+    }
+    
+    /**
+     * retrieves question by Id
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getSingleTweetTest() throws ApiException {
+        String id = null;
+        Question response = api.getSingleTweet(id);
 
         // TODO: test validations
     }

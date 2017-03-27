@@ -21,7 +21,7 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * ActiveSlidePathPPTKEY
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-03-26T20:33:23.745+02:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-03-27T12:59:10.118+02:00")
 public class ActiveSlidePathPPTKEY {
   @SerializedName("pptslide")
   private String pptslide = null;
@@ -41,7 +41,7 @@ public class ActiveSlidePathPPTKEY {
    * Get pptslide
    * @return pptslide
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "null", value = "")
   public String getPptslide() {
     return pptslide;
   }
@@ -59,7 +59,7 @@ public class ActiveSlidePathPPTKEY {
    * Get keyslide
    * @return keyslide
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "null", value = "")
   public String getKeyslide() {
     return keyslide;
   }
@@ -77,7 +77,7 @@ public class ActiveSlidePathPPTKEY {
    * Get devslide
    * @return devslide
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "null", value = "")
   public String getDevslide() {
     return devslide;
   }

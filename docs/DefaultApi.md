@@ -4,12 +4,16 @@ All URIs are relative to *http://localhost/api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**deleteTweetInDB**](DefaultApi.md#deleteTweetInDB) | **DELETE** /bot/tweet | deletes a given Question by using its ID
+[**deleteTweetInDB**](DefaultApi.md#deleteTweetInDB) | **DELETE** /bot/tweet | deletes a given Question
+[**deleteTweetInDBById**](DefaultApi.md#deleteTweetInDBById) | **DELETE** /bot/tweet/{id} | deletes a given Question by using its ID
 [**getActiveSlides**](DefaultApi.md#getActiveSlides) | **GET** /bot/slide/live | Returns an Array of active slides for (ppt, key, and dev)
+[**getAllDatamodels**](DefaultApi.md#getAllDatamodels) | **GET** /bot/tweet/DataItem | retrieves all DataItem (mock)
 [**getAllPresenterSessions**](DefaultApi.md#getAllPresenterSessions) | **GET** /bot/presenter | retrieves all Presenters
-[**getAllTweets**](DefaultApi.md#getAllTweets) | **GET** /bot/tweet | retrieves all questions
+[**getAllReplies**](DefaultApi.md#getAllReplies) | **GET** /bot/tweet/replies | retrieves all Replys (mock)
+[**getAllTweets**](DefaultApi.md#getAllTweets) | **GET** /bot/tweet | retrieves all Questions
 [**getAllTwitterWallSessions**](DefaultApi.md#getAllTwitterWallSessions) | **GET** /bot/twitterwalls | retrieves all twitter wall listeners
 [**getPresentations**](DefaultApi.md#getPresentations) | **GET** /bot/presentation | Returns a mapping ordered by timestamp of all presentationNames
+[**getSingleTweet**](DefaultApi.md#getSingleTweet) | **GET** /bot/tweet/{id} | retrieves question by Id
 [**getSlideForPresentationNameAndSlideNumber**](DefaultApi.md#getSlideForPresentationNameAndSlideNumber) | **GET** /bot/presentation/name/{presentationName}/slide/number/{slideNumber} | Returns slidePath for PresentationName / SlideNumber
 [**getSlideForPresentationNumberAndSlideName**](DefaultApi.md#getSlideForPresentationNumberAndSlideName) | **GET** /bot/presentation/number/{presentationNumber}/slide/name/{slideName} | Returns slidePath for PresentationNumber / SlideName
 [**getSlideForPresentationNumberAndSlideNumber**](DefaultApi.md#getSlideForPresentationNumberAndSlideNumber) | **GET** /bot/presentation/number/{presentationNumber}/slide/number/{slideNumber} | Returns slidePath for PresentationNumber / SlideNumber
@@ -25,7 +29,7 @@ Method | HTTP request | Description
 # **deleteTweetInDB**
 > Question deleteTweetInDB(body)
 
-deletes a given Question by using its ID
+deletes a given Question
 
 
 
@@ -52,6 +56,51 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **body** | [**Question**](Question.md)|  | [optional]
+
+### Return type
+
+[**Question**](Question.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="deleteTweetInDBById"></a>
+# **deleteTweetInDBById**
+> Question deleteTweetInDBById(body)
+
+deletes a given Question by using its ID
+
+
+
+### Example
+```java
+// Import classes:
+//import io.swagger.client.ApiException;
+//import io.swagger.client.api.DefaultApi;
+
+
+DefaultApi apiInstance = new DefaultApi();
+String body = "body_example"; // String | 
+try {
+    Question result = apiInstance.deleteTweetInDBById(body);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling DefaultApi#deleteTweetInDBById");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | **String**|  | [optional]
 
 ### Return type
 
@@ -107,6 +156,47 @@ No authorization required
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+<a name="getAllDatamodels"></a>
+# **getAllDatamodels**
+> List&lt;DataItem&gt; getAllDatamodels()
+
+retrieves all DataItem (mock)
+
+
+
+### Example
+```java
+// Import classes:
+//import io.swagger.client.ApiException;
+//import io.swagger.client.api.DefaultApi;
+
+
+DefaultApi apiInstance = new DefaultApi();
+try {
+    List<DataItem> result = apiInstance.getAllDatamodels();
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling DefaultApi#getAllDatamodels");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**List&lt;DataItem&gt;**](DataItem.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
 <a name="getAllPresenterSessions"></a>
 # **getAllPresenterSessions**
 > List&lt;String&gt; getAllPresenterSessions()
@@ -148,11 +238,52 @@ No authorization required
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+<a name="getAllReplies"></a>
+# **getAllReplies**
+> List&lt;Reply&gt; getAllReplies()
+
+retrieves all Replys (mock)
+
+
+
+### Example
+```java
+// Import classes:
+//import io.swagger.client.ApiException;
+//import io.swagger.client.api.DefaultApi;
+
+
+DefaultApi apiInstance = new DefaultApi();
+try {
+    List<Reply> result = apiInstance.getAllReplies();
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling DefaultApi#getAllReplies");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**List&lt;Reply&gt;**](Reply.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
 <a name="getAllTweets"></a>
 # **getAllTweets**
 > List&lt;Question&gt; getAllTweets()
 
-retrieves all questions
+retrieves all Questions
 
 
 
@@ -261,6 +392,51 @@ This endpoint does not need any parameter.
 ### Return type
 
 [**Map&lt;String, String&gt;**](Map.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="getSingleTweet"></a>
+# **getSingleTweet**
+> Question getSingleTweet(id)
+
+retrieves question by Id
+
+
+
+### Example
+```java
+// Import classes:
+//import io.swagger.client.ApiException;
+//import io.swagger.client.api.DefaultApi;
+
+
+DefaultApi apiInstance = new DefaultApi();
+String id = "id_example"; // String | 
+try {
+    Question result = apiInstance.getSingleTweet(id);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling DefaultApi#getSingleTweet");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **String**|  |
+
+### Return type
+
+[**Question**](Question.md)
 
 ### Authorization
 

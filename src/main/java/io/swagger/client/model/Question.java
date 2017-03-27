@@ -20,12 +20,11 @@ import io.swagger.annotations.ApiModelProperty;
 import io.swagger.client.model.Reply;
 import java.util.ArrayList;
 import java.util.List;
-import org.joda.time.DateTime;
 
 /**
  * Question
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-03-26T20:33:23.745+02:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-03-27T12:59:10.118+02:00")
 public class Question {
   @SerializedName("id")
   private String id = null;
@@ -37,7 +36,7 @@ public class Question {
   private String author = null;
 
   @SerializedName("date")
-  private DateTime date = null;
+  private String date = null;
 
   @SerializedName("upvotes")
   private Integer upvotes = null;
@@ -66,7 +65,7 @@ public class Question {
    * Get id
    * @return id
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "null", value = "")
   public String getId() {
     return id;
   }
@@ -84,7 +83,7 @@ public class Question {
    * Get content
    * @return content
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "null", value = "")
   public String getContent() {
     return content;
   }
@@ -102,7 +101,7 @@ public class Question {
    * Get author
    * @return author
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "null", value = "")
   public String getAuthor() {
     return author;
   }
@@ -111,7 +110,7 @@ public class Question {
     this.author = author;
   }
 
-  public Question date(DateTime date) {
+  public Question date(String date) {
     this.date = date;
     return this;
   }
@@ -120,12 +119,12 @@ public class Question {
    * Get date
    * @return date
   **/
-  @ApiModelProperty(value = "")
-  public DateTime getDate() {
+  @ApiModelProperty(example = "null", value = "")
+  public String getDate() {
     return date;
   }
 
-  public void setDate(DateTime date) {
+  public void setDate(String date) {
     this.date = date;
   }
 
@@ -138,7 +137,7 @@ public class Question {
    * Get upvotes
    * @return upvotes
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "null", value = "")
   public Integer getUpvotes() {
     return upvotes;
   }
@@ -156,7 +155,7 @@ public class Question {
    * Get slideSet
    * @return slideSet
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "null", value = "")
   public Integer getSlideSet() {
     return slideSet;
   }
@@ -174,7 +173,7 @@ public class Question {
    * Get slide
    * @return slide
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "null", value = "")
   public Integer getSlide() {
     return slide;
   }
@@ -192,7 +191,7 @@ public class Question {
    * Get slideURL
    * @return slideURL
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "null", value = "")
   public String getSlideURL() {
     return slideURL;
   }
@@ -215,7 +214,7 @@ public class Question {
    * Get replies
    * @return replies
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "null", value = "")
   public List<Reply> getReplies() {
     return replies;
   }
@@ -233,7 +232,7 @@ public class Question {
    * Get bestanswer
    * @return bestanswer
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "null", value = "")
   public Reply getBestanswer() {
     return bestanswer;
   }

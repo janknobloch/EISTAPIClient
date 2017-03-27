@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **id** | **String** |  |  [optional]
 **content** | **String** |  |  [optional]
 **author** | **String** |  |  [optional]
-**date** | [**DateTime**](DateTime.md) |  |  [optional]
+**date** | **String** |  |  [optional]
 **upvotes** | **Integer** |  |  [optional]
 
 

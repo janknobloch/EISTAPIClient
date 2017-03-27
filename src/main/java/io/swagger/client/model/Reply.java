@@ -17,12 +17,11 @@ import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import org.joda.time.DateTime;
 
 /**
  * Reply
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-03-26T20:33:23.745+02:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-03-27T12:59:10.118+02:00")
 public class Reply {
   @SerializedName("id")
   private String id = null;
@@ -34,7 +33,7 @@ public class Reply {
   private String author = null;
 
   @SerializedName("date")
-  private DateTime date = null;
+  private String date = null;
 
   @SerializedName("upvotes")
   private Integer upvotes = null;
@@ -48,7 +47,7 @@ public class Reply {
    * Get id
    * @return id
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "null", value = "")
   public String getId() {
     return id;
   }
@@ -66,7 +65,7 @@ public class Reply {
    * Get content
    * @return content
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "null", value = "")
   public String getContent() {
     return content;
   }
@@ -84,7 +83,7 @@ public class Reply {
    * Get author
    * @return author
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "null", value = "")
   public String getAuthor() {
     return author;
   }
@@ -93,7 +92,7 @@ public class Reply {
     this.author = author;
   }
 
-  public Reply date(DateTime date) {
+  public Reply date(String date) {
     this.date = date;
     return this;
   }
@@ -102,12 +101,12 @@ public class Reply {
    * Get date
    * @return date
   **/
-  @ApiModelProperty(value = "")
-  public DateTime getDate() {
+  @ApiModelProperty(example = "null", value = "")
+  public String getDate() {
     return date;
   }
 
-  public void setDate(DateTime date) {
+  public void setDate(String date) {
     this.date = date;
   }
 
@@ -120,7 +119,7 @@ public class Reply {
    * Get upvotes
    * @return upvotes
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "null", value = "")
   public Integer getUpvotes() {
     return upvotes;
   }
