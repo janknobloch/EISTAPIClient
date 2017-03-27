@@ -107,6 +107,7 @@ Class | Method | HTTP request | Description
 *DefaultApi* | [**getSlidesForPresentationNameAndSlideName**](docs/DefaultApi.md#getSlidesForPresentationNameAndSlideName) | **GET** /bot/presentation/name/{presentationName}/slide/name/{slideName} | Returns slidePath for PresentationNumber / SlideName
 *DefaultApi* | [**getSlidesForPresentationNumber**](docs/DefaultApi.md#getSlidesForPresentationNumber) | **GET** /bot/presentation/number/{presentationNumber}/slide | Returns all Slides for PresentationNumber
 *DefaultApi* | [**postFeedbackToDB**](docs/DefaultApi.md#postFeedbackToDB) | **POST** /bot/feedback | saves a new Feedback, updates it if already existent
+*DefaultApi* | [**postReplyAndCloseQuestion**](docs/DefaultApi.md#postReplyAndCloseQuestion) | **POST** /bot/question/close/{id} | saves a new Question, updates it if already existent
 *DefaultApi* | [**postTweetInDB**](docs/DefaultApi.md#postTweetInDB) | **POST** /bot/question | saves a new Question, updates it if already existent
 *DefaultApi* | [**updateTweetInDB**](docs/DefaultApi.md#updateTweetInDB) | **PUT** /bot/question | saves a new Question, updates it if already existent
 

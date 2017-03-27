@@ -314,6 +314,22 @@ public class DefaultApiTest {
      *          if the Api call fails
      */
     @Test
+    public void postReplyAndCloseQuestionTest() throws ApiException {
+        String id = null;
+        Question response = api.postReplyAndCloseQuestion(id);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * saves a new Question, updates it if already existent
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
     public void postTweetInDBTest() throws ApiException {
         Question body = null;
         Question response = api.postTweetInDB(body);
