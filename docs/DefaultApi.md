@@ -1,0 +1,686 @@
+# DefaultApi
+
+All URIs are relative to *http://localhost/api*
+
+Method | HTTP request | Description
+------------- | ------------- | -------------
+[**deleteTweetInDB**](DefaultApi.md#deleteTweetInDB) | **DELETE** /bot/tweet | deletes a given Question by using its ID
+[**getActiveSlides**](DefaultApi.md#getActiveSlides) | **GET** /bot/slide/live | Returns an Array of active slides for (ppt, key, and dev)
+[**getAllPresenterSessions**](DefaultApi.md#getAllPresenterSessions) | **GET** /bot/presenter | retrieves all Presenters
+[**getAllTweets**](DefaultApi.md#getAllTweets) | **GET** /bot/tweet | retrieves all questions
+[**getAllTwitterWallSessions**](DefaultApi.md#getAllTwitterWallSessions) | **GET** /bot/twitterwalls | retrieves all twitter wall listeners
+[**getPresentations**](DefaultApi.md#getPresentations) | **GET** /bot/presentation | Returns a mapping ordered by timestamp of all presentationNames
+[**getSlideForPresentationNameAndSlideNumber**](DefaultApi.md#getSlideForPresentationNameAndSlideNumber) | **GET** /bot/presentation/name/{presentationName}/slide/number/{slideNumber} | Returns slidePath for PresentationName / SlideNumber
+[**getSlideForPresentationNumberAndSlideName**](DefaultApi.md#getSlideForPresentationNumberAndSlideName) | **GET** /bot/presentation/number/{presentationNumber}/slide/name/{slideName} | Returns slidePath for PresentationNumber / SlideName
+[**getSlideForPresentationNumberAndSlideNumber**](DefaultApi.md#getSlideForPresentationNumberAndSlideNumber) | **GET** /bot/presentation/number/{presentationNumber}/slide/number/{slideNumber} | Returns slidePath for PresentationNumber / SlideNumber
+[**getSlidesForPresentationName**](DefaultApi.md#getSlidesForPresentationName) | **GET** /bot/presentation/name/{presentationName}/slide | Returns all Slides for PresentationName
+[**getSlidesForPresentationNameAndSlideName**](DefaultApi.md#getSlidesForPresentationNameAndSlideName) | **GET** /bot/presentation/name/{presentationName}/slide/name/{slideName} | Returns slidePath for PresentationNumber / SlideName
+[**getSlidesForPresentationNumber**](DefaultApi.md#getSlidesForPresentationNumber) | **GET** /bot/presentation/number/{presentationNumber}/slide | Returns all Slides for PresentationNumber
+[**postFeedbackToDB**](DefaultApi.md#postFeedbackToDB) | **POST** /bot/feedback | saves a new Feedback, updates it if already existent
+[**postTweetInDB**](DefaultApi.md#postTweetInDB) | **POST** /bot/tweet | saves a new Question, updates it if already existent
+[**updateTweetInDB**](DefaultApi.md#updateTweetInDB) | **PUT** /bot/tweet | saves a new Question, updates it if already existent
+
+
+<a name="deleteTweetInDB"></a>
+# **deleteTweetInDB**
+> Question deleteTweetInDB(body)
+
+deletes a given Question by using its ID
+
+
+
+### Example
+```java
+// Import classes:
+//import io.swagger.client.ApiException;
+//import io.swagger.client.api.DefaultApi;
+
+
+DefaultApi apiInstance = new DefaultApi();
+Question body = new Question(); // Question | 
+try {
+    Question result = apiInstance.deleteTweetInDB(body);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling DefaultApi#deleteTweetInDB");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**Question**](Question.md)|  | [optional]
+
+### Return type
+
+[**Question**](Question.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="getActiveSlides"></a>
+# **getActiveSlides**
+> ActiveSlidePathPPTKEY getActiveSlides()
+
+Returns an Array of active slides for (ppt, key, and dev)
+
+
+
+### Example
+```java
+// Import classes:
+//import io.swagger.client.ApiException;
+//import io.swagger.client.api.DefaultApi;
+
+
+DefaultApi apiInstance = new DefaultApi();
+try {
+    ActiveSlidePathPPTKEY result = apiInstance.getActiveSlides();
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling DefaultApi#getActiveSlides");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**ActiveSlidePathPPTKEY**](ActiveSlidePathPPTKEY.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="getAllPresenterSessions"></a>
+# **getAllPresenterSessions**
+> List&lt;String&gt; getAllPresenterSessions()
+
+retrieves all Presenters
+
+
+
+### Example
+```java
+// Import classes:
+//import io.swagger.client.ApiException;
+//import io.swagger.client.api.DefaultApi;
+
+
+DefaultApi apiInstance = new DefaultApi();
+try {
+    List<String> result = apiInstance.getAllPresenterSessions();
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling DefaultApi#getAllPresenterSessions");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+**List&lt;String&gt;**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="getAllTweets"></a>
+# **getAllTweets**
+> List&lt;Question&gt; getAllTweets()
+
+retrieves all questions
+
+
+
+### Example
+```java
+// Import classes:
+//import io.swagger.client.ApiException;
+//import io.swagger.client.api.DefaultApi;
+
+
+DefaultApi apiInstance = new DefaultApi();
+try {
+    List<Question> result = apiInstance.getAllTweets();
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling DefaultApi#getAllTweets");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**List&lt;Question&gt;**](Question.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="getAllTwitterWallSessions"></a>
+# **getAllTwitterWallSessions**
+> List&lt;String&gt; getAllTwitterWallSessions()
+
+retrieves all twitter wall listeners
+
+
+
+### Example
+```java
+// Import classes:
+//import io.swagger.client.ApiException;
+//import io.swagger.client.api.DefaultApi;
+
+
+DefaultApi apiInstance = new DefaultApi();
+try {
+    List<String> result = apiInstance.getAllTwitterWallSessions();
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling DefaultApi#getAllTwitterWallSessions");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+**List&lt;String&gt;**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="getPresentations"></a>
+# **getPresentations**
+> Map&lt;String, String&gt; getPresentations()
+
+Returns a mapping ordered by timestamp of all presentationNames
+
+
+
+### Example
+```java
+// Import classes:
+//import io.swagger.client.ApiException;
+//import io.swagger.client.api.DefaultApi;
+
+
+DefaultApi apiInstance = new DefaultApi();
+try {
+    Map<String, String> result = apiInstance.getPresentations();
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling DefaultApi#getPresentations");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**Map&lt;String, String&gt;**](Map.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="getSlideForPresentationNameAndSlideNumber"></a>
+# **getSlideForPresentationNameAndSlideNumber**
+> String getSlideForPresentationNameAndSlideNumber(presentationName, slideNumber)
+
+Returns slidePath for PresentationName / SlideNumber
+
+
+
+### Example
+```java
+// Import classes:
+//import io.swagger.client.ApiException;
+//import io.swagger.client.api.DefaultApi;
+
+
+DefaultApi apiInstance = new DefaultApi();
+String presentationName = "presentationName_example"; // String | 
+Integer slideNumber = 56; // Integer | 
+try {
+    String result = apiInstance.getSlideForPresentationNameAndSlideNumber(presentationName, slideNumber);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling DefaultApi#getSlideForPresentationNameAndSlideNumber");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **presentationName** | **String**|  |
+ **slideNumber** | **Integer**|  |
+
+### Return type
+
+**String**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="getSlideForPresentationNumberAndSlideName"></a>
+# **getSlideForPresentationNumberAndSlideName**
+> String getSlideForPresentationNumberAndSlideName(presentationNumber, slideName)
+
+Returns slidePath for PresentationNumber / SlideName
+
+
+
+### Example
+```java
+// Import classes:
+//import io.swagger.client.ApiException;
+//import io.swagger.client.api.DefaultApi;
+
+
+DefaultApi apiInstance = new DefaultApi();
+Integer presentationNumber = 56; // Integer | 
+String slideName = "slideName_example"; // String | 
+try {
+    String result = apiInstance.getSlideForPresentationNumberAndSlideName(presentationNumber, slideName);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling DefaultApi#getSlideForPresentationNumberAndSlideName");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **presentationNumber** | **Integer**|  |
+ **slideName** | **String**|  |
+
+### Return type
+
+**String**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="getSlideForPresentationNumberAndSlideNumber"></a>
+# **getSlideForPresentationNumberAndSlideNumber**
+> String getSlideForPresentationNumberAndSlideNumber(presentationNumber, slideNumber)
+
+Returns slidePath for PresentationNumber / SlideNumber
+
+
+
+### Example
+```java
+// Import classes:
+//import io.swagger.client.ApiException;
+//import io.swagger.client.api.DefaultApi;
+
+
+DefaultApi apiInstance = new DefaultApi();
+Integer presentationNumber = 56; // Integer | 
+Integer slideNumber = 56; // Integer | 
+try {
+    String result = apiInstance.getSlideForPresentationNumberAndSlideNumber(presentationNumber, slideNumber);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling DefaultApi#getSlideForPresentationNumberAndSlideNumber");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **presentationNumber** | **Integer**|  |
+ **slideNumber** | **Integer**|  |
+
+### Return type
+
+**String**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="getSlidesForPresentationName"></a>
+# **getSlidesForPresentationName**
+> Map&lt;String, String&gt; getSlidesForPresentationName(presentationName)
+
+Returns all Slides for PresentationName
+
+
+
+### Example
+```java
+// Import classes:
+//import io.swagger.client.ApiException;
+//import io.swagger.client.api.DefaultApi;
+
+
+DefaultApi apiInstance = new DefaultApi();
+String presentationName = "presentationName_example"; // String | 
+try {
+    Map<String, String> result = apiInstance.getSlidesForPresentationName(presentationName);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling DefaultApi#getSlidesForPresentationName");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **presentationName** | **String**|  |
+
+### Return type
+
+[**Map&lt;String, String&gt;**](Map.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="getSlidesForPresentationNameAndSlideName"></a>
+# **getSlidesForPresentationNameAndSlideName**
+> String getSlidesForPresentationNameAndSlideName(presentationName, slideName)
+
+Returns slidePath for PresentationNumber / SlideName
+
+
+
+### Example
+```java
+// Import classes:
+//import io.swagger.client.ApiException;
+//import io.swagger.client.api.DefaultApi;
+
+
+DefaultApi apiInstance = new DefaultApi();
+String presentationName = "presentationName_example"; // String | 
+String slideName = "slideName_example"; // String | 
+try {
+    String result = apiInstance.getSlidesForPresentationNameAndSlideName(presentationName, slideName);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling DefaultApi#getSlidesForPresentationNameAndSlideName");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **presentationName** | **String**|  |
+ **slideName** | **String**|  |
+
+### Return type
+
+**String**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="getSlidesForPresentationNumber"></a>
+# **getSlidesForPresentationNumber**
+> Map&lt;String, String&gt; getSlidesForPresentationNumber(presentationNumber)
+
+Returns all Slides for PresentationNumber
+
+
+
+### Example
+```java
+// Import classes:
+//import io.swagger.client.ApiException;
+//import io.swagger.client.api.DefaultApi;
+
+
+DefaultApi apiInstance = new DefaultApi();
+Integer presentationNumber = 56; // Integer | 
+try {
+    Map<String, String> result = apiInstance.getSlidesForPresentationNumber(presentationNumber);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling DefaultApi#getSlidesForPresentationNumber");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **presentationNumber** | **Integer**|  |
+
+### Return type
+
+[**Map&lt;String, String&gt;**](Map.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="postFeedbackToDB"></a>
+# **postFeedbackToDB**
+> Feedback postFeedbackToDB(body)
+
+saves a new Feedback, updates it if already existent
+
+
+
+### Example
+```java
+// Import classes:
+//import io.swagger.client.ApiException;
+//import io.swagger.client.api.DefaultApi;
+
+
+DefaultApi apiInstance = new DefaultApi();
+Feedback body = new Feedback(); // Feedback | 
+try {
+    Feedback result = apiInstance.postFeedbackToDB(body);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling DefaultApi#postFeedbackToDB");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**Feedback**](Feedback.md)|  | [optional]
+
+### Return type
+
+[**Feedback**](Feedback.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="postTweetInDB"></a>
+# **postTweetInDB**
+> Question postTweetInDB(body)
+
+saves a new Question, updates it if already existent
+
+
+
+### Example
+```java
+// Import classes:
+//import io.swagger.client.ApiException;
+//import io.swagger.client.api.DefaultApi;
+
+
+DefaultApi apiInstance = new DefaultApi();
+Question body = new Question(); // Question | 
+try {
+    Question result = apiInstance.postTweetInDB(body);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling DefaultApi#postTweetInDB");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**Question**](Question.md)|  | [optional]
+
+### Return type
+
+[**Question**](Question.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="updateTweetInDB"></a>
+# **updateTweetInDB**
+> Question updateTweetInDB(body)
+
+saves a new Question, updates it if already existent
+
+
+
+### Example
+```java
+// Import classes:
+//import io.swagger.client.ApiException;
+//import io.swagger.client.api.DefaultApi;
+
+
+DefaultApi apiInstance = new DefaultApi();
+Question body = new Question(); // Question | 
+try {
+    Question result = apiInstance.updateTweetInDB(body);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling DefaultApi#updateTweetInDB");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**Question**](Question.md)|  | [optional]
+
+### Return type
+
+[**Question**](Question.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
