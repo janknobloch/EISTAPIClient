@@ -113,6 +113,11 @@ Class | Method | HTTP request | Description
 
 ## Documentation for Models
 
+ - [ActiveSlidePath](docs/ActiveSlidePath.md)
+ - [DataItem](docs/DataItem.md)
+ - [Feedback](docs/Feedback.md)
+ - [Question](docs/Question.md)
+ - [Reply](docs/Reply.md)
 
 
 ## Documentation for Authorization
