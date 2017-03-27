@@ -113,11 +113,6 @@ Class | Method | HTTP request | Description
 
 ## Documentation for Models
 
- - [ActiveSlidePathPPTKEY](docs/ActiveSlidePathPPTKEY.md)
- - [DataItem](docs/DataItem.md)
- - [Feedback](docs/Feedback.md)
- - [Question](docs/Question.md)
- - [Reply](docs/Reply.md)
 
 
 ## Documentation for Authorization

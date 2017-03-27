@@ -14,11 +14,11 @@
 package io.swagger.client.api;
 
 import io.swagger.client.ApiException;
-import io.swagger.client.model.ActiveSlidePathPPTKEY;
-import io.swagger.client.model.DataItem;
-import io.swagger.client.model.Feedback;
-import io.swagger.client.model.Question;
-import io.swagger.client.model.Reply;
+import de.tum.jk.application.model.ActiveSlidePath;
+import de.tum.jk.application.model.DataItem;
+import de.tum.jk.application.model.Feedback;
+import de.tum.jk.application.model.Question;
+import de.tum.jk.application.model.Reply;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -78,7 +78,7 @@ public class DefaultApiTest {
      */
     @Test
     public void getActiveSlidesTest() throws ApiException {
-        ActiveSlidePathPPTKEY response = api.getActiveSlides();
+        ActiveSlidePath response = api.getActiveSlides();
 
         // TODO: test validations
     }

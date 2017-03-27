@@ -117,7 +117,7 @@ No authorization required
 
 <a name="getActiveSlides"></a>
 # **getActiveSlides**
-> ActiveSlidePathPPTKEY getActiveSlides()
+> ActiveSlidePath getActiveSlides()
 
 Returns an Array of active slides for (ppt, key, and dev)
 
@@ -132,7 +132,7 @@ Returns an Array of active slides for (ppt, key, and dev)
 
 DefaultApi apiInstance = new DefaultApi();
 try {
-    ActiveSlidePathPPTKEY result = apiInstance.getActiveSlides();
+    ActiveSlidePath result = apiInstance.getActiveSlides();
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling DefaultApi#getActiveSlides");
@@ -145,7 +145,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**ActiveSlidePathPPTKEY**](ActiveSlidePathPPTKEY.md)
+[**ActiveSlidePath**](ActiveSlidePath.md)
 
 ### Authorization
 

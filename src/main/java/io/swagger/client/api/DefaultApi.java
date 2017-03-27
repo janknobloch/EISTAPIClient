@@ -27,11 +27,11 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import io.swagger.client.model.ActiveSlidePathPPTKEY;
-import io.swagger.client.model.DataItem;
-import io.swagger.client.model.Feedback;
-import io.swagger.client.model.Question;
-import io.swagger.client.model.Reply;
+import de.tum.jk.application.model.ActiveSlidePath;
+import de.tum.jk.application.model.DataItem;
+import de.tum.jk.application.model.Feedback;
+import de.tum.jk.application.model.Question;
+import de.tum.jk.application.model.Reply;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -341,23 +341,23 @@ public class DefaultApi {
     /**
      * Returns an Array of active slides for (ppt, key, and dev)
      * 
-     * @return ActiveSlidePathPPTKEY
+     * @return ActiveSlidePath
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ActiveSlidePathPPTKEY getActiveSlides() throws ApiException {
-        ApiResponse<ActiveSlidePathPPTKEY> resp = getActiveSlidesWithHttpInfo();
+    public ActiveSlidePath getActiveSlides() throws ApiException {
+        ApiResponse<ActiveSlidePath> resp = getActiveSlidesWithHttpInfo();
         return resp.getData();
     }
 
     /**
      * Returns an Array of active slides for (ppt, key, and dev)
      * 
-     * @return ApiResponse&lt;ActiveSlidePathPPTKEY&gt;
+     * @return ApiResponse&lt;ActiveSlidePath&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<ActiveSlidePathPPTKEY> getActiveSlidesWithHttpInfo() throws ApiException {
+    public ApiResponse<ActiveSlidePath> getActiveSlidesWithHttpInfo() throws ApiException {
         com.squareup.okhttp.Call call = getActiveSlidesValidateBeforeCall(null, null);
-        Type localVarReturnType = new TypeToken<ActiveSlidePathPPTKEY>(){}.getType();
+        Type localVarReturnType = new TypeToken<ActiveSlidePath>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -368,7 +368,7 @@ public class DefaultApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getActiveSlidesAsync(final ApiCallback<ActiveSlidePathPPTKEY> callback) throws ApiException {
+    public com.squareup.okhttp.Call getActiveSlidesAsync(final ApiCallback<ActiveSlidePath> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -390,7 +390,7 @@ public class DefaultApi {
         }
 
         com.squareup.okhttp.Call call = getActiveSlidesValidateBeforeCall(progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<ActiveSlidePathPPTKEY>(){}.getType();
+        Type localVarReturnType = new TypeToken<ActiveSlidePath>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
