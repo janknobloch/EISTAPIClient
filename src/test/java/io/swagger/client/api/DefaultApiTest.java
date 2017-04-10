@@ -17,6 +17,7 @@ import io.swagger.client.ApiException;
 import de.tum.jk.application.model.ActiveSlidePath;
 import de.tum.jk.application.model.DataItem;
 import de.tum.jk.application.model.Feedback;
+import io.swagger.client.model.Principal;
 import de.tum.jk.application.model.Question;
 import de.tum.jk.application.model.Reply;
 import org.junit.Test;
@@ -46,8 +47,9 @@ public class DefaultApiTest {
      */
     @Test
     public void deleteTweetInDBTest() throws ApiException {
-        Question body = null;
-        Question response = api.deleteTweetInDB(body);
+        Principal body = null;
+        Question body2 = null;
+        Question response = api.deleteTweetInDB(body, body2);
 
         // TODO: test validations
     }
@@ -62,8 +64,9 @@ public class DefaultApiTest {
      */
     @Test
     public void deleteTweetInDBByIdTest() throws ApiException {
-        String body = null;
-        Question response = api.deleteTweetInDBById(body);
+        Principal body = null;
+        String body2 = null;
+        Question response = api.deleteTweetInDBById(body, body2);
 
         // TODO: test validations
     }
@@ -78,7 +81,8 @@ public class DefaultApiTest {
      */
     @Test
     public void getActiveSlidesTest() throws ApiException {
-        ActiveSlidePath response = api.getActiveSlides();
+        Principal body = null;
+        ActiveSlidePath response = api.getActiveSlides(body);
 
         // TODO: test validations
     }
@@ -93,7 +97,8 @@ public class DefaultApiTest {
      */
     @Test
     public void getAllDatamodelsTest() throws ApiException {
-        List<DataItem> response = api.getAllDatamodels();
+        Principal body = null;
+        List<DataItem> response = api.getAllDatamodels(body);
 
         // TODO: test validations
     }
@@ -108,7 +113,8 @@ public class DefaultApiTest {
      */
     @Test
     public void getAllPresenterSessionsTest() throws ApiException {
-        List<String> response = api.getAllPresenterSessions();
+        Principal body = null;
+        List<String> response = api.getAllPresenterSessions(body);
 
         // TODO: test validations
     }
@@ -123,7 +129,8 @@ public class DefaultApiTest {
      */
     @Test
     public void getAllRepliesTest() throws ApiException {
-        List<Reply> response = api.getAllReplies();
+        Principal body = null;
+        List<Reply> response = api.getAllReplies(body);
 
         // TODO: test validations
     }
@@ -138,7 +145,8 @@ public class DefaultApiTest {
      */
     @Test
     public void getAllTweetsTest() throws ApiException {
-        List<Question> response = api.getAllTweets();
+        Principal body = null;
+        List<Question> response = api.getAllTweets(body);
 
         // TODO: test validations
     }
@@ -153,7 +161,8 @@ public class DefaultApiTest {
      */
     @Test
     public void getAllTwitterWallSessionsTest() throws ApiException {
-        List<String> response = api.getAllTwitterWallSessions();
+        Principal body = null;
+        List<String> response = api.getAllTwitterWallSessions(body);
 
         // TODO: test validations
     }
@@ -168,7 +177,8 @@ public class DefaultApiTest {
      */
     @Test
     public void getPresentationsTest() throws ApiException {
-        Map<String, String> response = api.getPresentations();
+        Principal body = null;
+        Map<String, String> response = api.getPresentations(body);
 
         // TODO: test validations
     }
@@ -184,7 +194,8 @@ public class DefaultApiTest {
     @Test
     public void getSingleTweetTest() throws ApiException {
         String id = null;
-        Question response = api.getSingleTweet(id);
+        Principal body = null;
+        Question response = api.getSingleTweet(id, body);
 
         // TODO: test validations
     }
@@ -201,7 +212,8 @@ public class DefaultApiTest {
     public void getSlideForPresentationNameAndSlideNumberTest() throws ApiException {
         String presentationName = null;
         Integer slideNumber = null;
-        String response = api.getSlideForPresentationNameAndSlideNumber(presentationName, slideNumber);
+        Principal body = null;
+        String response = api.getSlideForPresentationNameAndSlideNumber(presentationName, slideNumber, body);
 
         // TODO: test validations
     }
@@ -218,7 +230,8 @@ public class DefaultApiTest {
     public void getSlideForPresentationNumberAndSlideNameTest() throws ApiException {
         Integer presentationNumber = null;
         String slideName = null;
-        String response = api.getSlideForPresentationNumberAndSlideName(presentationNumber, slideName);
+        Principal body = null;
+        String response = api.getSlideForPresentationNumberAndSlideName(presentationNumber, slideName, body);
 
         // TODO: test validations
     }
@@ -235,7 +248,8 @@ public class DefaultApiTest {
     public void getSlideForPresentationNumberAndSlideNumberTest() throws ApiException {
         Integer presentationNumber = null;
         Integer slideNumber = null;
-        String response = api.getSlideForPresentationNumberAndSlideNumber(presentationNumber, slideNumber);
+        Principal body = null;
+        String response = api.getSlideForPresentationNumberAndSlideNumber(presentationNumber, slideNumber, body);
 
         // TODO: test validations
     }
@@ -251,7 +265,8 @@ public class DefaultApiTest {
     @Test
     public void getSlidesForPresentationNameTest() throws ApiException {
         String presentationName = null;
-        Map<String, String> response = api.getSlidesForPresentationName(presentationName);
+        Principal body = null;
+        Map<String, String> response = api.getSlidesForPresentationName(presentationName, body);
 
         // TODO: test validations
     }
@@ -268,7 +283,8 @@ public class DefaultApiTest {
     public void getSlidesForPresentationNameAndSlideNameTest() throws ApiException {
         String presentationName = null;
         String slideName = null;
-        String response = api.getSlidesForPresentationNameAndSlideName(presentationName, slideName);
+        Principal body = null;
+        String response = api.getSlidesForPresentationNameAndSlideName(presentationName, slideName, body);
 
         // TODO: test validations
     }
@@ -284,7 +300,8 @@ public class DefaultApiTest {
     @Test
     public void getSlidesForPresentationNumberTest() throws ApiException {
         Integer presentationNumber = null;
-        Map<String, String> response = api.getSlidesForPresentationNumber(presentationNumber);
+        Principal body = null;
+        Map<String, String> response = api.getSlidesForPresentationNumber(presentationNumber, body);
 
         // TODO: test validations
     }
@@ -299,8 +316,9 @@ public class DefaultApiTest {
      */
     @Test
     public void postFeedbackToDBTest() throws ApiException {
-        Feedback body = null;
-        Feedback response = api.postFeedbackToDB(body);
+        Principal body = null;
+        Feedback body2 = null;
+        Feedback response = api.postFeedbackToDB(body, body2);
 
         // TODO: test validations
     }
@@ -316,7 +334,8 @@ public class DefaultApiTest {
     @Test
     public void postReplyAndCloseQuestionTest() throws ApiException {
         String id = null;
-        Question response = api.postReplyAndCloseQuestion(id);
+        Principal body = null;
+        Question response = api.postReplyAndCloseQuestion(id, body);
 
         // TODO: test validations
     }
@@ -331,8 +350,9 @@ public class DefaultApiTest {
      */
     @Test
     public void postTweetInDBTest() throws ApiException {
-        Question body = null;
-        Question response = api.postTweetInDB(body);
+        Principal body = null;
+        Question body2 = null;
+        Question response = api.postTweetInDB(body, body2);
 
         // TODO: test validations
     }
@@ -347,8 +367,9 @@ public class DefaultApiTest {
      */
     @Test
     public void updateTweetInDBTest() throws ApiException {
-        Question body = null;
-        Question response = api.updateTweetInDB(body);
+        Principal body = null;
+        Question body2 = null;
+        Question response = api.updateTweetInDB(body, body2);
 
         // TODO: test validations
     }

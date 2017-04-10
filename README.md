@@ -69,11 +69,18 @@ import java.util.*;
 public class DefaultApiExample {
 
     public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
         
+        // Configure HTTP basic authorization: basic-auth
+        HttpBasicAuth basic-auth = (HttpBasicAuth) defaultClient.getAuthentication("basic-auth");
+        basic-auth.setUsername("YOUR USERNAME");
+        basic-auth.setPassword("YOUR PASSWORD");
+
         DefaultApi apiInstance = new DefaultApi();
-        Question body = new Question(); // Question | 
+        Principal body = new Principal(); // Principal | 
+        Question body2 = new Question(); // Question | 
         try {
-            Question result = apiInstance.deleteTweetInDB(body);
+            Question result = apiInstance.deleteTweetInDB(body, body2);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling DefaultApi#deleteTweetInDB");
@@ -114,12 +121,16 @@ Class | Method | HTTP request | Description
 
 ## Documentation for Models
 
+ - [Principal](docs/Principal.md)
 
 
 ## Documentation for Authorization
 
-All endpoints do not require authorization.
 Authentication schemes defined for the API:
+### basic-auth
+
+- **Type**: HTTP basic authentication
+
 
 ## Recommendation
 

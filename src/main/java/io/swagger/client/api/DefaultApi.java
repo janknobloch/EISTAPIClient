@@ -30,6 +30,7 @@ import java.io.IOException;
 import de.tum.jk.application.model.ActiveSlidePath;
 import de.tum.jk.application.model.DataItem;
 import de.tum.jk.application.model.Feedback;
+import io.swagger.client.model.Principal;
 import de.tum.jk.application.model.Question;
 import de.tum.jk.application.model.Reply;
 
@@ -59,8 +60,8 @@ public class DefaultApi {
     }
 
     /* Build call for deleteTweetInDB */
-    private com.squareup.okhttp.Call deleteTweetInDBCall(Question body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = body;
+    private com.squareup.okhttp.Call deleteTweetInDBCall(Principal body, Question body2, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body2;
         
         // create path and map variables
         String localVarPath = "/bot/question".replaceAll("\\{format\\}","json");
@@ -95,15 +96,15 @@ public class DefaultApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[] { "basic-auth" };
         return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call deleteTweetInDBValidateBeforeCall(Question body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call deleteTweetInDBValidateBeforeCall(Principal body, Question body2, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         
-        com.squareup.okhttp.Call call = deleteTweetInDBCall(body, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = deleteTweetInDBCall(body, body2, progressListener, progressRequestListener);
         return call;
 
         
@@ -116,11 +117,12 @@ public class DefaultApi {
      * deletes a given Question
      * 
      * @param body  (optional)
+     * @param body2  (optional)
      * @return Question
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Question deleteTweetInDB(Question body) throws ApiException {
-        ApiResponse<Question> resp = deleteTweetInDBWithHttpInfo(body);
+    public Question deleteTweetInDB(Principal body, Question body2) throws ApiException {
+        ApiResponse<Question> resp = deleteTweetInDBWithHttpInfo(body, body2);
         return resp.getData();
     }
 
@@ -128,11 +130,12 @@ public class DefaultApi {
      * deletes a given Question
      * 
      * @param body  (optional)
+     * @param body2  (optional)
      * @return ApiResponse&lt;Question&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Question> deleteTweetInDBWithHttpInfo(Question body) throws ApiException {
-        com.squareup.okhttp.Call call = deleteTweetInDBValidateBeforeCall(body, null, null);
+    public ApiResponse<Question> deleteTweetInDBWithHttpInfo(Principal body, Question body2) throws ApiException {
+        com.squareup.okhttp.Call call = deleteTweetInDBValidateBeforeCall(body, body2, null, null);
         Type localVarReturnType = new TypeToken<Question>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -141,11 +144,12 @@ public class DefaultApi {
      * deletes a given Question (asynchronously)
      * 
      * @param body  (optional)
+     * @param body2  (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call deleteTweetInDBAsync(Question body, final ApiCallback<Question> callback) throws ApiException {
+    public com.squareup.okhttp.Call deleteTweetInDBAsync(Principal body, Question body2, final ApiCallback<Question> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -166,14 +170,14 @@ public class DefaultApi {
             };
         }
 
-        com.squareup.okhttp.Call call = deleteTweetInDBValidateBeforeCall(body, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = deleteTweetInDBValidateBeforeCall(body, body2, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<Question>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /* Build call for deleteTweetInDBById */
-    private com.squareup.okhttp.Call deleteTweetInDBByIdCall(String body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = body;
+    private com.squareup.okhttp.Call deleteTweetInDBByIdCall(Principal body, String body2, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body2;
         
         // create path and map variables
         String localVarPath = "/bot/question/{id}".replaceAll("\\{format\\}","json");
@@ -208,15 +212,15 @@ public class DefaultApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[] { "basic-auth" };
         return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call deleteTweetInDBByIdValidateBeforeCall(String body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call deleteTweetInDBByIdValidateBeforeCall(Principal body, String body2, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         
-        com.squareup.okhttp.Call call = deleteTweetInDBByIdCall(body, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = deleteTweetInDBByIdCall(body, body2, progressListener, progressRequestListener);
         return call;
 
         
@@ -229,11 +233,12 @@ public class DefaultApi {
      * deletes a given Question by using its ID
      * 
      * @param body  (optional)
+     * @param body2  (optional)
      * @return Question
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Question deleteTweetInDBById(String body) throws ApiException {
-        ApiResponse<Question> resp = deleteTweetInDBByIdWithHttpInfo(body);
+    public Question deleteTweetInDBById(Principal body, String body2) throws ApiException {
+        ApiResponse<Question> resp = deleteTweetInDBByIdWithHttpInfo(body, body2);
         return resp.getData();
     }
 
@@ -241,11 +246,12 @@ public class DefaultApi {
      * deletes a given Question by using its ID
      * 
      * @param body  (optional)
+     * @param body2  (optional)
      * @return ApiResponse&lt;Question&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Question> deleteTweetInDBByIdWithHttpInfo(String body) throws ApiException {
-        com.squareup.okhttp.Call call = deleteTweetInDBByIdValidateBeforeCall(body, null, null);
+    public ApiResponse<Question> deleteTweetInDBByIdWithHttpInfo(Principal body, String body2) throws ApiException {
+        com.squareup.okhttp.Call call = deleteTweetInDBByIdValidateBeforeCall(body, body2, null, null);
         Type localVarReturnType = new TypeToken<Question>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -254,11 +260,12 @@ public class DefaultApi {
      * deletes a given Question by using its ID (asynchronously)
      * 
      * @param body  (optional)
+     * @param body2  (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call deleteTweetInDBByIdAsync(String body, final ApiCallback<Question> callback) throws ApiException {
+    public com.squareup.okhttp.Call deleteTweetInDBByIdAsync(Principal body, String body2, final ApiCallback<Question> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -279,14 +286,14 @@ public class DefaultApi {
             };
         }
 
-        com.squareup.okhttp.Call call = deleteTweetInDBByIdValidateBeforeCall(body, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = deleteTweetInDBByIdValidateBeforeCall(body, body2, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<Question>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /* Build call for getActiveSlides */
-    private com.squareup.okhttp.Call getActiveSlidesCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = null;
+    private com.squareup.okhttp.Call getActiveSlidesCall(Principal body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body;
         
         // create path and map variables
         String localVarPath = "/bot/slide/live".replaceAll("\\{format\\}","json");
@@ -321,15 +328,15 @@ public class DefaultApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[] { "basic-auth" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getActiveSlidesValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getActiveSlidesValidateBeforeCall(Principal body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         
-        com.squareup.okhttp.Call call = getActiveSlidesCall(progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getActiveSlidesCall(body, progressListener, progressRequestListener);
         return call;
 
         
@@ -341,22 +348,24 @@ public class DefaultApi {
     /**
      * Returns an Array of active slides for (ppt, key, and dev)
      * 
+     * @param body  (optional)
      * @return ActiveSlidePath
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ActiveSlidePath getActiveSlides() throws ApiException {
-        ApiResponse<ActiveSlidePath> resp = getActiveSlidesWithHttpInfo();
+    public ActiveSlidePath getActiveSlides(Principal body) throws ApiException {
+        ApiResponse<ActiveSlidePath> resp = getActiveSlidesWithHttpInfo(body);
         return resp.getData();
     }
 
     /**
      * Returns an Array of active slides for (ppt, key, and dev)
      * 
+     * @param body  (optional)
      * @return ApiResponse&lt;ActiveSlidePath&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<ActiveSlidePath> getActiveSlidesWithHttpInfo() throws ApiException {
-        com.squareup.okhttp.Call call = getActiveSlidesValidateBeforeCall(null, null);
+    public ApiResponse<ActiveSlidePath> getActiveSlidesWithHttpInfo(Principal body) throws ApiException {
+        com.squareup.okhttp.Call call = getActiveSlidesValidateBeforeCall(body, null, null);
         Type localVarReturnType = new TypeToken<ActiveSlidePath>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -364,11 +373,12 @@ public class DefaultApi {
     /**
      * Returns an Array of active slides for (ppt, key, and dev) (asynchronously)
      * 
+     * @param body  (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getActiveSlidesAsync(final ApiCallback<ActiveSlidePath> callback) throws ApiException {
+    public com.squareup.okhttp.Call getActiveSlidesAsync(Principal body, final ApiCallback<ActiveSlidePath> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -389,14 +399,14 @@ public class DefaultApi {
             };
         }
 
-        com.squareup.okhttp.Call call = getActiveSlidesValidateBeforeCall(progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getActiveSlidesValidateBeforeCall(body, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<ActiveSlidePath>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /* Build call for getAllDatamodels */
-    private com.squareup.okhttp.Call getAllDatamodelsCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = null;
+    private com.squareup.okhttp.Call getAllDatamodelsCall(Principal body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body;
         
         // create path and map variables
         String localVarPath = "/bot/dataitem".replaceAll("\\{format\\}","json");
@@ -431,15 +441,15 @@ public class DefaultApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[] { "basic-auth" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getAllDatamodelsValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getAllDatamodelsValidateBeforeCall(Principal body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         
-        com.squareup.okhttp.Call call = getAllDatamodelsCall(progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getAllDatamodelsCall(body, progressListener, progressRequestListener);
         return call;
 
         
@@ -451,22 +461,24 @@ public class DefaultApi {
     /**
      * retrieves all DataItem (mock)
      * 
+     * @param body  (optional)
      * @return List&lt;DataItem&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public List<DataItem> getAllDatamodels() throws ApiException {
-        ApiResponse<List<DataItem>> resp = getAllDatamodelsWithHttpInfo();
+    public List<DataItem> getAllDatamodels(Principal body) throws ApiException {
+        ApiResponse<List<DataItem>> resp = getAllDatamodelsWithHttpInfo(body);
         return resp.getData();
     }
 
     /**
      * retrieves all DataItem (mock)
      * 
+     * @param body  (optional)
      * @return ApiResponse&lt;List&lt;DataItem&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<List<DataItem>> getAllDatamodelsWithHttpInfo() throws ApiException {
-        com.squareup.okhttp.Call call = getAllDatamodelsValidateBeforeCall(null, null);
+    public ApiResponse<List<DataItem>> getAllDatamodelsWithHttpInfo(Principal body) throws ApiException {
+        com.squareup.okhttp.Call call = getAllDatamodelsValidateBeforeCall(body, null, null);
         Type localVarReturnType = new TypeToken<List<DataItem>>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -474,11 +486,12 @@ public class DefaultApi {
     /**
      * retrieves all DataItem (mock) (asynchronously)
      * 
+     * @param body  (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getAllDatamodelsAsync(final ApiCallback<List<DataItem>> callback) throws ApiException {
+    public com.squareup.okhttp.Call getAllDatamodelsAsync(Principal body, final ApiCallback<List<DataItem>> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -499,14 +512,14 @@ public class DefaultApi {
             };
         }
 
-        com.squareup.okhttp.Call call = getAllDatamodelsValidateBeforeCall(progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getAllDatamodelsValidateBeforeCall(body, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<List<DataItem>>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /* Build call for getAllPresenterSessions */
-    private com.squareup.okhttp.Call getAllPresenterSessionsCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = null;
+    private com.squareup.okhttp.Call getAllPresenterSessionsCall(Principal body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body;
         
         // create path and map variables
         String localVarPath = "/bot/presenter".replaceAll("\\{format\\}","json");
@@ -541,15 +554,15 @@ public class DefaultApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[] { "basic-auth" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getAllPresenterSessionsValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getAllPresenterSessionsValidateBeforeCall(Principal body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         
-        com.squareup.okhttp.Call call = getAllPresenterSessionsCall(progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getAllPresenterSessionsCall(body, progressListener, progressRequestListener);
         return call;
 
         
@@ -561,22 +574,24 @@ public class DefaultApi {
     /**
      * Retrieves all Presenters
      * 
+     * @param body  (optional)
      * @return List&lt;String&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public List<String> getAllPresenterSessions() throws ApiException {
-        ApiResponse<List<String>> resp = getAllPresenterSessionsWithHttpInfo();
+    public List<String> getAllPresenterSessions(Principal body) throws ApiException {
+        ApiResponse<List<String>> resp = getAllPresenterSessionsWithHttpInfo(body);
         return resp.getData();
     }
 
     /**
      * Retrieves all Presenters
      * 
+     * @param body  (optional)
      * @return ApiResponse&lt;List&lt;String&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<List<String>> getAllPresenterSessionsWithHttpInfo() throws ApiException {
-        com.squareup.okhttp.Call call = getAllPresenterSessionsValidateBeforeCall(null, null);
+    public ApiResponse<List<String>> getAllPresenterSessionsWithHttpInfo(Principal body) throws ApiException {
+        com.squareup.okhttp.Call call = getAllPresenterSessionsValidateBeforeCall(body, null, null);
         Type localVarReturnType = new TypeToken<List<String>>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -584,11 +599,12 @@ public class DefaultApi {
     /**
      * Retrieves all Presenters (asynchronously)
      * 
+     * @param body  (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getAllPresenterSessionsAsync(final ApiCallback<List<String>> callback) throws ApiException {
+    public com.squareup.okhttp.Call getAllPresenterSessionsAsync(Principal body, final ApiCallback<List<String>> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -609,14 +625,14 @@ public class DefaultApi {
             };
         }
 
-        com.squareup.okhttp.Call call = getAllPresenterSessionsValidateBeforeCall(progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getAllPresenterSessionsValidateBeforeCall(body, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<List<String>>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /* Build call for getAllReplies */
-    private com.squareup.okhttp.Call getAllRepliesCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = null;
+    private com.squareup.okhttp.Call getAllRepliesCall(Principal body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body;
         
         // create path and map variables
         String localVarPath = "/bot/question/replies".replaceAll("\\{format\\}","json");
@@ -651,15 +667,15 @@ public class DefaultApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[] { "basic-auth" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getAllRepliesValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getAllRepliesValidateBeforeCall(Principal body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         
-        com.squareup.okhttp.Call call = getAllRepliesCall(progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getAllRepliesCall(body, progressListener, progressRequestListener);
         return call;
 
         
@@ -671,22 +687,24 @@ public class DefaultApi {
     /**
      * retrieves all Replys (mock)
      * 
+     * @param body  (optional)
      * @return List&lt;Reply&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public List<Reply> getAllReplies() throws ApiException {
-        ApiResponse<List<Reply>> resp = getAllRepliesWithHttpInfo();
+    public List<Reply> getAllReplies(Principal body) throws ApiException {
+        ApiResponse<List<Reply>> resp = getAllRepliesWithHttpInfo(body);
         return resp.getData();
     }
 
     /**
      * retrieves all Replys (mock)
      * 
+     * @param body  (optional)
      * @return ApiResponse&lt;List&lt;Reply&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<List<Reply>> getAllRepliesWithHttpInfo() throws ApiException {
-        com.squareup.okhttp.Call call = getAllRepliesValidateBeforeCall(null, null);
+    public ApiResponse<List<Reply>> getAllRepliesWithHttpInfo(Principal body) throws ApiException {
+        com.squareup.okhttp.Call call = getAllRepliesValidateBeforeCall(body, null, null);
         Type localVarReturnType = new TypeToken<List<Reply>>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -694,11 +712,12 @@ public class DefaultApi {
     /**
      * retrieves all Replys (mock) (asynchronously)
      * 
+     * @param body  (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getAllRepliesAsync(final ApiCallback<List<Reply>> callback) throws ApiException {
+    public com.squareup.okhttp.Call getAllRepliesAsync(Principal body, final ApiCallback<List<Reply>> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -719,14 +738,14 @@ public class DefaultApi {
             };
         }
 
-        com.squareup.okhttp.Call call = getAllRepliesValidateBeforeCall(progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getAllRepliesValidateBeforeCall(body, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<List<Reply>>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /* Build call for getAllTweets */
-    private com.squareup.okhttp.Call getAllTweetsCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = null;
+    private com.squareup.okhttp.Call getAllTweetsCall(Principal body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body;
         
         // create path and map variables
         String localVarPath = "/bot/question".replaceAll("\\{format\\}","json");
@@ -761,15 +780,15 @@ public class DefaultApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[] { "basic-auth" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getAllTweetsValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getAllTweetsValidateBeforeCall(Principal body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         
-        com.squareup.okhttp.Call call = getAllTweetsCall(progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getAllTweetsCall(body, progressListener, progressRequestListener);
         return call;
 
         
@@ -781,22 +800,24 @@ public class DefaultApi {
     /**
      * retrieves all Questions
      * 
+     * @param body  (optional)
      * @return List&lt;Question&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public List<Question> getAllTweets() throws ApiException {
-        ApiResponse<List<Question>> resp = getAllTweetsWithHttpInfo();
+    public List<Question> getAllTweets(Principal body) throws ApiException {
+        ApiResponse<List<Question>> resp = getAllTweetsWithHttpInfo(body);
         return resp.getData();
     }
 
     /**
      * retrieves all Questions
      * 
+     * @param body  (optional)
      * @return ApiResponse&lt;List&lt;Question&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<List<Question>> getAllTweetsWithHttpInfo() throws ApiException {
-        com.squareup.okhttp.Call call = getAllTweetsValidateBeforeCall(null, null);
+    public ApiResponse<List<Question>> getAllTweetsWithHttpInfo(Principal body) throws ApiException {
+        com.squareup.okhttp.Call call = getAllTweetsValidateBeforeCall(body, null, null);
         Type localVarReturnType = new TypeToken<List<Question>>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -804,11 +825,12 @@ public class DefaultApi {
     /**
      * retrieves all Questions (asynchronously)
      * 
+     * @param body  (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getAllTweetsAsync(final ApiCallback<List<Question>> callback) throws ApiException {
+    public com.squareup.okhttp.Call getAllTweetsAsync(Principal body, final ApiCallback<List<Question>> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -829,14 +851,14 @@ public class DefaultApi {
             };
         }
 
-        com.squareup.okhttp.Call call = getAllTweetsValidateBeforeCall(progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getAllTweetsValidateBeforeCall(body, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<List<Question>>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /* Build call for getAllTwitterWallSessions */
-    private com.squareup.okhttp.Call getAllTwitterWallSessionsCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = null;
+    private com.squareup.okhttp.Call getAllTwitterWallSessionsCall(Principal body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body;
         
         // create path and map variables
         String localVarPath = "/bot/twitterwalls".replaceAll("\\{format\\}","json");
@@ -871,15 +893,15 @@ public class DefaultApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[] { "basic-auth" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getAllTwitterWallSessionsValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getAllTwitterWallSessionsValidateBeforeCall(Principal body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         
-        com.squareup.okhttp.Call call = getAllTwitterWallSessionsCall(progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getAllTwitterWallSessionsCall(body, progressListener, progressRequestListener);
         return call;
 
         
@@ -891,22 +913,24 @@ public class DefaultApi {
     /**
      * retrieves all twitter wall listeners
      * 
+     * @param body  (optional)
      * @return List&lt;String&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public List<String> getAllTwitterWallSessions() throws ApiException {
-        ApiResponse<List<String>> resp = getAllTwitterWallSessionsWithHttpInfo();
+    public List<String> getAllTwitterWallSessions(Principal body) throws ApiException {
+        ApiResponse<List<String>> resp = getAllTwitterWallSessionsWithHttpInfo(body);
         return resp.getData();
     }
 
     /**
      * retrieves all twitter wall listeners
      * 
+     * @param body  (optional)
      * @return ApiResponse&lt;List&lt;String&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<List<String>> getAllTwitterWallSessionsWithHttpInfo() throws ApiException {
-        com.squareup.okhttp.Call call = getAllTwitterWallSessionsValidateBeforeCall(null, null);
+    public ApiResponse<List<String>> getAllTwitterWallSessionsWithHttpInfo(Principal body) throws ApiException {
+        com.squareup.okhttp.Call call = getAllTwitterWallSessionsValidateBeforeCall(body, null, null);
         Type localVarReturnType = new TypeToken<List<String>>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -914,11 +938,12 @@ public class DefaultApi {
     /**
      * retrieves all twitter wall listeners (asynchronously)
      * 
+     * @param body  (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getAllTwitterWallSessionsAsync(final ApiCallback<List<String>> callback) throws ApiException {
+    public com.squareup.okhttp.Call getAllTwitterWallSessionsAsync(Principal body, final ApiCallback<List<String>> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -939,14 +964,14 @@ public class DefaultApi {
             };
         }
 
-        com.squareup.okhttp.Call call = getAllTwitterWallSessionsValidateBeforeCall(progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getAllTwitterWallSessionsValidateBeforeCall(body, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<List<String>>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /* Build call for getPresentations */
-    private com.squareup.okhttp.Call getPresentationsCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = null;
+    private com.squareup.okhttp.Call getPresentationsCall(Principal body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body;
         
         // create path and map variables
         String localVarPath = "/bot/presentation".replaceAll("\\{format\\}","json");
@@ -981,15 +1006,15 @@ public class DefaultApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[] { "basic-auth" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getPresentationsValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getPresentationsValidateBeforeCall(Principal body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         
-        com.squareup.okhttp.Call call = getPresentationsCall(progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getPresentationsCall(body, progressListener, progressRequestListener);
         return call;
 
         
@@ -1001,22 +1026,24 @@ public class DefaultApi {
     /**
      * Returns a mapping ordered by timestamp of all presentationNames
      * 
+     * @param body  (optional)
      * @return Map&lt;String, String&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Map<String, String> getPresentations() throws ApiException {
-        ApiResponse<Map<String, String>> resp = getPresentationsWithHttpInfo();
+    public Map<String, String> getPresentations(Principal body) throws ApiException {
+        ApiResponse<Map<String, String>> resp = getPresentationsWithHttpInfo(body);
         return resp.getData();
     }
 
     /**
      * Returns a mapping ordered by timestamp of all presentationNames
      * 
+     * @param body  (optional)
      * @return ApiResponse&lt;Map&lt;String, String&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Map<String, String>> getPresentationsWithHttpInfo() throws ApiException {
-        com.squareup.okhttp.Call call = getPresentationsValidateBeforeCall(null, null);
+    public ApiResponse<Map<String, String>> getPresentationsWithHttpInfo(Principal body) throws ApiException {
+        com.squareup.okhttp.Call call = getPresentationsValidateBeforeCall(body, null, null);
         Type localVarReturnType = new TypeToken<Map<String, String>>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -1024,11 +1051,12 @@ public class DefaultApi {
     /**
      * Returns a mapping ordered by timestamp of all presentationNames (asynchronously)
      * 
+     * @param body  (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getPresentationsAsync(final ApiCallback<Map<String, String>> callback) throws ApiException {
+    public com.squareup.okhttp.Call getPresentationsAsync(Principal body, final ApiCallback<Map<String, String>> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1049,14 +1077,14 @@ public class DefaultApi {
             };
         }
 
-        com.squareup.okhttp.Call call = getPresentationsValidateBeforeCall(progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getPresentationsValidateBeforeCall(body, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<Map<String, String>>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /* Build call for getSingleTweet */
-    private com.squareup.okhttp.Call getSingleTweetCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = null;
+    private com.squareup.okhttp.Call getSingleTweetCall(String id, Principal body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body;
         
         // create path and map variables
         String localVarPath = "/bot/question/{id}".replaceAll("\\{format\\}","json")
@@ -1092,12 +1120,12 @@ public class DefaultApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[] { "basic-auth" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getSingleTweetValidateBeforeCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getSingleTweetValidateBeforeCall(String id, Principal body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'id' is set
         if (id == null) {
@@ -1105,7 +1133,7 @@ public class DefaultApi {
         }
         
         
-        com.squareup.okhttp.Call call = getSingleTweetCall(id, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getSingleTweetCall(id, body, progressListener, progressRequestListener);
         return call;
 
         
@@ -1118,11 +1146,12 @@ public class DefaultApi {
      * retrieves question by Id
      * 
      * @param id  (required)
+     * @param body  (optional)
      * @return Question
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Question getSingleTweet(String id) throws ApiException {
-        ApiResponse<Question> resp = getSingleTweetWithHttpInfo(id);
+    public Question getSingleTweet(String id, Principal body) throws ApiException {
+        ApiResponse<Question> resp = getSingleTweetWithHttpInfo(id, body);
         return resp.getData();
     }
 
@@ -1130,11 +1159,12 @@ public class DefaultApi {
      * retrieves question by Id
      * 
      * @param id  (required)
+     * @param body  (optional)
      * @return ApiResponse&lt;Question&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Question> getSingleTweetWithHttpInfo(String id) throws ApiException {
-        com.squareup.okhttp.Call call = getSingleTweetValidateBeforeCall(id, null, null);
+    public ApiResponse<Question> getSingleTweetWithHttpInfo(String id, Principal body) throws ApiException {
+        com.squareup.okhttp.Call call = getSingleTweetValidateBeforeCall(id, body, null, null);
         Type localVarReturnType = new TypeToken<Question>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -1143,11 +1173,12 @@ public class DefaultApi {
      * retrieves question by Id (asynchronously)
      * 
      * @param id  (required)
+     * @param body  (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getSingleTweetAsync(String id, final ApiCallback<Question> callback) throws ApiException {
+    public com.squareup.okhttp.Call getSingleTweetAsync(String id, Principal body, final ApiCallback<Question> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1168,14 +1199,14 @@ public class DefaultApi {
             };
         }
 
-        com.squareup.okhttp.Call call = getSingleTweetValidateBeforeCall(id, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getSingleTweetValidateBeforeCall(id, body, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<Question>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /* Build call for getSlideForPresentationNameAndSlideNumber */
-    private com.squareup.okhttp.Call getSlideForPresentationNameAndSlideNumberCall(String presentationName, Integer slideNumber, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = null;
+    private com.squareup.okhttp.Call getSlideForPresentationNameAndSlideNumberCall(String presentationName, Integer slideNumber, Principal body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body;
         
         // create path and map variables
         String localVarPath = "/bot/presentation/name/{presentationName}/slide/number/{slideNumber}".replaceAll("\\{format\\}","json")
@@ -1212,12 +1243,12 @@ public class DefaultApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[] { "basic-auth" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getSlideForPresentationNameAndSlideNumberValidateBeforeCall(String presentationName, Integer slideNumber, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getSlideForPresentationNameAndSlideNumberValidateBeforeCall(String presentationName, Integer slideNumber, Principal body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'presentationName' is set
         if (presentationName == null) {
@@ -1230,7 +1261,7 @@ public class DefaultApi {
         }
         
         
-        com.squareup.okhttp.Call call = getSlideForPresentationNameAndSlideNumberCall(presentationName, slideNumber, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getSlideForPresentationNameAndSlideNumberCall(presentationName, slideNumber, body, progressListener, progressRequestListener);
         return call;
 
         
@@ -1244,11 +1275,12 @@ public class DefaultApi {
      * 
      * @param presentationName  (required)
      * @param slideNumber  (required)
+     * @param body  (optional)
      * @return String
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public String getSlideForPresentationNameAndSlideNumber(String presentationName, Integer slideNumber) throws ApiException {
-        ApiResponse<String> resp = getSlideForPresentationNameAndSlideNumberWithHttpInfo(presentationName, slideNumber);
+    public String getSlideForPresentationNameAndSlideNumber(String presentationName, Integer slideNumber, Principal body) throws ApiException {
+        ApiResponse<String> resp = getSlideForPresentationNameAndSlideNumberWithHttpInfo(presentationName, slideNumber, body);
         return resp.getData();
     }
 
@@ -1257,11 +1289,12 @@ public class DefaultApi {
      * 
      * @param presentationName  (required)
      * @param slideNumber  (required)
+     * @param body  (optional)
      * @return ApiResponse&lt;String&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<String> getSlideForPresentationNameAndSlideNumberWithHttpInfo(String presentationName, Integer slideNumber) throws ApiException {
-        com.squareup.okhttp.Call call = getSlideForPresentationNameAndSlideNumberValidateBeforeCall(presentationName, slideNumber, null, null);
+    public ApiResponse<String> getSlideForPresentationNameAndSlideNumberWithHttpInfo(String presentationName, Integer slideNumber, Principal body) throws ApiException {
+        com.squareup.okhttp.Call call = getSlideForPresentationNameAndSlideNumberValidateBeforeCall(presentationName, slideNumber, body, null, null);
         Type localVarReturnType = new TypeToken<String>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -1271,11 +1304,12 @@ public class DefaultApi {
      * 
      * @param presentationName  (required)
      * @param slideNumber  (required)
+     * @param body  (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getSlideForPresentationNameAndSlideNumberAsync(String presentationName, Integer slideNumber, final ApiCallback<String> callback) throws ApiException {
+    public com.squareup.okhttp.Call getSlideForPresentationNameAndSlideNumberAsync(String presentationName, Integer slideNumber, Principal body, final ApiCallback<String> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1296,14 +1330,14 @@ public class DefaultApi {
             };
         }
 
-        com.squareup.okhttp.Call call = getSlideForPresentationNameAndSlideNumberValidateBeforeCall(presentationName, slideNumber, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getSlideForPresentationNameAndSlideNumberValidateBeforeCall(presentationName, slideNumber, body, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<String>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /* Build call for getSlideForPresentationNumberAndSlideName */
-    private com.squareup.okhttp.Call getSlideForPresentationNumberAndSlideNameCall(Integer presentationNumber, String slideName, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = null;
+    private com.squareup.okhttp.Call getSlideForPresentationNumberAndSlideNameCall(Integer presentationNumber, String slideName, Principal body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body;
         
         // create path and map variables
         String localVarPath = "/bot/presentation/number/{presentationNumber}/slide/name/{slideName}".replaceAll("\\{format\\}","json")
@@ -1340,12 +1374,12 @@ public class DefaultApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[] { "basic-auth" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getSlideForPresentationNumberAndSlideNameValidateBeforeCall(Integer presentationNumber, String slideName, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getSlideForPresentationNumberAndSlideNameValidateBeforeCall(Integer presentationNumber, String slideName, Principal body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'presentationNumber' is set
         if (presentationNumber == null) {
@@ -1358,7 +1392,7 @@ public class DefaultApi {
         }
         
         
-        com.squareup.okhttp.Call call = getSlideForPresentationNumberAndSlideNameCall(presentationNumber, slideName, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getSlideForPresentationNumberAndSlideNameCall(presentationNumber, slideName, body, progressListener, progressRequestListener);
         return call;
 
         
@@ -1372,11 +1406,12 @@ public class DefaultApi {
      * 
      * @param presentationNumber  (required)
      * @param slideName  (required)
+     * @param body  (optional)
      * @return String
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public String getSlideForPresentationNumberAndSlideName(Integer presentationNumber, String slideName) throws ApiException {
-        ApiResponse<String> resp = getSlideForPresentationNumberAndSlideNameWithHttpInfo(presentationNumber, slideName);
+    public String getSlideForPresentationNumberAndSlideName(Integer presentationNumber, String slideName, Principal body) throws ApiException {
+        ApiResponse<String> resp = getSlideForPresentationNumberAndSlideNameWithHttpInfo(presentationNumber, slideName, body);
         return resp.getData();
     }
 
@@ -1385,11 +1420,12 @@ public class DefaultApi {
      * 
      * @param presentationNumber  (required)
      * @param slideName  (required)
+     * @param body  (optional)
      * @return ApiResponse&lt;String&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<String> getSlideForPresentationNumberAndSlideNameWithHttpInfo(Integer presentationNumber, String slideName) throws ApiException {
-        com.squareup.okhttp.Call call = getSlideForPresentationNumberAndSlideNameValidateBeforeCall(presentationNumber, slideName, null, null);
+    public ApiResponse<String> getSlideForPresentationNumberAndSlideNameWithHttpInfo(Integer presentationNumber, String slideName, Principal body) throws ApiException {
+        com.squareup.okhttp.Call call = getSlideForPresentationNumberAndSlideNameValidateBeforeCall(presentationNumber, slideName, body, null, null);
         Type localVarReturnType = new TypeToken<String>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -1399,11 +1435,12 @@ public class DefaultApi {
      * 
      * @param presentationNumber  (required)
      * @param slideName  (required)
+     * @param body  (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getSlideForPresentationNumberAndSlideNameAsync(Integer presentationNumber, String slideName, final ApiCallback<String> callback) throws ApiException {
+    public com.squareup.okhttp.Call getSlideForPresentationNumberAndSlideNameAsync(Integer presentationNumber, String slideName, Principal body, final ApiCallback<String> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1424,14 +1461,14 @@ public class DefaultApi {
             };
         }
 
-        com.squareup.okhttp.Call call = getSlideForPresentationNumberAndSlideNameValidateBeforeCall(presentationNumber, slideName, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getSlideForPresentationNumberAndSlideNameValidateBeforeCall(presentationNumber, slideName, body, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<String>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /* Build call for getSlideForPresentationNumberAndSlideNumber */
-    private com.squareup.okhttp.Call getSlideForPresentationNumberAndSlideNumberCall(Integer presentationNumber, Integer slideNumber, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = null;
+    private com.squareup.okhttp.Call getSlideForPresentationNumberAndSlideNumberCall(Integer presentationNumber, Integer slideNumber, Principal body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body;
         
         // create path and map variables
         String localVarPath = "/bot/presentation/number/{presentationNumber}/slide/number/{slideNumber}".replaceAll("\\{format\\}","json")
@@ -1468,12 +1505,12 @@ public class DefaultApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[] { "basic-auth" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getSlideForPresentationNumberAndSlideNumberValidateBeforeCall(Integer presentationNumber, Integer slideNumber, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getSlideForPresentationNumberAndSlideNumberValidateBeforeCall(Integer presentationNumber, Integer slideNumber, Principal body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'presentationNumber' is set
         if (presentationNumber == null) {
@@ -1486,7 +1523,7 @@ public class DefaultApi {
         }
         
         
-        com.squareup.okhttp.Call call = getSlideForPresentationNumberAndSlideNumberCall(presentationNumber, slideNumber, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getSlideForPresentationNumberAndSlideNumberCall(presentationNumber, slideNumber, body, progressListener, progressRequestListener);
         return call;
 
         
@@ -1500,11 +1537,12 @@ public class DefaultApi {
      * 
      * @param presentationNumber  (required)
      * @param slideNumber  (required)
+     * @param body  (optional)
      * @return String
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public String getSlideForPresentationNumberAndSlideNumber(Integer presentationNumber, Integer slideNumber) throws ApiException {
-        ApiResponse<String> resp = getSlideForPresentationNumberAndSlideNumberWithHttpInfo(presentationNumber, slideNumber);
+    public String getSlideForPresentationNumberAndSlideNumber(Integer presentationNumber, Integer slideNumber, Principal body) throws ApiException {
+        ApiResponse<String> resp = getSlideForPresentationNumberAndSlideNumberWithHttpInfo(presentationNumber, slideNumber, body);
         return resp.getData();
     }
 
@@ -1513,11 +1551,12 @@ public class DefaultApi {
      * 
      * @param presentationNumber  (required)
      * @param slideNumber  (required)
+     * @param body  (optional)
      * @return ApiResponse&lt;String&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<String> getSlideForPresentationNumberAndSlideNumberWithHttpInfo(Integer presentationNumber, Integer slideNumber) throws ApiException {
-        com.squareup.okhttp.Call call = getSlideForPresentationNumberAndSlideNumberValidateBeforeCall(presentationNumber, slideNumber, null, null);
+    public ApiResponse<String> getSlideForPresentationNumberAndSlideNumberWithHttpInfo(Integer presentationNumber, Integer slideNumber, Principal body) throws ApiException {
+        com.squareup.okhttp.Call call = getSlideForPresentationNumberAndSlideNumberValidateBeforeCall(presentationNumber, slideNumber, body, null, null);
         Type localVarReturnType = new TypeToken<String>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -1527,11 +1566,12 @@ public class DefaultApi {
      * 
      * @param presentationNumber  (required)
      * @param slideNumber  (required)
+     * @param body  (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getSlideForPresentationNumberAndSlideNumberAsync(Integer presentationNumber, Integer slideNumber, final ApiCallback<String> callback) throws ApiException {
+    public com.squareup.okhttp.Call getSlideForPresentationNumberAndSlideNumberAsync(Integer presentationNumber, Integer slideNumber, Principal body, final ApiCallback<String> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1552,14 +1592,14 @@ public class DefaultApi {
             };
         }
 
-        com.squareup.okhttp.Call call = getSlideForPresentationNumberAndSlideNumberValidateBeforeCall(presentationNumber, slideNumber, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getSlideForPresentationNumberAndSlideNumberValidateBeforeCall(presentationNumber, slideNumber, body, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<String>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /* Build call for getSlidesForPresentationName */
-    private com.squareup.okhttp.Call getSlidesForPresentationNameCall(String presentationName, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = null;
+    private com.squareup.okhttp.Call getSlidesForPresentationNameCall(String presentationName, Principal body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body;
         
         // create path and map variables
         String localVarPath = "/bot/presentation/name/{presentationName}/slide".replaceAll("\\{format\\}","json")
@@ -1595,12 +1635,12 @@ public class DefaultApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[] { "basic-auth" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getSlidesForPresentationNameValidateBeforeCall(String presentationName, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getSlidesForPresentationNameValidateBeforeCall(String presentationName, Principal body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'presentationName' is set
         if (presentationName == null) {
@@ -1608,7 +1648,7 @@ public class DefaultApi {
         }
         
         
-        com.squareup.okhttp.Call call = getSlidesForPresentationNameCall(presentationName, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getSlidesForPresentationNameCall(presentationName, body, progressListener, progressRequestListener);
         return call;
 
         
@@ -1621,11 +1661,12 @@ public class DefaultApi {
      * Returns all Slides for PresentationName
      * 
      * @param presentationName  (required)
+     * @param body  (optional)
      * @return Map&lt;String, String&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Map<String, String> getSlidesForPresentationName(String presentationName) throws ApiException {
-        ApiResponse<Map<String, String>> resp = getSlidesForPresentationNameWithHttpInfo(presentationName);
+    public Map<String, String> getSlidesForPresentationName(String presentationName, Principal body) throws ApiException {
+        ApiResponse<Map<String, String>> resp = getSlidesForPresentationNameWithHttpInfo(presentationName, body);
         return resp.getData();
     }
 
@@ -1633,11 +1674,12 @@ public class DefaultApi {
      * Returns all Slides for PresentationName
      * 
      * @param presentationName  (required)
+     * @param body  (optional)
      * @return ApiResponse&lt;Map&lt;String, String&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Map<String, String>> getSlidesForPresentationNameWithHttpInfo(String presentationName) throws ApiException {
-        com.squareup.okhttp.Call call = getSlidesForPresentationNameValidateBeforeCall(presentationName, null, null);
+    public ApiResponse<Map<String, String>> getSlidesForPresentationNameWithHttpInfo(String presentationName, Principal body) throws ApiException {
+        com.squareup.okhttp.Call call = getSlidesForPresentationNameValidateBeforeCall(presentationName, body, null, null);
         Type localVarReturnType = new TypeToken<Map<String, String>>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -1646,11 +1688,12 @@ public class DefaultApi {
      * Returns all Slides for PresentationName (asynchronously)
      * 
      * @param presentationName  (required)
+     * @param body  (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getSlidesForPresentationNameAsync(String presentationName, final ApiCallback<Map<String, String>> callback) throws ApiException {
+    public com.squareup.okhttp.Call getSlidesForPresentationNameAsync(String presentationName, Principal body, final ApiCallback<Map<String, String>> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1671,14 +1714,14 @@ public class DefaultApi {
             };
         }
 
-        com.squareup.okhttp.Call call = getSlidesForPresentationNameValidateBeforeCall(presentationName, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getSlidesForPresentationNameValidateBeforeCall(presentationName, body, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<Map<String, String>>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /* Build call for getSlidesForPresentationNameAndSlideName */
-    private com.squareup.okhttp.Call getSlidesForPresentationNameAndSlideNameCall(String presentationName, String slideName, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = null;
+    private com.squareup.okhttp.Call getSlidesForPresentationNameAndSlideNameCall(String presentationName, String slideName, Principal body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body;
         
         // create path and map variables
         String localVarPath = "/bot/presentation/name/{presentationName}/slide/name/{slideName}".replaceAll("\\{format\\}","json")
@@ -1715,12 +1758,12 @@ public class DefaultApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[] { "basic-auth" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getSlidesForPresentationNameAndSlideNameValidateBeforeCall(String presentationName, String slideName, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getSlidesForPresentationNameAndSlideNameValidateBeforeCall(String presentationName, String slideName, Principal body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'presentationName' is set
         if (presentationName == null) {
@@ -1733,7 +1776,7 @@ public class DefaultApi {
         }
         
         
-        com.squareup.okhttp.Call call = getSlidesForPresentationNameAndSlideNameCall(presentationName, slideName, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getSlidesForPresentationNameAndSlideNameCall(presentationName, slideName, body, progressListener, progressRequestListener);
         return call;
 
         
@@ -1747,11 +1790,12 @@ public class DefaultApi {
      * 
      * @param presentationName  (required)
      * @param slideName  (required)
+     * @param body  (optional)
      * @return String
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public String getSlidesForPresentationNameAndSlideName(String presentationName, String slideName) throws ApiException {
-        ApiResponse<String> resp = getSlidesForPresentationNameAndSlideNameWithHttpInfo(presentationName, slideName);
+    public String getSlidesForPresentationNameAndSlideName(String presentationName, String slideName, Principal body) throws ApiException {
+        ApiResponse<String> resp = getSlidesForPresentationNameAndSlideNameWithHttpInfo(presentationName, slideName, body);
         return resp.getData();
     }
 
@@ -1760,11 +1804,12 @@ public class DefaultApi {
      * 
      * @param presentationName  (required)
      * @param slideName  (required)
+     * @param body  (optional)
      * @return ApiResponse&lt;String&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<String> getSlidesForPresentationNameAndSlideNameWithHttpInfo(String presentationName, String slideName) throws ApiException {
-        com.squareup.okhttp.Call call = getSlidesForPresentationNameAndSlideNameValidateBeforeCall(presentationName, slideName, null, null);
+    public ApiResponse<String> getSlidesForPresentationNameAndSlideNameWithHttpInfo(String presentationName, String slideName, Principal body) throws ApiException {
+        com.squareup.okhttp.Call call = getSlidesForPresentationNameAndSlideNameValidateBeforeCall(presentationName, slideName, body, null, null);
         Type localVarReturnType = new TypeToken<String>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -1774,11 +1819,12 @@ public class DefaultApi {
      * 
      * @param presentationName  (required)
      * @param slideName  (required)
+     * @param body  (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getSlidesForPresentationNameAndSlideNameAsync(String presentationName, String slideName, final ApiCallback<String> callback) throws ApiException {
+    public com.squareup.okhttp.Call getSlidesForPresentationNameAndSlideNameAsync(String presentationName, String slideName, Principal body, final ApiCallback<String> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1799,14 +1845,14 @@ public class DefaultApi {
             };
         }
 
-        com.squareup.okhttp.Call call = getSlidesForPresentationNameAndSlideNameValidateBeforeCall(presentationName, slideName, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getSlidesForPresentationNameAndSlideNameValidateBeforeCall(presentationName, slideName, body, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<String>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /* Build call for getSlidesForPresentationNumber */
-    private com.squareup.okhttp.Call getSlidesForPresentationNumberCall(Integer presentationNumber, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = null;
+    private com.squareup.okhttp.Call getSlidesForPresentationNumberCall(Integer presentationNumber, Principal body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body;
         
         // create path and map variables
         String localVarPath = "/bot/presentation/number/{presentationNumber}/slide".replaceAll("\\{format\\}","json")
@@ -1842,12 +1888,12 @@ public class DefaultApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[] { "basic-auth" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getSlidesForPresentationNumberValidateBeforeCall(Integer presentationNumber, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getSlidesForPresentationNumberValidateBeforeCall(Integer presentationNumber, Principal body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'presentationNumber' is set
         if (presentationNumber == null) {
@@ -1855,7 +1901,7 @@ public class DefaultApi {
         }
         
         
-        com.squareup.okhttp.Call call = getSlidesForPresentationNumberCall(presentationNumber, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getSlidesForPresentationNumberCall(presentationNumber, body, progressListener, progressRequestListener);
         return call;
 
         
@@ -1868,11 +1914,12 @@ public class DefaultApi {
      * Returns all Slides for PresentationNumber
      * 
      * @param presentationNumber  (required)
+     * @param body  (optional)
      * @return Map&lt;String, String&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Map<String, String> getSlidesForPresentationNumber(Integer presentationNumber) throws ApiException {
-        ApiResponse<Map<String, String>> resp = getSlidesForPresentationNumberWithHttpInfo(presentationNumber);
+    public Map<String, String> getSlidesForPresentationNumber(Integer presentationNumber, Principal body) throws ApiException {
+        ApiResponse<Map<String, String>> resp = getSlidesForPresentationNumberWithHttpInfo(presentationNumber, body);
         return resp.getData();
     }
 
@@ -1880,11 +1927,12 @@ public class DefaultApi {
      * Returns all Slides for PresentationNumber
      * 
      * @param presentationNumber  (required)
+     * @param body  (optional)
      * @return ApiResponse&lt;Map&lt;String, String&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Map<String, String>> getSlidesForPresentationNumberWithHttpInfo(Integer presentationNumber) throws ApiException {
-        com.squareup.okhttp.Call call = getSlidesForPresentationNumberValidateBeforeCall(presentationNumber, null, null);
+    public ApiResponse<Map<String, String>> getSlidesForPresentationNumberWithHttpInfo(Integer presentationNumber, Principal body) throws ApiException {
+        com.squareup.okhttp.Call call = getSlidesForPresentationNumberValidateBeforeCall(presentationNumber, body, null, null);
         Type localVarReturnType = new TypeToken<Map<String, String>>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -1893,11 +1941,12 @@ public class DefaultApi {
      * Returns all Slides for PresentationNumber (asynchronously)
      * 
      * @param presentationNumber  (required)
+     * @param body  (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getSlidesForPresentationNumberAsync(Integer presentationNumber, final ApiCallback<Map<String, String>> callback) throws ApiException {
+    public com.squareup.okhttp.Call getSlidesForPresentationNumberAsync(Integer presentationNumber, Principal body, final ApiCallback<Map<String, String>> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1918,14 +1967,14 @@ public class DefaultApi {
             };
         }
 
-        com.squareup.okhttp.Call call = getSlidesForPresentationNumberValidateBeforeCall(presentationNumber, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getSlidesForPresentationNumberValidateBeforeCall(presentationNumber, body, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<Map<String, String>>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /* Build call for postFeedbackToDB */
-    private com.squareup.okhttp.Call postFeedbackToDBCall(Feedback body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = body;
+    private com.squareup.okhttp.Call postFeedbackToDBCall(Principal body, Feedback body2, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body2;
         
         // create path and map variables
         String localVarPath = "/bot/feedback".replaceAll("\\{format\\}","json");
@@ -1960,15 +2009,15 @@ public class DefaultApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[] { "basic-auth" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call postFeedbackToDBValidateBeforeCall(Feedback body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call postFeedbackToDBValidateBeforeCall(Principal body, Feedback body2, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         
-        com.squareup.okhttp.Call call = postFeedbackToDBCall(body, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = postFeedbackToDBCall(body, body2, progressListener, progressRequestListener);
         return call;
 
         
@@ -1981,11 +2030,12 @@ public class DefaultApi {
      * saves a new Feedback, updates it if already existent
      * 
      * @param body  (optional)
+     * @param body2  (optional)
      * @return Feedback
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Feedback postFeedbackToDB(Feedback body) throws ApiException {
-        ApiResponse<Feedback> resp = postFeedbackToDBWithHttpInfo(body);
+    public Feedback postFeedbackToDB(Principal body, Feedback body2) throws ApiException {
+        ApiResponse<Feedback> resp = postFeedbackToDBWithHttpInfo(body, body2);
         return resp.getData();
     }
 
@@ -1993,11 +2043,12 @@ public class DefaultApi {
      * saves a new Feedback, updates it if already existent
      * 
      * @param body  (optional)
+     * @param body2  (optional)
      * @return ApiResponse&lt;Feedback&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Feedback> postFeedbackToDBWithHttpInfo(Feedback body) throws ApiException {
-        com.squareup.okhttp.Call call = postFeedbackToDBValidateBeforeCall(body, null, null);
+    public ApiResponse<Feedback> postFeedbackToDBWithHttpInfo(Principal body, Feedback body2) throws ApiException {
+        com.squareup.okhttp.Call call = postFeedbackToDBValidateBeforeCall(body, body2, null, null);
         Type localVarReturnType = new TypeToken<Feedback>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -2006,11 +2057,12 @@ public class DefaultApi {
      * saves a new Feedback, updates it if already existent (asynchronously)
      * 
      * @param body  (optional)
+     * @param body2  (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call postFeedbackToDBAsync(Feedback body, final ApiCallback<Feedback> callback) throws ApiException {
+    public com.squareup.okhttp.Call postFeedbackToDBAsync(Principal body, Feedback body2, final ApiCallback<Feedback> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -2031,14 +2083,14 @@ public class DefaultApi {
             };
         }
 
-        com.squareup.okhttp.Call call = postFeedbackToDBValidateBeforeCall(body, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = postFeedbackToDBValidateBeforeCall(body, body2, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<Feedback>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /* Build call for postReplyAndCloseQuestion */
-    private com.squareup.okhttp.Call postReplyAndCloseQuestionCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = null;
+    private com.squareup.okhttp.Call postReplyAndCloseQuestionCall(String id, Principal body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body;
         
         // create path and map variables
         String localVarPath = "/bot/question/close/{id}".replaceAll("\\{format\\}","json")
@@ -2074,12 +2126,12 @@ public class DefaultApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[] { "basic-auth" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call postReplyAndCloseQuestionValidateBeforeCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call postReplyAndCloseQuestionValidateBeforeCall(String id, Principal body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'id' is set
         if (id == null) {
@@ -2087,7 +2139,7 @@ public class DefaultApi {
         }
         
         
-        com.squareup.okhttp.Call call = postReplyAndCloseQuestionCall(id, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = postReplyAndCloseQuestionCall(id, body, progressListener, progressRequestListener);
         return call;
 
         
@@ -2100,11 +2152,12 @@ public class DefaultApi {
      * saves a new Question, updates it if already existent
      * 
      * @param id  (required)
+     * @param body  (optional)
      * @return Question
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Question postReplyAndCloseQuestion(String id) throws ApiException {
-        ApiResponse<Question> resp = postReplyAndCloseQuestionWithHttpInfo(id);
+    public Question postReplyAndCloseQuestion(String id, Principal body) throws ApiException {
+        ApiResponse<Question> resp = postReplyAndCloseQuestionWithHttpInfo(id, body);
         return resp.getData();
     }
 
@@ -2112,11 +2165,12 @@ public class DefaultApi {
      * saves a new Question, updates it if already existent
      * 
      * @param id  (required)
+     * @param body  (optional)
      * @return ApiResponse&lt;Question&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Question> postReplyAndCloseQuestionWithHttpInfo(String id) throws ApiException {
-        com.squareup.okhttp.Call call = postReplyAndCloseQuestionValidateBeforeCall(id, null, null);
+    public ApiResponse<Question> postReplyAndCloseQuestionWithHttpInfo(String id, Principal body) throws ApiException {
+        com.squareup.okhttp.Call call = postReplyAndCloseQuestionValidateBeforeCall(id, body, null, null);
         Type localVarReturnType = new TypeToken<Question>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -2125,11 +2179,12 @@ public class DefaultApi {
      * saves a new Question, updates it if already existent (asynchronously)
      * 
      * @param id  (required)
+     * @param body  (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call postReplyAndCloseQuestionAsync(String id, final ApiCallback<Question> callback) throws ApiException {
+    public com.squareup.okhttp.Call postReplyAndCloseQuestionAsync(String id, Principal body, final ApiCallback<Question> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -2150,14 +2205,14 @@ public class DefaultApi {
             };
         }
 
-        com.squareup.okhttp.Call call = postReplyAndCloseQuestionValidateBeforeCall(id, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = postReplyAndCloseQuestionValidateBeforeCall(id, body, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<Question>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /* Build call for postTweetInDB */
-    private com.squareup.okhttp.Call postTweetInDBCall(Question body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = body;
+    private com.squareup.okhttp.Call postTweetInDBCall(Principal body, Question body2, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body2;
         
         // create path and map variables
         String localVarPath = "/bot/question".replaceAll("\\{format\\}","json");
@@ -2192,15 +2247,15 @@ public class DefaultApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[] { "basic-auth" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call postTweetInDBValidateBeforeCall(Question body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call postTweetInDBValidateBeforeCall(Principal body, Question body2, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         
-        com.squareup.okhttp.Call call = postTweetInDBCall(body, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = postTweetInDBCall(body, body2, progressListener, progressRequestListener);
         return call;
 
         
@@ -2213,11 +2268,12 @@ public class DefaultApi {
      * saves a new Question, updates it if already existent
      * 
      * @param body  (optional)
+     * @param body2  (optional)
      * @return Question
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Question postTweetInDB(Question body) throws ApiException {
-        ApiResponse<Question> resp = postTweetInDBWithHttpInfo(body);
+    public Question postTweetInDB(Principal body, Question body2) throws ApiException {
+        ApiResponse<Question> resp = postTweetInDBWithHttpInfo(body, body2);
         return resp.getData();
     }
 
@@ -2225,11 +2281,12 @@ public class DefaultApi {
      * saves a new Question, updates it if already existent
      * 
      * @param body  (optional)
+     * @param body2  (optional)
      * @return ApiResponse&lt;Question&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Question> postTweetInDBWithHttpInfo(Question body) throws ApiException {
-        com.squareup.okhttp.Call call = postTweetInDBValidateBeforeCall(body, null, null);
+    public ApiResponse<Question> postTweetInDBWithHttpInfo(Principal body, Question body2) throws ApiException {
+        com.squareup.okhttp.Call call = postTweetInDBValidateBeforeCall(body, body2, null, null);
         Type localVarReturnType = new TypeToken<Question>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -2238,11 +2295,12 @@ public class DefaultApi {
      * saves a new Question, updates it if already existent (asynchronously)
      * 
      * @param body  (optional)
+     * @param body2  (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call postTweetInDBAsync(Question body, final ApiCallback<Question> callback) throws ApiException {
+    public com.squareup.okhttp.Call postTweetInDBAsync(Principal body, Question body2, final ApiCallback<Question> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -2263,14 +2321,14 @@ public class DefaultApi {
             };
         }
 
-        com.squareup.okhttp.Call call = postTweetInDBValidateBeforeCall(body, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = postTweetInDBValidateBeforeCall(body, body2, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<Question>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /* Build call for updateTweetInDB */
-    private com.squareup.okhttp.Call updateTweetInDBCall(Question body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = body;
+    private com.squareup.okhttp.Call updateTweetInDBCall(Principal body, Question body2, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body2;
         
         // create path and map variables
         String localVarPath = "/bot/question".replaceAll("\\{format\\}","json");
@@ -2305,15 +2363,15 @@ public class DefaultApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[] { "basic-auth" };
         return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call updateTweetInDBValidateBeforeCall(Question body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call updateTweetInDBValidateBeforeCall(Principal body, Question body2, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         
-        com.squareup.okhttp.Call call = updateTweetInDBCall(body, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = updateTweetInDBCall(body, body2, progressListener, progressRequestListener);
         return call;
 
         
@@ -2326,11 +2384,12 @@ public class DefaultApi {
      * saves a new Question, updates it if already existent
      * 
      * @param body  (optional)
+     * @param body2  (optional)
      * @return Question
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Question updateTweetInDB(Question body) throws ApiException {
-        ApiResponse<Question> resp = updateTweetInDBWithHttpInfo(body);
+    public Question updateTweetInDB(Principal body, Question body2) throws ApiException {
+        ApiResponse<Question> resp = updateTweetInDBWithHttpInfo(body, body2);
         return resp.getData();
     }
 
@@ -2338,11 +2397,12 @@ public class DefaultApi {
      * saves a new Question, updates it if already existent
      * 
      * @param body  (optional)
+     * @param body2  (optional)
      * @return ApiResponse&lt;Question&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Question> updateTweetInDBWithHttpInfo(Question body) throws ApiException {
-        com.squareup.okhttp.Call call = updateTweetInDBValidateBeforeCall(body, null, null);
+    public ApiResponse<Question> updateTweetInDBWithHttpInfo(Principal body, Question body2) throws ApiException {
+        com.squareup.okhttp.Call call = updateTweetInDBValidateBeforeCall(body, body2, null, null);
         Type localVarReturnType = new TypeToken<Question>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -2351,11 +2411,12 @@ public class DefaultApi {
      * saves a new Question, updates it if already existent (asynchronously)
      * 
      * @param body  (optional)
+     * @param body2  (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call updateTweetInDBAsync(Question body, final ApiCallback<Question> callback) throws ApiException {
+    public com.squareup.okhttp.Call updateTweetInDBAsync(Principal body, Question body2, final ApiCallback<Question> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -2376,7 +2437,7 @@ public class DefaultApi {
             };
         }
 
-        com.squareup.okhttp.Call call = updateTweetInDBValidateBeforeCall(body, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = updateTweetInDBValidateBeforeCall(body, body2, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<Question>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;

@@ -28,7 +28,7 @@ Method | HTTP request | Description
 
 <a name="deleteTweetInDB"></a>
 # **deleteTweetInDB**
-> Question deleteTweetInDB(body)
+> Question deleteTweetInDB(body, body2)
 
 deletes a given Question
 
@@ -37,14 +37,24 @@ deletes a given Question
 ### Example
 ```java
 // Import classes:
+//import io.swagger.client.ApiClient;
 //import io.swagger.client.ApiException;
+//import io.swagger.client.Configuration;
+//import io.swagger.client.auth.*;
 //import io.swagger.client.api.DefaultApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure HTTP basic authorization: basic-auth
+HttpBasicAuth basic-auth = (HttpBasicAuth) defaultClient.getAuthentication("basic-auth");
+basic-auth.setUsername("YOUR USERNAME");
+basic-auth.setPassword("YOUR PASSWORD");
 
 DefaultApi apiInstance = new DefaultApi();
-Question body = new Question(); // Question | 
+Principal body = new Principal(); // Principal | 
+Question body2 = new Question(); // Question | 
 try {
-    Question result = apiInstance.deleteTweetInDB(body);
+    Question result = apiInstance.deleteTweetInDB(body, body2);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling DefaultApi#deleteTweetInDB");
@@ -56,7 +66,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**Question**](Question.md)|  | [optional]
+ **body** | [**Principal**](Principal.md)|  | [optional]
+ **body2** | [**Question**](Question.md)|  | [optional]
 
 ### Return type
 
@@ -64,7 +75,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[basic-auth](../README.md#basic-auth)
 
 ### HTTP request headers
 
@@ -73,7 +84,7 @@ No authorization required
 
 <a name="deleteTweetInDBById"></a>
 # **deleteTweetInDBById**
-> Question deleteTweetInDBById(body)
+> Question deleteTweetInDBById(body, body2)
 
 deletes a given Question by using its ID
 
@@ -82,14 +93,24 @@ deletes a given Question by using its ID
 ### Example
 ```java
 // Import classes:
+//import io.swagger.client.ApiClient;
 //import io.swagger.client.ApiException;
+//import io.swagger.client.Configuration;
+//import io.swagger.client.auth.*;
 //import io.swagger.client.api.DefaultApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure HTTP basic authorization: basic-auth
+HttpBasicAuth basic-auth = (HttpBasicAuth) defaultClient.getAuthentication("basic-auth");
+basic-auth.setUsername("YOUR USERNAME");
+basic-auth.setPassword("YOUR PASSWORD");
 
 DefaultApi apiInstance = new DefaultApi();
-String body = "body_example"; // String | 
+Principal body = new Principal(); // Principal | 
+String body2 = "body_example"; // String | 
 try {
-    Question result = apiInstance.deleteTweetInDBById(body);
+    Question result = apiInstance.deleteTweetInDBById(body, body2);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling DefaultApi#deleteTweetInDBById");
@@ -101,7 +122,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | **String**|  | [optional]
+ **body** | [**Principal**](Principal.md)|  | [optional]
+ **body2** | **String**|  | [optional]
 
 ### Return type
 
@@ -109,7 +131,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[basic-auth](../README.md#basic-auth)
 
 ### HTTP request headers
 
@@ -118,7 +140,7 @@ No authorization required
 
 <a name="getActiveSlides"></a>
 # **getActiveSlides**
-> ActiveSlidePath getActiveSlides()
+> ActiveSlidePath getActiveSlides(body)
 
 Returns an Array of active slides for (ppt, key, and dev)
 
@@ -127,13 +149,23 @@ Returns an Array of active slides for (ppt, key, and dev)
 ### Example
 ```java
 // Import classes:
+//import io.swagger.client.ApiClient;
 //import io.swagger.client.ApiException;
+//import io.swagger.client.Configuration;
+//import io.swagger.client.auth.*;
 //import io.swagger.client.api.DefaultApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure HTTP basic authorization: basic-auth
+HttpBasicAuth basic-auth = (HttpBasicAuth) defaultClient.getAuthentication("basic-auth");
+basic-auth.setUsername("YOUR USERNAME");
+basic-auth.setPassword("YOUR PASSWORD");
 
 DefaultApi apiInstance = new DefaultApi();
+Principal body = new Principal(); // Principal | 
 try {
-    ActiveSlidePath result = apiInstance.getActiveSlides();
+    ActiveSlidePath result = apiInstance.getActiveSlides(body);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling DefaultApi#getActiveSlides");
@@ -142,7 +174,10 @@ try {
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**Principal**](Principal.md)|  | [optional]
 
 ### Return type
 
@@ -150,7 +185,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-No authorization required
+[basic-auth](../README.md#basic-auth)
 
 ### HTTP request headers
 
@@ -159,7 +194,7 @@ No authorization required
 
 <a name="getAllDatamodels"></a>
 # **getAllDatamodels**
-> List&lt;DataItem&gt; getAllDatamodels()
+> List&lt;DataItem&gt; getAllDatamodels(body)
 
 retrieves all DataItem (mock)
 
@@ -168,13 +203,23 @@ retrieves all DataItem (mock)
 ### Example
 ```java
 // Import classes:
+//import io.swagger.client.ApiClient;
 //import io.swagger.client.ApiException;
+//import io.swagger.client.Configuration;
+//import io.swagger.client.auth.*;
 //import io.swagger.client.api.DefaultApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure HTTP basic authorization: basic-auth
+HttpBasicAuth basic-auth = (HttpBasicAuth) defaultClient.getAuthentication("basic-auth");
+basic-auth.setUsername("YOUR USERNAME");
+basic-auth.setPassword("YOUR PASSWORD");
 
 DefaultApi apiInstance = new DefaultApi();
+Principal body = new Principal(); // Principal | 
 try {
-    List<DataItem> result = apiInstance.getAllDatamodels();
+    List<DataItem> result = apiInstance.getAllDatamodels(body);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling DefaultApi#getAllDatamodels");
@@ -183,7 +228,10 @@ try {
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**Principal**](Principal.md)|  | [optional]
 
 ### Return type
 
@@ -191,7 +239,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-No authorization required
+[basic-auth](../README.md#basic-auth)
 
 ### HTTP request headers
 
@@ -200,7 +248,7 @@ No authorization required
 
 <a name="getAllPresenterSessions"></a>
 # **getAllPresenterSessions**
-> List&lt;String&gt; getAllPresenterSessions()
+> List&lt;String&gt; getAllPresenterSessions(body)
 
 Retrieves all Presenters
 
@@ -209,13 +257,23 @@ Retrieves all Presenters
 ### Example
 ```java
 // Import classes:
+//import io.swagger.client.ApiClient;
 //import io.swagger.client.ApiException;
+//import io.swagger.client.Configuration;
+//import io.swagger.client.auth.*;
 //import io.swagger.client.api.DefaultApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure HTTP basic authorization: basic-auth
+HttpBasicAuth basic-auth = (HttpBasicAuth) defaultClient.getAuthentication("basic-auth");
+basic-auth.setUsername("YOUR USERNAME");
+basic-auth.setPassword("YOUR PASSWORD");
 
 DefaultApi apiInstance = new DefaultApi();
+Principal body = new Principal(); // Principal | 
 try {
-    List<String> result = apiInstance.getAllPresenterSessions();
+    List<String> result = apiInstance.getAllPresenterSessions(body);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling DefaultApi#getAllPresenterSessions");
@@ -224,7 +282,10 @@ try {
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**Principal**](Principal.md)|  | [optional]
 
 ### Return type
 
@@ -232,7 +293,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-No authorization required
+[basic-auth](../README.md#basic-auth)
 
 ### HTTP request headers
 
@@ -241,7 +302,7 @@ No authorization required
 
 <a name="getAllReplies"></a>
 # **getAllReplies**
-> List&lt;Reply&gt; getAllReplies()
+> List&lt;Reply&gt; getAllReplies(body)
 
 retrieves all Replys (mock)
 
@@ -250,13 +311,23 @@ retrieves all Replys (mock)
 ### Example
 ```java
 // Import classes:
+//import io.swagger.client.ApiClient;
 //import io.swagger.client.ApiException;
+//import io.swagger.client.Configuration;
+//import io.swagger.client.auth.*;
 //import io.swagger.client.api.DefaultApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure HTTP basic authorization: basic-auth
+HttpBasicAuth basic-auth = (HttpBasicAuth) defaultClient.getAuthentication("basic-auth");
+basic-auth.setUsername("YOUR USERNAME");
+basic-auth.setPassword("YOUR PASSWORD");
 
 DefaultApi apiInstance = new DefaultApi();
+Principal body = new Principal(); // Principal | 
 try {
-    List<Reply> result = apiInstance.getAllReplies();
+    List<Reply> result = apiInstance.getAllReplies(body);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling DefaultApi#getAllReplies");
@@ -265,7 +336,10 @@ try {
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**Principal**](Principal.md)|  | [optional]
 
 ### Return type
 
@@ -273,7 +347,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-No authorization required
+[basic-auth](../README.md#basic-auth)
 
 ### HTTP request headers
 
@@ -282,7 +356,7 @@ No authorization required
 
 <a name="getAllTweets"></a>
 # **getAllTweets**
-> List&lt;Question&gt; getAllTweets()
+> List&lt;Question&gt; getAllTweets(body)
 
 retrieves all Questions
 
@@ -291,13 +365,23 @@ retrieves all Questions
 ### Example
 ```java
 // Import classes:
+//import io.swagger.client.ApiClient;
 //import io.swagger.client.ApiException;
+//import io.swagger.client.Configuration;
+//import io.swagger.client.auth.*;
 //import io.swagger.client.api.DefaultApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure HTTP basic authorization: basic-auth
+HttpBasicAuth basic-auth = (HttpBasicAuth) defaultClient.getAuthentication("basic-auth");
+basic-auth.setUsername("YOUR USERNAME");
+basic-auth.setPassword("YOUR PASSWORD");
 
 DefaultApi apiInstance = new DefaultApi();
+Principal body = new Principal(); // Principal | 
 try {
-    List<Question> result = apiInstance.getAllTweets();
+    List<Question> result = apiInstance.getAllTweets(body);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling DefaultApi#getAllTweets");
@@ -306,7 +390,10 @@ try {
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**Principal**](Principal.md)|  | [optional]
 
 ### Return type
 
@@ -314,7 +401,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-No authorization required
+[basic-auth](../README.md#basic-auth)
 
 ### HTTP request headers
 
@@ -323,7 +410,7 @@ No authorization required
 
 <a name="getAllTwitterWallSessions"></a>
 # **getAllTwitterWallSessions**
-> List&lt;String&gt; getAllTwitterWallSessions()
+> List&lt;String&gt; getAllTwitterWallSessions(body)
 
 retrieves all twitter wall listeners
 
@@ -332,13 +419,23 @@ retrieves all twitter wall listeners
 ### Example
 ```java
 // Import classes:
+//import io.swagger.client.ApiClient;
 //import io.swagger.client.ApiException;
+//import io.swagger.client.Configuration;
+//import io.swagger.client.auth.*;
 //import io.swagger.client.api.DefaultApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure HTTP basic authorization: basic-auth
+HttpBasicAuth basic-auth = (HttpBasicAuth) defaultClient.getAuthentication("basic-auth");
+basic-auth.setUsername("YOUR USERNAME");
+basic-auth.setPassword("YOUR PASSWORD");
 
 DefaultApi apiInstance = new DefaultApi();
+Principal body = new Principal(); // Principal | 
 try {
-    List<String> result = apiInstance.getAllTwitterWallSessions();
+    List<String> result = apiInstance.getAllTwitterWallSessions(body);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling DefaultApi#getAllTwitterWallSessions");
@@ -347,7 +444,10 @@ try {
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**Principal**](Principal.md)|  | [optional]
 
 ### Return type
 
@@ -355,7 +455,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-No authorization required
+[basic-auth](../README.md#basic-auth)
 
 ### HTTP request headers
 
@@ -364,7 +464,7 @@ No authorization required
 
 <a name="getPresentations"></a>
 # **getPresentations**
-> Map&lt;String, String&gt; getPresentations()
+> Map&lt;String, String&gt; getPresentations(body)
 
 Returns a mapping ordered by timestamp of all presentationNames
 
@@ -373,13 +473,23 @@ Returns a mapping ordered by timestamp of all presentationNames
 ### Example
 ```java
 // Import classes:
+//import io.swagger.client.ApiClient;
 //import io.swagger.client.ApiException;
+//import io.swagger.client.Configuration;
+//import io.swagger.client.auth.*;
 //import io.swagger.client.api.DefaultApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure HTTP basic authorization: basic-auth
+HttpBasicAuth basic-auth = (HttpBasicAuth) defaultClient.getAuthentication("basic-auth");
+basic-auth.setUsername("YOUR USERNAME");
+basic-auth.setPassword("YOUR PASSWORD");
 
 DefaultApi apiInstance = new DefaultApi();
+Principal body = new Principal(); // Principal | 
 try {
-    Map<String, String> result = apiInstance.getPresentations();
+    Map<String, String> result = apiInstance.getPresentations(body);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling DefaultApi#getPresentations");
@@ -388,7 +498,10 @@ try {
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**Principal**](Principal.md)|  | [optional]
 
 ### Return type
 
@@ -396,7 +509,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-No authorization required
+[basic-auth](../README.md#basic-auth)
 
 ### HTTP request headers
 
@@ -405,7 +518,7 @@ No authorization required
 
 <a name="getSingleTweet"></a>
 # **getSingleTweet**
-> Question getSingleTweet(id)
+> Question getSingleTweet(id, body)
 
 retrieves question by Id
 
@@ -414,14 +527,24 @@ retrieves question by Id
 ### Example
 ```java
 // Import classes:
+//import io.swagger.client.ApiClient;
 //import io.swagger.client.ApiException;
+//import io.swagger.client.Configuration;
+//import io.swagger.client.auth.*;
 //import io.swagger.client.api.DefaultApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure HTTP basic authorization: basic-auth
+HttpBasicAuth basic-auth = (HttpBasicAuth) defaultClient.getAuthentication("basic-auth");
+basic-auth.setUsername("YOUR USERNAME");
+basic-auth.setPassword("YOUR PASSWORD");
 
 DefaultApi apiInstance = new DefaultApi();
 String id = "id_example"; // String | 
+Principal body = new Principal(); // Principal | 
 try {
-    Question result = apiInstance.getSingleTweet(id);
+    Question result = apiInstance.getSingleTweet(id, body);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling DefaultApi#getSingleTweet");
@@ -434,6 +557,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**|  |
+ **body** | [**Principal**](Principal.md)|  | [optional]
 
 ### Return type
 
@@ -441,7 +565,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[basic-auth](../README.md#basic-auth)
 
 ### HTTP request headers
 
@@ -450,7 +574,7 @@ No authorization required
 
 <a name="getSlideForPresentationNameAndSlideNumber"></a>
 # **getSlideForPresentationNameAndSlideNumber**
-> String getSlideForPresentationNameAndSlideNumber(presentationName, slideNumber)
+> String getSlideForPresentationNameAndSlideNumber(presentationName, slideNumber, body)
 
 Returns slidePath for PresentationName / SlideNumber
 
@@ -459,15 +583,25 @@ Returns slidePath for PresentationName / SlideNumber
 ### Example
 ```java
 // Import classes:
+//import io.swagger.client.ApiClient;
 //import io.swagger.client.ApiException;
+//import io.swagger.client.Configuration;
+//import io.swagger.client.auth.*;
 //import io.swagger.client.api.DefaultApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure HTTP basic authorization: basic-auth
+HttpBasicAuth basic-auth = (HttpBasicAuth) defaultClient.getAuthentication("basic-auth");
+basic-auth.setUsername("YOUR USERNAME");
+basic-auth.setPassword("YOUR PASSWORD");
 
 DefaultApi apiInstance = new DefaultApi();
 String presentationName = "presentationName_example"; // String | 
 Integer slideNumber = 56; // Integer | 
+Principal body = new Principal(); // Principal | 
 try {
-    String result = apiInstance.getSlideForPresentationNameAndSlideNumber(presentationName, slideNumber);
+    String result = apiInstance.getSlideForPresentationNameAndSlideNumber(presentationName, slideNumber, body);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling DefaultApi#getSlideForPresentationNameAndSlideNumber");
@@ -481,6 +615,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **presentationName** | **String**|  |
  **slideNumber** | **Integer**|  |
+ **body** | [**Principal**](Principal.md)|  | [optional]
 
 ### Return type
 
@@ -488,7 +623,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[basic-auth](../README.md#basic-auth)
 
 ### HTTP request headers
 
@@ -497,7 +632,7 @@ No authorization required
 
 <a name="getSlideForPresentationNumberAndSlideName"></a>
 # **getSlideForPresentationNumberAndSlideName**
-> String getSlideForPresentationNumberAndSlideName(presentationNumber, slideName)
+> String getSlideForPresentationNumberAndSlideName(presentationNumber, slideName, body)
 
 Returns slidePath for PresentationNumber / SlideName
 
@@ -506,15 +641,25 @@ Returns slidePath for PresentationNumber / SlideName
 ### Example
 ```java
 // Import classes:
+//import io.swagger.client.ApiClient;
 //import io.swagger.client.ApiException;
+//import io.swagger.client.Configuration;
+//import io.swagger.client.auth.*;
 //import io.swagger.client.api.DefaultApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure HTTP basic authorization: basic-auth
+HttpBasicAuth basic-auth = (HttpBasicAuth) defaultClient.getAuthentication("basic-auth");
+basic-auth.setUsername("YOUR USERNAME");
+basic-auth.setPassword("YOUR PASSWORD");
 
 DefaultApi apiInstance = new DefaultApi();
 Integer presentationNumber = 56; // Integer | 
 String slideName = "slideName_example"; // String | 
+Principal body = new Principal(); // Principal | 
 try {
-    String result = apiInstance.getSlideForPresentationNumberAndSlideName(presentationNumber, slideName);
+    String result = apiInstance.getSlideForPresentationNumberAndSlideName(presentationNumber, slideName, body);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling DefaultApi#getSlideForPresentationNumberAndSlideName");
@@ -528,6 +673,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **presentationNumber** | **Integer**|  |
  **slideName** | **String**|  |
+ **body** | [**Principal**](Principal.md)|  | [optional]
 
 ### Return type
 
@@ -535,7 +681,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[basic-auth](../README.md#basic-auth)
 
 ### HTTP request headers
 
@@ -544,7 +690,7 @@ No authorization required
 
 <a name="getSlideForPresentationNumberAndSlideNumber"></a>
 # **getSlideForPresentationNumberAndSlideNumber**
-> String getSlideForPresentationNumberAndSlideNumber(presentationNumber, slideNumber)
+> String getSlideForPresentationNumberAndSlideNumber(presentationNumber, slideNumber, body)
 
 Returns slidePath for PresentationNumber / SlideNumber
 
@@ -553,15 +699,25 @@ Returns slidePath for PresentationNumber / SlideNumber
 ### Example
 ```java
 // Import classes:
+//import io.swagger.client.ApiClient;
 //import io.swagger.client.ApiException;
+//import io.swagger.client.Configuration;
+//import io.swagger.client.auth.*;
 //import io.swagger.client.api.DefaultApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure HTTP basic authorization: basic-auth
+HttpBasicAuth basic-auth = (HttpBasicAuth) defaultClient.getAuthentication("basic-auth");
+basic-auth.setUsername("YOUR USERNAME");
+basic-auth.setPassword("YOUR PASSWORD");
 
 DefaultApi apiInstance = new DefaultApi();
 Integer presentationNumber = 56; // Integer | 
 Integer slideNumber = 56; // Integer | 
+Principal body = new Principal(); // Principal | 
 try {
-    String result = apiInstance.getSlideForPresentationNumberAndSlideNumber(presentationNumber, slideNumber);
+    String result = apiInstance.getSlideForPresentationNumberAndSlideNumber(presentationNumber, slideNumber, body);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling DefaultApi#getSlideForPresentationNumberAndSlideNumber");
@@ -575,6 +731,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **presentationNumber** | **Integer**|  |
  **slideNumber** | **Integer**|  |
+ **body** | [**Principal**](Principal.md)|  | [optional]
 
 ### Return type
 
@@ -582,7 +739,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[basic-auth](../README.md#basic-auth)
 
 ### HTTP request headers
 
@@ -591,7 +748,7 @@ No authorization required
 
 <a name="getSlidesForPresentationName"></a>
 # **getSlidesForPresentationName**
-> Map&lt;String, String&gt; getSlidesForPresentationName(presentationName)
+> Map&lt;String, String&gt; getSlidesForPresentationName(presentationName, body)
 
 Returns all Slides for PresentationName
 
@@ -600,14 +757,24 @@ Returns all Slides for PresentationName
 ### Example
 ```java
 // Import classes:
+//import io.swagger.client.ApiClient;
 //import io.swagger.client.ApiException;
+//import io.swagger.client.Configuration;
+//import io.swagger.client.auth.*;
 //import io.swagger.client.api.DefaultApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure HTTP basic authorization: basic-auth
+HttpBasicAuth basic-auth = (HttpBasicAuth) defaultClient.getAuthentication("basic-auth");
+basic-auth.setUsername("YOUR USERNAME");
+basic-auth.setPassword("YOUR PASSWORD");
 
 DefaultApi apiInstance = new DefaultApi();
 String presentationName = "presentationName_example"; // String | 
+Principal body = new Principal(); // Principal | 
 try {
-    Map<String, String> result = apiInstance.getSlidesForPresentationName(presentationName);
+    Map<String, String> result = apiInstance.getSlidesForPresentationName(presentationName, body);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling DefaultApi#getSlidesForPresentationName");
@@ -620,6 +787,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **presentationName** | **String**|  |
+ **body** | [**Principal**](Principal.md)|  | [optional]
 
 ### Return type
 
@@ -627,7 +795,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[basic-auth](../README.md#basic-auth)
 
 ### HTTP request headers
 
@@ -636,7 +804,7 @@ No authorization required
 
 <a name="getSlidesForPresentationNameAndSlideName"></a>
 # **getSlidesForPresentationNameAndSlideName**
-> String getSlidesForPresentationNameAndSlideName(presentationName, slideName)
+> String getSlidesForPresentationNameAndSlideName(presentationName, slideName, body)
 
 Returns slidePath for PresentationNumber / SlideName
 
@@ -645,15 +813,25 @@ Returns slidePath for PresentationNumber / SlideName
 ### Example
 ```java
 // Import classes:
+//import io.swagger.client.ApiClient;
 //import io.swagger.client.ApiException;
+//import io.swagger.client.Configuration;
+//import io.swagger.client.auth.*;
 //import io.swagger.client.api.DefaultApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure HTTP basic authorization: basic-auth
+HttpBasicAuth basic-auth = (HttpBasicAuth) defaultClient.getAuthentication("basic-auth");
+basic-auth.setUsername("YOUR USERNAME");
+basic-auth.setPassword("YOUR PASSWORD");
 
 DefaultApi apiInstance = new DefaultApi();
 String presentationName = "presentationName_example"; // String | 
 String slideName = "slideName_example"; // String | 
+Principal body = new Principal(); // Principal | 
 try {
-    String result = apiInstance.getSlidesForPresentationNameAndSlideName(presentationName, slideName);
+    String result = apiInstance.getSlidesForPresentationNameAndSlideName(presentationName, slideName, body);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling DefaultApi#getSlidesForPresentationNameAndSlideName");
@@ -667,6 +845,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **presentationName** | **String**|  |
  **slideName** | **String**|  |
+ **body** | [**Principal**](Principal.md)|  | [optional]
 
 ### Return type
 
@@ -674,7 +853,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[basic-auth](../README.md#basic-auth)
 
 ### HTTP request headers
 
@@ -683,7 +862,7 @@ No authorization required
 
 <a name="getSlidesForPresentationNumber"></a>
 # **getSlidesForPresentationNumber**
-> Map&lt;String, String&gt; getSlidesForPresentationNumber(presentationNumber)
+> Map&lt;String, String&gt; getSlidesForPresentationNumber(presentationNumber, body)
 
 Returns all Slides for PresentationNumber
 
@@ -692,14 +871,24 @@ Returns all Slides for PresentationNumber
 ### Example
 ```java
 // Import classes:
+//import io.swagger.client.ApiClient;
 //import io.swagger.client.ApiException;
+//import io.swagger.client.Configuration;
+//import io.swagger.client.auth.*;
 //import io.swagger.client.api.DefaultApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure HTTP basic authorization: basic-auth
+HttpBasicAuth basic-auth = (HttpBasicAuth) defaultClient.getAuthentication("basic-auth");
+basic-auth.setUsername("YOUR USERNAME");
+basic-auth.setPassword("YOUR PASSWORD");
 
 DefaultApi apiInstance = new DefaultApi();
 Integer presentationNumber = 56; // Integer | 
+Principal body = new Principal(); // Principal | 
 try {
-    Map<String, String> result = apiInstance.getSlidesForPresentationNumber(presentationNumber);
+    Map<String, String> result = apiInstance.getSlidesForPresentationNumber(presentationNumber, body);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling DefaultApi#getSlidesForPresentationNumber");
@@ -712,6 +901,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **presentationNumber** | **Integer**|  |
+ **body** | [**Principal**](Principal.md)|  | [optional]
 
 ### Return type
 
@@ -719,7 +909,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[basic-auth](../README.md#basic-auth)
 
 ### HTTP request headers
 
@@ -728,7 +918,7 @@ No authorization required
 
 <a name="postFeedbackToDB"></a>
 # **postFeedbackToDB**
-> Feedback postFeedbackToDB(body)
+> Feedback postFeedbackToDB(body, body2)
 
 saves a new Feedback, updates it if already existent
 
@@ -737,14 +927,24 @@ saves a new Feedback, updates it if already existent
 ### Example
 ```java
 // Import classes:
+//import io.swagger.client.ApiClient;
 //import io.swagger.client.ApiException;
+//import io.swagger.client.Configuration;
+//import io.swagger.client.auth.*;
 //import io.swagger.client.api.DefaultApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure HTTP basic authorization: basic-auth
+HttpBasicAuth basic-auth = (HttpBasicAuth) defaultClient.getAuthentication("basic-auth");
+basic-auth.setUsername("YOUR USERNAME");
+basic-auth.setPassword("YOUR PASSWORD");
 
 DefaultApi apiInstance = new DefaultApi();
-Feedback body = new Feedback(); // Feedback | 
+Principal body = new Principal(); // Principal | 
+Feedback body2 = new Feedback(); // Feedback | 
 try {
-    Feedback result = apiInstance.postFeedbackToDB(body);
+    Feedback result = apiInstance.postFeedbackToDB(body, body2);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling DefaultApi#postFeedbackToDB");
@@ -756,7 +956,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**Feedback**](Feedback.md)|  | [optional]
+ **body** | [**Principal**](Principal.md)|  | [optional]
+ **body2** | [**Feedback**](Feedback.md)|  | [optional]
 
 ### Return type
 
@@ -764,7 +965,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[basic-auth](../README.md#basic-auth)
 
 ### HTTP request headers
 
@@ -773,7 +974,7 @@ No authorization required
 
 <a name="postReplyAndCloseQuestion"></a>
 # **postReplyAndCloseQuestion**
-> Question postReplyAndCloseQuestion(id)
+> Question postReplyAndCloseQuestion(id, body)
 
 saves a new Question, updates it if already existent
 
@@ -782,14 +983,24 @@ saves a new Question, updates it if already existent
 ### Example
 ```java
 // Import classes:
+//import io.swagger.client.ApiClient;
 //import io.swagger.client.ApiException;
+//import io.swagger.client.Configuration;
+//import io.swagger.client.auth.*;
 //import io.swagger.client.api.DefaultApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure HTTP basic authorization: basic-auth
+HttpBasicAuth basic-auth = (HttpBasicAuth) defaultClient.getAuthentication("basic-auth");
+basic-auth.setUsername("YOUR USERNAME");
+basic-auth.setPassword("YOUR PASSWORD");
 
 DefaultApi apiInstance = new DefaultApi();
 String id = "id_example"; // String | 
+Principal body = new Principal(); // Principal | 
 try {
-    Question result = apiInstance.postReplyAndCloseQuestion(id);
+    Question result = apiInstance.postReplyAndCloseQuestion(id, body);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling DefaultApi#postReplyAndCloseQuestion");
@@ -802,6 +1013,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**|  |
+ **body** | [**Principal**](Principal.md)|  | [optional]
 
 ### Return type
 
@@ -809,7 +1021,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[basic-auth](../README.md#basic-auth)
 
 ### HTTP request headers
 
@@ -818,7 +1030,7 @@ No authorization required
 
 <a name="postTweetInDB"></a>
 # **postTweetInDB**
-> Question postTweetInDB(body)
+> Question postTweetInDB(body, body2)
 
 saves a new Question, updates it if already existent
 
@@ -827,14 +1039,24 @@ saves a new Question, updates it if already existent
 ### Example
 ```java
 // Import classes:
+//import io.swagger.client.ApiClient;
 //import io.swagger.client.ApiException;
+//import io.swagger.client.Configuration;
+//import io.swagger.client.auth.*;
 //import io.swagger.client.api.DefaultApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure HTTP basic authorization: basic-auth
+HttpBasicAuth basic-auth = (HttpBasicAuth) defaultClient.getAuthentication("basic-auth");
+basic-auth.setUsername("YOUR USERNAME");
+basic-auth.setPassword("YOUR PASSWORD");
 
 DefaultApi apiInstance = new DefaultApi();
-Question body = new Question(); // Question | 
+Principal body = new Principal(); // Principal | 
+Question body2 = new Question(); // Question | 
 try {
-    Question result = apiInstance.postTweetInDB(body);
+    Question result = apiInstance.postTweetInDB(body, body2);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling DefaultApi#postTweetInDB");
@@ -846,7 +1068,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**Question**](Question.md)|  | [optional]
+ **body** | [**Principal**](Principal.md)|  | [optional]
+ **body2** | [**Question**](Question.md)|  | [optional]
 
 ### Return type
 
@@ -854,7 +1077,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[basic-auth](../README.md#basic-auth)
 
 ### HTTP request headers
 
@@ -863,7 +1086,7 @@ No authorization required
 
 <a name="updateTweetInDB"></a>
 # **updateTweetInDB**
-> Question updateTweetInDB(body)
+> Question updateTweetInDB(body, body2)
 
 saves a new Question, updates it if already existent
 
@@ -872,14 +1095,24 @@ saves a new Question, updates it if already existent
 ### Example
 ```java
 // Import classes:
+//import io.swagger.client.ApiClient;
 //import io.swagger.client.ApiException;
+//import io.swagger.client.Configuration;
+//import io.swagger.client.auth.*;
 //import io.swagger.client.api.DefaultApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure HTTP basic authorization: basic-auth
+HttpBasicAuth basic-auth = (HttpBasicAuth) defaultClient.getAuthentication("basic-auth");
+basic-auth.setUsername("YOUR USERNAME");
+basic-auth.setPassword("YOUR PASSWORD");
 
 DefaultApi apiInstance = new DefaultApi();
-Question body = new Question(); // Question | 
+Principal body = new Principal(); // Principal | 
+Question body2 = new Question(); // Question | 
 try {
-    Question result = apiInstance.updateTweetInDB(body);
+    Question result = apiInstance.updateTweetInDB(body, body2);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling DefaultApi#updateTweetInDB");
@@ -891,7 +1124,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**Question**](Question.md)|  | [optional]
+ **body** | [**Principal**](Principal.md)|  | [optional]
+ **body2** | [**Question**](Question.md)|  | [optional]
 
 ### Return type
 
@@ -899,7 +1133,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[basic-auth](../README.md#basic-auth)
 
 ### HTTP request headers
 
