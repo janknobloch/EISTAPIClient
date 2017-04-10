@@ -77,10 +77,9 @@ public class DefaultApiExample {
         basic-auth.setPassword("YOUR PASSWORD");
 
         DefaultApi apiInstance = new DefaultApi();
-        Principal body = new Principal(); // Principal | 
-        Question body2 = new Question(); // Question | 
+        Question body = new Question(); // Question | 
         try {
-            Question result = apiInstance.deleteTweetInDB(body, body2);
+            Question result = apiInstance.deleteTweetInDB(body);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling DefaultApi#deleteTweetInDB");
@@ -121,7 +120,6 @@ Class | Method | HTTP request | Description
 
 ## Documentation for Models
 
- - [Principal](docs/Principal.md)
 
 
 ## Documentation for Authorization

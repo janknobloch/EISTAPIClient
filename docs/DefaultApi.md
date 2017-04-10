@@ -28,7 +28,7 @@ Method | HTTP request | Description
 
 <a name="deleteTweetInDB"></a>
 # **deleteTweetInDB**
-> Question deleteTweetInDB(body, body2)
+> Question deleteTweetInDB(body)
 
 deletes a given Question
 
@@ -51,10 +51,9 @@ basic-auth.setUsername("YOUR USERNAME");
 basic-auth.setPassword("YOUR PASSWORD");
 
 DefaultApi apiInstance = new DefaultApi();
-Principal body = new Principal(); // Principal | 
-Question body2 = new Question(); // Question | 
+Question body = new Question(); // Question | 
 try {
-    Question result = apiInstance.deleteTweetInDB(body, body2);
+    Question result = apiInstance.deleteTweetInDB(body);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling DefaultApi#deleteTweetInDB");
@@ -66,8 +65,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**Principal**](Principal.md)|  | [optional]
- **body2** | [**Question**](Question.md)|  | [optional]
+ **body** | [**Question**](Question.md)|  | [optional]
 
 ### Return type
 
@@ -84,7 +82,7 @@ Name | Type | Description  | Notes
 
 <a name="deleteTweetInDBById"></a>
 # **deleteTweetInDBById**
-> Question deleteTweetInDBById(body, body2)
+> Question deleteTweetInDBById(body)
 
 deletes a given Question by using its ID
 
@@ -107,10 +105,9 @@ basic-auth.setUsername("YOUR USERNAME");
 basic-auth.setPassword("YOUR PASSWORD");
 
 DefaultApi apiInstance = new DefaultApi();
-Principal body = new Principal(); // Principal | 
-String body2 = "body_example"; // String | 
+String body = "body_example"; // String | 
 try {
-    Question result = apiInstance.deleteTweetInDBById(body, body2);
+    Question result = apiInstance.deleteTweetInDBById(body);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling DefaultApi#deleteTweetInDBById");
@@ -122,8 +119,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**Principal**](Principal.md)|  | [optional]
- **body2** | **String**|  | [optional]
+ **body** | **String**|  | [optional]
 
 ### Return type
 
@@ -140,7 +136,7 @@ Name | Type | Description  | Notes
 
 <a name="getActiveSlides"></a>
 # **getActiveSlides**
-> ActiveSlidePath getActiveSlides(body)
+> ActiveSlidePath getActiveSlides()
 
 Returns an Array of active slides for (ppt, key, and dev)
 
@@ -163,9 +159,8 @@ basic-auth.setUsername("YOUR USERNAME");
 basic-auth.setPassword("YOUR PASSWORD");
 
 DefaultApi apiInstance = new DefaultApi();
-Principal body = new Principal(); // Principal | 
 try {
-    ActiveSlidePath result = apiInstance.getActiveSlides(body);
+    ActiveSlidePath result = apiInstance.getActiveSlides();
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling DefaultApi#getActiveSlides");
@@ -174,10 +169,7 @@ try {
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | [**Principal**](Principal.md)|  | [optional]
+This endpoint does not need any parameter.
 
 ### Return type
 
@@ -194,7 +186,7 @@ Name | Type | Description  | Notes
 
 <a name="getAllDatamodels"></a>
 # **getAllDatamodels**
-> List&lt;DataItem&gt; getAllDatamodels(body)
+> List&lt;DataItem&gt; getAllDatamodels()
 
 retrieves all DataItem (mock)
 
@@ -217,9 +209,8 @@ basic-auth.setUsername("YOUR USERNAME");
 basic-auth.setPassword("YOUR PASSWORD");
 
 DefaultApi apiInstance = new DefaultApi();
-Principal body = new Principal(); // Principal | 
 try {
-    List<DataItem> result = apiInstance.getAllDatamodels(body);
+    List<DataItem> result = apiInstance.getAllDatamodels();
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling DefaultApi#getAllDatamodels");
@@ -228,10 +219,7 @@ try {
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | [**Principal**](Principal.md)|  | [optional]
+This endpoint does not need any parameter.
 
 ### Return type
 
@@ -248,7 +236,7 @@ Name | Type | Description  | Notes
 
 <a name="getAllPresenterSessions"></a>
 # **getAllPresenterSessions**
-> List&lt;String&gt; getAllPresenterSessions(body)
+> List&lt;String&gt; getAllPresenterSessions()
 
 Retrieves all Presenters
 
@@ -271,9 +259,8 @@ basic-auth.setUsername("YOUR USERNAME");
 basic-auth.setPassword("YOUR PASSWORD");
 
 DefaultApi apiInstance = new DefaultApi();
-Principal body = new Principal(); // Principal | 
 try {
-    List<String> result = apiInstance.getAllPresenterSessions(body);
+    List<String> result = apiInstance.getAllPresenterSessions();
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling DefaultApi#getAllPresenterSessions");
@@ -282,10 +269,7 @@ try {
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | [**Principal**](Principal.md)|  | [optional]
+This endpoint does not need any parameter.
 
 ### Return type
 
@@ -302,7 +286,7 @@ Name | Type | Description  | Notes
 
 <a name="getAllReplies"></a>
 # **getAllReplies**
-> List&lt;Reply&gt; getAllReplies(body)
+> List&lt;Reply&gt; getAllReplies()
 
 retrieves all Replys (mock)
 
@@ -325,9 +309,8 @@ basic-auth.setUsername("YOUR USERNAME");
 basic-auth.setPassword("YOUR PASSWORD");
 
 DefaultApi apiInstance = new DefaultApi();
-Principal body = new Principal(); // Principal | 
 try {
-    List<Reply> result = apiInstance.getAllReplies(body);
+    List<Reply> result = apiInstance.getAllReplies();
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling DefaultApi#getAllReplies");
@@ -336,10 +319,7 @@ try {
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | [**Principal**](Principal.md)|  | [optional]
+This endpoint does not need any parameter.
 
 ### Return type
 
@@ -356,7 +336,7 @@ Name | Type | Description  | Notes
 
 <a name="getAllTweets"></a>
 # **getAllTweets**
-> List&lt;Question&gt; getAllTweets(body)
+> List&lt;Question&gt; getAllTweets()
 
 retrieves all Questions
 
@@ -379,9 +359,8 @@ basic-auth.setUsername("YOUR USERNAME");
 basic-auth.setPassword("YOUR PASSWORD");
 
 DefaultApi apiInstance = new DefaultApi();
-Principal body = new Principal(); // Principal | 
 try {
-    List<Question> result = apiInstance.getAllTweets(body);
+    List<Question> result = apiInstance.getAllTweets();
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling DefaultApi#getAllTweets");
@@ -390,10 +369,7 @@ try {
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | [**Principal**](Principal.md)|  | [optional]
+This endpoint does not need any parameter.
 
 ### Return type
 
@@ -410,7 +386,7 @@ Name | Type | Description  | Notes
 
 <a name="getAllTwitterWallSessions"></a>
 # **getAllTwitterWallSessions**
-> List&lt;String&gt; getAllTwitterWallSessions(body)
+> List&lt;String&gt; getAllTwitterWallSessions()
 
 retrieves all twitter wall listeners
 
@@ -433,9 +409,8 @@ basic-auth.setUsername("YOUR USERNAME");
 basic-auth.setPassword("YOUR PASSWORD");
 
 DefaultApi apiInstance = new DefaultApi();
-Principal body = new Principal(); // Principal | 
 try {
-    List<String> result = apiInstance.getAllTwitterWallSessions(body);
+    List<String> result = apiInstance.getAllTwitterWallSessions();
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling DefaultApi#getAllTwitterWallSessions");
@@ -444,10 +419,7 @@ try {
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | [**Principal**](Principal.md)|  | [optional]
+This endpoint does not need any parameter.
 
 ### Return type
 
@@ -464,7 +436,7 @@ Name | Type | Description  | Notes
 
 <a name="getPresentations"></a>
 # **getPresentations**
-> Map&lt;String, String&gt; getPresentations(body)
+> Map&lt;String, String&gt; getPresentations()
 
 Returns a mapping ordered by timestamp of all presentationNames
 
@@ -487,9 +459,8 @@ basic-auth.setUsername("YOUR USERNAME");
 basic-auth.setPassword("YOUR PASSWORD");
 
 DefaultApi apiInstance = new DefaultApi();
-Principal body = new Principal(); // Principal | 
 try {
-    Map<String, String> result = apiInstance.getPresentations(body);
+    Map<String, String> result = apiInstance.getPresentations();
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling DefaultApi#getPresentations");
@@ -498,10 +469,7 @@ try {
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | [**Principal**](Principal.md)|  | [optional]
+This endpoint does not need any parameter.
 
 ### Return type
 
@@ -518,7 +486,7 @@ Name | Type | Description  | Notes
 
 <a name="getSingleTweet"></a>
 # **getSingleTweet**
-> Question getSingleTweet(id, body)
+> Question getSingleTweet(id)
 
 retrieves question by Id
 
@@ -542,9 +510,8 @@ basic-auth.setPassword("YOUR PASSWORD");
 
 DefaultApi apiInstance = new DefaultApi();
 String id = "id_example"; // String | 
-Principal body = new Principal(); // Principal | 
 try {
-    Question result = apiInstance.getSingleTweet(id, body);
+    Question result = apiInstance.getSingleTweet(id);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling DefaultApi#getSingleTweet");
@@ -557,7 +524,6 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**|  |
- **body** | [**Principal**](Principal.md)|  | [optional]
 
 ### Return type
 
@@ -574,7 +540,7 @@ Name | Type | Description  | Notes
 
 <a name="getSlideForPresentationNameAndSlideNumber"></a>
 # **getSlideForPresentationNameAndSlideNumber**
-> String getSlideForPresentationNameAndSlideNumber(presentationName, slideNumber, body)
+> String getSlideForPresentationNameAndSlideNumber(presentationName, slideNumber)
 
 Returns slidePath for PresentationName / SlideNumber
 
@@ -599,9 +565,8 @@ basic-auth.setPassword("YOUR PASSWORD");
 DefaultApi apiInstance = new DefaultApi();
 String presentationName = "presentationName_example"; // String | 
 Integer slideNumber = 56; // Integer | 
-Principal body = new Principal(); // Principal | 
 try {
-    String result = apiInstance.getSlideForPresentationNameAndSlideNumber(presentationName, slideNumber, body);
+    String result = apiInstance.getSlideForPresentationNameAndSlideNumber(presentationName, slideNumber);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling DefaultApi#getSlideForPresentationNameAndSlideNumber");
@@ -615,7 +580,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **presentationName** | **String**|  |
  **slideNumber** | **Integer**|  |
- **body** | [**Principal**](Principal.md)|  | [optional]
 
 ### Return type
 
@@ -632,7 +596,7 @@ Name | Type | Description  | Notes
 
 <a name="getSlideForPresentationNumberAndSlideName"></a>
 # **getSlideForPresentationNumberAndSlideName**
-> String getSlideForPresentationNumberAndSlideName(presentationNumber, slideName, body)
+> String getSlideForPresentationNumberAndSlideName(presentationNumber, slideName)
 
 Returns slidePath for PresentationNumber / SlideName
 
@@ -657,9 +621,8 @@ basic-auth.setPassword("YOUR PASSWORD");
 DefaultApi apiInstance = new DefaultApi();
 Integer presentationNumber = 56; // Integer | 
 String slideName = "slideName_example"; // String | 
-Principal body = new Principal(); // Principal | 
 try {
-    String result = apiInstance.getSlideForPresentationNumberAndSlideName(presentationNumber, slideName, body);
+    String result = apiInstance.getSlideForPresentationNumberAndSlideName(presentationNumber, slideName);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling DefaultApi#getSlideForPresentationNumberAndSlideName");
@@ -673,7 +636,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **presentationNumber** | **Integer**|  |
  **slideName** | **String**|  |
- **body** | [**Principal**](Principal.md)|  | [optional]
 
 ### Return type
 
@@ -690,7 +652,7 @@ Name | Type | Description  | Notes
 
 <a name="getSlideForPresentationNumberAndSlideNumber"></a>
 # **getSlideForPresentationNumberAndSlideNumber**
-> String getSlideForPresentationNumberAndSlideNumber(presentationNumber, slideNumber, body)
+> String getSlideForPresentationNumberAndSlideNumber(presentationNumber, slideNumber)
 
 Returns slidePath for PresentationNumber / SlideNumber
 
@@ -715,9 +677,8 @@ basic-auth.setPassword("YOUR PASSWORD");
 DefaultApi apiInstance = new DefaultApi();
 Integer presentationNumber = 56; // Integer | 
 Integer slideNumber = 56; // Integer | 
-Principal body = new Principal(); // Principal | 
 try {
-    String result = apiInstance.getSlideForPresentationNumberAndSlideNumber(presentationNumber, slideNumber, body);
+    String result = apiInstance.getSlideForPresentationNumberAndSlideNumber(presentationNumber, slideNumber);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling DefaultApi#getSlideForPresentationNumberAndSlideNumber");
@@ -731,7 +692,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **presentationNumber** | **Integer**|  |
  **slideNumber** | **Integer**|  |
- **body** | [**Principal**](Principal.md)|  | [optional]
 
 ### Return type
 
@@ -748,7 +708,7 @@ Name | Type | Description  | Notes
 
 <a name="getSlidesForPresentationName"></a>
 # **getSlidesForPresentationName**
-> Map&lt;String, String&gt; getSlidesForPresentationName(presentationName, body)
+> Map&lt;String, String&gt; getSlidesForPresentationName(presentationName)
 
 Returns all Slides for PresentationName
 
@@ -772,9 +732,8 @@ basic-auth.setPassword("YOUR PASSWORD");
 
 DefaultApi apiInstance = new DefaultApi();
 String presentationName = "presentationName_example"; // String | 
-Principal body = new Principal(); // Principal | 
 try {
-    Map<String, String> result = apiInstance.getSlidesForPresentationName(presentationName, body);
+    Map<String, String> result = apiInstance.getSlidesForPresentationName(presentationName);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling DefaultApi#getSlidesForPresentationName");
@@ -787,7 +746,6 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **presentationName** | **String**|  |
- **body** | [**Principal**](Principal.md)|  | [optional]
 
 ### Return type
 
@@ -804,7 +762,7 @@ Name | Type | Description  | Notes
 
 <a name="getSlidesForPresentationNameAndSlideName"></a>
 # **getSlidesForPresentationNameAndSlideName**
-> String getSlidesForPresentationNameAndSlideName(presentationName, slideName, body)
+> String getSlidesForPresentationNameAndSlideName(presentationName, slideName)
 
 Returns slidePath for PresentationNumber / SlideName
 
@@ -829,9 +787,8 @@ basic-auth.setPassword("YOUR PASSWORD");
 DefaultApi apiInstance = new DefaultApi();
 String presentationName = "presentationName_example"; // String | 
 String slideName = "slideName_example"; // String | 
-Principal body = new Principal(); // Principal | 
 try {
-    String result = apiInstance.getSlidesForPresentationNameAndSlideName(presentationName, slideName, body);
+    String result = apiInstance.getSlidesForPresentationNameAndSlideName(presentationName, slideName);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling DefaultApi#getSlidesForPresentationNameAndSlideName");
@@ -845,7 +802,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **presentationName** | **String**|  |
  **slideName** | **String**|  |
- **body** | [**Principal**](Principal.md)|  | [optional]
 
 ### Return type
 
@@ -862,7 +818,7 @@ Name | Type | Description  | Notes
 
 <a name="getSlidesForPresentationNumber"></a>
 # **getSlidesForPresentationNumber**
-> Map&lt;String, String&gt; getSlidesForPresentationNumber(presentationNumber, body)
+> Map&lt;String, String&gt; getSlidesForPresentationNumber(presentationNumber)
 
 Returns all Slides for PresentationNumber
 
@@ -886,9 +842,8 @@ basic-auth.setPassword("YOUR PASSWORD");
 
 DefaultApi apiInstance = new DefaultApi();
 Integer presentationNumber = 56; // Integer | 
-Principal body = new Principal(); // Principal | 
 try {
-    Map<String, String> result = apiInstance.getSlidesForPresentationNumber(presentationNumber, body);
+    Map<String, String> result = apiInstance.getSlidesForPresentationNumber(presentationNumber);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling DefaultApi#getSlidesForPresentationNumber");
@@ -901,7 +856,6 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **presentationNumber** | **Integer**|  |
- **body** | [**Principal**](Principal.md)|  | [optional]
 
 ### Return type
 
@@ -918,7 +872,7 @@ Name | Type | Description  | Notes
 
 <a name="postFeedbackToDB"></a>
 # **postFeedbackToDB**
-> Feedback postFeedbackToDB(body, body2)
+> Feedback postFeedbackToDB(body)
 
 saves a new Feedback, updates it if already existent
 
@@ -941,10 +895,9 @@ basic-auth.setUsername("YOUR USERNAME");
 basic-auth.setPassword("YOUR PASSWORD");
 
 DefaultApi apiInstance = new DefaultApi();
-Principal body = new Principal(); // Principal | 
-Feedback body2 = new Feedback(); // Feedback | 
+Feedback body = new Feedback(); // Feedback | 
 try {
-    Feedback result = apiInstance.postFeedbackToDB(body, body2);
+    Feedback result = apiInstance.postFeedbackToDB(body);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling DefaultApi#postFeedbackToDB");
@@ -956,8 +909,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**Principal**](Principal.md)|  | [optional]
- **body2** | [**Feedback**](Feedback.md)|  | [optional]
+ **body** | [**Feedback**](Feedback.md)|  | [optional]
 
 ### Return type
 
@@ -974,7 +926,7 @@ Name | Type | Description  | Notes
 
 <a name="postReplyAndCloseQuestion"></a>
 # **postReplyAndCloseQuestion**
-> Question postReplyAndCloseQuestion(id, body)
+> Question postReplyAndCloseQuestion(id)
 
 saves a new Question, updates it if already existent
 
@@ -998,9 +950,8 @@ basic-auth.setPassword("YOUR PASSWORD");
 
 DefaultApi apiInstance = new DefaultApi();
 String id = "id_example"; // String | 
-Principal body = new Principal(); // Principal | 
 try {
-    Question result = apiInstance.postReplyAndCloseQuestion(id, body);
+    Question result = apiInstance.postReplyAndCloseQuestion(id);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling DefaultApi#postReplyAndCloseQuestion");
@@ -1013,7 +964,6 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**|  |
- **body** | [**Principal**](Principal.md)|  | [optional]
 
 ### Return type
 
@@ -1030,7 +980,7 @@ Name | Type | Description  | Notes
 
 <a name="postTweetInDB"></a>
 # **postTweetInDB**
-> Question postTweetInDB(body, body2)
+> Question postTweetInDB(body)
 
 saves a new Question, updates it if already existent
 
@@ -1053,10 +1003,9 @@ basic-auth.setUsername("YOUR USERNAME");
 basic-auth.setPassword("YOUR PASSWORD");
 
 DefaultApi apiInstance = new DefaultApi();
-Principal body = new Principal(); // Principal | 
-Question body2 = new Question(); // Question | 
+Question body = new Question(); // Question | 
 try {
-    Question result = apiInstance.postTweetInDB(body, body2);
+    Question result = apiInstance.postTweetInDB(body);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling DefaultApi#postTweetInDB");
@@ -1068,8 +1017,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**Principal**](Principal.md)|  | [optional]
- **body2** | [**Question**](Question.md)|  | [optional]
+ **body** | [**Question**](Question.md)|  | [optional]
 
 ### Return type
 
@@ -1086,7 +1034,7 @@ Name | Type | Description  | Notes
 
 <a name="updateTweetInDB"></a>
 # **updateTweetInDB**
-> Question updateTweetInDB(body, body2)
+> Question updateTweetInDB(body)
 
 saves a new Question, updates it if already existent
 
@@ -1109,10 +1057,9 @@ basic-auth.setUsername("YOUR USERNAME");
 basic-auth.setPassword("YOUR PASSWORD");
 
 DefaultApi apiInstance = new DefaultApi();
-Principal body = new Principal(); // Principal | 
-Question body2 = new Question(); // Question | 
+Question body = new Question(); // Question | 
 try {
-    Question result = apiInstance.updateTweetInDB(body, body2);
+    Question result = apiInstance.updateTweetInDB(body);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling DefaultApi#updateTweetInDB");
@@ -1124,8 +1071,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**Principal**](Principal.md)|  | [optional]
- **body2** | [**Question**](Question.md)|  | [optional]
+ **body** | [**Question**](Question.md)|  | [optional]
 
 ### Return type
 
