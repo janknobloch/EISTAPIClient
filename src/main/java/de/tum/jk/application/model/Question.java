@@ -3,28 +3,37 @@ package de.tum.jk.application.model;
 import lombok.Getter;
 import lombok.Setter;
 import org.joda.time.DateTime;
+import org.mongodb.morphia.annotations.Embedded;
+import org.mongodb.morphia.annotations.Entity;
+import org.mongodb.morphia.annotations.Property;
 
 import java.util.ArrayList;
 import java.util.Date;
 
+@Entity
 public class Question extends DataItem {
 
+	@Property
     @Getter
     @Setter
     protected int slideSet;
 
+	@Property
     @Getter
     @Setter
     protected int slide;
 
+	@Property
     @Getter
     @Setter
     protected String slideURL;
 
+	@Embedded
     @Getter
     @Setter
     private ArrayList<Reply> replies;
     
+	@Embedded
     @Getter
     @Setter
     private Reply bestanswer;

@@ -12,6 +12,9 @@ Method | HTTP request | Description
 [**getAllReplies**](DefaultApi.md#getAllReplies) | **GET** /bot/question/replies | retrieves all Replys (mock)
 [**getAllTweets**](DefaultApi.md#getAllTweets) | **GET** /bot/question | retrieves all Questions
 [**getAllTwitterWallSessions**](DefaultApi.md#getAllTwitterWallSessions) | **GET** /bot/twitterwalls | retrieves all twitter wall listeners
+[**getClosedLastNumTweets**](DefaultApi.md#getClosedLastNumTweets) | **GET** /bot/question/closed/last/{num} | retrieves last {num} closed Questions
+[**getClosedTweets**](DefaultApi.md#getClosedTweets) | **GET** /bot/question/closed | retrieves closed Questions
+[**getOpenTweets**](DefaultApi.md#getOpenTweets) | **GET** /bot/question/open | retrieves open Questions
 [**getPresentations**](DefaultApi.md#getPresentations) | **GET** /bot/presentation | Returns a mapping ordered by timestamp of all presentationNames
 [**getSingleTweet**](DefaultApi.md#getSingleTweet) | **GET** /bot/question/{id} | retrieves question by Id
 [**getSlideForPresentationNameAndSlideNumber**](DefaultApi.md#getSlideForPresentationNameAndSlideNumber) | **GET** /bot/presentation/name/{presentationName}/slide/number/{slideNumber} | Returns slidePath for PresentationName / SlideNumber
@@ -424,6 +427,160 @@ This endpoint does not need any parameter.
 ### Return type
 
 **List&lt;String&gt;**
+
+### Authorization
+
+[basic-auth](../README.md#basic-auth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="getClosedLastNumTweets"></a>
+# **getClosedLastNumTweets**
+> List&lt;Question&gt; getClosedLastNumTweets(num)
+
+retrieves last {num} closed Questions
+
+
+
+### Example
+```java
+// Import classes:
+//import io.swagger.client.ApiClient;
+//import io.swagger.client.ApiException;
+//import io.swagger.client.Configuration;
+//import io.swagger.client.auth.*;
+//import io.swagger.client.api.DefaultApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure HTTP basic authorization: basic-auth
+HttpBasicAuth basic-auth = (HttpBasicAuth) defaultClient.getAuthentication("basic-auth");
+basic-auth.setUsername("YOUR USERNAME");
+basic-auth.setPassword("YOUR PASSWORD");
+
+DefaultApi apiInstance = new DefaultApi();
+Integer num = 56; // Integer | 
+try {
+    List<Question> result = apiInstance.getClosedLastNumTweets(num);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling DefaultApi#getClosedLastNumTweets");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **num** | **Integer**|  |
+
+### Return type
+
+[**List&lt;Question&gt;**](Question.md)
+
+### Authorization
+
+[basic-auth](../README.md#basic-auth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="getClosedTweets"></a>
+# **getClosedTweets**
+> List&lt;Question&gt; getClosedTweets()
+
+retrieves closed Questions
+
+
+
+### Example
+```java
+// Import classes:
+//import io.swagger.client.ApiClient;
+//import io.swagger.client.ApiException;
+//import io.swagger.client.Configuration;
+//import io.swagger.client.auth.*;
+//import io.swagger.client.api.DefaultApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure HTTP basic authorization: basic-auth
+HttpBasicAuth basic-auth = (HttpBasicAuth) defaultClient.getAuthentication("basic-auth");
+basic-auth.setUsername("YOUR USERNAME");
+basic-auth.setPassword("YOUR PASSWORD");
+
+DefaultApi apiInstance = new DefaultApi();
+try {
+    List<Question> result = apiInstance.getClosedTweets();
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling DefaultApi#getClosedTweets");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**List&lt;Question&gt;**](Question.md)
+
+### Authorization
+
+[basic-auth](../README.md#basic-auth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="getOpenTweets"></a>
+# **getOpenTweets**
+> List&lt;Question&gt; getOpenTweets()
+
+retrieves open Questions
+
+
+
+### Example
+```java
+// Import classes:
+//import io.swagger.client.ApiClient;
+//import io.swagger.client.ApiException;
+//import io.swagger.client.Configuration;
+//import io.swagger.client.auth.*;
+//import io.swagger.client.api.DefaultApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure HTTP basic authorization: basic-auth
+HttpBasicAuth basic-auth = (HttpBasicAuth) defaultClient.getAuthentication("basic-auth");
+basic-auth.setUsername("YOUR USERNAME");
+basic-auth.setPassword("YOUR PASSWORD");
+
+DefaultApi apiInstance = new DefaultApi();
+try {
+    List<Question> result = apiInstance.getOpenTweets();
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling DefaultApi#getOpenTweets");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**List&lt;Question&gt;**](Question.md)
 
 ### Authorization
 

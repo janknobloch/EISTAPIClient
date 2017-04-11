@@ -159,6 +159,52 @@ public class DefaultApiTest {
     }
     
     /**
+     * retrieves last {num} closed Questions
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getClosedLastNumTweetsTest() throws ApiException {
+        Integer num = null;
+        List<Question> response = api.getClosedLastNumTweets(num);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * retrieves closed Questions
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getClosedTweetsTest() throws ApiException {
+        List<Question> response = api.getClosedTweets();
+
+        // TODO: test validations
+    }
+    
+    /**
+     * retrieves open Questions
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getOpenTweetsTest() throws ApiException {
+        List<Question> response = api.getOpenTweets();
+
+        // TODO: test validations
+    }
+    
+    /**
      * Returns a mapping ordered by timestamp of all presentationNames
      *
      * 

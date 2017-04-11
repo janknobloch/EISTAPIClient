@@ -1,9 +1,11 @@
 package de.tum.jk.application.model;
 
 import org.joda.time.DateTime;
+import org.mongodb.morphia.annotations.Entity;
 
 import java.util.Date;
 
+@Entity
 public class Reply extends DataItem {
 
 	public Reply() {
