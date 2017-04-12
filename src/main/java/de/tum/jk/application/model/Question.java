@@ -51,12 +51,15 @@ public class Question extends DataItem {
     }
 
     public String summarize() {
-        return ("Question ID: " + this.id + "\n") +
+        String summary = "Question ID: " + this.id + "\n" +
                 "Question: " + this.content + "\n" +
-                "Best Answer: " + bestanswer.getContent() + " \n" +
                 "Context: SlideSet:" + slideSet + "Slide:" + slide +
                 "\nContext URL: " + slideURL +
                 "\nVotes: " + upvotes;
+        if(this.bestanswer!=null){
+            summary = summary + "\nBest Answer: " + bestanswer.getContent();
+        }
+        return summary;
     }
 
     public void finalAnswer(String message_ts) {
