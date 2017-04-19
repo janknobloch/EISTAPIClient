@@ -9,12 +9,17 @@ public class ActiveSlidePath {
 
 	}
 
+
+
 	public ActiveSlidePath(String pptslide, String keyslide, String devslide) {
 		super();
 		this.pptslide = pptslide;
 		this.keyslide = keyslide;
 		this.devslide = devslide;
+		
 	}
+
+
 
 	@Getter
 	@Setter
@@ -25,10 +30,18 @@ public class ActiveSlidePath {
 	@Getter
 	@Setter
 	String devslide;
+	
+	@Getter
+	@Setter
+	int presentationNumber;
+	@Getter
+	@Setter
+	int slideNumber;
 	@Override
 	public String toString() {
-		return "ActiveSlidePathPPTKEY [\npptslide=" + pptslide + "\nkeyslide=" + keyslide + "\ndevslide=" + devslide
-				+ "\n]";
+		return "ActiveSlidePath [pptslide=" + pptslide + ", keyslide=" + keyslide + ", devslide=" + devslide + ", presentationNumber=" + presentationNumber + ", slideNumber="
+				+ slideNumber + "]";
 	}
-
+	
+	
 }
