@@ -190,6 +190,21 @@ public class DefaultApiTest {
     }
     
     /**
+     * retrieves highscores
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getHighscoresTest() throws ApiException {
+        Map<String, Integer> response = api.getHighscores();
+
+        // TODO: test validations
+    }
+    
+    /**
      * retrieves open Questions
      *
      * 

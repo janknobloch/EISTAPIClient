@@ -14,6 +14,7 @@ Method | HTTP request | Description
 [**getAllTwitterWallSessions**](DefaultApi.md#getAllTwitterWallSessions) | **GET** /bot/twitterwalls | retrieves all twitter wall listeners
 [**getClosedLastNumTweets**](DefaultApi.md#getClosedLastNumTweets) | **GET** /bot/question/closed/last/{num} | retrieves last {num} closed Questions
 [**getClosedTweets**](DefaultApi.md#getClosedTweets) | **GET** /bot/question/closed | retrieves closed Questions
+[**getHighscores**](DefaultApi.md#getHighscores) | **GET** /bot/highscores | retrieves highscores
 [**getOpenTweets**](DefaultApi.md#getOpenTweets) | **GET** /bot/question/open | retrieves open Questions
 [**getPresentations**](DefaultApi.md#getPresentations) | **GET** /bot/presentation | Returns a mapping ordered by timestamp of all presentationNames
 [**getSingleTweet**](DefaultApi.md#getSingleTweet) | **GET** /bot/question/{id} | retrieves question by Id
@@ -531,6 +532,56 @@ This endpoint does not need any parameter.
 ### Return type
 
 [**List&lt;Question&gt;**](Question.md)
+
+### Authorization
+
+[basic-auth](../README.md#basic-auth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="getHighscores"></a>
+# **getHighscores**
+> Map&lt;String, Integer&gt; getHighscores()
+
+retrieves highscores
+
+
+
+### Example
+```java
+// Import classes:
+//import io.swagger.client.ApiClient;
+//import io.swagger.client.ApiException;
+//import io.swagger.client.Configuration;
+//import io.swagger.client.auth.*;
+//import io.swagger.client.api.DefaultApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure HTTP basic authorization: basic-auth
+HttpBasicAuth basic-auth = (HttpBasicAuth) defaultClient.getAuthentication("basic-auth");
+basic-auth.setUsername("YOUR USERNAME");
+basic-auth.setPassword("YOUR PASSWORD");
+
+DefaultApi apiInstance = new DefaultApi();
+try {
+    Map<String, Integer> result = apiInstance.getHighscores();
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling DefaultApi#getHighscores");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**Map&lt;String, Integer&gt;**](Map.md)
 
 ### Authorization
 
