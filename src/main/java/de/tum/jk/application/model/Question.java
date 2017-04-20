@@ -52,6 +52,11 @@ public class Question extends DataItem {
     @Setter
     private int refSlide;
 
+    @Property
+    @Getter
+    @Setter
+    private String answerDate;
+    
     public Question(String id, String text, String author, DateTime date) {
         super(id, text, author, date);
         this.replies = new ArrayList<Reply>();
