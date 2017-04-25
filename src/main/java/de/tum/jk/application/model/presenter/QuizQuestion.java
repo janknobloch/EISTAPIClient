@@ -29,6 +29,7 @@ public abstract class QuizQuestion {
 
 	@Property
 	@Getter
+	@Setter
 	protected String date;
 
 	@Property
@@ -145,7 +146,7 @@ public abstract class QuizQuestion {
 		for (Entry<String, Integer> vote : votes.entrySet()) {
 			int percentage = (int) ((double) vote.getValue() / totalVotes * 100);
 			result = result + "\n" + "*" + vote.getKey() + "*" + ": ";
-			for (int j = 0; j <= percentage; j = j + 2) {
+			for (int j = 0; j <= percentage; j = j + 5) {
 				result = result + "█";
 			}
 			result = result + vote.getValue() + "   (" + percentage + "%)";
