@@ -40,7 +40,7 @@ public abstract class QuizQuestion {
 	@Property
 	@Getter
 	@Setter
-	protected Map<String, String> answerKeyText;
+	protected TreeMap<String, String> answerKeyText;
 
 	@Property
 	@Setter
@@ -73,6 +73,12 @@ public abstract class QuizQuestion {
 		votes = new HashMap<>();
 	}
 
+	
+	public void lastAnswerasCorrect(){
+       this.correctAnswerKey = answerKeyText.lastKey();
+	}
+	
+	
 	public void addAnswer(String text) throws QuizFullException {
 		if (answerKeyText.size() < keys.length) {
 			int index = answerKeyText.size();
