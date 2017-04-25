@@ -18,8 +18,14 @@ import java.util.TreeMap;
 public abstract class QuizQuestion {
 
 	@Id
-    @Getter
-    protected String id;
+	@Getter
+	@Setter
+	protected String id;
+
+	@Property
+	@Getter
+	@Setter
+	protected String content;
 	
 	@Property
     @Getter
@@ -51,9 +57,10 @@ public abstract class QuizQuestion {
     @Getter
     protected Map<String, String> votes;
     
+    @Property
     @Getter
     @Setter
-    private String content;
+    private String correct;
     
     @Getter
     @Setter
@@ -77,7 +84,7 @@ public abstract class QuizQuestion {
     public QuizQuestion() {
     	answerKeyText = new TreeMap<String,String>();
         firstCorrect = 3;
-        votes = new HashMap<String, String>();
+        votes = new HashMap<>();
         this.fastestAnswers = new ArrayList<>();
     }
 
@@ -105,8 +112,8 @@ public abstract class QuizQuestion {
         return map;
     }
 
-    public void lastAnswerasCorrect(){
-        this.correctAnswerNumber = answerKeyText.size() -1;
+    public void lastAnswerAsCorrect(){
+        this.correct = keys[answerKeyText.size()-1];
     }
 
     public String showQuiz(){
@@ -141,9 +148,9 @@ public abstract class QuizQuestion {
                 result = result + "█";
             }
             result = result  + vote.getValue() + "   (" + percentage + "%)" ;
-//            if(votes.keySet().get == correct){
-//                result = result + " (C)";
-//            }
+            if(vote.getKey().equals(correct)){
+                result = result + " (C)";
+           }
         }
         result += "\n\nTotal Votes: " + totalVotes;
         return result;

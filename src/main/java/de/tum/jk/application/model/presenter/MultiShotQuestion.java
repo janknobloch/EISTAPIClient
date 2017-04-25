@@ -17,7 +17,6 @@ public class MultiShotQuestion extends QuizQuestion {
         super();
         name = "Multi-Shot Question";
     }
-
     @Override
     public void updateVoteByUser(String user, String vote){
         //only add valid answers
