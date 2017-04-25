@@ -27,14 +27,14 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import io.swagger.client.model.ActiveSlidePath;
-import io.swagger.client.model.DataItem;
-import io.swagger.client.model.Feedback;
-import io.swagger.client.model.MultiShotQuestion;
-import io.swagger.client.model.Question;
-import io.swagger.client.model.QuizQuestion;
-import io.swagger.client.model.Reply;
-import io.swagger.client.model.SingleShotQuestion;
+import de.tum.jk.application.model.presenterTool.ActiveSlidePath;
+import de.tum.jk.application.model.students.DataItem;
+import de.tum.jk.application.model.students.Feedback;
+import de.tum.jk.application.model.presenter.MultiShotQuestion;
+import de.tum.jk.application.model.students.Question;
+import de.tum.jk.application.model.presenter.QuizQuestion;
+import de.tum.jk.application.model.students.Reply;
+import de.tum.jk.application.model.presenter.SingleShotQuestion;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;

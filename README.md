@@ -127,14 +127,6 @@ Class | Method | HTTP request | Description
 
 ## Documentation for Models
 
- - [ActiveSlidePath](docs/ActiveSlidePath.md)
- - [DataItem](docs/DataItem.md)
- - [Feedback](docs/Feedback.md)
- - [MultiShotQuestion](docs/MultiShotQuestion.md)
- - [Question](docs/Question.md)
- - [QuizQuestion](docs/QuizQuestion.md)
- - [Reply](docs/Reply.md)
- - [SingleShotQuestion](docs/SingleShotQuestion.md)
 
 
 ## Documentation for Authorization
