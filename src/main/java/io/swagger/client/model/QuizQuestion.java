@@ -25,7 +25,7 @@ import java.util.Map;
 /**
  * QuizQuestion
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-04-25T16:44:55.040+02:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-04-25T16:55:36.973+02:00")
 public class QuizQuestion {
   @SerializedName("id")
   private String id = null;
