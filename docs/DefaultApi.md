@@ -17,6 +17,7 @@ Method | HTTP request | Description
 [**getHighscores**](DefaultApi.md#getHighscores) | **GET** /bot/highscores | retrieves highscores
 [**getOpenTweets**](DefaultApi.md#getOpenTweets) | **GET** /bot/question/open | retrieves open Questions
 [**getPresentations**](DefaultApi.md#getPresentations) | **GET** /bot/presentation | Returns a mapping ordered by timestamp of all presentationNames
+[**getReport**](DefaultApi.md#getReport) | **GET** /bot/question/report | retrieves question report
 [**getSingleTweet**](DefaultApi.md#getSingleTweet) | **GET** /bot/question/{id} | retrieves question by Id
 [**getSlideForPresentationNameAndSlideNumber**](DefaultApi.md#getSlideForPresentationNameAndSlideNumber) | **GET** /bot/presentation/name/{presentationName}/slide/number/{slideNumber} | Returns slidePath for PresentationName / SlideNumber
 [**getSlideForPresentationNumberAndSlideName**](DefaultApi.md#getSlideForPresentationNumberAndSlideName) | **GET** /bot/presentation/number/{presentationNumber}/slide/name/{slideName} | Returns slidePath for PresentationNumber / SlideName
@@ -27,6 +28,8 @@ Method | HTTP request | Description
 [**postFeedbackToDB**](DefaultApi.md#postFeedbackToDB) | **POST** /bot/feedback | saves a new Feedback, updates it if already existent
 [**postReplyAndCloseQuestion**](DefaultApi.md#postReplyAndCloseQuestion) | **POST** /bot/question/close/{id} | saves a new Question, updates it if already existent
 [**postTweetInDB**](DefaultApi.md#postTweetInDB) | **POST** /bot/question | saves a new Question, updates it if already existent
+[**saveMultiQuizInDB**](DefaultApi.md#saveMultiQuizInDB) | **PUT** /bot/quiz/multi | saves a new multi shot Quiz 
+[**saveSingleQuizInDB**](DefaultApi.md#saveSingleQuizInDB) | **PUT** /bot/quiz/single | saves a new single shot Quiz 
 [**updateTweetInDB**](DefaultApi.md#updateTweetInDB) | **PUT** /bot/question | saves a new Question, updates it if already existent
 
 
@@ -692,6 +695,55 @@ This endpoint does not need any parameter.
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+<a name="getReport"></a>
+# **getReport**
+> getReport()
+
+retrieves question report
+
+
+
+### Example
+```java
+// Import classes:
+//import io.swagger.client.ApiClient;
+//import io.swagger.client.ApiException;
+//import io.swagger.client.Configuration;
+//import io.swagger.client.auth.*;
+//import io.swagger.client.api.DefaultApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure HTTP basic authorization: basic-auth
+HttpBasicAuth basic-auth = (HttpBasicAuth) defaultClient.getAuthentication("basic-auth");
+basic-auth.setUsername("YOUR USERNAME");
+basic-auth.setPassword("YOUR PASSWORD");
+
+DefaultApi apiInstance = new DefaultApi();
+try {
+    apiInstance.getReport();
+} catch (ApiException e) {
+    System.err.println("Exception when calling DefaultApi#getReport");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[basic-auth](../README.md#basic-auth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/octet-stream
+
 <a name="getSingleTweet"></a>
 # **getSingleTweet**
 > Question getSingleTweet(id)
@@ -1230,6 +1282,114 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**Question**](Question.md)
+
+### Authorization
+
+[basic-auth](../README.md#basic-auth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="saveMultiQuizInDB"></a>
+# **saveMultiQuizInDB**
+> QuizQuestion saveMultiQuizInDB(body)
+
+saves a new multi shot Quiz 
+
+
+
+### Example
+```java
+// Import classes:
+//import io.swagger.client.ApiClient;
+//import io.swagger.client.ApiException;
+//import io.swagger.client.Configuration;
+//import io.swagger.client.auth.*;
+//import io.swagger.client.api.DefaultApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure HTTP basic authorization: basic-auth
+HttpBasicAuth basic-auth = (HttpBasicAuth) defaultClient.getAuthentication("basic-auth");
+basic-auth.setUsername("YOUR USERNAME");
+basic-auth.setPassword("YOUR PASSWORD");
+
+DefaultApi apiInstance = new DefaultApi();
+MultiShotQuestion body = new MultiShotQuestion(); // MultiShotQuestion | 
+try {
+    QuizQuestion result = apiInstance.saveMultiQuizInDB(body);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling DefaultApi#saveMultiQuizInDB");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**MultiShotQuestion**](MultiShotQuestion.md)|  | [optional]
+
+### Return type
+
+[**QuizQuestion**](QuizQuestion.md)
+
+### Authorization
+
+[basic-auth](../README.md#basic-auth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="saveSingleQuizInDB"></a>
+# **saveSingleQuizInDB**
+> QuizQuestion saveSingleQuizInDB(body)
+
+saves a new single shot Quiz 
+
+
+
+### Example
+```java
+// Import classes:
+//import io.swagger.client.ApiClient;
+//import io.swagger.client.ApiException;
+//import io.swagger.client.Configuration;
+//import io.swagger.client.auth.*;
+//import io.swagger.client.api.DefaultApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure HTTP basic authorization: basic-auth
+HttpBasicAuth basic-auth = (HttpBasicAuth) defaultClient.getAuthentication("basic-auth");
+basic-auth.setUsername("YOUR USERNAME");
+basic-auth.setPassword("YOUR PASSWORD");
+
+DefaultApi apiInstance = new DefaultApi();
+SingleShotQuestion body = new SingleShotQuestion(); // SingleShotQuestion | 
+try {
+    QuizQuestion result = apiInstance.saveSingleQuizInDB(body);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling DefaultApi#saveSingleQuizInDB");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**SingleShotQuestion**](SingleShotQuestion.md)|  | [optional]
+
+### Return type
+
+[**QuizQuestion**](QuizQuestion.md)
 
 ### Authorization
 

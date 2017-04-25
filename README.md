@@ -109,6 +109,7 @@ Class | Method | HTTP request | Description
 *DefaultApi* | [**getHighscores**](docs/DefaultApi.md#getHighscores) | **GET** /bot/highscores | retrieves highscores
 *DefaultApi* | [**getOpenTweets**](docs/DefaultApi.md#getOpenTweets) | **GET** /bot/question/open | retrieves open Questions
 *DefaultApi* | [**getPresentations**](docs/DefaultApi.md#getPresentations) | **GET** /bot/presentation | Returns a mapping ordered by timestamp of all presentationNames
+*DefaultApi* | [**getReport**](docs/DefaultApi.md#getReport) | **GET** /bot/question/report | retrieves question report
 *DefaultApi* | [**getSingleTweet**](docs/DefaultApi.md#getSingleTweet) | **GET** /bot/question/{id} | retrieves question by Id
 *DefaultApi* | [**getSlideForPresentationNameAndSlideNumber**](docs/DefaultApi.md#getSlideForPresentationNameAndSlideNumber) | **GET** /bot/presentation/name/{presentationName}/slide/number/{slideNumber} | Returns slidePath for PresentationName / SlideNumber
 *DefaultApi* | [**getSlideForPresentationNumberAndSlideName**](docs/DefaultApi.md#getSlideForPresentationNumberAndSlideName) | **GET** /bot/presentation/number/{presentationNumber}/slide/name/{slideName} | Returns slidePath for PresentationNumber / SlideName
@@ -119,11 +120,16 @@ Class | Method | HTTP request | Description
 *DefaultApi* | [**postFeedbackToDB**](docs/DefaultApi.md#postFeedbackToDB) | **POST** /bot/feedback | saves a new Feedback, updates it if already existent
 *DefaultApi* | [**postReplyAndCloseQuestion**](docs/DefaultApi.md#postReplyAndCloseQuestion) | **POST** /bot/question/close/{id} | saves a new Question, updates it if already existent
 *DefaultApi* | [**postTweetInDB**](docs/DefaultApi.md#postTweetInDB) | **POST** /bot/question | saves a new Question, updates it if already existent
+*DefaultApi* | [**saveMultiQuizInDB**](docs/DefaultApi.md#saveMultiQuizInDB) | **PUT** /bot/quiz/multi | saves a new multi shot Quiz 
+*DefaultApi* | [**saveSingleQuizInDB**](docs/DefaultApi.md#saveSingleQuizInDB) | **PUT** /bot/quiz/single | saves a new single shot Quiz 
 *DefaultApi* | [**updateTweetInDB**](docs/DefaultApi.md#updateTweetInDB) | **PUT** /bot/question | saves a new Question, updates it if already existent
 
 
 ## Documentation for Models
 
+ - [MultiShotQuestion](docs/MultiShotQuestion.md)
+ - [QuizQuestion](docs/QuizQuestion.md)
+ - [SingleShotQuestion](docs/SingleShotQuestion.md)
 
 
 ## Documentation for Authorization

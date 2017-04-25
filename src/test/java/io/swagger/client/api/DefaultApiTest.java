@@ -17,8 +17,11 @@ import io.swagger.client.ApiException;
 import de.tum.jk.application.model.ActiveSlidePath;
 import de.tum.jk.application.model.DataItem;
 import de.tum.jk.application.model.Feedback;
+import io.swagger.client.model.MultiShotQuestion;
 import de.tum.jk.application.model.Question;
+import io.swagger.client.model.QuizQuestion;
 import de.tum.jk.application.model.Reply;
+import io.swagger.client.model.SingleShotQuestion;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -235,6 +238,21 @@ public class DefaultApiTest {
     }
     
     /**
+     * retrieves question report
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getReportTest() throws ApiException {
+        api.getReport();
+
+        // TODO: test validations
+    }
+    
+    /**
      * retrieves question by Id
      *
      * 
@@ -394,6 +412,38 @@ public class DefaultApiTest {
     public void postTweetInDBTest() throws ApiException {
         Question body = null;
         Question response = api.postTweetInDB(body);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * saves a new multi shot Quiz 
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void saveMultiQuizInDBTest() throws ApiException {
+        MultiShotQuestion body = null;
+        QuizQuestion response = api.saveMultiQuizInDB(body);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * saves a new single shot Quiz 
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void saveSingleQuizInDBTest() throws ApiException {
+        SingleShotQuestion body = null;
+        QuizQuestion response = api.saveSingleQuizInDB(body);
 
         // TODO: test validations
     }
