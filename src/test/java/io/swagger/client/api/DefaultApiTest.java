@@ -19,7 +19,6 @@ import de.tum.jk.application.model.students.DataItem;
 import de.tum.jk.application.model.students.Feedback;
 import de.tum.jk.application.model.presenter.MultiShotQuestion;
 import de.tum.jk.application.model.students.Question;
-import de.tum.jk.application.model.presenter.QuizQuestion;
 import de.tum.jk.application.model.students.Reply;
 import de.tum.jk.application.model.presenter.SingleShotQuestion;
 import org.junit.Test;
@@ -427,7 +426,7 @@ public class DefaultApiTest {
     @Test
     public void saveMultiQuizInDBTest() throws ApiException {
         MultiShotQuestion body = null;
-        QuizQuestion response = api.saveMultiQuizInDB(body);
+        MultiShotQuestion response = api.saveMultiQuizInDB(body);
 
         // TODO: test validations
     }
@@ -443,7 +442,7 @@ public class DefaultApiTest {
     @Test
     public void saveSingleQuizInDBTest() throws ApiException {
         SingleShotQuestion body = null;
-        QuizQuestion response = api.saveSingleQuizInDB(body);
+        SingleShotQuestion response = api.saveSingleQuizInDB(body);
 
         // TODO: test validations
     }

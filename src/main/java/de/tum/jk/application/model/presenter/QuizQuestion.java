@@ -26,134 +26,129 @@ public abstract class QuizQuestion {
 	@Getter
 	@Setter
 	protected String content;
-	
+
 	@Property
-    @Getter
-    protected String date;
-	
+	@Getter
+	protected String date;
+
 	@Property
-    @Getter
-    protected String name;
+	@Getter
+	protected String name;
 
-    protected static String[] keys = {"A","B","C","D","E","F","G","H","I","J"};
-    
-    @Property
-    @Getter
-    @Setter
-    protected Map<String,String> answerKeyText;
-    
-    @Property
-    @Setter
-    @Getter
-    protected int firstCorrect;
-    
-    @Property
-    @Setter
-    @Getter
-    protected ArrayList<String> fastestAnswers;
-    
-    @Property
-    @Setter
-    @Getter
-    protected Map<String, String> votes;
-    
-    @Property
-    @Getter
-    @Setter
-    private String correct;
-    
-    @Getter
-    @Setter
-    private int correctAnswerNumber;
+	protected static String[] keys = { "A", "B", "C", "D", "E", "F", "G", "H", "I", "J" };
 
-    @Property
-    @Getter
-    @Setter
-    protected int slideSet;
+	@Property
+	@Getter
+	@Setter
+	protected Map<String, String> answerKeyText;
 
-    @Property
-    @Getter
-    @Setter
-    protected int slide;
+	@Property
+	@Setter
+	@Getter
+	protected Map<String, String> votes;
 
-    @Property
-    @Getter
-    @Setter
-    protected String slideURL;
-    
-    public QuizQuestion() {
-    	answerKeyText = new TreeMap<String,String>();
-        firstCorrect = 3;
-        votes = new HashMap<>();
-        this.fastestAnswers = new ArrayList<>();
-    }
+	@Getter
+	@Setter
+	private String correctAnswerKey;
 
-    public void addAnswer(String text) throws QuizFullException {
-        if(answerKeyText.size()<keys.length){
-        	int index = answerKeyText.size();
-        	answerKeyText.put(keys[index], text);
-        } else {
-            throw new QuizFullException();
-        }
-    }
+	@Property
+	@Getter
+	@Setter
+	protected int slideSet;
 
-    private TreeMap<String, Integer> sumVotes(){
-       
-        TreeMap<String, Integer> map = new TreeMap<String,Integer>();
-        
-        for (Entry<String, String> x : answerKeyText.entrySet())
-        {
-        	map.put(x.getKey(), 0);
-        }
-        
-        this.votes.forEach((String userName, String voteKey) -> {
-        		map.put(voteKey, map.get(voteKey)+1);
-        });
-        return map;
-    }
+	@Property
+	@Getter
+	@Setter
+	protected int slide;
 
-    public void lastAnswerAsCorrect(){
-        this.correct = keys[answerKeyText.size()-1];
-    }
+	@Property
+	@Getter
+	@Setter
+	protected String slideURL;
 
-    public String showQuiz(){
-        String result = ">*" + this.content + "*";
-        for(Entry<String, String> x : answerKeyText.entrySet()){
-            result += "\n" + "*" + x.getKey() + "* `" + answerKeyText.get(x.getKey()) + "`";
-        }
-        return result;
-    }
+	ArrayList<VoteItem> highchartsVotes;
 
-    public String showFirstCorrect(){
-        return "";
-    }
+	public QuizQuestion() {
+		answerKeyText = new TreeMap<String, String>();
+		votes = new HashMap<>();
+	}
 
-    public void updateVoteByUser(String user, String vote) {
+	public void addAnswer(String text) throws QuizFullException {
+		if (answerKeyText.size() < keys.length) {
+			int index = answerKeyText.size();
+			answerKeyText.put(keys[index], text);
+		} else {
+			throw new QuizFullException();
+		}
+	}
 
-    }
+	public ArrayList<VoteItem> getHighchartsVotes() {
 
-    public String showResults(){
-        TreeMap<String, Integer> votes = sumVotes();
-        String result = "Final Result:";
-        int totalVotes = 0;
-        //count total votes
-        for(Entry<String, Integer> vote : votes.entrySet()) {
-            totalVotes += vote.getValue();
-        }
-        //generate String
-        for(Entry<String, Integer> vote : votes.entrySet()) {
-            int percentage = (int) ((double) vote.getValue() / totalVotes * 100);
-            result = result + "\n" + "*"+vote.getKey()+"*" + ": ";
-            for(int j = 0; j<=percentage;j=j+2){
-                result = result + "█";
-            }
-            result = result  + vote.getValue() + "   (" + percentage + "%)" ;
-            if(vote.getKey().equals(correct)){
-                result = result + " (C)";
-           }
-        }
-        result += "\n\nTotal Votes: " + totalVotes;
-        return result;
-    }
+		ArrayList<VoteItem> result = new ArrayList<>();
+		TreeMap<String, Integer> map = new TreeMap<String, Integer>();
+
+		for (Entry<String, String> x : answerKeyText.entrySet()) {
+			map.put(x.getValue(), 0);
+		}
+
+		this.votes.forEach((String userName, String voteKey) -> {
+			map.put(answerKeyText.get(voteKey), map.get(answerKeyText.get(voteKey)) + 1);
+		});
+
+		for (Entry<String, Integer> x : map.entrySet()) {
+			result.add(new VoteItem(x.getKey(), x.getValue(), x.getKey().equals(answerKeyText.get(correctAnswerKey))));
+		}
+		return result;
+	}
+
+	private TreeMap<String, Integer> sumVotes() {
+
+		TreeMap<String, Integer> map = new TreeMap<String, Integer>();
+
+		for (Entry<String, String> x : answerKeyText.entrySet()) {
+			map.put(x.getKey(), 0);
+		}
+
+		this.votes.forEach((String userName, String voteKey) -> {
+			map.put(voteKey, map.get(voteKey) + 1);
+		});
+		return map;
+	}
+
+	public String showQuiz() {
+		String result = ">*" + this.content + "*";
+		for (Entry<String, String> x : answerKeyText.entrySet()) {
+			result += "\n" + "*" + x.getKey() + "* `" + answerKeyText.get(x.getKey()) + "`";
+		}
+		return result;
+	}
+
+	public void updateVoteByUser(String user, String vote) {
+
+	}
+
+	public String showResults() {
+		TreeMap<String, Integer> votes = sumVotes();
+		String result = "Final Result:";
+		int totalVotes = 0;
+		// count total votes
+		for (Entry<String, Integer> vote : votes.entrySet()) {
+			totalVotes += vote.getValue();
+		}
+		// generate String
+		for (Entry<String, Integer> vote : votes.entrySet()) {
+			int percentage = (int) ((double) vote.getValue() / totalVotes * 100);
+			result = result + "\n" + "*" + vote.getKey() + "*" + ": ";
+			for (int j = 0; j <= percentage; j = j + 2) {
+				result = result + "█";
+			}
+			result = result + vote.getValue() + "   (" + percentage + "%)";
+			if (vote.getKey().equals(correctAnswerKey)) {
+				result = result + " (C)";
+			}
+		}
+		result += "\n\nTotal Votes: " + totalVotes;
+		return result;
+	}
 
 }

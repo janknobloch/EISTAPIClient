@@ -32,7 +32,6 @@ import de.tum.jk.application.model.students.DataItem;
 import de.tum.jk.application.model.students.Feedback;
 import de.tum.jk.application.model.presenter.MultiShotQuestion;
 import de.tum.jk.application.model.students.Question;
-import de.tum.jk.application.model.presenter.QuizQuestion;
 import de.tum.jk.application.model.students.Reply;
 import de.tum.jk.application.model.presenter.SingleShotQuestion;
 
@@ -2884,11 +2883,11 @@ public class DefaultApi {
      * saves a new multi shot Quiz 
      * 
      * @param body  (optional)
-     * @return QuizQuestion
+     * @return MultiShotQuestion
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public QuizQuestion saveMultiQuizInDB(MultiShotQuestion body) throws ApiException {
-        ApiResponse<QuizQuestion> resp = saveMultiQuizInDBWithHttpInfo(body);
+    public MultiShotQuestion saveMultiQuizInDB(MultiShotQuestion body) throws ApiException {
+        ApiResponse<MultiShotQuestion> resp = saveMultiQuizInDBWithHttpInfo(body);
         return resp.getData();
     }
 
@@ -2896,12 +2895,12 @@ public class DefaultApi {
      * saves a new multi shot Quiz 
      * 
      * @param body  (optional)
-     * @return ApiResponse&lt;QuizQuestion&gt;
+     * @return ApiResponse&lt;MultiShotQuestion&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<QuizQuestion> saveMultiQuizInDBWithHttpInfo(MultiShotQuestion body) throws ApiException {
+    public ApiResponse<MultiShotQuestion> saveMultiQuizInDBWithHttpInfo(MultiShotQuestion body) throws ApiException {
         com.squareup.okhttp.Call call = saveMultiQuizInDBValidateBeforeCall(body, null, null);
-        Type localVarReturnType = new TypeToken<QuizQuestion>(){}.getType();
+        Type localVarReturnType = new TypeToken<MultiShotQuestion>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -2913,7 +2912,7 @@ public class DefaultApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call saveMultiQuizInDBAsync(MultiShotQuestion body, final ApiCallback<QuizQuestion> callback) throws ApiException {
+    public com.squareup.okhttp.Call saveMultiQuizInDBAsync(MultiShotQuestion body, final ApiCallback<MultiShotQuestion> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -2935,7 +2934,7 @@ public class DefaultApi {
         }
 
         com.squareup.okhttp.Call call = saveMultiQuizInDBValidateBeforeCall(body, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<QuizQuestion>(){}.getType();
+        Type localVarReturnType = new TypeToken<MultiShotQuestion>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -2997,11 +2996,11 @@ public class DefaultApi {
      * saves a new single shot Quiz 
      * 
      * @param body  (optional)
-     * @return QuizQuestion
+     * @return SingleShotQuestion
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public QuizQuestion saveSingleQuizInDB(SingleShotQuestion body) throws ApiException {
-        ApiResponse<QuizQuestion> resp = saveSingleQuizInDBWithHttpInfo(body);
+    public SingleShotQuestion saveSingleQuizInDB(SingleShotQuestion body) throws ApiException {
+        ApiResponse<SingleShotQuestion> resp = saveSingleQuizInDBWithHttpInfo(body);
         return resp.getData();
     }
 
@@ -3009,12 +3008,12 @@ public class DefaultApi {
      * saves a new single shot Quiz 
      * 
      * @param body  (optional)
-     * @return ApiResponse&lt;QuizQuestion&gt;
+     * @return ApiResponse&lt;SingleShotQuestion&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<QuizQuestion> saveSingleQuizInDBWithHttpInfo(SingleShotQuestion body) throws ApiException {
+    public ApiResponse<SingleShotQuestion> saveSingleQuizInDBWithHttpInfo(SingleShotQuestion body) throws ApiException {
         com.squareup.okhttp.Call call = saveSingleQuizInDBValidateBeforeCall(body, null, null);
-        Type localVarReturnType = new TypeToken<QuizQuestion>(){}.getType();
+        Type localVarReturnType = new TypeToken<SingleShotQuestion>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -3026,7 +3025,7 @@ public class DefaultApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call saveSingleQuizInDBAsync(SingleShotQuestion body, final ApiCallback<QuizQuestion> callback) throws ApiException {
+    public com.squareup.okhttp.Call saveSingleQuizInDBAsync(SingleShotQuestion body, final ApiCallback<SingleShotQuestion> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -3048,7 +3047,7 @@ public class DefaultApi {
         }
 
         com.squareup.okhttp.Call call = saveSingleQuizInDBValidateBeforeCall(body, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<QuizQuestion>(){}.getType();
+        Type localVarReturnType = new TypeToken<SingleShotQuestion>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

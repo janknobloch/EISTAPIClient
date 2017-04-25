@@ -1294,7 +1294,7 @@ Name | Type | Description  | Notes
 
 <a name="saveMultiQuizInDB"></a>
 # **saveMultiQuizInDB**
-> QuizQuestion saveMultiQuizInDB(body)
+> MultiShotQuestion saveMultiQuizInDB(body)
 
 saves a new multi shot Quiz 
 
@@ -1319,7 +1319,7 @@ basic-auth.setPassword("YOUR PASSWORD");
 DefaultApi apiInstance = new DefaultApi();
 MultiShotQuestion body = new MultiShotQuestion(); // MultiShotQuestion | 
 try {
-    QuizQuestion result = apiInstance.saveMultiQuizInDB(body);
+    MultiShotQuestion result = apiInstance.saveMultiQuizInDB(body);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling DefaultApi#saveMultiQuizInDB");
@@ -1335,7 +1335,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**QuizQuestion**](QuizQuestion.md)
+[**MultiShotQuestion**](MultiShotQuestion.md)
 
 ### Authorization
 
@@ -1348,7 +1348,7 @@ Name | Type | Description  | Notes
 
 <a name="saveSingleQuizInDB"></a>
 # **saveSingleQuizInDB**
-> QuizQuestion saveSingleQuizInDB(body)
+> SingleShotQuestion saveSingleQuizInDB(body)
 
 saves a new single shot Quiz 
 
@@ -1373,7 +1373,7 @@ basic-auth.setPassword("YOUR PASSWORD");
 DefaultApi apiInstance = new DefaultApi();
 SingleShotQuestion body = new SingleShotQuestion(); // SingleShotQuestion | 
 try {
-    QuizQuestion result = apiInstance.saveSingleQuizInDB(body);
+    SingleShotQuestion result = apiInstance.saveSingleQuizInDB(body);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling DefaultApi#saveSingleQuizInDB");
@@ -1389,7 +1389,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**QuizQuestion**](QuizQuestion.md)
+[**SingleShotQuestion**](SingleShotQuestion.md)
 
 ### Authorization
 
