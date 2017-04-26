@@ -35,7 +35,7 @@ public abstract class DataItem {
 	@Property
 	@Getter
 	@Setter
-	protected boolean isBot;
+	protected boolean botUser;
 
 	@Property
 	@Setter
