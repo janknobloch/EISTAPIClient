@@ -39,6 +39,7 @@ public abstract class DataItem {
 
 	@Property
 	@Setter
+	@Getter
 	protected String anonymousAuthor;
 
 	@Property
