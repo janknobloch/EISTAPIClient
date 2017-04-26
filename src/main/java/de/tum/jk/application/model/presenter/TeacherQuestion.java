@@ -15,7 +15,7 @@ import org.mongodb.morphia.annotations.Property;
 import java.util.TreeMap;
 
 @Entity
-public abstract class TeacherQuestion {
+public class TeacherQuestion {
 
 	@Id
 	@Getter
