@@ -11,7 +11,7 @@ import java.util.*;
 
 
 @Entity
-public class MultiShotQuestion extends QuizQuestion {
+public class MultiShotQuestion extends TeacherQuestion {
 
     public MultiShotQuestion(){
         super();
@@ -25,17 +25,5 @@ public class MultiShotQuestion extends QuizQuestion {
         }
     }
 
-    public void generateRandomVotes(){
-        for(int i = 0;i<1000;i++){
-            //generate random name
-            String name = (int) (Math.random()*1000) + "";
-
-            //generate vote
-            String vote = keys[(int) (Math.random() * 10)];
-
-            updateVoteByUser(name, vote);
-        }
-
-    }
 
 }

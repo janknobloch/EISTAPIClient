@@ -77,9 +77,9 @@ public class DefaultApiExample {
         basic-auth.setPassword("YOUR PASSWORD");
 
         DefaultApi apiInstance = new DefaultApi();
-        Question body = new Question(); // Question | 
+        StudentQuestion body = new StudentQuestion(); // StudentQuestion | 
         try {
-            Question result = apiInstance.deleteTweetInDB(body);
+            StudentQuestion result = apiInstance.deleteTweetInDB(body);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling DefaultApi#deleteTweetInDB");
@@ -104,9 +104,10 @@ Class | Method | HTTP request | Description
 *DefaultApi* | [**getAllReplies**](docs/DefaultApi.md#getAllReplies) | **GET** /bot/question/replies | retrieves all Replys (mock)
 *DefaultApi* | [**getAllTweets**](docs/DefaultApi.md#getAllTweets) | **GET** /bot/question | retrieves all Questions
 *DefaultApi* | [**getAllTwitterWallSessions**](docs/DefaultApi.md#getAllTwitterWallSessions) | **GET** /bot/twitterwalls | retrieves all twitter wall listeners
-*DefaultApi* | [**getClosedLastNumTweets**](docs/DefaultApi.md#getClosedLastNumTweets) | **GET** /bot/question/closed/last/{num} | retrieves last {num} closed Questions
+*DefaultApi* | [**getClosedLastNumStudentQuestions**](docs/DefaultApi.md#getClosedLastNumStudentQuestions) | **GET** /bot/question/closed/last/{num} | retrieves last {num} closed Questions
 *DefaultApi* | [**getClosedTweets**](docs/DefaultApi.md#getClosedTweets) | **GET** /bot/question/closed | retrieves closed Questions
 *DefaultApi* | [**getHighscores**](docs/DefaultApi.md#getHighscores) | **GET** /bot/highscores | retrieves highscores
+*DefaultApi* | [**getLastNumTeacherQuestions**](docs/DefaultApi.md#getLastNumTeacherQuestions) | **GET** /bot/quiz/last/{num} | retrieves last {num} quizzes
 *DefaultApi* | [**getOpenTweets**](docs/DefaultApi.md#getOpenTweets) | **GET** /bot/question/open | retrieves open Questions
 *DefaultApi* | [**getPresentations**](docs/DefaultApi.md#getPresentations) | **GET** /bot/presentation | Returns a mapping ordered by timestamp of all presentationNames
 *DefaultApi* | [**getReport**](docs/DefaultApi.md#getReport) | **GET** /bot/question/report | retrieves question report
@@ -120,8 +121,7 @@ Class | Method | HTTP request | Description
 *DefaultApi* | [**postFeedbackToDB**](docs/DefaultApi.md#postFeedbackToDB) | **POST** /bot/feedback | saves a new Feedback, updates it if already existent
 *DefaultApi* | [**postReplyAndCloseQuestion**](docs/DefaultApi.md#postReplyAndCloseQuestion) | **POST** /bot/question/close/{id} | saves a new Question, updates it if already existent
 *DefaultApi* | [**postTweetInDB**](docs/DefaultApi.md#postTweetInDB) | **POST** /bot/question | saves a new Question, updates it if already existent
-*DefaultApi* | [**saveMultiQuizInDB**](docs/DefaultApi.md#saveMultiQuizInDB) | **PUT** /bot/quiz/multi | saves a new multi shot Quiz 
-*DefaultApi* | [**saveSingleQuizInDB**](docs/DefaultApi.md#saveSingleQuizInDB) | **PUT** /bot/quiz/single | saves a new single shot Quiz 
+*DefaultApi* | [**saveQuizInDB**](docs/DefaultApi.md#saveQuizInDB) | **PUT** /bot/quiz | saves a new Quiz 
 *DefaultApi* | [**updateTweetInDB**](docs/DefaultApi.md#updateTweetInDB) | **PUT** /bot/question | saves a new Question, updates it if already existent
 
 

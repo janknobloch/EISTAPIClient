@@ -12,9 +12,10 @@ Method | HTTP request | Description
 [**getAllReplies**](DefaultApi.md#getAllReplies) | **GET** /bot/question/replies | retrieves all Replys (mock)
 [**getAllTweets**](DefaultApi.md#getAllTweets) | **GET** /bot/question | retrieves all Questions
 [**getAllTwitterWallSessions**](DefaultApi.md#getAllTwitterWallSessions) | **GET** /bot/twitterwalls | retrieves all twitter wall listeners
-[**getClosedLastNumTweets**](DefaultApi.md#getClosedLastNumTweets) | **GET** /bot/question/closed/last/{num} | retrieves last {num} closed Questions
+[**getClosedLastNumStudentQuestions**](DefaultApi.md#getClosedLastNumStudentQuestions) | **GET** /bot/question/closed/last/{num} | retrieves last {num} closed Questions
 [**getClosedTweets**](DefaultApi.md#getClosedTweets) | **GET** /bot/question/closed | retrieves closed Questions
 [**getHighscores**](DefaultApi.md#getHighscores) | **GET** /bot/highscores | retrieves highscores
+[**getLastNumTeacherQuestions**](DefaultApi.md#getLastNumTeacherQuestions) | **GET** /bot/quiz/last/{num} | retrieves last {num} quizzes
 [**getOpenTweets**](DefaultApi.md#getOpenTweets) | **GET** /bot/question/open | retrieves open Questions
 [**getPresentations**](DefaultApi.md#getPresentations) | **GET** /bot/presentation | Returns a mapping ordered by timestamp of all presentationNames
 [**getReport**](DefaultApi.md#getReport) | **GET** /bot/question/report | retrieves question report
@@ -28,14 +29,13 @@ Method | HTTP request | Description
 [**postFeedbackToDB**](DefaultApi.md#postFeedbackToDB) | **POST** /bot/feedback | saves a new Feedback, updates it if already existent
 [**postReplyAndCloseQuestion**](DefaultApi.md#postReplyAndCloseQuestion) | **POST** /bot/question/close/{id} | saves a new Question, updates it if already existent
 [**postTweetInDB**](DefaultApi.md#postTweetInDB) | **POST** /bot/question | saves a new Question, updates it if already existent
-[**saveMultiQuizInDB**](DefaultApi.md#saveMultiQuizInDB) | **PUT** /bot/quiz/multi | saves a new multi shot Quiz 
-[**saveSingleQuizInDB**](DefaultApi.md#saveSingleQuizInDB) | **PUT** /bot/quiz/single | saves a new single shot Quiz 
+[**saveQuizInDB**](DefaultApi.md#saveQuizInDB) | **PUT** /bot/quiz | saves a new Quiz 
 [**updateTweetInDB**](DefaultApi.md#updateTweetInDB) | **PUT** /bot/question | saves a new Question, updates it if already existent
 
 
 <a name="deleteTweetInDB"></a>
 # **deleteTweetInDB**
-> Question deleteTweetInDB(body)
+> StudentQuestion deleteTweetInDB(body)
 
 deletes a given Question
 
@@ -58,9 +58,9 @@ basic-auth.setUsername("YOUR USERNAME");
 basic-auth.setPassword("YOUR PASSWORD");
 
 DefaultApi apiInstance = new DefaultApi();
-Question body = new Question(); // Question | 
+StudentQuestion body = new StudentQuestion(); // StudentQuestion | 
 try {
-    Question result = apiInstance.deleteTweetInDB(body);
+    StudentQuestion result = apiInstance.deleteTweetInDB(body);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling DefaultApi#deleteTweetInDB");
@@ -72,11 +72,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**Question**](Question.md)|  | [optional]
+ **body** | [**StudentQuestion**](StudentQuestion.md)|  | [optional]
 
 ### Return type
 
-[**Question**](Question.md)
+[**StudentQuestion**](StudentQuestion.md)
 
 ### Authorization
 
@@ -89,7 +89,7 @@ Name | Type | Description  | Notes
 
 <a name="deleteTweetInDBById"></a>
 # **deleteTweetInDBById**
-> Question deleteTweetInDBById(body)
+> StudentQuestion deleteTweetInDBById(body)
 
 deletes a given Question by using its ID
 
@@ -114,7 +114,7 @@ basic-auth.setPassword("YOUR PASSWORD");
 DefaultApi apiInstance = new DefaultApi();
 String body = "body_example"; // String | 
 try {
-    Question result = apiInstance.deleteTweetInDBById(body);
+    StudentQuestion result = apiInstance.deleteTweetInDBById(body);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling DefaultApi#deleteTweetInDBById");
@@ -130,7 +130,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Question**](Question.md)
+[**StudentQuestion**](StudentQuestion.md)
 
 ### Authorization
 
@@ -343,7 +343,7 @@ This endpoint does not need any parameter.
 
 <a name="getAllTweets"></a>
 # **getAllTweets**
-> List&lt;Question&gt; getAllTweets()
+> List&lt;StudentQuestion&gt; getAllTweets()
 
 retrieves all Questions
 
@@ -367,7 +367,7 @@ basic-auth.setPassword("YOUR PASSWORD");
 
 DefaultApi apiInstance = new DefaultApi();
 try {
-    List<Question> result = apiInstance.getAllTweets();
+    List<StudentQuestion> result = apiInstance.getAllTweets();
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling DefaultApi#getAllTweets");
@@ -380,7 +380,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**List&lt;Question&gt;**](Question.md)
+[**List&lt;StudentQuestion&gt;**](StudentQuestion.md)
 
 ### Authorization
 
@@ -441,9 +441,9 @@ This endpoint does not need any parameter.
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="getClosedLastNumTweets"></a>
-# **getClosedLastNumTweets**
-> List&lt;Question&gt; getClosedLastNumTweets(num)
+<a name="getClosedLastNumStudentQuestions"></a>
+# **getClosedLastNumStudentQuestions**
+> List&lt;StudentQuestion&gt; getClosedLastNumStudentQuestions(num)
 
 retrieves last {num} closed Questions
 
@@ -468,10 +468,10 @@ basic-auth.setPassword("YOUR PASSWORD");
 DefaultApi apiInstance = new DefaultApi();
 Integer num = 56; // Integer | 
 try {
-    List<Question> result = apiInstance.getClosedLastNumTweets(num);
+    List<StudentQuestion> result = apiInstance.getClosedLastNumStudentQuestions(num);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling DefaultApi#getClosedLastNumTweets");
+    System.err.println("Exception when calling DefaultApi#getClosedLastNumStudentQuestions");
     e.printStackTrace();
 }
 ```
@@ -484,7 +484,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List&lt;Question&gt;**](Question.md)
+[**List&lt;StudentQuestion&gt;**](StudentQuestion.md)
 
 ### Authorization
 
@@ -497,7 +497,7 @@ Name | Type | Description  | Notes
 
 <a name="getClosedTweets"></a>
 # **getClosedTweets**
-> List&lt;Question&gt; getClosedTweets()
+> List&lt;StudentQuestion&gt; getClosedTweets()
 
 retrieves closed Questions
 
@@ -521,7 +521,7 @@ basic-auth.setPassword("YOUR PASSWORD");
 
 DefaultApi apiInstance = new DefaultApi();
 try {
-    List<Question> result = apiInstance.getClosedTweets();
+    List<StudentQuestion> result = apiInstance.getClosedTweets();
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling DefaultApi#getClosedTweets");
@@ -534,7 +534,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**List&lt;Question&gt;**](Question.md)
+[**List&lt;StudentQuestion&gt;**](StudentQuestion.md)
 
 ### Authorization
 
@@ -595,9 +595,63 @@ This endpoint does not need any parameter.
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+<a name="getLastNumTeacherQuestions"></a>
+# **getLastNumTeacherQuestions**
+> List&lt;TeacherQuestion&gt; getLastNumTeacherQuestions(num)
+
+retrieves last {num} quizzes
+
+
+
+### Example
+```java
+// Import classes:
+//import io.swagger.client.ApiClient;
+//import io.swagger.client.ApiException;
+//import io.swagger.client.Configuration;
+//import io.swagger.client.auth.*;
+//import io.swagger.client.api.DefaultApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure HTTP basic authorization: basic-auth
+HttpBasicAuth basic-auth = (HttpBasicAuth) defaultClient.getAuthentication("basic-auth");
+basic-auth.setUsername("YOUR USERNAME");
+basic-auth.setPassword("YOUR PASSWORD");
+
+DefaultApi apiInstance = new DefaultApi();
+Integer num = 56; // Integer | 
+try {
+    List<TeacherQuestion> result = apiInstance.getLastNumTeacherQuestions(num);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling DefaultApi#getLastNumTeacherQuestions");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **num** | **Integer**|  |
+
+### Return type
+
+[**List&lt;TeacherQuestion&gt;**](TeacherQuestion.md)
+
+### Authorization
+
+[basic-auth](../README.md#basic-auth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
 <a name="getOpenTweets"></a>
 # **getOpenTweets**
-> List&lt;Question&gt; getOpenTweets()
+> List&lt;StudentQuestion&gt; getOpenTweets()
 
 retrieves open Questions
 
@@ -621,7 +675,7 @@ basic-auth.setPassword("YOUR PASSWORD");
 
 DefaultApi apiInstance = new DefaultApi();
 try {
-    List<Question> result = apiInstance.getOpenTweets();
+    List<StudentQuestion> result = apiInstance.getOpenTweets();
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling DefaultApi#getOpenTweets");
@@ -634,7 +688,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**List&lt;Question&gt;**](Question.md)
+[**List&lt;StudentQuestion&gt;**](StudentQuestion.md)
 
 ### Authorization
 
@@ -746,7 +800,7 @@ null (empty response body)
 
 <a name="getSingleTweet"></a>
 # **getSingleTweet**
-> Question getSingleTweet(id)
+> StudentQuestion getSingleTweet(id)
 
 retrieves question by Id
 
@@ -771,7 +825,7 @@ basic-auth.setPassword("YOUR PASSWORD");
 DefaultApi apiInstance = new DefaultApi();
 String id = "id_example"; // String | 
 try {
-    Question result = apiInstance.getSingleTweet(id);
+    StudentQuestion result = apiInstance.getSingleTweet(id);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling DefaultApi#getSingleTweet");
@@ -787,7 +841,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Question**](Question.md)
+[**StudentQuestion**](StudentQuestion.md)
 
 ### Authorization
 
@@ -1186,7 +1240,7 @@ Name | Type | Description  | Notes
 
 <a name="postReplyAndCloseQuestion"></a>
 # **postReplyAndCloseQuestion**
-> Question postReplyAndCloseQuestion(id)
+> StudentQuestion postReplyAndCloseQuestion(id)
 
 saves a new Question, updates it if already existent
 
@@ -1211,7 +1265,7 @@ basic-auth.setPassword("YOUR PASSWORD");
 DefaultApi apiInstance = new DefaultApi();
 String id = "id_example"; // String | 
 try {
-    Question result = apiInstance.postReplyAndCloseQuestion(id);
+    StudentQuestion result = apiInstance.postReplyAndCloseQuestion(id);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling DefaultApi#postReplyAndCloseQuestion");
@@ -1227,7 +1281,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Question**](Question.md)
+[**StudentQuestion**](StudentQuestion.md)
 
 ### Authorization
 
@@ -1240,7 +1294,7 @@ Name | Type | Description  | Notes
 
 <a name="postTweetInDB"></a>
 # **postTweetInDB**
-> Question postTweetInDB(body)
+> StudentQuestion postTweetInDB(body)
 
 saves a new Question, updates it if already existent
 
@@ -1263,9 +1317,9 @@ basic-auth.setUsername("YOUR USERNAME");
 basic-auth.setPassword("YOUR PASSWORD");
 
 DefaultApi apiInstance = new DefaultApi();
-Question body = new Question(); // Question | 
+StudentQuestion body = new StudentQuestion(); // StudentQuestion | 
 try {
-    Question result = apiInstance.postTweetInDB(body);
+    StudentQuestion result = apiInstance.postTweetInDB(body);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling DefaultApi#postTweetInDB");
@@ -1277,11 +1331,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**Question**](Question.md)|  | [optional]
+ **body** | [**StudentQuestion**](StudentQuestion.md)|  | [optional]
 
 ### Return type
 
-[**Question**](Question.md)
+[**StudentQuestion**](StudentQuestion.md)
 
 ### Authorization
 
@@ -1292,11 +1346,11 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="saveMultiQuizInDB"></a>
-# **saveMultiQuizInDB**
-> MultiShotQuestion saveMultiQuizInDB(body)
+<a name="saveQuizInDB"></a>
+# **saveQuizInDB**
+> TeacherQuestion saveQuizInDB(body)
 
-saves a new multi shot Quiz 
+saves a new Quiz 
 
 
 
@@ -1317,12 +1371,12 @@ basic-auth.setUsername("YOUR USERNAME");
 basic-auth.setPassword("YOUR PASSWORD");
 
 DefaultApi apiInstance = new DefaultApi();
-MultiShotQuestion body = new MultiShotQuestion(); // MultiShotQuestion | 
+TeacherQuestion body = new TeacherQuestion(); // TeacherQuestion | 
 try {
-    MultiShotQuestion result = apiInstance.saveMultiQuizInDB(body);
+    TeacherQuestion result = apiInstance.saveQuizInDB(body);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling DefaultApi#saveMultiQuizInDB");
+    System.err.println("Exception when calling DefaultApi#saveQuizInDB");
     e.printStackTrace();
 }
 ```
@@ -1331,65 +1385,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**MultiShotQuestion**](MultiShotQuestion.md)|  | [optional]
+ **body** | [**TeacherQuestion**](TeacherQuestion.md)|  | [optional]
 
 ### Return type
 
-[**MultiShotQuestion**](MultiShotQuestion.md)
-
-### Authorization
-
-[basic-auth](../README.md#basic-auth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-<a name="saveSingleQuizInDB"></a>
-# **saveSingleQuizInDB**
-> SingleShotQuestion saveSingleQuizInDB(body)
-
-saves a new single shot Quiz 
-
-
-
-### Example
-```java
-// Import classes:
-//import io.swagger.client.ApiClient;
-//import io.swagger.client.ApiException;
-//import io.swagger.client.Configuration;
-//import io.swagger.client.auth.*;
-//import io.swagger.client.api.DefaultApi;
-
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure HTTP basic authorization: basic-auth
-HttpBasicAuth basic-auth = (HttpBasicAuth) defaultClient.getAuthentication("basic-auth");
-basic-auth.setUsername("YOUR USERNAME");
-basic-auth.setPassword("YOUR PASSWORD");
-
-DefaultApi apiInstance = new DefaultApi();
-SingleShotQuestion body = new SingleShotQuestion(); // SingleShotQuestion | 
-try {
-    SingleShotQuestion result = apiInstance.saveSingleQuizInDB(body);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling DefaultApi#saveSingleQuizInDB");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | [**SingleShotQuestion**](SingleShotQuestion.md)|  | [optional]
-
-### Return type
-
-[**SingleShotQuestion**](SingleShotQuestion.md)
+[**TeacherQuestion**](TeacherQuestion.md)
 
 ### Authorization
 
@@ -1402,7 +1402,7 @@ Name | Type | Description  | Notes
 
 <a name="updateTweetInDB"></a>
 # **updateTweetInDB**
-> Question updateTweetInDB(body)
+> StudentQuestion updateTweetInDB(body)
 
 saves a new Question, updates it if already existent
 
@@ -1425,9 +1425,9 @@ basic-auth.setUsername("YOUR USERNAME");
 basic-auth.setPassword("YOUR PASSWORD");
 
 DefaultApi apiInstance = new DefaultApi();
-Question body = new Question(); // Question | 
+StudentQuestion body = new StudentQuestion(); // StudentQuestion | 
 try {
-    Question result = apiInstance.updateTweetInDB(body);
+    StudentQuestion result = apiInstance.updateTweetInDB(body);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling DefaultApi#updateTweetInDB");
@@ -1439,11 +1439,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**Question**](Question.md)|  | [optional]
+ **body** | [**StudentQuestion**](StudentQuestion.md)|  | [optional]
 
 ### Return type
 
-[**Question**](Question.md)
+[**StudentQuestion**](StudentQuestion.md)
 
 ### Authorization
 

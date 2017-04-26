@@ -5,9 +5,8 @@ import lombok.Setter;
 
 public class WebsocketDataItem {
 
-	public static final String QUESTION = "question";
-	public static final String QUIZ_SINGLE = "quiz-single";
-	public static final String QUIZ_MULTI = "quiz-multi";
+	public static final String STUDENT_QUESTION = "student-question";
+	public static final String TEACHER_QUESTION = "teacher-question";
 	
 	@Getter
 	@Setter

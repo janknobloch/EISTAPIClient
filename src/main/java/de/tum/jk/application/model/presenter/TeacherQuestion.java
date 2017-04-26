@@ -15,7 +15,7 @@ import org.mongodb.morphia.annotations.Property;
 import java.util.TreeMap;
 
 @Entity
-public abstract class QuizQuestion {
+public abstract class TeacherQuestion {
 
 	@Id
 	@Getter
@@ -69,7 +69,7 @@ public abstract class QuizQuestion {
 
 	ArrayList<VoteItem> highchartsVotes;
 
-	public QuizQuestion() {
+	public TeacherQuestion() {
 		answerKeyText = new TreeMap<String, String>();
 		votes = new HashMap<>();
 	}

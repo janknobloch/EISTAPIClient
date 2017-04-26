@@ -17,10 +17,9 @@ import io.swagger.client.ApiException;
 import de.tum.jk.application.model.presenterTool.ActiveSlidePath;
 import de.tum.jk.application.model.students.DataItem;
 import de.tum.jk.application.model.students.Feedback;
-import de.tum.jk.application.model.presenter.MultiShotQuestion;
-import de.tum.jk.application.model.students.Question;
 import de.tum.jk.application.model.students.Reply;
-import de.tum.jk.application.model.presenter.SingleShotQuestion;
+import de.tum.jk.application.model.students.StudentQuestion;
+import de.tum.jk.application.model.presenter.TeacherQuestion;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -48,8 +47,8 @@ public class DefaultApiTest {
      */
     @Test
     public void deleteTweetInDBTest() throws ApiException {
-        Question body = null;
-        Question response = api.deleteTweetInDB(body);
+        StudentQuestion body = null;
+        StudentQuestion response = api.deleteTweetInDB(body);
 
         // TODO: test validations
     }
@@ -65,7 +64,7 @@ public class DefaultApiTest {
     @Test
     public void deleteTweetInDBByIdTest() throws ApiException {
         String body = null;
-        Question response = api.deleteTweetInDBById(body);
+        StudentQuestion response = api.deleteTweetInDBById(body);
 
         // TODO: test validations
     }
@@ -140,7 +139,7 @@ public class DefaultApiTest {
      */
     @Test
     public void getAllTweetsTest() throws ApiException {
-        List<Question> response = api.getAllTweets();
+        List<StudentQuestion> response = api.getAllTweets();
 
         // TODO: test validations
     }
@@ -169,9 +168,9 @@ public class DefaultApiTest {
      *          if the Api call fails
      */
     @Test
-    public void getClosedLastNumTweetsTest() throws ApiException {
+    public void getClosedLastNumStudentQuestionsTest() throws ApiException {
         Integer num = null;
-        List<Question> response = api.getClosedLastNumTweets(num);
+        List<StudentQuestion> response = api.getClosedLastNumStudentQuestions(num);
 
         // TODO: test validations
     }
@@ -186,7 +185,7 @@ public class DefaultApiTest {
      */
     @Test
     public void getClosedTweetsTest() throws ApiException {
-        List<Question> response = api.getClosedTweets();
+        List<StudentQuestion> response = api.getClosedTweets();
 
         // TODO: test validations
     }
@@ -207,6 +206,22 @@ public class DefaultApiTest {
     }
     
     /**
+     * retrieves last {num} quizzes
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getLastNumTeacherQuestionsTest() throws ApiException {
+        Integer num = null;
+        List<TeacherQuestion> response = api.getLastNumTeacherQuestions(num);
+
+        // TODO: test validations
+    }
+    
+    /**
      * retrieves open Questions
      *
      * 
@@ -216,7 +231,7 @@ public class DefaultApiTest {
      */
     @Test
     public void getOpenTweetsTest() throws ApiException {
-        List<Question> response = api.getOpenTweets();
+        List<StudentQuestion> response = api.getOpenTweets();
 
         // TODO: test validations
     }
@@ -262,7 +277,7 @@ public class DefaultApiTest {
     @Test
     public void getSingleTweetTest() throws ApiException {
         String id = null;
-        Question response = api.getSingleTweet(id);
+        StudentQuestion response = api.getSingleTweet(id);
 
         // TODO: test validations
     }
@@ -394,7 +409,7 @@ public class DefaultApiTest {
     @Test
     public void postReplyAndCloseQuestionTest() throws ApiException {
         String id = null;
-        Question response = api.postReplyAndCloseQuestion(id);
+        StudentQuestion response = api.postReplyAndCloseQuestion(id);
 
         // TODO: test validations
     }
@@ -409,14 +424,14 @@ public class DefaultApiTest {
      */
     @Test
     public void postTweetInDBTest() throws ApiException {
-        Question body = null;
-        Question response = api.postTweetInDB(body);
+        StudentQuestion body = null;
+        StudentQuestion response = api.postTweetInDB(body);
 
         // TODO: test validations
     }
     
     /**
-     * saves a new multi shot Quiz 
+     * saves a new Quiz 
      *
      * 
      *
@@ -424,25 +439,9 @@ public class DefaultApiTest {
      *          if the Api call fails
      */
     @Test
-    public void saveMultiQuizInDBTest() throws ApiException {
-        MultiShotQuestion body = null;
-        MultiShotQuestion response = api.saveMultiQuizInDB(body);
-
-        // TODO: test validations
-    }
-    
-    /**
-     * saves a new single shot Quiz 
-     *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void saveSingleQuizInDBTest() throws ApiException {
-        SingleShotQuestion body = null;
-        SingleShotQuestion response = api.saveSingleQuizInDB(body);
+    public void saveQuizInDBTest() throws ApiException {
+        TeacherQuestion body = null;
+        TeacherQuestion response = api.saveQuizInDB(body);
 
         // TODO: test validations
     }
@@ -457,8 +456,8 @@ public class DefaultApiTest {
      */
     @Test
     public void updateTweetInDBTest() throws ApiException {
-        Question body = null;
-        Question response = api.updateTweetInDB(body);
+        StudentQuestion body = null;
+        StudentQuestion response = api.updateTweetInDB(body);
 
         // TODO: test validations
     }

@@ -10,7 +10,7 @@ import org.mongodb.morphia.annotations.Property;
 import java.util.ArrayList;
 
 @Entity
-public class Question extends DataItem {
+public class StudentQuestion extends DataItem {
 
     @Property
     @Getter
@@ -57,13 +57,13 @@ public class Question extends DataItem {
     @Setter
     private String answerDate;
     
-    public Question(String id, String text, String author, DateTime date) {
+    public StudentQuestion(String id, String text, String author, DateTime date) {
         super(id, text, author, date);
         this.replies = new ArrayList<Reply>();
         this.author = author;
     }
 
-    public Question() {
+    public StudentQuestion() {
     }
 
     public void addReply(Reply reply) {
