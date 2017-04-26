@@ -26,6 +26,16 @@ public abstract class DataItem {
 	@Getter
 	@Setter
 	protected String author;
+	
+	@Property
+	@Getter
+	@Setter
+	protected String displayName;
+	
+	@Property
+	@Getter
+	@Setter
+	protected boolean isBot;
 
 	@Property
 	@Setter
