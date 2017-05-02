@@ -7,18 +7,21 @@ Method | HTTP request | Description
 [**deleteTweetInDB**](DefaultApi.md#deleteTweetInDB) | **DELETE** /bot/question | deletes a given Question
 [**deleteTweetInDBById**](DefaultApi.md#deleteTweetInDBById) | **DELETE** /bot/question/{id} | deletes a given Question by using its ID
 [**getActiveSlides**](DefaultApi.md#getActiveSlides) | **GET** /bot/slide/live | Returns an Array of active slides for (ppt, key, and dev)
+[**getAllClosedStudentQuestions**](DefaultApi.md#getAllClosedStudentQuestions) | **GET** /bot/question/report | retrieves all questions report not including general questions - ordered by slideSet
 [**getAllDatamodels**](DefaultApi.md#getAllDatamodels) | **GET** /bot/dataitem | retrieves all DataItem (mock)
 [**getAllPresenterSessions**](DefaultApi.md#getAllPresenterSessions) | **GET** /bot/presenter | Retrieves all Presenters
 [**getAllReplies**](DefaultApi.md#getAllReplies) | **GET** /bot/question/replies | retrieves all Replys (mock)
-[**getAllTweets**](DefaultApi.md#getAllTweets) | **GET** /bot/question | retrieves all Questions
+[**getAllStudentQuestions**](DefaultApi.md#getAllStudentQuestions) | **GET** /bot/question | retrieves all Questions
 [**getAllTwitterWallSessions**](DefaultApi.md#getAllTwitterWallSessions) | **GET** /bot/twitterwalls | retrieves all twitter wall listeners
 [**getClosedLastNumStudentQuestions**](DefaultApi.md#getClosedLastNumStudentQuestions) | **GET** /bot/question/closed/last/{num} | retrieves last {num} closed Questions
-[**getClosedTweets**](DefaultApi.md#getClosedTweets) | **GET** /bot/question/closed | retrieves closed Questions
+[**getClosedStudentQuestions**](DefaultApi.md#getClosedStudentQuestions) | **GET** /bot/question/closed | retrieves closed Questions
 [**getHighscores**](DefaultApi.md#getHighscores) | **GET** /bot/highscores | retrieves highscores
 [**getLastNumTeacherQuestions**](DefaultApi.md#getLastNumTeacherQuestions) | **GET** /bot/quiz/last/{num} | retrieves last {num} quizzes
 [**getOpenTweets**](DefaultApi.md#getOpenTweets) | **GET** /bot/question/open | retrieves open Questions
 [**getPresentations**](DefaultApi.md#getPresentations) | **GET** /bot/presentation | Returns a mapping ordered by timestamp of all presentationNames
-[**getReport**](DefaultApi.md#getReport) | **GET** /bot/question/report | retrieves question report
+[**getReport**](DefaultApi.md#getReport) | **GET** /bot/question/report/{num} | retrieves all questions report for specific lecture(slideSet)
+[**getReport_0**](DefaultApi.md#getReport_0) | **GET** /bot/question/report/general | retrieves all questions report for specific lecture(slideSet)
+[**getSMSQuestion**](DefaultApi.md#getSMSQuestion) | **POST** /bot/sms | forwards a new Whatzapp question
 [**getSingleTweet**](DefaultApi.md#getSingleTweet) | **GET** /bot/question/{id} | retrieves question by Id
 [**getSlideForPresentationNameAndSlideNumber**](DefaultApi.md#getSlideForPresentationNameAndSlideNumber) | **GET** /bot/presentation/name/{presentationName}/slide/number/{slideNumber} | Returns slidePath for PresentationName / SlideNumber
 [**getSlideForPresentationNumberAndSlideName**](DefaultApi.md#getSlideForPresentationNumberAndSlideName) | **GET** /bot/presentation/number/{presentationNumber}/slide/name/{slideName} | Returns slidePath for PresentationNumber / SlideName
@@ -26,6 +29,7 @@ Method | HTTP request | Description
 [**getSlidesForPresentationName**](DefaultApi.md#getSlidesForPresentationName) | **GET** /bot/presentation/name/{presentationName}/slide | Returns all Slides for PresentationName
 [**getSlidesForPresentationNameAndSlideName**](DefaultApi.md#getSlidesForPresentationNameAndSlideName) | **GET** /bot/presentation/name/{presentationName}/slide/name/{slideName} | Returns slidePath for PresentationNumber / SlideName
 [**getSlidesForPresentationNumber**](DefaultApi.md#getSlidesForPresentationNumber) | **GET** /bot/presentation/number/{presentationNumber}/slide | Returns all Slides for PresentationNumber
+[**getWhatzappQUestion**](DefaultApi.md#getWhatzappQUestion) | **POST** /bot/whatzapp | forwards a new Whatzapp question
 [**postFeedbackToDB**](DefaultApi.md#postFeedbackToDB) | **POST** /bot/feedback | saves a new Feedback, updates it if already existent
 [**postReplyAndCloseQuestion**](DefaultApi.md#postReplyAndCloseQuestion) | **POST** /bot/question/close/{id} | saves a new Question, updates it if already existent
 [**postTweetInDB**](DefaultApi.md#postTweetInDB) | **POST** /bot/question | saves a new Question, updates it if already existent
@@ -191,6 +195,55 @@ This endpoint does not need any parameter.
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+<a name="getAllClosedStudentQuestions"></a>
+# **getAllClosedStudentQuestions**
+> getAllClosedStudentQuestions()
+
+retrieves all questions report not including general questions - ordered by slideSet
+
+
+
+### Example
+```java
+// Import classes:
+//import io.swagger.client.ApiClient;
+//import io.swagger.client.ApiException;
+//import io.swagger.client.Configuration;
+//import io.swagger.client.auth.*;
+//import io.swagger.client.api.DefaultApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure HTTP basic authorization: basic-auth
+HttpBasicAuth basic-auth = (HttpBasicAuth) defaultClient.getAuthentication("basic-auth");
+basic-auth.setUsername("YOUR USERNAME");
+basic-auth.setPassword("YOUR PASSWORD");
+
+DefaultApi apiInstance = new DefaultApi();
+try {
+    apiInstance.getAllClosedStudentQuestions();
+} catch (ApiException e) {
+    System.err.println("Exception when calling DefaultApi#getAllClosedStudentQuestions");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[basic-auth](../README.md#basic-auth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/octet-stream
+
 <a name="getAllDatamodels"></a>
 # **getAllDatamodels**
 > List&lt;DataItem&gt; getAllDatamodels()
@@ -341,9 +394,9 @@ This endpoint does not need any parameter.
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="getAllTweets"></a>
-# **getAllTweets**
-> List&lt;StudentQuestion&gt; getAllTweets()
+<a name="getAllStudentQuestions"></a>
+# **getAllStudentQuestions**
+> List&lt;StudentQuestion&gt; getAllStudentQuestions()
 
 retrieves all Questions
 
@@ -367,10 +420,10 @@ basic-auth.setPassword("YOUR PASSWORD");
 
 DefaultApi apiInstance = new DefaultApi();
 try {
-    List<StudentQuestion> result = apiInstance.getAllTweets();
+    List<StudentQuestion> result = apiInstance.getAllStudentQuestions();
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling DefaultApi#getAllTweets");
+    System.err.println("Exception when calling DefaultApi#getAllStudentQuestions");
     e.printStackTrace();
 }
 ```
@@ -495,9 +548,9 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="getClosedTweets"></a>
-# **getClosedTweets**
-> List&lt;StudentQuestion&gt; getClosedTweets()
+<a name="getClosedStudentQuestions"></a>
+# **getClosedStudentQuestions**
+> List&lt;StudentQuestion&gt; getClosedStudentQuestions()
 
 retrieves closed Questions
 
@@ -521,10 +574,10 @@ basic-auth.setPassword("YOUR PASSWORD");
 
 DefaultApi apiInstance = new DefaultApi();
 try {
-    List<StudentQuestion> result = apiInstance.getClosedTweets();
+    List<StudentQuestion> result = apiInstance.getClosedStudentQuestions();
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling DefaultApi#getClosedTweets");
+    System.err.println("Exception when calling DefaultApi#getClosedStudentQuestions");
     e.printStackTrace();
 }
 ```
@@ -751,9 +804,62 @@ This endpoint does not need any parameter.
 
 <a name="getReport"></a>
 # **getReport**
-> getReport()
+> getReport(num)
 
-retrieves question report
+retrieves all questions report for specific lecture(slideSet)
+
+
+
+### Example
+```java
+// Import classes:
+//import io.swagger.client.ApiClient;
+//import io.swagger.client.ApiException;
+//import io.swagger.client.Configuration;
+//import io.swagger.client.auth.*;
+//import io.swagger.client.api.DefaultApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure HTTP basic authorization: basic-auth
+HttpBasicAuth basic-auth = (HttpBasicAuth) defaultClient.getAuthentication("basic-auth");
+basic-auth.setUsername("YOUR USERNAME");
+basic-auth.setPassword("YOUR PASSWORD");
+
+DefaultApi apiInstance = new DefaultApi();
+Integer num = 56; // Integer | 
+try {
+    apiInstance.getReport(num);
+} catch (ApiException e) {
+    System.err.println("Exception when calling DefaultApi#getReport");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **num** | **Integer**|  |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[basic-auth](../README.md#basic-auth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/octet-stream
+
+<a name="getReport_0"></a>
+# **getReport_0**
+> getReport_0()
+
+retrieves all questions report for specific lecture(slideSet)
 
 
 
@@ -775,9 +881,9 @@ basic-auth.setPassword("YOUR PASSWORD");
 
 DefaultApi apiInstance = new DefaultApi();
 try {
-    apiInstance.getReport();
+    apiInstance.getReport_0();
 } catch (ApiException e) {
-    System.err.println("Exception when calling DefaultApi#getReport");
+    System.err.println("Exception when calling DefaultApi#getReport_0");
     e.printStackTrace();
 }
 ```
@@ -797,6 +903,53 @@ null (empty response body)
 
  - **Content-Type**: Not defined
  - **Accept**: application/octet-stream
+
+<a name="getSMSQuestion"></a>
+# **getSMSQuestion**
+> String getSMSQuestion(from, body)
+
+forwards a new Whatzapp question
+
+
+
+### Example
+```java
+// Import classes:
+//import io.swagger.client.ApiException;
+//import io.swagger.client.api.DefaultApi;
+
+
+DefaultApi apiInstance = new DefaultApi();
+String from = "from_example"; // String | 
+String body = "body_example"; // String | 
+try {
+    String result = apiInstance.getSMSQuestion(from, body);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling DefaultApi#getSMSQuestion");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **from** | **String**|  | [optional]
+ **body** | **String**|  | [optional]
+
+### Return type
+
+**String**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/x-www-form-urlencoded
+ - **Accept**: text/xml
 
 <a name="getSingleTweet"></a>
 # **getSingleTweet**
@@ -1178,6 +1331,51 @@ Name | Type | Description  | Notes
 ### Authorization
 
 [basic-auth](../README.md#basic-auth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="getWhatzappQUestion"></a>
+# **getWhatzappQUestion**
+> StudentQuestion getWhatzappQUestion(body)
+
+forwards a new Whatzapp question
+
+
+
+### Example
+```java
+// Import classes:
+//import io.swagger.client.ApiException;
+//import io.swagger.client.api.DefaultApi;
+
+
+DefaultApi apiInstance = new DefaultApi();
+StudentQuestion body = new StudentQuestion(); // StudentQuestion | 
+try {
+    StudentQuestion result = apiInstance.getWhatzappQUestion(body);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling DefaultApi#getWhatzappQUestion");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**StudentQuestion**](StudentQuestion.md)|  | [optional]
+
+### Return type
+
+[**StudentQuestion**](StudentQuestion.md)
+
+### Authorization
+
+No authorization required
 
 ### HTTP request headers
 

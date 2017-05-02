@@ -15,6 +15,7 @@ public class StudentQuestion extends DataItem {
     @Property
     @Getter
     @Setter
+    
     protected int slideSet;
 
     @Property

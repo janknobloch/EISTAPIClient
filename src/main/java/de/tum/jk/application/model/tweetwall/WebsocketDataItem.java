@@ -20,6 +20,8 @@ public class WebsocketDataItem {
 		this.type = type;
 		this.content = content;
 	}
-	
+	public WebsocketDataItem() {
+		
+	}
 	
 }

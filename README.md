@@ -99,18 +99,21 @@ Class | Method | HTTP request | Description
 *DefaultApi* | [**deleteTweetInDB**](docs/DefaultApi.md#deleteTweetInDB) | **DELETE** /bot/question | deletes a given Question
 *DefaultApi* | [**deleteTweetInDBById**](docs/DefaultApi.md#deleteTweetInDBById) | **DELETE** /bot/question/{id} | deletes a given Question by using its ID
 *DefaultApi* | [**getActiveSlides**](docs/DefaultApi.md#getActiveSlides) | **GET** /bot/slide/live | Returns an Array of active slides for (ppt, key, and dev)
+*DefaultApi* | [**getAllClosedStudentQuestions**](docs/DefaultApi.md#getAllClosedStudentQuestions) | **GET** /bot/question/report | retrieves all questions report not including general questions - ordered by slideSet
 *DefaultApi* | [**getAllDatamodels**](docs/DefaultApi.md#getAllDatamodels) | **GET** /bot/dataitem | retrieves all DataItem (mock)
 *DefaultApi* | [**getAllPresenterSessions**](docs/DefaultApi.md#getAllPresenterSessions) | **GET** /bot/presenter | Retrieves all Presenters
 *DefaultApi* | [**getAllReplies**](docs/DefaultApi.md#getAllReplies) | **GET** /bot/question/replies | retrieves all Replys (mock)
-*DefaultApi* | [**getAllTweets**](docs/DefaultApi.md#getAllTweets) | **GET** /bot/question | retrieves all Questions
+*DefaultApi* | [**getAllStudentQuestions**](docs/DefaultApi.md#getAllStudentQuestions) | **GET** /bot/question | retrieves all Questions
 *DefaultApi* | [**getAllTwitterWallSessions**](docs/DefaultApi.md#getAllTwitterWallSessions) | **GET** /bot/twitterwalls | retrieves all twitter wall listeners
 *DefaultApi* | [**getClosedLastNumStudentQuestions**](docs/DefaultApi.md#getClosedLastNumStudentQuestions) | **GET** /bot/question/closed/last/{num} | retrieves last {num} closed Questions
-*DefaultApi* | [**getClosedTweets**](docs/DefaultApi.md#getClosedTweets) | **GET** /bot/question/closed | retrieves closed Questions
+*DefaultApi* | [**getClosedStudentQuestions**](docs/DefaultApi.md#getClosedStudentQuestions) | **GET** /bot/question/closed | retrieves closed Questions
 *DefaultApi* | [**getHighscores**](docs/DefaultApi.md#getHighscores) | **GET** /bot/highscores | retrieves highscores
 *DefaultApi* | [**getLastNumTeacherQuestions**](docs/DefaultApi.md#getLastNumTeacherQuestions) | **GET** /bot/quiz/last/{num} | retrieves last {num} quizzes
 *DefaultApi* | [**getOpenTweets**](docs/DefaultApi.md#getOpenTweets) | **GET** /bot/question/open | retrieves open Questions
 *DefaultApi* | [**getPresentations**](docs/DefaultApi.md#getPresentations) | **GET** /bot/presentation | Returns a mapping ordered by timestamp of all presentationNames
-*DefaultApi* | [**getReport**](docs/DefaultApi.md#getReport) | **GET** /bot/question/report | retrieves question report
+*DefaultApi* | [**getReport**](docs/DefaultApi.md#getReport) | **GET** /bot/question/report/{num} | retrieves all questions report for specific lecture(slideSet)
+*DefaultApi* | [**getReport_0**](docs/DefaultApi.md#getReport_0) | **GET** /bot/question/report/general | retrieves all questions report for specific lecture(slideSet)
+*DefaultApi* | [**getSMSQuestion**](docs/DefaultApi.md#getSMSQuestion) | **POST** /bot/sms | forwards a new Whatzapp question
 *DefaultApi* | [**getSingleTweet**](docs/DefaultApi.md#getSingleTweet) | **GET** /bot/question/{id} | retrieves question by Id
 *DefaultApi* | [**getSlideForPresentationNameAndSlideNumber**](docs/DefaultApi.md#getSlideForPresentationNameAndSlideNumber) | **GET** /bot/presentation/name/{presentationName}/slide/number/{slideNumber} | Returns slidePath for PresentationName / SlideNumber
 *DefaultApi* | [**getSlideForPresentationNumberAndSlideName**](docs/DefaultApi.md#getSlideForPresentationNumberAndSlideName) | **GET** /bot/presentation/number/{presentationNumber}/slide/name/{slideName} | Returns slidePath for PresentationNumber / SlideName
@@ -118,6 +121,7 @@ Class | Method | HTTP request | Description
 *DefaultApi* | [**getSlidesForPresentationName**](docs/DefaultApi.md#getSlidesForPresentationName) | **GET** /bot/presentation/name/{presentationName}/slide | Returns all Slides for PresentationName
 *DefaultApi* | [**getSlidesForPresentationNameAndSlideName**](docs/DefaultApi.md#getSlidesForPresentationNameAndSlideName) | **GET** /bot/presentation/name/{presentationName}/slide/name/{slideName} | Returns slidePath for PresentationNumber / SlideName
 *DefaultApi* | [**getSlidesForPresentationNumber**](docs/DefaultApi.md#getSlidesForPresentationNumber) | **GET** /bot/presentation/number/{presentationNumber}/slide | Returns all Slides for PresentationNumber
+*DefaultApi* | [**getWhatzappQUestion**](docs/DefaultApi.md#getWhatzappQUestion) | **POST** /bot/whatzapp | forwards a new Whatzapp question
 *DefaultApi* | [**postFeedbackToDB**](docs/DefaultApi.md#postFeedbackToDB) | **POST** /bot/feedback | saves a new Feedback, updates it if already existent
 *DefaultApi* | [**postReplyAndCloseQuestion**](docs/DefaultApi.md#postReplyAndCloseQuestion) | **POST** /bot/question/close/{id} | saves a new Question, updates it if already existent
 *DefaultApi* | [**postTweetInDB**](docs/DefaultApi.md#postTweetInDB) | **POST** /bot/question | saves a new Question, updates it if already existent

@@ -85,6 +85,21 @@ public class DefaultApiTest {
     }
     
     /**
+     * retrieves all questions report not including general questions - ordered by slideSet
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getAllClosedStudentQuestionsTest() throws ApiException {
+        api.getAllClosedStudentQuestions();
+
+        // TODO: test validations
+    }
+    
+    /**
      * retrieves all DataItem (mock)
      *
      * 
@@ -138,8 +153,8 @@ public class DefaultApiTest {
      *          if the Api call fails
      */
     @Test
-    public void getAllTweetsTest() throws ApiException {
-        List<StudentQuestion> response = api.getAllTweets();
+    public void getAllStudentQuestionsTest() throws ApiException {
+        List<StudentQuestion> response = api.getAllStudentQuestions();
 
         // TODO: test validations
     }
@@ -184,8 +199,8 @@ public class DefaultApiTest {
      *          if the Api call fails
      */
     @Test
-    public void getClosedTweetsTest() throws ApiException {
-        List<StudentQuestion> response = api.getClosedTweets();
+    public void getClosedStudentQuestionsTest() throws ApiException {
+        List<StudentQuestion> response = api.getClosedStudentQuestions();
 
         // TODO: test validations
     }
@@ -252,7 +267,7 @@ public class DefaultApiTest {
     }
     
     /**
-     * retrieves question report
+     * retrieves all questions report for specific lecture(slideSet)
      *
      * 
      *
@@ -261,7 +276,40 @@ public class DefaultApiTest {
      */
     @Test
     public void getReportTest() throws ApiException {
-        api.getReport();
+        Integer num = null;
+        api.getReport(num);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * retrieves all questions report for specific lecture(slideSet)
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getReport_0Test() throws ApiException {
+        api.getReport_0();
+
+        // TODO: test validations
+    }
+    
+    /**
+     * forwards a new Whatzapp question
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getSMSQuestionTest() throws ApiException {
+        String from = null;
+        String body = null;
+        String response = api.getSMSQuestion(from, body);
 
         // TODO: test validations
     }
@@ -378,6 +426,22 @@ public class DefaultApiTest {
     public void getSlidesForPresentationNumberTest() throws ApiException {
         Integer presentationNumber = null;
         Map<String, String> response = api.getSlidesForPresentationNumber(presentationNumber);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * forwards a new Whatzapp question
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getWhatzappQUestionTest() throws ApiException {
+        StudentQuestion body = null;
+        StudentQuestion response = api.getWhatzappQUestion(body);
 
         // TODO: test validations
     }
