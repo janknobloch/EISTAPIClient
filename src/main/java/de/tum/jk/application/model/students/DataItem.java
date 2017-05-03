@@ -52,6 +52,11 @@ public abstract class DataItem {
 	@Setter
 	protected int upvotes;
 
+	@Property
+	@Getter
+	@Setter
+	protected String inputSource;
+
 	public DataItem() {
 	}
 
