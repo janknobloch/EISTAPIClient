@@ -85,6 +85,21 @@ public class DefaultApiTest {
     }
     
     /**
+     * retrieves all bots 
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getAllBotsTest() throws ApiException {
+        List<String> response = api.getAllBots();
+
+        // TODO: test validations
+    }
+    
+    /**
      * retrieves all questions report not including general questions - ordered by slideSet
      *
      * 
@@ -431,7 +446,7 @@ public class DefaultApiTest {
     }
     
     /**
-     * forwards a new Whatzapp question
+     * forwards a new Whatsapp question
      *
      * 
      *
