@@ -7,15 +7,14 @@ Method | HTTP request | Description
 [**deleteTweetInDB**](DefaultApi.md#deleteTweetInDB) | **DELETE** /bot/question | deletes a given Question
 [**deleteTweetInDBById**](DefaultApi.md#deleteTweetInDBById) | **DELETE** /bot/question/{id} | deletes a given Question by using its ID
 [**getActiveSlides**](DefaultApi.md#getActiveSlides) | **GET** /bot/slide/live | Returns an Array of active slides for (ppt, key, and dev)
-[**getAllBots**](DefaultApi.md#getAllBots) | **GET** /bot/bots | retrieves all bots 
+[**getAllBots**](DefaultApi.md#getAllBots) | **GET** /bot/bot | retrieves all bots 
 [**getAllClosedStudentQuestions**](DefaultApi.md#getAllClosedStudentQuestions) | **GET** /bot/question/report | retrieves all questions report not including general questions - ordered by slideSet
-[**getAllDatamodels**](DefaultApi.md#getAllDatamodels) | **GET** /bot/dataitem | retrieves all DataItem (mock)
 [**getAllPresenterSessions**](DefaultApi.md#getAllPresenterSessions) | **GET** /bot/presenter | Retrieves all Presenters
-[**getAllReplies**](DefaultApi.md#getAllReplies) | **GET** /bot/question/replies | retrieves all Replys (mock)
 [**getAllStudentQuestions**](DefaultApi.md#getAllStudentQuestions) | **GET** /bot/question | retrieves all Questions
-[**getAllTwitterWallSessions**](DefaultApi.md#getAllTwitterWallSessions) | **GET** /bot/twitterwalls | retrieves all twitter wall listeners
+[**getAllTwitterWallSessions**](DefaultApi.md#getAllTwitterWallSessions) | **GET** /bot/wall | retrieves all wall listeners
 [**getClosedLastNumStudentQuestions**](DefaultApi.md#getClosedLastNumStudentQuestions) | **GET** /bot/question/closed/last/{num} | retrieves last {num} closed Questions
 [**getClosedStudentQuestions**](DefaultApi.md#getClosedStudentQuestions) | **GET** /bot/question/closed | retrieves closed Questions
+[**getExercises**](DefaultApi.md#getExercises) | **GET** /bot/exercise | Returns a mapping ordered by timestamp of all exerciseNames
 [**getHighscores**](DefaultApi.md#getHighscores) | **GET** /bot/highscores | retrieves highscores
 [**getLastNumTeacherQuestions**](DefaultApi.md#getLastNumTeacherQuestions) | **GET** /bot/quiz/last/{num} | retrieves last {num} quizzes
 [**getOpenTweets**](DefaultApi.md#getOpenTweets) | **GET** /bot/question/open | retrieves open Questions
@@ -293,56 +292,6 @@ null (empty response body)
  - **Content-Type**: Not defined
  - **Accept**: application/octet-stream
 
-<a name="getAllDatamodels"></a>
-# **getAllDatamodels**
-> List&lt;DataItem&gt; getAllDatamodels()
-
-retrieves all DataItem (mock)
-
-
-
-### Example
-```java
-// Import classes:
-//import io.swagger.client.ApiClient;
-//import io.swagger.client.ApiException;
-//import io.swagger.client.Configuration;
-//import io.swagger.client.auth.*;
-//import io.swagger.client.api.DefaultApi;
-
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure HTTP basic authorization: basic-auth
-HttpBasicAuth basic-auth = (HttpBasicAuth) defaultClient.getAuthentication("basic-auth");
-basic-auth.setUsername("YOUR USERNAME");
-basic-auth.setPassword("YOUR PASSWORD");
-
-DefaultApi apiInstance = new DefaultApi();
-try {
-    List<DataItem> result = apiInstance.getAllDatamodels();
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling DefaultApi#getAllDatamodels");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-This endpoint does not need any parameter.
-
-### Return type
-
-[**List&lt;DataItem&gt;**](DataItem.md)
-
-### Authorization
-
-[basic-auth](../README.md#basic-auth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
 <a name="getAllPresenterSessions"></a>
 # **getAllPresenterSessions**
 > List&lt;String&gt; getAllPresenterSessions()
@@ -383,56 +332,6 @@ This endpoint does not need any parameter.
 ### Return type
 
 **List&lt;String&gt;**
-
-### Authorization
-
-[basic-auth](../README.md#basic-auth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-<a name="getAllReplies"></a>
-# **getAllReplies**
-> List&lt;Reply&gt; getAllReplies()
-
-retrieves all Replys (mock)
-
-
-
-### Example
-```java
-// Import classes:
-//import io.swagger.client.ApiClient;
-//import io.swagger.client.ApiException;
-//import io.swagger.client.Configuration;
-//import io.swagger.client.auth.*;
-//import io.swagger.client.api.DefaultApi;
-
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure HTTP basic authorization: basic-auth
-HttpBasicAuth basic-auth = (HttpBasicAuth) defaultClient.getAuthentication("basic-auth");
-basic-auth.setUsername("YOUR USERNAME");
-basic-auth.setPassword("YOUR PASSWORD");
-
-DefaultApi apiInstance = new DefaultApi();
-try {
-    List<Reply> result = apiInstance.getAllReplies();
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling DefaultApi#getAllReplies");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-This endpoint does not need any parameter.
-
-### Return type
-
-[**List&lt;Reply&gt;**](Reply.md)
 
 ### Authorization
 
@@ -497,7 +396,7 @@ This endpoint does not need any parameter.
 # **getAllTwitterWallSessions**
 > List&lt;String&gt; getAllTwitterWallSessions()
 
-retrieves all twitter wall listeners
+retrieves all wall listeners
 
 
 
@@ -637,6 +536,56 @@ This endpoint does not need any parameter.
 ### Return type
 
 [**List&lt;StudentQuestion&gt;**](StudentQuestion.md)
+
+### Authorization
+
+[basic-auth](../README.md#basic-auth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="getExercises"></a>
+# **getExercises**
+> Map&lt;String, String&gt; getExercises()
+
+Returns a mapping ordered by timestamp of all exerciseNames
+
+
+
+### Example
+```java
+// Import classes:
+//import io.swagger.client.ApiClient;
+//import io.swagger.client.ApiException;
+//import io.swagger.client.Configuration;
+//import io.swagger.client.auth.*;
+//import io.swagger.client.api.DefaultApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure HTTP basic authorization: basic-auth
+HttpBasicAuth basic-auth = (HttpBasicAuth) defaultClient.getAuthentication("basic-auth");
+basic-auth.setUsername("YOUR USERNAME");
+basic-auth.setPassword("YOUR PASSWORD");
+
+DefaultApi apiInstance = new DefaultApi();
+try {
+    Map<String, String> result = apiInstance.getExercises();
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling DefaultApi#getExercises");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**Map&lt;String, String&gt;**](Map.md)
 
 ### Authorization
 

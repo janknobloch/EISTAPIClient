@@ -15,9 +15,7 @@ package io.swagger.client.api;
 
 import io.swagger.client.ApiException;
 import de.tum.jk.application.model.presenterTool.ActiveSlidePath;
-import de.tum.jk.application.model.students.DataItem;
 import de.tum.jk.application.model.students.Feedback;
-import de.tum.jk.application.model.students.Reply;
 import de.tum.jk.application.model.students.StudentQuestion;
 import de.tum.jk.application.model.presenter.TeacherQuestion;
 import org.junit.Test;
@@ -115,21 +113,6 @@ public class DefaultApiTest {
     }
     
     /**
-     * retrieves all DataItem (mock)
-     *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void getAllDatamodelsTest() throws ApiException {
-        List<DataItem> response = api.getAllDatamodels();
-
-        // TODO: test validations
-    }
-    
-    /**
      * Retrieves all Presenters
      *
      * 
@@ -140,21 +123,6 @@ public class DefaultApiTest {
     @Test
     public void getAllPresenterSessionsTest() throws ApiException {
         List<String> response = api.getAllPresenterSessions();
-
-        // TODO: test validations
-    }
-    
-    /**
-     * retrieves all Replys (mock)
-     *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void getAllRepliesTest() throws ApiException {
-        List<Reply> response = api.getAllReplies();
 
         // TODO: test validations
     }
@@ -175,7 +143,7 @@ public class DefaultApiTest {
     }
     
     /**
-     * retrieves all twitter wall listeners
+     * retrieves all wall listeners
      *
      * 
      *
@@ -216,6 +184,21 @@ public class DefaultApiTest {
     @Test
     public void getClosedStudentQuestionsTest() throws ApiException {
         List<StudentQuestion> response = api.getClosedStudentQuestions();
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Returns a mapping ordered by timestamp of all exerciseNames
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getExercisesTest() throws ApiException {
+        Map<String, String> response = api.getExercises();
 
         // TODO: test validations
     }

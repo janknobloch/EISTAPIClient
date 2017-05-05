@@ -99,15 +99,14 @@ Class | Method | HTTP request | Description
 *DefaultApi* | [**deleteTweetInDB**](docs/DefaultApi.md#deleteTweetInDB) | **DELETE** /bot/question | deletes a given Question
 *DefaultApi* | [**deleteTweetInDBById**](docs/DefaultApi.md#deleteTweetInDBById) | **DELETE** /bot/question/{id} | deletes a given Question by using its ID
 *DefaultApi* | [**getActiveSlides**](docs/DefaultApi.md#getActiveSlides) | **GET** /bot/slide/live | Returns an Array of active slides for (ppt, key, and dev)
-*DefaultApi* | [**getAllBots**](docs/DefaultApi.md#getAllBots) | **GET** /bot/bots | retrieves all bots 
+*DefaultApi* | [**getAllBots**](docs/DefaultApi.md#getAllBots) | **GET** /bot/bot | retrieves all bots 
 *DefaultApi* | [**getAllClosedStudentQuestions**](docs/DefaultApi.md#getAllClosedStudentQuestions) | **GET** /bot/question/report | retrieves all questions report not including general questions - ordered by slideSet
-*DefaultApi* | [**getAllDatamodels**](docs/DefaultApi.md#getAllDatamodels) | **GET** /bot/dataitem | retrieves all DataItem (mock)
 *DefaultApi* | [**getAllPresenterSessions**](docs/DefaultApi.md#getAllPresenterSessions) | **GET** /bot/presenter | Retrieves all Presenters
-*DefaultApi* | [**getAllReplies**](docs/DefaultApi.md#getAllReplies) | **GET** /bot/question/replies | retrieves all Replys (mock)
 *DefaultApi* | [**getAllStudentQuestions**](docs/DefaultApi.md#getAllStudentQuestions) | **GET** /bot/question | retrieves all Questions
-*DefaultApi* | [**getAllTwitterWallSessions**](docs/DefaultApi.md#getAllTwitterWallSessions) | **GET** /bot/twitterwalls | retrieves all twitter wall listeners
+*DefaultApi* | [**getAllTwitterWallSessions**](docs/DefaultApi.md#getAllTwitterWallSessions) | **GET** /bot/wall | retrieves all wall listeners
 *DefaultApi* | [**getClosedLastNumStudentQuestions**](docs/DefaultApi.md#getClosedLastNumStudentQuestions) | **GET** /bot/question/closed/last/{num} | retrieves last {num} closed Questions
 *DefaultApi* | [**getClosedStudentQuestions**](docs/DefaultApi.md#getClosedStudentQuestions) | **GET** /bot/question/closed | retrieves closed Questions
+*DefaultApi* | [**getExercises**](docs/DefaultApi.md#getExercises) | **GET** /bot/exercise | Returns a mapping ordered by timestamp of all exerciseNames
 *DefaultApi* | [**getHighscores**](docs/DefaultApi.md#getHighscores) | **GET** /bot/highscores | retrieves highscores
 *DefaultApi* | [**getLastNumTeacherQuestions**](docs/DefaultApi.md#getLastNumTeacherQuestions) | **GET** /bot/quiz/last/{num} | retrieves last {num} quizzes
 *DefaultApi* | [**getOpenTweets**](docs/DefaultApi.md#getOpenTweets) | **GET** /bot/question/open | retrieves open Questions
