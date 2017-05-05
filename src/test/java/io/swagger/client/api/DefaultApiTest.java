@@ -329,7 +329,7 @@ public class DefaultApiTest {
     }
     
     /**
-     * Returns slidePath for PresentationNumber / SlideNumber
+     * Returns slidePath for ExerciseNumber / SlideNumber
      *
      * 
      *
@@ -338,9 +338,9 @@ public class DefaultApiTest {
      */
     @Test
     public void getSlideForExerciseNumberAndSlideNumberTest() throws ApiException {
-        Integer presentationNumber = null;
+        Integer exerciseNumber = null;
         Integer slideNumber = null;
-        String response = api.getSlideForExerciseNumberAndSlideNumber(presentationNumber, slideNumber);
+        String response = api.getSlideForExerciseNumberAndSlideNumber(exerciseNumber, slideNumber);
 
         // TODO: test validations
     }
@@ -355,9 +355,9 @@ public class DefaultApiTest {
      */
     @Test
     public void getSlideForPresentationNumberAndSlideNumberTest() throws ApiException {
-        Integer exerciseNumber = null;
+        Integer presentationNumber = null;
         Integer slideNumber = null;
-        String response = api.getSlideForPresentationNumberAndSlideNumber(exerciseNumber, slideNumber);
+        String response = api.getSlideForPresentationNumberAndSlideNumber(presentationNumber, slideNumber);
 
         // TODO: test validations
     }
