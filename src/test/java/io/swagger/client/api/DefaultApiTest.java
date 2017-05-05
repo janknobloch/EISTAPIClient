@@ -85,6 +85,21 @@ public class DefaultApiTest {
     }
     
     /**
+     * retrieves all bots 
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getAllBotsTest() throws ApiException {
+        List<String> response = api.getAllBots();
+
+        // TODO: test validations
+    }
+    
+    /**
      * retrieves all questions report not including general questions - ordered by slideSet
      *
      * 
@@ -298,7 +313,7 @@ public class DefaultApiTest {
     }
     
     /**
-     * forwards a new Whatzapp question
+     * forwards a new SMS question
      *
      * 
      *
@@ -331,7 +346,7 @@ public class DefaultApiTest {
     }
     
     /**
-     * Returns slidePath for PresentationName / SlideNumber
+     * Returns slidePath for PresentationNumber / SlideNumber
      *
      * 
      *
@@ -339,27 +354,10 @@ public class DefaultApiTest {
      *          if the Api call fails
      */
     @Test
-    public void getSlideForPresentationNameAndSlideNumberTest() throws ApiException {
-        String presentationName = null;
+    public void getSlideForExerciseNumberAndSlideNumberTest() throws ApiException {
+        Integer exerciseNumber = null;
         Integer slideNumber = null;
-        String response = api.getSlideForPresentationNameAndSlideNumber(presentationName, slideNumber);
-
-        // TODO: test validations
-    }
-    
-    /**
-     * Returns slidePath for PresentationNumber / SlideName
-     *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void getSlideForPresentationNumberAndSlideNameTest() throws ApiException {
-        Integer presentationNumber = null;
-        String slideName = null;
-        String response = api.getSlideForPresentationNumberAndSlideName(presentationNumber, slideName);
+        String response = api.getSlideForExerciseNumberAndSlideNumber(exerciseNumber, slideNumber);
 
         // TODO: test validations
     }
@@ -382,6 +380,22 @@ public class DefaultApiTest {
     }
     
     /**
+     * Returns all Slides for ExerciseName
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getSlidesForExerciseNameTest() throws ApiException {
+        String exerciseName = null;
+        Map<String, String> response = api.getSlidesForExerciseName(exerciseName);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Returns all Slides for PresentationName
      *
      * 
@@ -398,40 +412,7 @@ public class DefaultApiTest {
     }
     
     /**
-     * Returns slidePath for PresentationNumber / SlideName
-     *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void getSlidesForPresentationNameAndSlideNameTest() throws ApiException {
-        String presentationName = null;
-        String slideName = null;
-        String response = api.getSlidesForPresentationNameAndSlideName(presentationName, slideName);
-
-        // TODO: test validations
-    }
-    
-    /**
-     * Returns all Slides for PresentationNumber
-     *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void getSlidesForPresentationNumberTest() throws ApiException {
-        Integer presentationNumber = null;
-        Map<String, String> response = api.getSlidesForPresentationNumber(presentationNumber);
-
-        // TODO: test validations
-    }
-    
-    /**
-     * forwards a new Whatzapp question
+     * forwards a new Whatsapp question
      *
      * 
      *

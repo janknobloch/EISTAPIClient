@@ -55,13 +55,13 @@ public abstract class DataItem {
 	@Property
 	@Getter
 	@Setter
-	private static boolean dev;
+	protected String inputSource;
 
 	public DataItem() {
 	}
 
 	public DataItem(String id, String content, String author, DateTime date) {
-		generateID(id);
+		this.id = id;
 		this.content = content;
 		this.author = author;
 		this.date = date.toString();
@@ -75,10 +75,4 @@ public abstract class DataItem {
 		this.upvotes--;
 	}
 
-	private void generateID(String timestamp) {
-		this.id = "slack_" + timestamp;
-		if (dev) {
-			this.id = "dev_" + this.id;
-		}
-	}
 }

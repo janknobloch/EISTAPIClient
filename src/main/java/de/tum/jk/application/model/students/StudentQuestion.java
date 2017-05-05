@@ -58,6 +58,11 @@ public class StudentQuestion extends DataItem {
     @Setter
     private String answerDate;
     
+    @Property
+    @Getter
+    @Setter
+    private String channel;
+    
     public StudentQuestion(String id, String text, String author, DateTime date) {
         super(id, text, author, date);
         this.replies = new ArrayList<Reply>();

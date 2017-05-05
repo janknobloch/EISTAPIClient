@@ -395,6 +395,116 @@ public class DefaultApi {
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+    /* Build call for getAllBots */
+    private com.squareup.okhttp.Call getAllBotsCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+        
+        // create path and map variables
+        String localVarPath = "/bot/bots".replaceAll("\\{format\\}","json");
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "basic-auth" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getAllBotsValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        
+        com.squareup.okhttp.Call call = getAllBotsCall(progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * retrieves all bots 
+     * 
+     * @return List&lt;String&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public List<String> getAllBots() throws ApiException {
+        ApiResponse<List<String>> resp = getAllBotsWithHttpInfo();
+        return resp.getData();
+    }
+
+    /**
+     * retrieves all bots 
+     * 
+     * @return ApiResponse&lt;List&lt;String&gt;&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<List<String>> getAllBotsWithHttpInfo() throws ApiException {
+        com.squareup.okhttp.Call call = getAllBotsValidateBeforeCall(null, null);
+        Type localVarReturnType = new TypeToken<List<String>>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * retrieves all bots  (asynchronously)
+     * 
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call getAllBotsAsync(final ApiCallback<List<String>> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getAllBotsValidateBeforeCall(progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<List<String>>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
     /* Build call for getAllClosedStudentQuestions */
     private com.squareup.okhttp.Call getAllClosedStudentQuestionsCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
@@ -2009,7 +2119,7 @@ public class DefaultApi {
     }
 
     /**
-     * forwards a new Whatzapp question
+     * forwards a new SMS question
      * 
      * @param from  (optional)
      * @param body  (optional)
@@ -2022,7 +2132,7 @@ public class DefaultApi {
     }
 
     /**
-     * forwards a new Whatzapp question
+     * forwards a new SMS question
      * 
      * @param from  (optional)
      * @param body  (optional)
@@ -2036,7 +2146,7 @@ public class DefaultApi {
     }
 
     /**
-     * forwards a new Whatzapp question (asynchronously)
+     * forwards a new SMS question (asynchronously)
      * 
      * @param from  (optional)
      * @param body  (optional)
@@ -2189,13 +2299,13 @@ public class DefaultApi {
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /* Build call for getSlideForPresentationNameAndSlideNumber */
-    private com.squareup.okhttp.Call getSlideForPresentationNameAndSlideNumberCall(String presentationName, Integer slideNumber, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /* Build call for getSlideForExerciseNumberAndSlideNumber */
+    private com.squareup.okhttp.Call getSlideForExerciseNumberAndSlideNumberCall(Integer exerciseNumber, Integer slideNumber, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/bot/presentation/name/{presentationName}/slide/number/{slideNumber}".replaceAll("\\{format\\}","json")
-        .replaceAll("\\{" + "presentationName" + "\\}", apiClient.escapeString(presentationName.toString()))
+        String localVarPath = "/bot/presentation/number/{exerciseNumber}/slide/number/{slideNumber}".replaceAll("\\{format\\}","json")
+        .replaceAll("\\{" + "exerciseNumber" + "\\}", apiClient.escapeString(exerciseNumber.toString()))
         .replaceAll("\\{" + "slideNumber" + "\\}", apiClient.escapeString(slideNumber.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -2233,20 +2343,20 @@ public class DefaultApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getSlideForPresentationNameAndSlideNumberValidateBeforeCall(String presentationName, Integer slideNumber, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getSlideForExerciseNumberAndSlideNumberValidateBeforeCall(Integer exerciseNumber, Integer slideNumber, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
-        // verify the required parameter 'presentationName' is set
-        if (presentationName == null) {
-            throw new ApiException("Missing the required parameter 'presentationName' when calling getSlideForPresentationNameAndSlideNumber(Async)");
+        // verify the required parameter 'exerciseNumber' is set
+        if (exerciseNumber == null) {
+            throw new ApiException("Missing the required parameter 'exerciseNumber' when calling getSlideForExerciseNumberAndSlideNumber(Async)");
         }
         
         // verify the required parameter 'slideNumber' is set
         if (slideNumber == null) {
-            throw new ApiException("Missing the required parameter 'slideNumber' when calling getSlideForPresentationNameAndSlideNumber(Async)");
+            throw new ApiException("Missing the required parameter 'slideNumber' when calling getSlideForExerciseNumberAndSlideNumber(Async)");
         }
         
         
-        com.squareup.okhttp.Call call = getSlideForPresentationNameAndSlideNumberCall(presentationName, slideNumber, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getSlideForExerciseNumberAndSlideNumberCall(exerciseNumber, slideNumber, progressListener, progressRequestListener);
         return call;
 
         
@@ -2256,42 +2366,42 @@ public class DefaultApi {
     }
 
     /**
-     * Returns slidePath for PresentationName / SlideNumber
+     * Returns slidePath for PresentationNumber / SlideNumber
      * 
-     * @param presentationName  (required)
+     * @param exerciseNumber  (required)
      * @param slideNumber  (required)
      * @return String
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public String getSlideForPresentationNameAndSlideNumber(String presentationName, Integer slideNumber) throws ApiException {
-        ApiResponse<String> resp = getSlideForPresentationNameAndSlideNumberWithHttpInfo(presentationName, slideNumber);
+    public String getSlideForExerciseNumberAndSlideNumber(Integer exerciseNumber, Integer slideNumber) throws ApiException {
+        ApiResponse<String> resp = getSlideForExerciseNumberAndSlideNumberWithHttpInfo(exerciseNumber, slideNumber);
         return resp.getData();
     }
 
     /**
-     * Returns slidePath for PresentationName / SlideNumber
+     * Returns slidePath for PresentationNumber / SlideNumber
      * 
-     * @param presentationName  (required)
+     * @param exerciseNumber  (required)
      * @param slideNumber  (required)
      * @return ApiResponse&lt;String&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<String> getSlideForPresentationNameAndSlideNumberWithHttpInfo(String presentationName, Integer slideNumber) throws ApiException {
-        com.squareup.okhttp.Call call = getSlideForPresentationNameAndSlideNumberValidateBeforeCall(presentationName, slideNumber, null, null);
+    public ApiResponse<String> getSlideForExerciseNumberAndSlideNumberWithHttpInfo(Integer exerciseNumber, Integer slideNumber) throws ApiException {
+        com.squareup.okhttp.Call call = getSlideForExerciseNumberAndSlideNumberValidateBeforeCall(exerciseNumber, slideNumber, null, null);
         Type localVarReturnType = new TypeToken<String>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
-     * Returns slidePath for PresentationName / SlideNumber (asynchronously)
+     * Returns slidePath for PresentationNumber / SlideNumber (asynchronously)
      * 
-     * @param presentationName  (required)
+     * @param exerciseNumber  (required)
      * @param slideNumber  (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getSlideForPresentationNameAndSlideNumberAsync(String presentationName, Integer slideNumber, final ApiCallback<String> callback) throws ApiException {
+    public com.squareup.okhttp.Call getSlideForExerciseNumberAndSlideNumberAsync(Integer exerciseNumber, Integer slideNumber, final ApiCallback<String> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -2312,135 +2422,7 @@ public class DefaultApi {
             };
         }
 
-        com.squareup.okhttp.Call call = getSlideForPresentationNameAndSlideNumberValidateBeforeCall(presentationName, slideNumber, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<String>(){}.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
-    /* Build call for getSlideForPresentationNumberAndSlideName */
-    private com.squareup.okhttp.Call getSlideForPresentationNumberAndSlideNameCall(Integer presentationNumber, String slideName, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = null;
-        
-        // create path and map variables
-        String localVarPath = "/bot/presentation/number/{presentationNumber}/slide/name/{slideName}".replaceAll("\\{format\\}","json")
-        .replaceAll("\\{" + "presentationNumber" + "\\}", apiClient.escapeString(presentationNumber.toString()))
-        .replaceAll("\\{" + "slideName" + "\\}", apiClient.escapeString(slideName.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "basic-auth" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-    
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getSlideForPresentationNumberAndSlideNameValidateBeforeCall(Integer presentationNumber, String slideName, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
-        // verify the required parameter 'presentationNumber' is set
-        if (presentationNumber == null) {
-            throw new ApiException("Missing the required parameter 'presentationNumber' when calling getSlideForPresentationNumberAndSlideName(Async)");
-        }
-        
-        // verify the required parameter 'slideName' is set
-        if (slideName == null) {
-            throw new ApiException("Missing the required parameter 'slideName' when calling getSlideForPresentationNumberAndSlideName(Async)");
-        }
-        
-        
-        com.squareup.okhttp.Call call = getSlideForPresentationNumberAndSlideNameCall(presentationNumber, slideName, progressListener, progressRequestListener);
-        return call;
-
-        
-        
-        
-        
-    }
-
-    /**
-     * Returns slidePath for PresentationNumber / SlideName
-     * 
-     * @param presentationNumber  (required)
-     * @param slideName  (required)
-     * @return String
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public String getSlideForPresentationNumberAndSlideName(Integer presentationNumber, String slideName) throws ApiException {
-        ApiResponse<String> resp = getSlideForPresentationNumberAndSlideNameWithHttpInfo(presentationNumber, slideName);
-        return resp.getData();
-    }
-
-    /**
-     * Returns slidePath for PresentationNumber / SlideName
-     * 
-     * @param presentationNumber  (required)
-     * @param slideName  (required)
-     * @return ApiResponse&lt;String&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<String> getSlideForPresentationNumberAndSlideNameWithHttpInfo(Integer presentationNumber, String slideName) throws ApiException {
-        com.squareup.okhttp.Call call = getSlideForPresentationNumberAndSlideNameValidateBeforeCall(presentationNumber, slideName, null, null);
-        Type localVarReturnType = new TypeToken<String>(){}.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     * Returns slidePath for PresentationNumber / SlideName (asynchronously)
-     * 
-     * @param presentationNumber  (required)
-     * @param slideName  (required)
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public com.squareup.okhttp.Call getSlideForPresentationNumberAndSlideNameAsync(Integer presentationNumber, String slideName, final ApiCallback<String> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
-        }
-
-        com.squareup.okhttp.Call call = getSlideForPresentationNumberAndSlideNameValidateBeforeCall(presentationNumber, slideName, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getSlideForExerciseNumberAndSlideNumberValidateBeforeCall(exerciseNumber, slideNumber, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<String>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -2450,7 +2432,7 @@ public class DefaultApi {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/bot/presentation/number/{presentationNumber}/slide/number/{slideNumber}".replaceAll("\\{format\\}","json")
+        String localVarPath = "/bot/exercise/number/{exerciseNumber}/slide/number/{exerciseNumber}".replaceAll("\\{format\\}","json")
         .replaceAll("\\{" + "presentationNumber" + "\\}", apiClient.escapeString(presentationNumber.toString()))
         .replaceAll("\\{" + "slideNumber" + "\\}", apiClient.escapeString(slideNumber.toString()));
 
@@ -2573,6 +2555,125 @@ public class DefaultApi {
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+    /* Build call for getSlidesForExerciseName */
+    private com.squareup.okhttp.Call getSlidesForExerciseNameCall(String exerciseName, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+        
+        // create path and map variables
+        String localVarPath = "/bot/exercise/name/{exerciseName}/slide".replaceAll("\\{format\\}","json")
+        .replaceAll("\\{" + "exerciseName" + "\\}", apiClient.escapeString(exerciseName.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "basic-auth" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getSlidesForExerciseNameValidateBeforeCall(String exerciseName, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'exerciseName' is set
+        if (exerciseName == null) {
+            throw new ApiException("Missing the required parameter 'exerciseName' when calling getSlidesForExerciseName(Async)");
+        }
+        
+        
+        com.squareup.okhttp.Call call = getSlidesForExerciseNameCall(exerciseName, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * Returns all Slides for ExerciseName
+     * 
+     * @param exerciseName  (required)
+     * @return Map&lt;String, String&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public Map<String, String> getSlidesForExerciseName(String exerciseName) throws ApiException {
+        ApiResponse<Map<String, String>> resp = getSlidesForExerciseNameWithHttpInfo(exerciseName);
+        return resp.getData();
+    }
+
+    /**
+     * Returns all Slides for ExerciseName
+     * 
+     * @param exerciseName  (required)
+     * @return ApiResponse&lt;Map&lt;String, String&gt;&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<Map<String, String>> getSlidesForExerciseNameWithHttpInfo(String exerciseName) throws ApiException {
+        com.squareup.okhttp.Call call = getSlidesForExerciseNameValidateBeforeCall(exerciseName, null, null);
+        Type localVarReturnType = new TypeToken<Map<String, String>>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Returns all Slides for ExerciseName (asynchronously)
+     * 
+     * @param exerciseName  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call getSlidesForExerciseNameAsync(String exerciseName, final ApiCallback<Map<String, String>> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getSlidesForExerciseNameValidateBeforeCall(exerciseName, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<Map<String, String>>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
     /* Build call for getSlidesForPresentationName */
     private com.squareup.okhttp.Call getSlidesForPresentationNameCall(String presentationName, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
@@ -2692,259 +2793,12 @@ public class DefaultApi {
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /* Build call for getSlidesForPresentationNameAndSlideName */
-    private com.squareup.okhttp.Call getSlidesForPresentationNameAndSlideNameCall(String presentationName, String slideName, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = null;
-        
-        // create path and map variables
-        String localVarPath = "/bot/presentation/name/{presentationName}/slide/name/{slideName}".replaceAll("\\{format\\}","json")
-        .replaceAll("\\{" + "presentationName" + "\\}", apiClient.escapeString(presentationName.toString()))
-        .replaceAll("\\{" + "slideName" + "\\}", apiClient.escapeString(slideName.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "basic-auth" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-    
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getSlidesForPresentationNameAndSlideNameValidateBeforeCall(String presentationName, String slideName, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
-        // verify the required parameter 'presentationName' is set
-        if (presentationName == null) {
-            throw new ApiException("Missing the required parameter 'presentationName' when calling getSlidesForPresentationNameAndSlideName(Async)");
-        }
-        
-        // verify the required parameter 'slideName' is set
-        if (slideName == null) {
-            throw new ApiException("Missing the required parameter 'slideName' when calling getSlidesForPresentationNameAndSlideName(Async)");
-        }
-        
-        
-        com.squareup.okhttp.Call call = getSlidesForPresentationNameAndSlideNameCall(presentationName, slideName, progressListener, progressRequestListener);
-        return call;
-
-        
-        
-        
-        
-    }
-
-    /**
-     * Returns slidePath for PresentationNumber / SlideName
-     * 
-     * @param presentationName  (required)
-     * @param slideName  (required)
-     * @return String
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public String getSlidesForPresentationNameAndSlideName(String presentationName, String slideName) throws ApiException {
-        ApiResponse<String> resp = getSlidesForPresentationNameAndSlideNameWithHttpInfo(presentationName, slideName);
-        return resp.getData();
-    }
-
-    /**
-     * Returns slidePath for PresentationNumber / SlideName
-     * 
-     * @param presentationName  (required)
-     * @param slideName  (required)
-     * @return ApiResponse&lt;String&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<String> getSlidesForPresentationNameAndSlideNameWithHttpInfo(String presentationName, String slideName) throws ApiException {
-        com.squareup.okhttp.Call call = getSlidesForPresentationNameAndSlideNameValidateBeforeCall(presentationName, slideName, null, null);
-        Type localVarReturnType = new TypeToken<String>(){}.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     * Returns slidePath for PresentationNumber / SlideName (asynchronously)
-     * 
-     * @param presentationName  (required)
-     * @param slideName  (required)
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public com.squareup.okhttp.Call getSlidesForPresentationNameAndSlideNameAsync(String presentationName, String slideName, final ApiCallback<String> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
-        }
-
-        com.squareup.okhttp.Call call = getSlidesForPresentationNameAndSlideNameValidateBeforeCall(presentationName, slideName, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<String>(){}.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
-    /* Build call for getSlidesForPresentationNumber */
-    private com.squareup.okhttp.Call getSlidesForPresentationNumberCall(Integer presentationNumber, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = null;
-        
-        // create path and map variables
-        String localVarPath = "/bot/presentation/number/{presentationNumber}/slide".replaceAll("\\{format\\}","json")
-        .replaceAll("\\{" + "presentationNumber" + "\\}", apiClient.escapeString(presentationNumber.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "basic-auth" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-    
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getSlidesForPresentationNumberValidateBeforeCall(Integer presentationNumber, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
-        // verify the required parameter 'presentationNumber' is set
-        if (presentationNumber == null) {
-            throw new ApiException("Missing the required parameter 'presentationNumber' when calling getSlidesForPresentationNumber(Async)");
-        }
-        
-        
-        com.squareup.okhttp.Call call = getSlidesForPresentationNumberCall(presentationNumber, progressListener, progressRequestListener);
-        return call;
-
-        
-        
-        
-        
-    }
-
-    /**
-     * Returns all Slides for PresentationNumber
-     * 
-     * @param presentationNumber  (required)
-     * @return Map&lt;String, String&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public Map<String, String> getSlidesForPresentationNumber(Integer presentationNumber) throws ApiException {
-        ApiResponse<Map<String, String>> resp = getSlidesForPresentationNumberWithHttpInfo(presentationNumber);
-        return resp.getData();
-    }
-
-    /**
-     * Returns all Slides for PresentationNumber
-     * 
-     * @param presentationNumber  (required)
-     * @return ApiResponse&lt;Map&lt;String, String&gt;&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<Map<String, String>> getSlidesForPresentationNumberWithHttpInfo(Integer presentationNumber) throws ApiException {
-        com.squareup.okhttp.Call call = getSlidesForPresentationNumberValidateBeforeCall(presentationNumber, null, null);
-        Type localVarReturnType = new TypeToken<Map<String, String>>(){}.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     * Returns all Slides for PresentationNumber (asynchronously)
-     * 
-     * @param presentationNumber  (required)
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public com.squareup.okhttp.Call getSlidesForPresentationNumberAsync(Integer presentationNumber, final ApiCallback<Map<String, String>> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
-        }
-
-        com.squareup.okhttp.Call call = getSlidesForPresentationNumberValidateBeforeCall(presentationNumber, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<Map<String, String>>(){}.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
     /* Build call for getWhatzappQUestion */
     private com.squareup.okhttp.Call getWhatzappQUestionCall(StudentQuestion body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/bot/whatzapp".replaceAll("\\{format\\}","json");
+        String localVarPath = "/bot/whatsapp".replaceAll("\\{format\\}","json");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
 
@@ -2994,7 +2848,7 @@ public class DefaultApi {
     }
 
     /**
-     * forwards a new Whatzapp question
+     * forwards a new Whatsapp question
      * 
      * @param body  (optional)
      * @return StudentQuestion
@@ -3006,7 +2860,7 @@ public class DefaultApi {
     }
 
     /**
-     * forwards a new Whatzapp question
+     * forwards a new Whatsapp question
      * 
      * @param body  (optional)
      * @return ApiResponse&lt;StudentQuestion&gt;
@@ -3019,7 +2873,7 @@ public class DefaultApi {
     }
 
     /**
-     * forwards a new Whatzapp question (asynchronously)
+     * forwards a new Whatsapp question (asynchronously)
      * 
      * @param body  (optional)
      * @param callback The callback to be executed when the API call finishes

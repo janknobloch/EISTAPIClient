@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**deleteTweetInDB**](DefaultApi.md#deleteTweetInDB) | **DELETE** /bot/question | deletes a given Question
 [**deleteTweetInDBById**](DefaultApi.md#deleteTweetInDBById) | **DELETE** /bot/question/{id} | deletes a given Question by using its ID
 [**getActiveSlides**](DefaultApi.md#getActiveSlides) | **GET** /bot/slide/live | Returns an Array of active slides for (ppt, key, and dev)
+[**getAllBots**](DefaultApi.md#getAllBots) | **GET** /bot/bots | retrieves all bots 
 [**getAllClosedStudentQuestions**](DefaultApi.md#getAllClosedStudentQuestions) | **GET** /bot/question/report | retrieves all questions report not including general questions - ordered by slideSet
 [**getAllDatamodels**](DefaultApi.md#getAllDatamodels) | **GET** /bot/dataitem | retrieves all DataItem (mock)
 [**getAllPresenterSessions**](DefaultApi.md#getAllPresenterSessions) | **GET** /bot/presenter | Retrieves all Presenters
@@ -21,15 +22,13 @@ Method | HTTP request | Description
 [**getPresentations**](DefaultApi.md#getPresentations) | **GET** /bot/presentation | Returns a mapping ordered by timestamp of all presentationNames
 [**getReport**](DefaultApi.md#getReport) | **GET** /bot/question/report/{num} | retrieves all questions report for specific lecture(slideSet)
 [**getReport_0**](DefaultApi.md#getReport_0) | **GET** /bot/question/report/general | retrieves all questions report for specific lecture(slideSet)
-[**getSMSQuestion**](DefaultApi.md#getSMSQuestion) | **POST** /bot/sms | forwards a new Whatzapp question
+[**getSMSQuestion**](DefaultApi.md#getSMSQuestion) | **POST** /bot/sms | forwards a new SMS question
 [**getSingleTweet**](DefaultApi.md#getSingleTweet) | **GET** /bot/question/{id} | retrieves question by Id
-[**getSlideForPresentationNameAndSlideNumber**](DefaultApi.md#getSlideForPresentationNameAndSlideNumber) | **GET** /bot/presentation/name/{presentationName}/slide/number/{slideNumber} | Returns slidePath for PresentationName / SlideNumber
-[**getSlideForPresentationNumberAndSlideName**](DefaultApi.md#getSlideForPresentationNumberAndSlideName) | **GET** /bot/presentation/number/{presentationNumber}/slide/name/{slideName} | Returns slidePath for PresentationNumber / SlideName
-[**getSlideForPresentationNumberAndSlideNumber**](DefaultApi.md#getSlideForPresentationNumberAndSlideNumber) | **GET** /bot/presentation/number/{presentationNumber}/slide/number/{slideNumber} | Returns slidePath for PresentationNumber / SlideNumber
+[**getSlideForExerciseNumberAndSlideNumber**](DefaultApi.md#getSlideForExerciseNumberAndSlideNumber) | **GET** /bot/presentation/number/{exerciseNumber}/slide/number/{slideNumber} | Returns slidePath for PresentationNumber / SlideNumber
+[**getSlideForPresentationNumberAndSlideNumber**](DefaultApi.md#getSlideForPresentationNumberAndSlideNumber) | **GET** /bot/exercise/number/{exerciseNumber}/slide/number/{exerciseNumber} | Returns slidePath for PresentationNumber / SlideNumber
+[**getSlidesForExerciseName**](DefaultApi.md#getSlidesForExerciseName) | **GET** /bot/exercise/name/{exerciseName}/slide | Returns all Slides for ExerciseName
 [**getSlidesForPresentationName**](DefaultApi.md#getSlidesForPresentationName) | **GET** /bot/presentation/name/{presentationName}/slide | Returns all Slides for PresentationName
-[**getSlidesForPresentationNameAndSlideName**](DefaultApi.md#getSlidesForPresentationNameAndSlideName) | **GET** /bot/presentation/name/{presentationName}/slide/name/{slideName} | Returns slidePath for PresentationNumber / SlideName
-[**getSlidesForPresentationNumber**](DefaultApi.md#getSlidesForPresentationNumber) | **GET** /bot/presentation/number/{presentationNumber}/slide | Returns all Slides for PresentationNumber
-[**getWhatzappQUestion**](DefaultApi.md#getWhatzappQUestion) | **POST** /bot/whatzapp | forwards a new Whatzapp question
+[**getWhatzappQUestion**](DefaultApi.md#getWhatzappQUestion) | **POST** /bot/whatsapp | forwards a new Whatsapp question
 [**postFeedbackToDB**](DefaultApi.md#postFeedbackToDB) | **POST** /bot/feedback | saves a new Feedback, updates it if already existent
 [**postReplyAndCloseQuestion**](DefaultApi.md#postReplyAndCloseQuestion) | **POST** /bot/question/close/{id} | saves a new Question, updates it if already existent
 [**postTweetInDB**](DefaultApi.md#postTweetInDB) | **POST** /bot/question | saves a new Question, updates it if already existent
@@ -185,6 +184,56 @@ This endpoint does not need any parameter.
 ### Return type
 
 [**ActiveSlidePath**](ActiveSlidePath.md)
+
+### Authorization
+
+[basic-auth](../README.md#basic-auth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="getAllBots"></a>
+# **getAllBots**
+> List&lt;String&gt; getAllBots()
+
+retrieves all bots 
+
+
+
+### Example
+```java
+// Import classes:
+//import io.swagger.client.ApiClient;
+//import io.swagger.client.ApiException;
+//import io.swagger.client.Configuration;
+//import io.swagger.client.auth.*;
+//import io.swagger.client.api.DefaultApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure HTTP basic authorization: basic-auth
+HttpBasicAuth basic-auth = (HttpBasicAuth) defaultClient.getAuthentication("basic-auth");
+basic-auth.setUsername("YOUR USERNAME");
+basic-auth.setPassword("YOUR PASSWORD");
+
+DefaultApi apiInstance = new DefaultApi();
+try {
+    List<String> result = apiInstance.getAllBots();
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling DefaultApi#getAllBots");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+**List&lt;String&gt;**
 
 ### Authorization
 
@@ -908,7 +957,7 @@ null (empty response body)
 # **getSMSQuestion**
 > String getSMSQuestion(from, body)
 
-forwards a new Whatzapp question
+forwards a new SMS question
 
 
 
@@ -1005,11 +1054,11 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="getSlideForPresentationNameAndSlideNumber"></a>
-# **getSlideForPresentationNameAndSlideNumber**
-> String getSlideForPresentationNameAndSlideNumber(presentationName, slideNumber)
+<a name="getSlideForExerciseNumberAndSlideNumber"></a>
+# **getSlideForExerciseNumberAndSlideNumber**
+> String getSlideForExerciseNumberAndSlideNumber(exerciseNumber, slideNumber)
 
-Returns slidePath for PresentationName / SlideNumber
+Returns slidePath for PresentationNumber / SlideNumber
 
 
 
@@ -1030,13 +1079,13 @@ basic-auth.setUsername("YOUR USERNAME");
 basic-auth.setPassword("YOUR PASSWORD");
 
 DefaultApi apiInstance = new DefaultApi();
-String presentationName = "presentationName_example"; // String | 
+Integer exerciseNumber = 56; // Integer | 
 Integer slideNumber = 56; // Integer | 
 try {
-    String result = apiInstance.getSlideForPresentationNameAndSlideNumber(presentationName, slideNumber);
+    String result = apiInstance.getSlideForExerciseNumberAndSlideNumber(exerciseNumber, slideNumber);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling DefaultApi#getSlideForPresentationNameAndSlideNumber");
+    System.err.println("Exception when calling DefaultApi#getSlideForExerciseNumberAndSlideNumber");
     e.printStackTrace();
 }
 ```
@@ -1045,64 +1094,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **presentationName** | **String**|  |
+ **exerciseNumber** | **Integer**|  |
  **slideNumber** | **Integer**|  |
-
-### Return type
-
-**String**
-
-### Authorization
-
-[basic-auth](../README.md#basic-auth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-<a name="getSlideForPresentationNumberAndSlideName"></a>
-# **getSlideForPresentationNumberAndSlideName**
-> String getSlideForPresentationNumberAndSlideName(presentationNumber, slideName)
-
-Returns slidePath for PresentationNumber / SlideName
-
-
-
-### Example
-```java
-// Import classes:
-//import io.swagger.client.ApiClient;
-//import io.swagger.client.ApiException;
-//import io.swagger.client.Configuration;
-//import io.swagger.client.auth.*;
-//import io.swagger.client.api.DefaultApi;
-
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure HTTP basic authorization: basic-auth
-HttpBasicAuth basic-auth = (HttpBasicAuth) defaultClient.getAuthentication("basic-auth");
-basic-auth.setUsername("YOUR USERNAME");
-basic-auth.setPassword("YOUR PASSWORD");
-
-DefaultApi apiInstance = new DefaultApi();
-Integer presentationNumber = 56; // Integer | 
-String slideName = "slideName_example"; // String | 
-try {
-    String result = apiInstance.getSlideForPresentationNumberAndSlideName(presentationNumber, slideName);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling DefaultApi#getSlideForPresentationNumberAndSlideName");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **presentationNumber** | **Integer**|  |
- **slideName** | **String**|  |
 
 ### Return type
 
@@ -1173,6 +1166,60 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+<a name="getSlidesForExerciseName"></a>
+# **getSlidesForExerciseName**
+> Map&lt;String, String&gt; getSlidesForExerciseName(exerciseName)
+
+Returns all Slides for ExerciseName
+
+
+
+### Example
+```java
+// Import classes:
+//import io.swagger.client.ApiClient;
+//import io.swagger.client.ApiException;
+//import io.swagger.client.Configuration;
+//import io.swagger.client.auth.*;
+//import io.swagger.client.api.DefaultApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure HTTP basic authorization: basic-auth
+HttpBasicAuth basic-auth = (HttpBasicAuth) defaultClient.getAuthentication("basic-auth");
+basic-auth.setUsername("YOUR USERNAME");
+basic-auth.setPassword("YOUR PASSWORD");
+
+DefaultApi apiInstance = new DefaultApi();
+String exerciseName = "exerciseName_example"; // String | 
+try {
+    Map<String, String> result = apiInstance.getSlidesForExerciseName(exerciseName);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling DefaultApi#getSlidesForExerciseName");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **exerciseName** | **String**|  |
+
+### Return type
+
+[**Map&lt;String, String&gt;**](Map.md)
+
+### Authorization
+
+[basic-auth](../README.md#basic-auth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
 <a name="getSlidesForPresentationName"></a>
 # **getSlidesForPresentationName**
 > Map&lt;String, String&gt; getSlidesForPresentationName(presentationName)
@@ -1227,121 +1274,11 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="getSlidesForPresentationNameAndSlideName"></a>
-# **getSlidesForPresentationNameAndSlideName**
-> String getSlidesForPresentationNameAndSlideName(presentationName, slideName)
-
-Returns slidePath for PresentationNumber / SlideName
-
-
-
-### Example
-```java
-// Import classes:
-//import io.swagger.client.ApiClient;
-//import io.swagger.client.ApiException;
-//import io.swagger.client.Configuration;
-//import io.swagger.client.auth.*;
-//import io.swagger.client.api.DefaultApi;
-
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure HTTP basic authorization: basic-auth
-HttpBasicAuth basic-auth = (HttpBasicAuth) defaultClient.getAuthentication("basic-auth");
-basic-auth.setUsername("YOUR USERNAME");
-basic-auth.setPassword("YOUR PASSWORD");
-
-DefaultApi apiInstance = new DefaultApi();
-String presentationName = "presentationName_example"; // String | 
-String slideName = "slideName_example"; // String | 
-try {
-    String result = apiInstance.getSlidesForPresentationNameAndSlideName(presentationName, slideName);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling DefaultApi#getSlidesForPresentationNameAndSlideName");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **presentationName** | **String**|  |
- **slideName** | **String**|  |
-
-### Return type
-
-**String**
-
-### Authorization
-
-[basic-auth](../README.md#basic-auth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-<a name="getSlidesForPresentationNumber"></a>
-# **getSlidesForPresentationNumber**
-> Map&lt;String, String&gt; getSlidesForPresentationNumber(presentationNumber)
-
-Returns all Slides for PresentationNumber
-
-
-
-### Example
-```java
-// Import classes:
-//import io.swagger.client.ApiClient;
-//import io.swagger.client.ApiException;
-//import io.swagger.client.Configuration;
-//import io.swagger.client.auth.*;
-//import io.swagger.client.api.DefaultApi;
-
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure HTTP basic authorization: basic-auth
-HttpBasicAuth basic-auth = (HttpBasicAuth) defaultClient.getAuthentication("basic-auth");
-basic-auth.setUsername("YOUR USERNAME");
-basic-auth.setPassword("YOUR PASSWORD");
-
-DefaultApi apiInstance = new DefaultApi();
-Integer presentationNumber = 56; // Integer | 
-try {
-    Map<String, String> result = apiInstance.getSlidesForPresentationNumber(presentationNumber);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling DefaultApi#getSlidesForPresentationNumber");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **presentationNumber** | **Integer**|  |
-
-### Return type
-
-[**Map&lt;String, String&gt;**](Map.md)
-
-### Authorization
-
-[basic-auth](../README.md#basic-auth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
 <a name="getWhatzappQUestion"></a>
 # **getWhatzappQUestion**
 > StudentQuestion getWhatzappQUestion(body)
 
-forwards a new Whatzapp question
+forwards a new Whatsapp question
 
 
 

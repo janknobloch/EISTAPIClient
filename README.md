@@ -99,6 +99,7 @@ Class | Method | HTTP request | Description
 *DefaultApi* | [**deleteTweetInDB**](docs/DefaultApi.md#deleteTweetInDB) | **DELETE** /bot/question | deletes a given Question
 *DefaultApi* | [**deleteTweetInDBById**](docs/DefaultApi.md#deleteTweetInDBById) | **DELETE** /bot/question/{id} | deletes a given Question by using its ID
 *DefaultApi* | [**getActiveSlides**](docs/DefaultApi.md#getActiveSlides) | **GET** /bot/slide/live | Returns an Array of active slides for (ppt, key, and dev)
+*DefaultApi* | [**getAllBots**](docs/DefaultApi.md#getAllBots) | **GET** /bot/bots | retrieves all bots 
 *DefaultApi* | [**getAllClosedStudentQuestions**](docs/DefaultApi.md#getAllClosedStudentQuestions) | **GET** /bot/question/report | retrieves all questions report not including general questions - ordered by slideSet
 *DefaultApi* | [**getAllDatamodels**](docs/DefaultApi.md#getAllDatamodels) | **GET** /bot/dataitem | retrieves all DataItem (mock)
 *DefaultApi* | [**getAllPresenterSessions**](docs/DefaultApi.md#getAllPresenterSessions) | **GET** /bot/presenter | Retrieves all Presenters
@@ -113,15 +114,13 @@ Class | Method | HTTP request | Description
 *DefaultApi* | [**getPresentations**](docs/DefaultApi.md#getPresentations) | **GET** /bot/presentation | Returns a mapping ordered by timestamp of all presentationNames
 *DefaultApi* | [**getReport**](docs/DefaultApi.md#getReport) | **GET** /bot/question/report/{num} | retrieves all questions report for specific lecture(slideSet)
 *DefaultApi* | [**getReport_0**](docs/DefaultApi.md#getReport_0) | **GET** /bot/question/report/general | retrieves all questions report for specific lecture(slideSet)
-*DefaultApi* | [**getSMSQuestion**](docs/DefaultApi.md#getSMSQuestion) | **POST** /bot/sms | forwards a new Whatzapp question
+*DefaultApi* | [**getSMSQuestion**](docs/DefaultApi.md#getSMSQuestion) | **POST** /bot/sms | forwards a new SMS question
 *DefaultApi* | [**getSingleTweet**](docs/DefaultApi.md#getSingleTweet) | **GET** /bot/question/{id} | retrieves question by Id
-*DefaultApi* | [**getSlideForPresentationNameAndSlideNumber**](docs/DefaultApi.md#getSlideForPresentationNameAndSlideNumber) | **GET** /bot/presentation/name/{presentationName}/slide/number/{slideNumber} | Returns slidePath for PresentationName / SlideNumber
-*DefaultApi* | [**getSlideForPresentationNumberAndSlideName**](docs/DefaultApi.md#getSlideForPresentationNumberAndSlideName) | **GET** /bot/presentation/number/{presentationNumber}/slide/name/{slideName} | Returns slidePath for PresentationNumber / SlideName
-*DefaultApi* | [**getSlideForPresentationNumberAndSlideNumber**](docs/DefaultApi.md#getSlideForPresentationNumberAndSlideNumber) | **GET** /bot/presentation/number/{presentationNumber}/slide/number/{slideNumber} | Returns slidePath for PresentationNumber / SlideNumber
+*DefaultApi* | [**getSlideForExerciseNumberAndSlideNumber**](docs/DefaultApi.md#getSlideForExerciseNumberAndSlideNumber) | **GET** /bot/presentation/number/{exerciseNumber}/slide/number/{slideNumber} | Returns slidePath for PresentationNumber / SlideNumber
+*DefaultApi* | [**getSlideForPresentationNumberAndSlideNumber**](docs/DefaultApi.md#getSlideForPresentationNumberAndSlideNumber) | **GET** /bot/exercise/number/{exerciseNumber}/slide/number/{exerciseNumber} | Returns slidePath for PresentationNumber / SlideNumber
+*DefaultApi* | [**getSlidesForExerciseName**](docs/DefaultApi.md#getSlidesForExerciseName) | **GET** /bot/exercise/name/{exerciseName}/slide | Returns all Slides for ExerciseName
 *DefaultApi* | [**getSlidesForPresentationName**](docs/DefaultApi.md#getSlidesForPresentationName) | **GET** /bot/presentation/name/{presentationName}/slide | Returns all Slides for PresentationName
-*DefaultApi* | [**getSlidesForPresentationNameAndSlideName**](docs/DefaultApi.md#getSlidesForPresentationNameAndSlideName) | **GET** /bot/presentation/name/{presentationName}/slide/name/{slideName} | Returns slidePath for PresentationNumber / SlideName
-*DefaultApi* | [**getSlidesForPresentationNumber**](docs/DefaultApi.md#getSlidesForPresentationNumber) | **GET** /bot/presentation/number/{presentationNumber}/slide | Returns all Slides for PresentationNumber
-*DefaultApi* | [**getWhatzappQUestion**](docs/DefaultApi.md#getWhatzappQUestion) | **POST** /bot/whatzapp | forwards a new Whatzapp question
+*DefaultApi* | [**getWhatzappQUestion**](docs/DefaultApi.md#getWhatzappQUestion) | **POST** /bot/whatsapp | forwards a new Whatsapp question
 *DefaultApi* | [**postFeedbackToDB**](docs/DefaultApi.md#postFeedbackToDB) | **POST** /bot/feedback | saves a new Feedback, updates it if already existent
 *DefaultApi* | [**postReplyAndCloseQuestion**](docs/DefaultApi.md#postReplyAndCloseQuestion) | **POST** /bot/question/close/{id} | saves a new Question, updates it if already existent
 *DefaultApi* | [**postTweetInDB**](docs/DefaultApi.md#postTweetInDB) | **POST** /bot/question | saves a new Question, updates it if already existent
