@@ -23,8 +23,8 @@ Method | HTTP request | Description
 [**getReport_0**](DefaultApi.md#getReport_0) | **GET** /bot/question/report/general | retrieves all questions report for specific lecture(slideSet)
 [**getSMSQuestion**](DefaultApi.md#getSMSQuestion) | **POST** /bot/sms | forwards a new SMS question
 [**getSingleTweet**](DefaultApi.md#getSingleTweet) | **GET** /bot/question/{id} | retrieves question by Id
-[**getSlideForExerciseNumberAndSlideNumber**](DefaultApi.md#getSlideForExerciseNumberAndSlideNumber) | **GET** /bot/presentation/number/{exerciseNumber}/slide/number/{slideNumber} | Returns slidePath for PresentationNumber / SlideNumber
-[**getSlideForPresentationNumberAndSlideNumber**](DefaultApi.md#getSlideForPresentationNumberAndSlideNumber) | **GET** /bot/exercise/number/{exerciseNumber}/slide/number/{exerciseNumber} | Returns slidePath for PresentationNumber / SlideNumber
+[**getSlideForExerciseNumberAndSlideNumber**](DefaultApi.md#getSlideForExerciseNumberAndSlideNumber) | **GET** /bot/presentation/number/{presentationNumber}/slide/number/{slideNumber} | Returns slidePath for PresentationNumber / SlideNumber
+[**getSlideForPresentationNumberAndSlideNumber**](DefaultApi.md#getSlideForPresentationNumberAndSlideNumber) | **GET** /bot/exercise/number/{exerciseNumber}/slide/number/{slideNumber} | Returns slidePath for PresentationNumber / SlideNumber
 [**getSlidesForExerciseName**](DefaultApi.md#getSlidesForExerciseName) | **GET** /bot/exercise/name/{exerciseName}/slide | Returns all Slides for ExerciseName
 [**getSlidesForPresentationName**](DefaultApi.md#getSlidesForPresentationName) | **GET** /bot/presentation/name/{presentationName}/slide | Returns all Slides for PresentationName
 [**getWhatzappQUestion**](DefaultApi.md#getWhatzappQUestion) | **POST** /bot/whatsapp | forwards a new Whatsapp question
@@ -1005,63 +1005,7 @@ Name | Type | Description  | Notes
 
 <a name="getSlideForExerciseNumberAndSlideNumber"></a>
 # **getSlideForExerciseNumberAndSlideNumber**
-> String getSlideForExerciseNumberAndSlideNumber(exerciseNumber, slideNumber)
-
-Returns slidePath for PresentationNumber / SlideNumber
-
-
-
-### Example
-```java
-// Import classes:
-//import io.swagger.client.ApiClient;
-//import io.swagger.client.ApiException;
-//import io.swagger.client.Configuration;
-//import io.swagger.client.auth.*;
-//import io.swagger.client.api.DefaultApi;
-
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure HTTP basic authorization: basic-auth
-HttpBasicAuth basic-auth = (HttpBasicAuth) defaultClient.getAuthentication("basic-auth");
-basic-auth.setUsername("YOUR USERNAME");
-basic-auth.setPassword("YOUR PASSWORD");
-
-DefaultApi apiInstance = new DefaultApi();
-Integer exerciseNumber = 56; // Integer | 
-Integer slideNumber = 56; // Integer | 
-try {
-    String result = apiInstance.getSlideForExerciseNumberAndSlideNumber(exerciseNumber, slideNumber);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling DefaultApi#getSlideForExerciseNumberAndSlideNumber");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **exerciseNumber** | **Integer**|  |
- **slideNumber** | **Integer**|  |
-
-### Return type
-
-**String**
-
-### Authorization
-
-[basic-auth](../README.md#basic-auth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-<a name="getSlideForPresentationNumberAndSlideNumber"></a>
-# **getSlideForPresentationNumberAndSlideNumber**
-> String getSlideForPresentationNumberAndSlideNumber(presentationNumber, slideNumber)
+> String getSlideForExerciseNumberAndSlideNumber(presentationNumber, slideNumber)
 
 Returns slidePath for PresentationNumber / SlideNumber
 
@@ -1087,7 +1031,63 @@ DefaultApi apiInstance = new DefaultApi();
 Integer presentationNumber = 56; // Integer | 
 Integer slideNumber = 56; // Integer | 
 try {
-    String result = apiInstance.getSlideForPresentationNumberAndSlideNumber(presentationNumber, slideNumber);
+    String result = apiInstance.getSlideForExerciseNumberAndSlideNumber(presentationNumber, slideNumber);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling DefaultApi#getSlideForExerciseNumberAndSlideNumber");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **presentationNumber** | **Integer**|  |
+ **slideNumber** | **Integer**|  |
+
+### Return type
+
+**String**
+
+### Authorization
+
+[basic-auth](../README.md#basic-auth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="getSlideForPresentationNumberAndSlideNumber"></a>
+# **getSlideForPresentationNumberAndSlideNumber**
+> String getSlideForPresentationNumberAndSlideNumber(exerciseNumber, slideNumber)
+
+Returns slidePath for PresentationNumber / SlideNumber
+
+
+
+### Example
+```java
+// Import classes:
+//import io.swagger.client.ApiClient;
+//import io.swagger.client.ApiException;
+//import io.swagger.client.Configuration;
+//import io.swagger.client.auth.*;
+//import io.swagger.client.api.DefaultApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure HTTP basic authorization: basic-auth
+HttpBasicAuth basic-auth = (HttpBasicAuth) defaultClient.getAuthentication("basic-auth");
+basic-auth.setUsername("YOUR USERNAME");
+basic-auth.setPassword("YOUR PASSWORD");
+
+DefaultApi apiInstance = new DefaultApi();
+Integer exerciseNumber = 56; // Integer | 
+Integer slideNumber = 56; // Integer | 
+try {
+    String result = apiInstance.getSlideForPresentationNumberAndSlideNumber(exerciseNumber, slideNumber);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling DefaultApi#getSlideForPresentationNumberAndSlideNumber");
@@ -1099,7 +1099,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **presentationNumber** | **Integer**|  |
+ **exerciseNumber** | **Integer**|  |
  **slideNumber** | **Integer**|  |
 
 ### Return type
