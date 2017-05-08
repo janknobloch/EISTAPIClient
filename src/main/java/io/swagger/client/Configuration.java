@@ -1,6 +1,6 @@
 /*
- * The Q&A EIST Twitter API
- * Allows the SlackBot to Interact with the TweetWall
+ * The Q&A AMATI API
+ * Allows the SlackBot to Interact with the QuestionWall
  *
  * OpenAPI spec version: V1.0
  * 
@@ -13,7 +13,7 @@
 
 package io.swagger.client;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-05-08T15:16:56.598+02:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-05-08T15:58:44.541+02:00")
 public class Configuration {
     private static ApiClient defaultApiClient = new ApiClient();
 

@@ -4,40 +4,96 @@ All URIs are relative to *http://localhost/api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**deleteTweetInDB**](DefaultApi.md#deleteTweetInDB) | **DELETE** /bot/question | deletes a given Question
-[**deleteTweetInDBById**](DefaultApi.md#deleteTweetInDBById) | **DELETE** /bot/question/{id} | deletes a given Question by using its ID
+[**deleteQuestionByInputSourceIdandInputSource**](DefaultApi.md#deleteQuestionByInputSourceIdandInputSource) | **DELETE** /bot/question/{inputSourceId}/{inputSource} | deletes a given Question by using its inputSourceId and inputSource
+[**deleteQuestionInDB**](DefaultApi.md#deleteQuestionInDB) | **DELETE** /bot/question | deletes a given Question
 [**getActiveSlides**](DefaultApi.md#getActiveSlides) | **GET** /bot/slide/live | Returns an Array of active slides for (ppt, key, and dev)
 [**getAllBots**](DefaultApi.md#getAllBots) | **GET** /bot/bot | retrieves all bots 
 [**getAllClosedStudentQuestions**](DefaultApi.md#getAllClosedStudentQuestions) | **GET** /bot/question/report | retrieves all questions report not including general questions - ordered by slideSet
 [**getAllPresenterSessions**](DefaultApi.md#getAllPresenterSessions) | **GET** /bot/presenter | Retrieves all Presenters
+[**getAllQuestionWallSessions**](DefaultApi.md#getAllQuestionWallSessions) | **GET** /bot/wall | retrieves all question wall listeners
 [**getAllStudentQuestions**](DefaultApi.md#getAllStudentQuestions) | **GET** /bot/question | retrieves all Questions
-[**getAllTwitterWallSessions**](DefaultApi.md#getAllTwitterWallSessions) | **GET** /bot/wall | retrieves all wall listeners
 [**getClosedLastNumStudentQuestions**](DefaultApi.md#getClosedLastNumStudentQuestions) | **GET** /bot/question/closed/last/{num} | retrieves last {num} closed Questions
 [**getClosedStudentQuestions**](DefaultApi.md#getClosedStudentQuestions) | **GET** /bot/question/closed | retrieves closed Questions
 [**getExercises**](DefaultApi.md#getExercises) | **GET** /bot/exercise | Returns a mapping ordered by timestamp of all exerciseNames
-[**getHighscores**](DefaultApi.md#getHighscores) | **GET** /bot/highscores | retrieves highscores
 [**getLastNumTeacherQuestions**](DefaultApi.md#getLastNumTeacherQuestions) | **GET** /bot/quiz/last/{num} | retrieves last {num} quizzes
-[**getOpenTweets**](DefaultApi.md#getOpenTweets) | **GET** /bot/question/open | retrieves open Questions
+[**getOpenQuestions**](DefaultApi.md#getOpenQuestions) | **GET** /bot/question/open | retrieves open Questions
 [**getPresentations**](DefaultApi.md#getPresentations) | **GET** /bot/presentation | Returns a mapping ordered by timestamp of all presentationNames
+[**getQuestionByInputSourceIdandInputSource**](DefaultApi.md#getQuestionByInputSourceIdandInputSource) | **GET** /bot/question/{inputSourceId}/{inputSource} | retrieves question by its InputSourceId and inputSource
+[**getQuestionByObjectId**](DefaultApi.md#getQuestionByObjectId) | **GET** /bot/question/{id} | retrieves question by its ObjectId
 [**getReport**](DefaultApi.md#getReport) | **GET** /bot/question/report/{num} | retrieves all questions report for specific lecture(slideSet)
 [**getReport_0**](DefaultApi.md#getReport_0) | **GET** /bot/question/report/general | retrieves all questions report for specific lecture(slideSet)
 [**getSMSQuestion**](DefaultApi.md#getSMSQuestion) | **POST** /bot/sms | forwards a new SMS question
-[**getSingleTweet**](DefaultApi.md#getSingleTweet) | **GET** /bot/question/{id} | retrieves question by Id
 [**getSlideForExerciseNumberAndSlideNumber**](DefaultApi.md#getSlideForExerciseNumberAndSlideNumber) | **GET** /bot/exercise/number/{exerciseNumber}/slide/number/{slideNumber} | Returns slidePath for ExerciseNumber / SlideNumber
 [**getSlideForPresentationNumberAndSlideNumber**](DefaultApi.md#getSlideForPresentationNumberAndSlideNumber) | **GET** /bot/presentation/number/{presentationNumber}/slide/number/{slideNumber} | Returns slidePath for PresentationNumber / SlideNumber
 [**getSlidesForExerciseName**](DefaultApi.md#getSlidesForExerciseName) | **GET** /bot/exercise/name/{exerciseName}/slide | Returns all Slides for ExerciseName
 [**getSlidesForPresentationName**](DefaultApi.md#getSlidesForPresentationName) | **GET** /bot/presentation/name/{presentationName}/slide | Returns all Slides for PresentationName
 [**getWhatzappQUestion**](DefaultApi.md#getWhatzappQUestion) | **POST** /bot/whatsapp | forwards a new Whatsapp question
 [**postFeedbackToDB**](DefaultApi.md#postFeedbackToDB) | **POST** /bot/feedback | saves a new Feedback, updates it if already existent
+[**postQuestionInDB**](DefaultApi.md#postQuestionInDB) | **POST** /bot/question | saves a new Question, updates it if already existent
 [**postReplyAndCloseQuestion**](DefaultApi.md#postReplyAndCloseQuestion) | **POST** /bot/question/close/{id} | saves a new Question, updates it if already existent
-[**postTweetInDB**](DefaultApi.md#postTweetInDB) | **POST** /bot/question | saves a new Question, updates it if already existent
 [**saveQuizInDB**](DefaultApi.md#saveQuizInDB) | **PUT** /bot/quiz | saves a new Quiz 
-[**updateTweetInDB**](DefaultApi.md#updateTweetInDB) | **PUT** /bot/question | saves a new Question, updates it if already existent
+[**updateQuestionInDB**](DefaultApi.md#updateQuestionInDB) | **PUT** /bot/question | saves a new Question, updates it if already existent
 
 
-<a name="deleteTweetInDB"></a>
-# **deleteTweetInDB**
-> StudentQuestion deleteTweetInDB(body)
+<a name="deleteQuestionByInputSourceIdandInputSource"></a>
+# **deleteQuestionByInputSourceIdandInputSource**
+> StudentQuestion deleteQuestionByInputSourceIdandInputSource(inputSourceId, inputSource)
+
+deletes a given Question by using its inputSourceId and inputSource
+
+
+
+### Example
+```java
+// Import classes:
+//import io.swagger.client.ApiClient;
+//import io.swagger.client.ApiException;
+//import io.swagger.client.Configuration;
+//import io.swagger.client.auth.*;
+//import io.swagger.client.api.DefaultApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure HTTP basic authorization: basic-auth
+HttpBasicAuth basic-auth = (HttpBasicAuth) defaultClient.getAuthentication("basic-auth");
+basic-auth.setUsername("YOUR USERNAME");
+basic-auth.setPassword("YOUR PASSWORD");
+
+DefaultApi apiInstance = new DefaultApi();
+String inputSourceId = "inputSourceId_example"; // String | 
+String inputSource = "inputSource_example"; // String | 
+try {
+    StudentQuestion result = apiInstance.deleteQuestionByInputSourceIdandInputSource(inputSourceId, inputSource);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling DefaultApi#deleteQuestionByInputSourceIdandInputSource");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **inputSourceId** | **String**|  |
+ **inputSource** | **String**|  |
+
+### Return type
+
+[**StudentQuestion**](StudentQuestion.md)
+
+### Authorization
+
+[basic-auth](../README.md#basic-auth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="deleteQuestionInDB"></a>
+# **deleteQuestionInDB**
+> StudentQuestion deleteQuestionInDB(body)
 
 deletes a given Question
 
@@ -62,10 +118,10 @@ basic-auth.setPassword("YOUR PASSWORD");
 DefaultApi apiInstance = new DefaultApi();
 StudentQuestion body = new StudentQuestion(); // StudentQuestion | 
 try {
-    StudentQuestion result = apiInstance.deleteTweetInDB(body);
+    StudentQuestion result = apiInstance.deleteQuestionInDB(body);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling DefaultApi#deleteTweetInDB");
+    System.err.println("Exception when calling DefaultApi#deleteQuestionInDB");
     e.printStackTrace();
 }
 ```
@@ -75,60 +131,6 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **body** | [**StudentQuestion**](StudentQuestion.md)|  | [optional]
-
-### Return type
-
-[**StudentQuestion**](StudentQuestion.md)
-
-### Authorization
-
-[basic-auth](../README.md#basic-auth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-<a name="deleteTweetInDBById"></a>
-# **deleteTweetInDBById**
-> StudentQuestion deleteTweetInDBById(body)
-
-deletes a given Question by using its ID
-
-
-
-### Example
-```java
-// Import classes:
-//import io.swagger.client.ApiClient;
-//import io.swagger.client.ApiException;
-//import io.swagger.client.Configuration;
-//import io.swagger.client.auth.*;
-//import io.swagger.client.api.DefaultApi;
-
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure HTTP basic authorization: basic-auth
-HttpBasicAuth basic-auth = (HttpBasicAuth) defaultClient.getAuthentication("basic-auth");
-basic-auth.setUsername("YOUR USERNAME");
-basic-auth.setPassword("YOUR PASSWORD");
-
-DefaultApi apiInstance = new DefaultApi();
-String body = "body_example"; // String | 
-try {
-    StudentQuestion result = apiInstance.deleteTweetInDBById(body);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling DefaultApi#deleteTweetInDBById");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | **String**|  | [optional]
 
 ### Return type
 
@@ -342,6 +344,56 @@ This endpoint does not need any parameter.
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+<a name="getAllQuestionWallSessions"></a>
+# **getAllQuestionWallSessions**
+> List&lt;String&gt; getAllQuestionWallSessions()
+
+retrieves all question wall listeners
+
+
+
+### Example
+```java
+// Import classes:
+//import io.swagger.client.ApiClient;
+//import io.swagger.client.ApiException;
+//import io.swagger.client.Configuration;
+//import io.swagger.client.auth.*;
+//import io.swagger.client.api.DefaultApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure HTTP basic authorization: basic-auth
+HttpBasicAuth basic-auth = (HttpBasicAuth) defaultClient.getAuthentication("basic-auth");
+basic-auth.setUsername("YOUR USERNAME");
+basic-auth.setPassword("YOUR PASSWORD");
+
+DefaultApi apiInstance = new DefaultApi();
+try {
+    List<String> result = apiInstance.getAllQuestionWallSessions();
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling DefaultApi#getAllQuestionWallSessions");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+**List&lt;String&gt;**
+
+### Authorization
+
+[basic-auth](../README.md#basic-auth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
 <a name="getAllStudentQuestions"></a>
 # **getAllStudentQuestions**
 > List&lt;StudentQuestion&gt; getAllStudentQuestions()
@@ -382,56 +434,6 @@ This endpoint does not need any parameter.
 ### Return type
 
 [**List&lt;StudentQuestion&gt;**](StudentQuestion.md)
-
-### Authorization
-
-[basic-auth](../README.md#basic-auth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-<a name="getAllTwitterWallSessions"></a>
-# **getAllTwitterWallSessions**
-> List&lt;String&gt; getAllTwitterWallSessions()
-
-retrieves all wall listeners
-
-
-
-### Example
-```java
-// Import classes:
-//import io.swagger.client.ApiClient;
-//import io.swagger.client.ApiException;
-//import io.swagger.client.Configuration;
-//import io.swagger.client.auth.*;
-//import io.swagger.client.api.DefaultApi;
-
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure HTTP basic authorization: basic-auth
-HttpBasicAuth basic-auth = (HttpBasicAuth) defaultClient.getAuthentication("basic-auth");
-basic-auth.setUsername("YOUR USERNAME");
-basic-auth.setPassword("YOUR PASSWORD");
-
-DefaultApi apiInstance = new DefaultApi();
-try {
-    List<String> result = apiInstance.getAllTwitterWallSessions();
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling DefaultApi#getAllTwitterWallSessions");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-This endpoint does not need any parameter.
-
-### Return type
-
-**List&lt;String&gt;**
 
 ### Authorization
 
@@ -596,56 +598,6 @@ This endpoint does not need any parameter.
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="getHighscores"></a>
-# **getHighscores**
-> Map&lt;String, Integer&gt; getHighscores()
-
-retrieves highscores
-
-
-
-### Example
-```java
-// Import classes:
-//import io.swagger.client.ApiClient;
-//import io.swagger.client.ApiException;
-//import io.swagger.client.Configuration;
-//import io.swagger.client.auth.*;
-//import io.swagger.client.api.DefaultApi;
-
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure HTTP basic authorization: basic-auth
-HttpBasicAuth basic-auth = (HttpBasicAuth) defaultClient.getAuthentication("basic-auth");
-basic-auth.setUsername("YOUR USERNAME");
-basic-auth.setPassword("YOUR PASSWORD");
-
-DefaultApi apiInstance = new DefaultApi();
-try {
-    Map<String, Integer> result = apiInstance.getHighscores();
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling DefaultApi#getHighscores");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-This endpoint does not need any parameter.
-
-### Return type
-
-[**Map&lt;String, Integer&gt;**](Map.md)
-
-### Authorization
-
-[basic-auth](../README.md#basic-auth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
 <a name="getLastNumTeacherQuestions"></a>
 # **getLastNumTeacherQuestions**
 > List&lt;TeacherQuestion&gt; getLastNumTeacherQuestions(num)
@@ -700,9 +652,9 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="getOpenTweets"></a>
-# **getOpenTweets**
-> List&lt;StudentQuestion&gt; getOpenTweets()
+<a name="getOpenQuestions"></a>
+# **getOpenQuestions**
+> List&lt;StudentQuestion&gt; getOpenQuestions()
 
 retrieves open Questions
 
@@ -726,10 +678,10 @@ basic-auth.setPassword("YOUR PASSWORD");
 
 DefaultApi apiInstance = new DefaultApi();
 try {
-    List<StudentQuestion> result = apiInstance.getOpenTweets();
+    List<StudentQuestion> result = apiInstance.getOpenQuestions();
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling DefaultApi#getOpenTweets");
+    System.err.println("Exception when calling DefaultApi#getOpenQuestions");
     e.printStackTrace();
 }
 ```
@@ -790,6 +742,116 @@ This endpoint does not need any parameter.
 ### Return type
 
 [**Map&lt;String, String&gt;**](Map.md)
+
+### Authorization
+
+[basic-auth](../README.md#basic-auth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="getQuestionByInputSourceIdandInputSource"></a>
+# **getQuestionByInputSourceIdandInputSource**
+> StudentQuestion getQuestionByInputSourceIdandInputSource(inputSourceId, inputSource)
+
+retrieves question by its InputSourceId and inputSource
+
+
+
+### Example
+```java
+// Import classes:
+//import io.swagger.client.ApiClient;
+//import io.swagger.client.ApiException;
+//import io.swagger.client.Configuration;
+//import io.swagger.client.auth.*;
+//import io.swagger.client.api.DefaultApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure HTTP basic authorization: basic-auth
+HttpBasicAuth basic-auth = (HttpBasicAuth) defaultClient.getAuthentication("basic-auth");
+basic-auth.setUsername("YOUR USERNAME");
+basic-auth.setPassword("YOUR PASSWORD");
+
+DefaultApi apiInstance = new DefaultApi();
+String inputSourceId = "inputSourceId_example"; // String | 
+String inputSource = "inputSource_example"; // String | 
+try {
+    StudentQuestion result = apiInstance.getQuestionByInputSourceIdandInputSource(inputSourceId, inputSource);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling DefaultApi#getQuestionByInputSourceIdandInputSource");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **inputSourceId** | **String**|  |
+ **inputSource** | **String**|  |
+
+### Return type
+
+[**StudentQuestion**](StudentQuestion.md)
+
+### Authorization
+
+[basic-auth](../README.md#basic-auth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="getQuestionByObjectId"></a>
+# **getQuestionByObjectId**
+> StudentQuestion getQuestionByObjectId(id)
+
+retrieves question by its ObjectId
+
+
+
+### Example
+```java
+// Import classes:
+//import io.swagger.client.ApiClient;
+//import io.swagger.client.ApiException;
+//import io.swagger.client.Configuration;
+//import io.swagger.client.auth.*;
+//import io.swagger.client.api.DefaultApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure HTTP basic authorization: basic-auth
+HttpBasicAuth basic-auth = (HttpBasicAuth) defaultClient.getAuthentication("basic-auth");
+basic-auth.setUsername("YOUR USERNAME");
+basic-auth.setPassword("YOUR PASSWORD");
+
+DefaultApi apiInstance = new DefaultApi();
+String id = "id_example"; // String | 
+try {
+    StudentQuestion result = apiInstance.getQuestionByObjectId(id);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling DefaultApi#getQuestionByObjectId");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **String**|  |
+
+### Return type
+
+[**StudentQuestion**](StudentQuestion.md)
 
 ### Authorization
 
@@ -948,60 +1010,6 @@ No authorization required
 
  - **Content-Type**: application/x-www-form-urlencoded
  - **Accept**: text/xml
-
-<a name="getSingleTweet"></a>
-# **getSingleTweet**
-> StudentQuestion getSingleTweet(id)
-
-retrieves question by Id
-
-
-
-### Example
-```java
-// Import classes:
-//import io.swagger.client.ApiClient;
-//import io.swagger.client.ApiException;
-//import io.swagger.client.Configuration;
-//import io.swagger.client.auth.*;
-//import io.swagger.client.api.DefaultApi;
-
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure HTTP basic authorization: basic-auth
-HttpBasicAuth basic-auth = (HttpBasicAuth) defaultClient.getAuthentication("basic-auth");
-basic-auth.setUsername("YOUR USERNAME");
-basic-auth.setPassword("YOUR PASSWORD");
-
-DefaultApi apiInstance = new DefaultApi();
-String id = "id_example"; // String | 
-try {
-    StudentQuestion result = apiInstance.getSingleTweet(id);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling DefaultApi#getSingleTweet");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **String**|  |
-
-### Return type
-
-[**StudentQuestion**](StudentQuestion.md)
-
-### Authorization
-
-[basic-auth](../README.md#basic-auth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
 
 <a name="getSlideForExerciseNumberAndSlideNumber"></a>
 # **getSlideForExerciseNumberAndSlideNumber**
@@ -1322,6 +1330,60 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+<a name="postQuestionInDB"></a>
+# **postQuestionInDB**
+> StudentQuestion postQuestionInDB(body)
+
+saves a new Question, updates it if already existent
+
+
+
+### Example
+```java
+// Import classes:
+//import io.swagger.client.ApiClient;
+//import io.swagger.client.ApiException;
+//import io.swagger.client.Configuration;
+//import io.swagger.client.auth.*;
+//import io.swagger.client.api.DefaultApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure HTTP basic authorization: basic-auth
+HttpBasicAuth basic-auth = (HttpBasicAuth) defaultClient.getAuthentication("basic-auth");
+basic-auth.setUsername("YOUR USERNAME");
+basic-auth.setPassword("YOUR PASSWORD");
+
+DefaultApi apiInstance = new DefaultApi();
+StudentQuestion body = new StudentQuestion(); // StudentQuestion | 
+try {
+    StudentQuestion result = apiInstance.postQuestionInDB(body);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling DefaultApi#postQuestionInDB");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**StudentQuestion**](StudentQuestion.md)|  | [optional]
+
+### Return type
+
+[**StudentQuestion**](StudentQuestion.md)
+
+### Authorization
+
+[basic-auth](../README.md#basic-auth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
 <a name="postReplyAndCloseQuestion"></a>
 # **postReplyAndCloseQuestion**
 > StudentQuestion postReplyAndCloseQuestion(id)
@@ -1362,60 +1424,6 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**|  |
-
-### Return type
-
-[**StudentQuestion**](StudentQuestion.md)
-
-### Authorization
-
-[basic-auth](../README.md#basic-auth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-<a name="postTweetInDB"></a>
-# **postTweetInDB**
-> StudentQuestion postTweetInDB(body)
-
-saves a new Question, updates it if already existent
-
-
-
-### Example
-```java
-// Import classes:
-//import io.swagger.client.ApiClient;
-//import io.swagger.client.ApiException;
-//import io.swagger.client.Configuration;
-//import io.swagger.client.auth.*;
-//import io.swagger.client.api.DefaultApi;
-
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure HTTP basic authorization: basic-auth
-HttpBasicAuth basic-auth = (HttpBasicAuth) defaultClient.getAuthentication("basic-auth");
-basic-auth.setUsername("YOUR USERNAME");
-basic-auth.setPassword("YOUR PASSWORD");
-
-DefaultApi apiInstance = new DefaultApi();
-StudentQuestion body = new StudentQuestion(); // StudentQuestion | 
-try {
-    StudentQuestion result = apiInstance.postTweetInDB(body);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling DefaultApi#postTweetInDB");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | [**StudentQuestion**](StudentQuestion.md)|  | [optional]
 
 ### Return type
 
@@ -1484,9 +1492,9 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="updateTweetInDB"></a>
-# **updateTweetInDB**
-> StudentQuestion updateTweetInDB(body)
+<a name="updateQuestionInDB"></a>
+# **updateQuestionInDB**
+> StudentQuestion updateQuestionInDB(body)
 
 saves a new Question, updates it if already existent
 
@@ -1511,10 +1519,10 @@ basic-auth.setPassword("YOUR PASSWORD");
 DefaultApi apiInstance = new DefaultApi();
 StudentQuestion body = new StudentQuestion(); // StudentQuestion | 
 try {
-    StudentQuestion result = apiInstance.updateTweetInDB(body);
+    StudentQuestion result = apiInstance.updateQuestionInDB(body);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling DefaultApi#updateTweetInDB");
+    System.err.println("Exception when calling DefaultApi#updateQuestionInDB");
     e.printStackTrace();
 }
 ```

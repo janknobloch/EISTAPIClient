@@ -1,6 +1,6 @@
 /*
- * The Q&A EIST Twitter API
- * Allows the SlackBot to Interact with the TweetWall
+ * The Q&A AMATI API
+ * Allows the SlackBot to Interact with the QuestionWall
  *
  * OpenAPI spec version: V1.0
  * 

@@ -1,6 +1,6 @@
 /*
- * The Q&A EIST Twitter API
- * Allows the SlackBot to Interact with the TweetWall
+ * The Q&A AMATI API
+ * Allows the SlackBot to Interact with the QuestionWall
  *
  * OpenAPI spec version: V1.0
  * 
@@ -36,6 +36,23 @@ public class DefaultApiTest {
 
     
     /**
+     * deletes a given Question by using its inputSourceId and inputSource
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void deleteQuestionByInputSourceIdandInputSourceTest() throws ApiException {
+        String inputSourceId = null;
+        String inputSource = null;
+        StudentQuestion response = api.deleteQuestionByInputSourceIdandInputSource(inputSourceId, inputSource);
+
+        // TODO: test validations
+    }
+    
+    /**
      * deletes a given Question
      *
      * 
@@ -44,25 +61,9 @@ public class DefaultApiTest {
      *          if the Api call fails
      */
     @Test
-    public void deleteTweetInDBTest() throws ApiException {
+    public void deleteQuestionInDBTest() throws ApiException {
         StudentQuestion body = null;
-        StudentQuestion response = api.deleteTweetInDB(body);
-
-        // TODO: test validations
-    }
-    
-    /**
-     * deletes a given Question by using its ID
-     *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void deleteTweetInDBByIdTest() throws ApiException {
-        String body = null;
-        StudentQuestion response = api.deleteTweetInDBById(body);
+        StudentQuestion response = api.deleteQuestionInDB(body);
 
         // TODO: test validations
     }
@@ -128,6 +129,21 @@ public class DefaultApiTest {
     }
     
     /**
+     * retrieves all question wall listeners
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getAllQuestionWallSessionsTest() throws ApiException {
+        List<String> response = api.getAllQuestionWallSessions();
+
+        // TODO: test validations
+    }
+    
+    /**
      * retrieves all Questions
      *
      * 
@@ -138,21 +154,6 @@ public class DefaultApiTest {
     @Test
     public void getAllStudentQuestionsTest() throws ApiException {
         List<StudentQuestion> response = api.getAllStudentQuestions();
-
-        // TODO: test validations
-    }
-    
-    /**
-     * retrieves all wall listeners
-     *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void getAllTwitterWallSessionsTest() throws ApiException {
-        List<String> response = api.getAllTwitterWallSessions();
 
         // TODO: test validations
     }
@@ -204,21 +205,6 @@ public class DefaultApiTest {
     }
     
     /**
-     * retrieves highscores
-     *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void getHighscoresTest() throws ApiException {
-        Map<String, Integer> response = api.getHighscores();
-
-        // TODO: test validations
-    }
-    
-    /**
      * retrieves last {num} quizzes
      *
      * 
@@ -243,8 +229,8 @@ public class DefaultApiTest {
      *          if the Api call fails
      */
     @Test
-    public void getOpenTweetsTest() throws ApiException {
-        List<StudentQuestion> response = api.getOpenTweets();
+    public void getOpenQuestionsTest() throws ApiException {
+        List<StudentQuestion> response = api.getOpenQuestions();
 
         // TODO: test validations
     }
@@ -260,6 +246,39 @@ public class DefaultApiTest {
     @Test
     public void getPresentationsTest() throws ApiException {
         Map<String, String> response = api.getPresentations();
+
+        // TODO: test validations
+    }
+    
+    /**
+     * retrieves question by its InputSourceId and inputSource
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getQuestionByInputSourceIdandInputSourceTest() throws ApiException {
+        String inputSourceId = null;
+        String inputSource = null;
+        StudentQuestion response = api.getQuestionByInputSourceIdandInputSource(inputSourceId, inputSource);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * retrieves question by its ObjectId
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getQuestionByObjectIdTest() throws ApiException {
+        String id = null;
+        StudentQuestion response = api.getQuestionByObjectId(id);
 
         // TODO: test validations
     }
@@ -308,22 +327,6 @@ public class DefaultApiTest {
         String from = null;
         String body = null;
         String response = api.getSMSQuestion(from, body);
-
-        // TODO: test validations
-    }
-    
-    /**
-     * retrieves question by Id
-     *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void getSingleTweetTest() throws ApiException {
-        String id = null;
-        StudentQuestion response = api.getSingleTweet(id);
 
         // TODO: test validations
     }
@@ -435,9 +438,9 @@ public class DefaultApiTest {
      *          if the Api call fails
      */
     @Test
-    public void postReplyAndCloseQuestionTest() throws ApiException {
-        String id = null;
-        StudentQuestion response = api.postReplyAndCloseQuestion(id);
+    public void postQuestionInDBTest() throws ApiException {
+        StudentQuestion body = null;
+        StudentQuestion response = api.postQuestionInDB(body);
 
         // TODO: test validations
     }
@@ -451,9 +454,9 @@ public class DefaultApiTest {
      *          if the Api call fails
      */
     @Test
-    public void postTweetInDBTest() throws ApiException {
-        StudentQuestion body = null;
-        StudentQuestion response = api.postTweetInDB(body);
+    public void postReplyAndCloseQuestionTest() throws ApiException {
+        String id = null;
+        StudentQuestion response = api.postReplyAndCloseQuestion(id);
 
         // TODO: test validations
     }
@@ -483,9 +486,9 @@ public class DefaultApiTest {
      *          if the Api call fails
      */
     @Test
-    public void updateTweetInDBTest() throws ApiException {
+    public void updateQuestionInDBTest() throws ApiException {
         StudentQuestion body = null;
-        StudentQuestion response = api.updateTweetInDB(body);
+        StudentQuestion response = api.updateQuestionInDB(body);
 
         // TODO: test validations
     }
