@@ -12,6 +12,10 @@ import java.util.ArrayList;
 @Entity
 public class StudentQuestion extends DataItem {
 
+	public static final String QUESTIONTYPE_CONTENT  = "content";
+	public static final String QUESTIONTYPE_GENERAL = "general";
+	public static final String QUESTIONTYPE_EXERCISE = "exercise";
+	
     @Property
     @Getter
     @Setter
@@ -61,7 +65,7 @@ public class StudentQuestion extends DataItem {
     @Property
     @Getter
     @Setter
-    private String channel;
+    private String questionType;
     
     public StudentQuestion(String id, String text, String author, DateTime date) {
         super(id, text, author, date);

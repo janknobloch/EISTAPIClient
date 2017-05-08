@@ -12,6 +12,10 @@ import java.util.Date;
 @Entity
 public abstract class DataItem {
 
+	public static String INPUTSOURCE_SLACK = "SLACK";
+	public static String INPUTSOURCE_WHATSAPP = "WHATSAPP";
+    public static String INPUTSOURCE_SMS = "SMS";
+    
 	@Id
 	@Getter
 	@Setter
@@ -56,6 +60,11 @@ public abstract class DataItem {
 	@Getter
 	@Setter
 	protected String inputSource;
+	
+	@Property
+	@Getter
+	@Setter
+	protected String inputSourceId;
 
 	public DataItem() {
 	}
