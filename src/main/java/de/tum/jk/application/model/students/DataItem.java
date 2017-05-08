@@ -14,8 +14,8 @@ public abstract class DataItem {
 
 	public static String INPUTSOURCE_SLACK = "SLACK";
 	public static String INPUTSOURCE_WHATSAPP = "WHATSAPP";
-    public static String INPUTSOURCE_SMS = "SMS";
-    
+	public static String INPUTSOURCE_SMS = "SMS";
+
 	@Id
 	@Getter
 	@Setter
@@ -30,12 +30,12 @@ public abstract class DataItem {
 	@Getter
 	@Setter
 	protected String author;
-	
+
 	@Property
 	@Getter
 	@Setter
 	protected String displayName;
-	
+
 	@Property
 	@Getter
 	@Setter
@@ -59,21 +59,23 @@ public abstract class DataItem {
 	@Property
 	@Getter
 	@Setter
-	protected String inputSource;
-	
+	protected String inputSourceId;
+
 	@Property
 	@Getter
 	@Setter
-	protected String inputSourceId;
+	protected String inputSource;
 
 	public DataItem() {
 	}
 
-	public DataItem(String id, String content, String author, DateTime date) {
-		this.id = id;
+	public DataItem(String content, String author, DateTime date, String inputSourceId, String inputSource) {
+
 		this.content = content;
 		this.author = author;
 		this.date = date.toString();
+		this.inputSourceId = inputSourceId;
+		this.inputSource = inputSource;
 	}
 
 	public void voteUp() {

@@ -67,8 +67,8 @@ public class StudentQuestion extends DataItem {
     @Setter
     private String questionType;
     
-    public StudentQuestion(String id, String text, String author, DateTime date) {
-        super(id, text, author, date);
+    public StudentQuestion(String id, String text, String author, DateTime date, String inputSourceId, String inputSource) {
+        super(text, author, date, inputSourceId, inputSource);
         this.replies = new ArrayList<Reply>();
         this.author = author;
     }

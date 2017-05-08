@@ -12,8 +12,8 @@ public class Reply extends DataItem {
 
 	}
 
-	public Reply(String id, String text, String author) {
-		super(id,text,author,new DateTime());
+	public Reply(String id, String text, String author, String inputSourceId, String inputSource) {
+		super(text,author,new DateTime(),inputSourceId,inputSource);
 	}
 
 }
