@@ -27,7 +27,7 @@ Method | HTTP request | Description
 [**getSlideForPresentationNumberAndSlideNumber**](DefaultApi.md#getSlideForPresentationNumberAndSlideNumber) | **GET** /bot/presentation/number/{presentationNumber}/slide/number/{slideNumber} | Returns slidePath for PresentationNumber / SlideNumber
 [**getSlidesForExerciseName**](DefaultApi.md#getSlidesForExerciseName) | **GET** /bot/exercise/name/{exerciseName}/slide | Returns all Slides for ExerciseName
 [**getSlidesForPresentationName**](DefaultApi.md#getSlidesForPresentationName) | **GET** /bot/presentation/name/{presentationName}/slide | Returns all Slides for PresentationName
-[**getWhatzappQUestion**](DefaultApi.md#getWhatzappQUestion) | **POST** /bot/whatsapp | forwards a new Whatsapp question
+[**getWhatzappQuestion**](DefaultApi.md#getWhatzappQuestion) | **POST** /bot/whatsapp | forwards a new Whatsapp question
 [**postFeedbackToDB**](DefaultApi.md#postFeedbackToDB) | **POST** /bot/feedback | saves a new Feedback, updates it if already existent
 [**postQuestionInDB**](DefaultApi.md#postQuestionInDB) | **POST** /bot/question | saves a new Question, updates it if already existent
 [**postReplyAndCloseQuestion**](DefaultApi.md#postReplyAndCloseQuestion) | **POST** /bot/question/close/{id} | saves a new Question, updates it if already existent
@@ -1231,9 +1231,9 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="getWhatzappQUestion"></a>
-# **getWhatzappQUestion**
-> StudentQuestion getWhatzappQUestion(body)
+<a name="getWhatzappQuestion"></a>
+# **getWhatzappQuestion**
+> StudentQuestion getWhatzappQuestion(body)
 
 forwards a new Whatsapp question
 
@@ -1249,10 +1249,10 @@ forwards a new Whatsapp question
 DefaultApi apiInstance = new DefaultApi();
 StudentQuestion body = new StudentQuestion(); // StudentQuestion | 
 try {
-    StudentQuestion result = apiInstance.getWhatzappQUestion(body);
+    StudentQuestion result = apiInstance.getWhatzappQuestion(body);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling DefaultApi#getWhatzappQUestion");
+    System.err.println("Exception when calling DefaultApi#getWhatzappQuestion");
     e.printStackTrace();
 }
 ```

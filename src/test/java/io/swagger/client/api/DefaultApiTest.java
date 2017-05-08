@@ -406,9 +406,9 @@ public class DefaultApiTest {
      *          if the Api call fails
      */
     @Test
-    public void getWhatzappQUestionTest() throws ApiException {
+    public void getWhatzappQuestionTest() throws ApiException {
         StudentQuestion body = null;
-        StudentQuestion response = api.getWhatzappQUestion(body);
+        StudentQuestion response = api.getWhatzappQuestion(body);
 
         // TODO: test validations
     }

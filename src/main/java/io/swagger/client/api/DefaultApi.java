@@ -2714,8 +2714,8 @@ public class DefaultApi {
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /* Build call for getWhatzappQUestion */
-    private com.squareup.okhttp.Call getWhatzappQUestionCall(StudentQuestion body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /* Build call for getWhatzappQuestion */
+    private com.squareup.okhttp.Call getWhatzappQuestionCall(StudentQuestion body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
         // create path and map variables
@@ -2756,10 +2756,10 @@ public class DefaultApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getWhatzappQUestionValidateBeforeCall(StudentQuestion body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getWhatzappQuestionValidateBeforeCall(StudentQuestion body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         
-        com.squareup.okhttp.Call call = getWhatzappQUestionCall(body, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getWhatzappQuestionCall(body, progressListener, progressRequestListener);
         return call;
 
         
@@ -2775,8 +2775,8 @@ public class DefaultApi {
      * @return StudentQuestion
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public StudentQuestion getWhatzappQUestion(StudentQuestion body) throws ApiException {
-        ApiResponse<StudentQuestion> resp = getWhatzappQUestionWithHttpInfo(body);
+    public StudentQuestion getWhatzappQuestion(StudentQuestion body) throws ApiException {
+        ApiResponse<StudentQuestion> resp = getWhatzappQuestionWithHttpInfo(body);
         return resp.getData();
     }
 
@@ -2787,8 +2787,8 @@ public class DefaultApi {
      * @return ApiResponse&lt;StudentQuestion&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<StudentQuestion> getWhatzappQUestionWithHttpInfo(StudentQuestion body) throws ApiException {
-        com.squareup.okhttp.Call call = getWhatzappQUestionValidateBeforeCall(body, null, null);
+    public ApiResponse<StudentQuestion> getWhatzappQuestionWithHttpInfo(StudentQuestion body) throws ApiException {
+        com.squareup.okhttp.Call call = getWhatzappQuestionValidateBeforeCall(body, null, null);
         Type localVarReturnType = new TypeToken<StudentQuestion>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -2801,7 +2801,7 @@ public class DefaultApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getWhatzappQUestionAsync(StudentQuestion body, final ApiCallback<StudentQuestion> callback) throws ApiException {
+    public com.squareup.okhttp.Call getWhatzappQuestionAsync(StudentQuestion body, final ApiCallback<StudentQuestion> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -2822,7 +2822,7 @@ public class DefaultApi {
             };
         }
 
-        com.squareup.okhttp.Call call = getWhatzappQUestionValidateBeforeCall(body, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getWhatzappQuestionValidateBeforeCall(body, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<StudentQuestion>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
