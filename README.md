@@ -131,6 +131,7 @@ Class | Method | HTTP request | Description
 
 ## Documentation for Models
 
+ - [ObjectId](docs/ObjectId.md)
 
 
 ## Documentation for Authorization
