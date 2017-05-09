@@ -101,7 +101,8 @@ Class | Method | HTTP request | Description
 *DefaultApi* | [**deleteQuestionInDB**](docs/DefaultApi.md#deleteQuestionInDB) | **DELETE** /bot/question | deletes a given Question
 *DefaultApi* | [**getActiveSlides**](docs/DefaultApi.md#getActiveSlides) | **GET** /bot/slide/live | Returns an Array of active slides for (ppt, key, and dev)
 *DefaultApi* | [**getAllBots**](docs/DefaultApi.md#getAllBots) | **GET** /bot/bot | retrieves all bots 
-*DefaultApi* | [**getAllClosedStudentQuestions**](docs/DefaultApi.md#getAllClosedStudentQuestions) | **GET** /bot/question/report | retrieves all questions report not including general questions - ordered by slideSet
+*DefaultApi* | [**getAllClosedStudentQuestionsForExercises**](docs/DefaultApi.md#getAllClosedStudentQuestionsForExercises) | **GET** /bot/question/exercise/report | retrieves all exercise questions report not including general questions - ordered by slideSet
+*DefaultApi* | [**getAllClosedStudentQuestionsForLectures**](docs/DefaultApi.md#getAllClosedStudentQuestionsForLectures) | **GET** /bot/question/lecture/report | retrieves all lecture questions report not including general questions - ordered by slideSet
 *DefaultApi* | [**getAllPresenterSessions**](docs/DefaultApi.md#getAllPresenterSessions) | **GET** /bot/presenter | Retrieves all Presenters
 *DefaultApi* | [**getAllQuestionWallSessions**](docs/DefaultApi.md#getAllQuestionWallSessions) | **GET** /bot/wall | retrieves all question wall listeners
 *DefaultApi* | [**getAllStudentQuestions**](docs/DefaultApi.md#getAllStudentQuestions) | **GET** /bot/question | retrieves all Questions
@@ -114,8 +115,9 @@ Class | Method | HTTP request | Description
 *DefaultApi* | [**getQuestionByInputSourceId**](docs/DefaultApi.md#getQuestionByInputSourceId) | **GET** /bot/question/sourceId/{inputSourceId} | retrieves question by its InputSourceId
 *DefaultApi* | [**getQuestionByInputSourceIdandInputSource**](docs/DefaultApi.md#getQuestionByInputSourceIdandInputSource) | **GET** /bot/question/sourceId/{inputSourceId}/source/{inputSource} | retrieves question by its InputSourceId and inputSource
 *DefaultApi* | [**getQuestionByObjectId**](docs/DefaultApi.md#getQuestionByObjectId) | **GET** /bot/question/{id} | retrieves question by its ObjectId
-*DefaultApi* | [**getReport**](docs/DefaultApi.md#getReport) | **GET** /bot/question/report/{num} | retrieves all questions report for specific lecture(slideSet)
-*DefaultApi* | [**getReport_0**](docs/DefaultApi.md#getReport_0) | **GET** /bot/question/report/general | retrieves all questions report for specific lecture(slideSet)
+*DefaultApi* | [**getReportForExercise**](docs/DefaultApi.md#getReportForExercise) | **GET** /bot/question/report/exercise{num} | retrieves all questions report for specific exercise(slideSet)
+*DefaultApi* | [**getReportForGeneral**](docs/DefaultApi.md#getReportForGeneral) | **GET** /bot/question/report/general | retrieves all questions report for specific lecture(slideSet)
+*DefaultApi* | [**getReportForLecture**](docs/DefaultApi.md#getReportForLecture) | **GET** /bot/question/report/lecture/{num} | retrieves all questions report for specific lecture(slideSet)
 *DefaultApi* | [**getSMSQuestion**](docs/DefaultApi.md#getSMSQuestion) | **POST** /bot/sms | forwards a new SMS question
 *DefaultApi* | [**getSlideForExerciseNumberAndSlideNumber**](docs/DefaultApi.md#getSlideForExerciseNumberAndSlideNumber) | **GET** /bot/exercise/number/{exerciseNumber}/slide/number/{slideNumber} | Returns slidePath for ExerciseNumber / SlideNumber
 *DefaultApi* | [**getSlideForPresentationNumberAndSlideNumber**](docs/DefaultApi.md#getSlideForPresentationNumberAndSlideNumber) | **GET** /bot/presentation/number/{presentationNumber}/slide/number/{slideNumber} | Returns slidePath for PresentationNumber / SlideNumber

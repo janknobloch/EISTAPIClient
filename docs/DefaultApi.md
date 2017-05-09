@@ -9,7 +9,8 @@ Method | HTTP request | Description
 [**deleteQuestionInDB**](DefaultApi.md#deleteQuestionInDB) | **DELETE** /bot/question | deletes a given Question
 [**getActiveSlides**](DefaultApi.md#getActiveSlides) | **GET** /bot/slide/live | Returns an Array of active slides for (ppt, key, and dev)
 [**getAllBots**](DefaultApi.md#getAllBots) | **GET** /bot/bot | retrieves all bots 
-[**getAllClosedStudentQuestions**](DefaultApi.md#getAllClosedStudentQuestions) | **GET** /bot/question/report | retrieves all questions report not including general questions - ordered by slideSet
+[**getAllClosedStudentQuestionsForExercises**](DefaultApi.md#getAllClosedStudentQuestionsForExercises) | **GET** /bot/question/exercise/report | retrieves all exercise questions report not including general questions - ordered by slideSet
+[**getAllClosedStudentQuestionsForLectures**](DefaultApi.md#getAllClosedStudentQuestionsForLectures) | **GET** /bot/question/lecture/report | retrieves all lecture questions report not including general questions - ordered by slideSet
 [**getAllPresenterSessions**](DefaultApi.md#getAllPresenterSessions) | **GET** /bot/presenter | Retrieves all Presenters
 [**getAllQuestionWallSessions**](DefaultApi.md#getAllQuestionWallSessions) | **GET** /bot/wall | retrieves all question wall listeners
 [**getAllStudentQuestions**](DefaultApi.md#getAllStudentQuestions) | **GET** /bot/question | retrieves all Questions
@@ -22,8 +23,9 @@ Method | HTTP request | Description
 [**getQuestionByInputSourceId**](DefaultApi.md#getQuestionByInputSourceId) | **GET** /bot/question/sourceId/{inputSourceId} | retrieves question by its InputSourceId
 [**getQuestionByInputSourceIdandInputSource**](DefaultApi.md#getQuestionByInputSourceIdandInputSource) | **GET** /bot/question/sourceId/{inputSourceId}/source/{inputSource} | retrieves question by its InputSourceId and inputSource
 [**getQuestionByObjectId**](DefaultApi.md#getQuestionByObjectId) | **GET** /bot/question/{id} | retrieves question by its ObjectId
-[**getReport**](DefaultApi.md#getReport) | **GET** /bot/question/report/{num} | retrieves all questions report for specific lecture(slideSet)
-[**getReport_0**](DefaultApi.md#getReport_0) | **GET** /bot/question/report/general | retrieves all questions report for specific lecture(slideSet)
+[**getReportForExercise**](DefaultApi.md#getReportForExercise) | **GET** /bot/question/report/exercise{num} | retrieves all questions report for specific exercise(slideSet)
+[**getReportForGeneral**](DefaultApi.md#getReportForGeneral) | **GET** /bot/question/report/general | retrieves all questions report for specific lecture(slideSet)
+[**getReportForLecture**](DefaultApi.md#getReportForLecture) | **GET** /bot/question/report/lecture/{num} | retrieves all questions report for specific lecture(slideSet)
 [**getSMSQuestion**](DefaultApi.md#getSMSQuestion) | **POST** /bot/sms | forwards a new SMS question
 [**getSlideForExerciseNumberAndSlideNumber**](DefaultApi.md#getSlideForExerciseNumberAndSlideNumber) | **GET** /bot/exercise/number/{exerciseNumber}/slide/number/{slideNumber} | Returns slidePath for ExerciseNumber / SlideNumber
 [**getSlideForPresentationNumberAndSlideNumber**](DefaultApi.md#getSlideForPresentationNumberAndSlideNumber) | **GET** /bot/presentation/number/{presentationNumber}/slide/number/{slideNumber} | Returns slidePath for PresentationNumber / SlideNumber
@@ -301,11 +303,11 @@ This endpoint does not need any parameter.
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="getAllClosedStudentQuestions"></a>
-# **getAllClosedStudentQuestions**
-> getAllClosedStudentQuestions()
+<a name="getAllClosedStudentQuestionsForExercises"></a>
+# **getAllClosedStudentQuestionsForExercises**
+> getAllClosedStudentQuestionsForExercises()
 
-retrieves all questions report not including general questions - ordered by slideSet
+retrieves all exercise questions report not including general questions - ordered by slideSet
 
 
 
@@ -327,9 +329,58 @@ basic-auth.setPassword("YOUR PASSWORD");
 
 DefaultApi apiInstance = new DefaultApi();
 try {
-    apiInstance.getAllClosedStudentQuestions();
+    apiInstance.getAllClosedStudentQuestionsForExercises();
 } catch (ApiException e) {
-    System.err.println("Exception when calling DefaultApi#getAllClosedStudentQuestions");
+    System.err.println("Exception when calling DefaultApi#getAllClosedStudentQuestionsForExercises");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[basic-auth](../README.md#basic-auth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/octet-stream
+
+<a name="getAllClosedStudentQuestionsForLectures"></a>
+# **getAllClosedStudentQuestionsForLectures**
+> getAllClosedStudentQuestionsForLectures()
+
+retrieves all lecture questions report not including general questions - ordered by slideSet
+
+
+
+### Example
+```java
+// Import classes:
+//import io.swagger.client.ApiClient;
+//import io.swagger.client.ApiException;
+//import io.swagger.client.Configuration;
+//import io.swagger.client.auth.*;
+//import io.swagger.client.api.DefaultApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure HTTP basic authorization: basic-auth
+HttpBasicAuth basic-auth = (HttpBasicAuth) defaultClient.getAuthentication("basic-auth");
+basic-auth.setUsername("YOUR USERNAME");
+basic-auth.setPassword("YOUR PASSWORD");
+
+DefaultApi apiInstance = new DefaultApi();
+try {
+    apiInstance.getAllClosedStudentQuestionsForLectures();
+} catch (ApiException e) {
+    System.err.println("Exception when calling DefaultApi#getAllClosedStudentQuestionsForLectures");
     e.printStackTrace();
 }
 ```
@@ -972,9 +1023,111 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="getReport"></a>
-# **getReport**
-> getReport(num)
+<a name="getReportForExercise"></a>
+# **getReportForExercise**
+> getReportForExercise(num)
+
+retrieves all questions report for specific exercise(slideSet)
+
+
+
+### Example
+```java
+// Import classes:
+//import io.swagger.client.ApiClient;
+//import io.swagger.client.ApiException;
+//import io.swagger.client.Configuration;
+//import io.swagger.client.auth.*;
+//import io.swagger.client.api.DefaultApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure HTTP basic authorization: basic-auth
+HttpBasicAuth basic-auth = (HttpBasicAuth) defaultClient.getAuthentication("basic-auth");
+basic-auth.setUsername("YOUR USERNAME");
+basic-auth.setPassword("YOUR PASSWORD");
+
+DefaultApi apiInstance = new DefaultApi();
+Integer num = 56; // Integer | 
+try {
+    apiInstance.getReportForExercise(num);
+} catch (ApiException e) {
+    System.err.println("Exception when calling DefaultApi#getReportForExercise");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **num** | **Integer**|  |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[basic-auth](../README.md#basic-auth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/octet-stream
+
+<a name="getReportForGeneral"></a>
+# **getReportForGeneral**
+> getReportForGeneral()
+
+retrieves all questions report for specific lecture(slideSet)
+
+
+
+### Example
+```java
+// Import classes:
+//import io.swagger.client.ApiClient;
+//import io.swagger.client.ApiException;
+//import io.swagger.client.Configuration;
+//import io.swagger.client.auth.*;
+//import io.swagger.client.api.DefaultApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure HTTP basic authorization: basic-auth
+HttpBasicAuth basic-auth = (HttpBasicAuth) defaultClient.getAuthentication("basic-auth");
+basic-auth.setUsername("YOUR USERNAME");
+basic-auth.setPassword("YOUR PASSWORD");
+
+DefaultApi apiInstance = new DefaultApi();
+try {
+    apiInstance.getReportForGeneral();
+} catch (ApiException e) {
+    System.err.println("Exception when calling DefaultApi#getReportForGeneral");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[basic-auth](../README.md#basic-auth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/octet-stream
+
+<a name="getReportForLecture"></a>
+# **getReportForLecture**
+> getReportForLecture(num)
 
 retrieves all questions report for specific lecture(slideSet)
 
@@ -999,9 +1152,9 @@ basic-auth.setPassword("YOUR PASSWORD");
 DefaultApi apiInstance = new DefaultApi();
 Integer num = 56; // Integer | 
 try {
-    apiInstance.getReport(num);
+    apiInstance.getReportForLecture(num);
 } catch (ApiException e) {
-    System.err.println("Exception when calling DefaultApi#getReport");
+    System.err.println("Exception when calling DefaultApi#getReportForLecture");
     e.printStackTrace();
 }
 ```
@@ -1011,55 +1164,6 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **num** | **Integer**|  |
-
-### Return type
-
-null (empty response body)
-
-### Authorization
-
-[basic-auth](../README.md#basic-auth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/octet-stream
-
-<a name="getReport_0"></a>
-# **getReport_0**
-> getReport_0()
-
-retrieves all questions report for specific lecture(slideSet)
-
-
-
-### Example
-```java
-// Import classes:
-//import io.swagger.client.ApiClient;
-//import io.swagger.client.ApiException;
-//import io.swagger.client.Configuration;
-//import io.swagger.client.auth.*;
-//import io.swagger.client.api.DefaultApi;
-
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure HTTP basic authorization: basic-auth
-HttpBasicAuth basic-auth = (HttpBasicAuth) defaultClient.getAuthentication("basic-auth");
-basic-auth.setUsername("YOUR USERNAME");
-basic-auth.setPassword("YOUR PASSWORD");
-
-DefaultApi apiInstance = new DefaultApi();
-try {
-    apiInstance.getReport_0();
-} catch (ApiException e) {
-    System.err.println("Exception when calling DefaultApi#getReport_0");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-This endpoint does not need any parameter.
 
 ### Return type
 

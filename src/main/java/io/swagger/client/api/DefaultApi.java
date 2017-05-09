@@ -637,12 +637,12 @@ public class DefaultApi {
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /* Build call for getAllClosedStudentQuestions */
-    private com.squareup.okhttp.Call getAllClosedStudentQuestionsCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /* Build call for getAllClosedStudentQuestionsForExercises */
+    private com.squareup.okhttp.Call getAllClosedStudentQuestionsForExercisesCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/bot/question/report".replaceAll("\\{format\\}","json");
+        String localVarPath = "/bot/question/exercise/report".replaceAll("\\{format\\}","json");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
 
@@ -679,10 +679,10 @@ public class DefaultApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getAllClosedStudentQuestionsValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getAllClosedStudentQuestionsForExercisesValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         
-        com.squareup.okhttp.Call call = getAllClosedStudentQuestionsCall(progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getAllClosedStudentQuestionsForExercisesCall(progressListener, progressRequestListener);
         return call;
 
         
@@ -692,33 +692,33 @@ public class DefaultApi {
     }
 
     /**
-     * retrieves all questions report not including general questions - ordered by slideSet
+     * retrieves all exercise questions report not including general questions - ordered by slideSet
      * 
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public void getAllClosedStudentQuestions() throws ApiException {
-        getAllClosedStudentQuestionsWithHttpInfo();
+    public void getAllClosedStudentQuestionsForExercises() throws ApiException {
+        getAllClosedStudentQuestionsForExercisesWithHttpInfo();
     }
 
     /**
-     * retrieves all questions report not including general questions - ordered by slideSet
+     * retrieves all exercise questions report not including general questions - ordered by slideSet
      * 
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Void> getAllClosedStudentQuestionsWithHttpInfo() throws ApiException {
-        com.squareup.okhttp.Call call = getAllClosedStudentQuestionsValidateBeforeCall(null, null);
+    public ApiResponse<Void> getAllClosedStudentQuestionsForExercisesWithHttpInfo() throws ApiException {
+        com.squareup.okhttp.Call call = getAllClosedStudentQuestionsForExercisesValidateBeforeCall(null, null);
         return apiClient.execute(call);
     }
 
     /**
-     * retrieves all questions report not including general questions - ordered by slideSet (asynchronously)
+     * retrieves all exercise questions report not including general questions - ordered by slideSet (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getAllClosedStudentQuestionsAsync(final ApiCallback<Void> callback) throws ApiException {
+    public com.squareup.okhttp.Call getAllClosedStudentQuestionsForExercisesAsync(final ApiCallback<Void> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -739,7 +739,113 @@ public class DefaultApi {
             };
         }
 
-        com.squareup.okhttp.Call call = getAllClosedStudentQuestionsValidateBeforeCall(progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getAllClosedStudentQuestionsForExercisesValidateBeforeCall(progressListener, progressRequestListener);
+        apiClient.executeAsync(call, callback);
+        return call;
+    }
+    /* Build call for getAllClosedStudentQuestionsForLectures */
+    private com.squareup.okhttp.Call getAllClosedStudentQuestionsForLecturesCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+        
+        // create path and map variables
+        String localVarPath = "/bot/question/lecture/report".replaceAll("\\{format\\}","json");
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/octet-stream"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "basic-auth" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getAllClosedStudentQuestionsForLecturesValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        
+        com.squareup.okhttp.Call call = getAllClosedStudentQuestionsForLecturesCall(progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * retrieves all lecture questions report not including general questions - ordered by slideSet
+     * 
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public void getAllClosedStudentQuestionsForLectures() throws ApiException {
+        getAllClosedStudentQuestionsForLecturesWithHttpInfo();
+    }
+
+    /**
+     * retrieves all lecture questions report not including general questions - ordered by slideSet
+     * 
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<Void> getAllClosedStudentQuestionsForLecturesWithHttpInfo() throws ApiException {
+        com.squareup.okhttp.Call call = getAllClosedStudentQuestionsForLecturesValidateBeforeCall(null, null);
+        return apiClient.execute(call);
+    }
+
+    /**
+     * retrieves all lecture questions report not including general questions - ordered by slideSet (asynchronously)
+     * 
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call getAllClosedStudentQuestionsForLecturesAsync(final ApiCallback<Void> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getAllClosedStudentQuestionsForLecturesValidateBeforeCall(progressListener, progressRequestListener);
         apiClient.executeAsync(call, callback);
         return call;
     }
@@ -2117,12 +2223,12 @@ public class DefaultApi {
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /* Build call for getReport */
-    private com.squareup.okhttp.Call getReportCall(Integer num, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /* Build call for getReportForExercise */
+    private com.squareup.okhttp.Call getReportForExerciseCall(Integer num, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/bot/question/report/{num}".replaceAll("\\{format\\}","json")
+        String localVarPath = "/bot/question/report/exercise{num}".replaceAll("\\{format\\}","json")
         .replaceAll("\\{" + "num" + "\\}", apiClient.escapeString(num.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -2160,15 +2266,15 @@ public class DefaultApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getReportValidateBeforeCall(Integer num, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getReportForExerciseValidateBeforeCall(Integer num, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'num' is set
         if (num == null) {
-            throw new ApiException("Missing the required parameter 'num' when calling getReport(Async)");
+            throw new ApiException("Missing the required parameter 'num' when calling getReportForExercise(Async)");
         }
         
         
-        com.squareup.okhttp.Call call = getReportCall(num, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getReportForExerciseCall(num, progressListener, progressRequestListener);
         return call;
 
         
@@ -2178,36 +2284,36 @@ public class DefaultApi {
     }
 
     /**
-     * retrieves all questions report for specific lecture(slideSet)
+     * retrieves all questions report for specific exercise(slideSet)
      * 
      * @param num  (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public void getReport(Integer num) throws ApiException {
-        getReportWithHttpInfo(num);
+    public void getReportForExercise(Integer num) throws ApiException {
+        getReportForExerciseWithHttpInfo(num);
     }
 
     /**
-     * retrieves all questions report for specific lecture(slideSet)
+     * retrieves all questions report for specific exercise(slideSet)
      * 
      * @param num  (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Void> getReportWithHttpInfo(Integer num) throws ApiException {
-        com.squareup.okhttp.Call call = getReportValidateBeforeCall(num, null, null);
+    public ApiResponse<Void> getReportForExerciseWithHttpInfo(Integer num) throws ApiException {
+        com.squareup.okhttp.Call call = getReportForExerciseValidateBeforeCall(num, null, null);
         return apiClient.execute(call);
     }
 
     /**
-     * retrieves all questions report for specific lecture(slideSet) (asynchronously)
+     * retrieves all questions report for specific exercise(slideSet) (asynchronously)
      * 
      * @param num  (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getReportAsync(Integer num, final ApiCallback<Void> callback) throws ApiException {
+    public com.squareup.okhttp.Call getReportForExerciseAsync(Integer num, final ApiCallback<Void> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -2228,12 +2334,12 @@ public class DefaultApi {
             };
         }
 
-        com.squareup.okhttp.Call call = getReportValidateBeforeCall(num, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getReportForExerciseValidateBeforeCall(num, progressListener, progressRequestListener);
         apiClient.executeAsync(call, callback);
         return call;
     }
-    /* Build call for getReport_0 */
-    private com.squareup.okhttp.Call getReport_0Call(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /* Build call for getReportForGeneral */
+    private com.squareup.okhttp.Call getReportForGeneralCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
@@ -2274,10 +2380,10 @@ public class DefaultApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getReport_0ValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getReportForGeneralValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         
-        com.squareup.okhttp.Call call = getReport_0Call(progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getReportForGeneralCall(progressListener, progressRequestListener);
         return call;
 
         
@@ -2291,8 +2397,8 @@ public class DefaultApi {
      * 
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public void getReport_0() throws ApiException {
-        getReport_0WithHttpInfo();
+    public void getReportForGeneral() throws ApiException {
+        getReportForGeneralWithHttpInfo();
     }
 
     /**
@@ -2301,8 +2407,8 @@ public class DefaultApi {
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Void> getReport_0WithHttpInfo() throws ApiException {
-        com.squareup.okhttp.Call call = getReport_0ValidateBeforeCall(null, null);
+    public ApiResponse<Void> getReportForGeneralWithHttpInfo() throws ApiException {
+        com.squareup.okhttp.Call call = getReportForGeneralValidateBeforeCall(null, null);
         return apiClient.execute(call);
     }
 
@@ -2313,7 +2419,7 @@ public class DefaultApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getReport_0Async(final ApiCallback<Void> callback) throws ApiException {
+    public com.squareup.okhttp.Call getReportForGeneralAsync(final ApiCallback<Void> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -2334,7 +2440,122 @@ public class DefaultApi {
             };
         }
 
-        com.squareup.okhttp.Call call = getReport_0ValidateBeforeCall(progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getReportForGeneralValidateBeforeCall(progressListener, progressRequestListener);
+        apiClient.executeAsync(call, callback);
+        return call;
+    }
+    /* Build call for getReportForLecture */
+    private com.squareup.okhttp.Call getReportForLectureCall(Integer num, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+        
+        // create path and map variables
+        String localVarPath = "/bot/question/report/lecture/{num}".replaceAll("\\{format\\}","json")
+        .replaceAll("\\{" + "num" + "\\}", apiClient.escapeString(num.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/octet-stream"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "basic-auth" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getReportForLectureValidateBeforeCall(Integer num, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'num' is set
+        if (num == null) {
+            throw new ApiException("Missing the required parameter 'num' when calling getReportForLecture(Async)");
+        }
+        
+        
+        com.squareup.okhttp.Call call = getReportForLectureCall(num, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * retrieves all questions report for specific lecture(slideSet)
+     * 
+     * @param num  (required)
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public void getReportForLecture(Integer num) throws ApiException {
+        getReportForLectureWithHttpInfo(num);
+    }
+
+    /**
+     * retrieves all questions report for specific lecture(slideSet)
+     * 
+     * @param num  (required)
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<Void> getReportForLectureWithHttpInfo(Integer num) throws ApiException {
+        com.squareup.okhttp.Call call = getReportForLectureValidateBeforeCall(num, null, null);
+        return apiClient.execute(call);
+    }
+
+    /**
+     * retrieves all questions report for specific lecture(slideSet) (asynchronously)
+     * 
+     * @param num  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call getReportForLectureAsync(Integer num, final ApiCallback<Void> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getReportForLectureValidateBeforeCall(num, progressListener, progressRequestListener);
         apiClient.executeAsync(call, callback);
         return call;
     }

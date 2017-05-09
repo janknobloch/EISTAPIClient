@@ -22,7 +22,7 @@ import org.joda.time.DateTime;
 /**
  * ObjectId
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-05-09T18:37:39.063+02:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-05-09T19:52:30.346+02:00")
 public class ObjectId {
   @SerializedName("timestamp")
   private Integer timestamp = null;
@@ -36,14 +36,14 @@ public class ObjectId {
   @SerializedName("counter")
   private Integer counter = null;
 
+  @SerializedName("timeSecond")
+  private Integer timeSecond = null;
+
   @SerializedName("time")
   private Long time = null;
 
   @SerializedName("date")
   private DateTime date = null;
-
-  @SerializedName("timeSecond")
-  private Integer timeSecond = null;
 
   public ObjectId timestamp(Integer timestamp) {
     this.timestamp = timestamp;
@@ -117,6 +117,24 @@ public class ObjectId {
     this.counter = counter;
   }
 
+  public ObjectId timeSecond(Integer timeSecond) {
+    this.timeSecond = timeSecond;
+    return this;
+  }
+
+   /**
+   * Get timeSecond
+   * @return timeSecond
+  **/
+  @ApiModelProperty(example = "null", value = "")
+  public Integer getTimeSecond() {
+    return timeSecond;
+  }
+
+  public void setTimeSecond(Integer timeSecond) {
+    this.timeSecond = timeSecond;
+  }
+
   public ObjectId time(Long time) {
     this.time = time;
     return this;
@@ -153,24 +171,6 @@ public class ObjectId {
     this.date = date;
   }
 
-  public ObjectId timeSecond(Integer timeSecond) {
-    this.timeSecond = timeSecond;
-    return this;
-  }
-
-   /**
-   * Get timeSecond
-   * @return timeSecond
-  **/
-  @ApiModelProperty(example = "null", value = "")
-  public Integer getTimeSecond() {
-    return timeSecond;
-  }
-
-  public void setTimeSecond(Integer timeSecond) {
-    this.timeSecond = timeSecond;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -185,14 +185,14 @@ public class ObjectId {
         Objects.equals(this.machineIdentifier, objectId.machineIdentifier) &&
         Objects.equals(this.processIdentifier, objectId.processIdentifier) &&
         Objects.equals(this.counter, objectId.counter) &&
+        Objects.equals(this.timeSecond, objectId.timeSecond) &&
         Objects.equals(this.time, objectId.time) &&
-        Objects.equals(this.date, objectId.date) &&
-        Objects.equals(this.timeSecond, objectId.timeSecond);
+        Objects.equals(this.date, objectId.date);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(timestamp, machineIdentifier, processIdentifier, counter, time, date, timeSecond);
+    return Objects.hash(timestamp, machineIdentifier, processIdentifier, counter, timeSecond, time, date);
   }
 
 
@@ -205,9 +205,9 @@ public class ObjectId {
     sb.append("    machineIdentifier: ").append(toIndentedString(machineIdentifier)).append("\n");
     sb.append("    processIdentifier: ").append(toIndentedString(processIdentifier)).append("\n");
     sb.append("    counter: ").append(toIndentedString(counter)).append("\n");
+    sb.append("    timeSecond: ").append(toIndentedString(timeSecond)).append("\n");
     sb.append("    time: ").append(toIndentedString(time)).append("\n");
     sb.append("    date: ").append(toIndentedString(date)).append("\n");
-    sb.append("    timeSecond: ").append(toIndentedString(timeSecond)).append("\n");
     sb.append("}");
     return sb.toString();
   }

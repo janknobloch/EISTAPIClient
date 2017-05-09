@@ -115,7 +115,7 @@ public class DefaultApiTest {
     }
     
     /**
-     * retrieves all questions report not including general questions - ordered by slideSet
+     * retrieves all exercise questions report not including general questions - ordered by slideSet
      *
      * 
      *
@@ -123,8 +123,23 @@ public class DefaultApiTest {
      *          if the Api call fails
      */
     @Test
-    public void getAllClosedStudentQuestionsTest() throws ApiException {
-        api.getAllClosedStudentQuestions();
+    public void getAllClosedStudentQuestionsForExercisesTest() throws ApiException {
+        api.getAllClosedStudentQuestionsForExercises();
+
+        // TODO: test validations
+    }
+    
+    /**
+     * retrieves all lecture questions report not including general questions - ordered by slideSet
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getAllClosedStudentQuestionsForLecturesTest() throws ApiException {
+        api.getAllClosedStudentQuestionsForLectures();
 
         // TODO: test validations
     }
@@ -316,7 +331,7 @@ public class DefaultApiTest {
     }
     
     /**
-     * retrieves all questions report for specific lecture(slideSet)
+     * retrieves all questions report for specific exercise(slideSet)
      *
      * 
      *
@@ -324,9 +339,9 @@ public class DefaultApiTest {
      *          if the Api call fails
      */
     @Test
-    public void getReportTest() throws ApiException {
+    public void getReportForExerciseTest() throws ApiException {
         Integer num = null;
-        api.getReport(num);
+        api.getReportForExercise(num);
 
         // TODO: test validations
     }
@@ -340,8 +355,24 @@ public class DefaultApiTest {
      *          if the Api call fails
      */
     @Test
-    public void getReport_0Test() throws ApiException {
-        api.getReport_0();
+    public void getReportForGeneralTest() throws ApiException {
+        api.getReportForGeneral();
+
+        // TODO: test validations
+    }
+    
+    /**
+     * retrieves all questions report for specific lecture(slideSet)
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getReportForLectureTest() throws ApiException {
+        Integer num = null;
+        api.getReportForLecture(num);
 
         // TODO: test validations
     }

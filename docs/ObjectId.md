@@ -8,9 +8,9 @@ Name | Type | Description | Notes
 **machineIdentifier** | **Integer** |  |  [optional]
 **processIdentifier** | **Integer** |  |  [optional]
 **counter** | **Integer** |  |  [optional]
+**timeSecond** | **Integer** |  |  [optional]
 **time** | **Long** |  |  [optional]
 **date** | [**DateTime**](DateTime.md) |  |  [optional]
-**timeSecond** | **Integer** |  |  [optional]
 
 
 
