@@ -21,7 +21,7 @@ public abstract class DataItem {
 	@Id
 	@Getter
 	@Setter
-	ObjectId id;
+	String id;
 	
 	@Property
 	@Getter
