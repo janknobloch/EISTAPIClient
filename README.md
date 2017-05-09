@@ -78,12 +78,11 @@ public class DefaultApiExample {
 
         DefaultApi apiInstance = new DefaultApi();
         String inputSourceId = "inputSourceId_example"; // String | 
-        String inputSource = "inputSource_example"; // String | 
         try {
-            StudentQuestion result = apiInstance.deleteQuestionByInputSourceIdandInputSource(inputSourceId, inputSource);
+            StudentQuestion result = apiInstance.deleteQuestionByInputSourceId(inputSourceId);
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling DefaultApi#deleteQuestionByInputSourceIdandInputSource");
+            System.err.println("Exception when calling DefaultApi#deleteQuestionByInputSourceId");
             e.printStackTrace();
         }
     }
@@ -97,7 +96,8 @@ All URIs are relative to *http://localhost/api*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*DefaultApi* | [**deleteQuestionByInputSourceIdandInputSource**](docs/DefaultApi.md#deleteQuestionByInputSourceIdandInputSource) | **DELETE** /bot/question/{inputSourceId}/{inputSource} | deletes a given Question by using its inputSourceId and inputSource
+*DefaultApi* | [**deleteQuestionByInputSourceId**](docs/DefaultApi.md#deleteQuestionByInputSourceId) | **DELETE** /bot/question/sourceId/{inputSourceId} | deletes a given Question by using its inputSourceId
+*DefaultApi* | [**deleteQuestionByInputSourceIdandInputSource**](docs/DefaultApi.md#deleteQuestionByInputSourceIdandInputSource) | **DELETE** /bot/question/sourceId/{inputSourceId}/source/{inputSource} | deletes a given Question by using its inputSourceId and inputSource
 *DefaultApi* | [**deleteQuestionInDB**](docs/DefaultApi.md#deleteQuestionInDB) | **DELETE** /bot/question | deletes a given Question
 *DefaultApi* | [**getActiveSlides**](docs/DefaultApi.md#getActiveSlides) | **GET** /bot/slide/live | Returns an Array of active slides for (ppt, key, and dev)
 *DefaultApi* | [**getAllBots**](docs/DefaultApi.md#getAllBots) | **GET** /bot/bot | retrieves all bots 
@@ -111,7 +111,8 @@ Class | Method | HTTP request | Description
 *DefaultApi* | [**getLastNumTeacherQuestions**](docs/DefaultApi.md#getLastNumTeacherQuestions) | **GET** /bot/quiz/last/{num} | retrieves last {num} quizzes
 *DefaultApi* | [**getOpenQuestions**](docs/DefaultApi.md#getOpenQuestions) | **GET** /bot/question/open | retrieves open Questions
 *DefaultApi* | [**getPresentations**](docs/DefaultApi.md#getPresentations) | **GET** /bot/presentation | Returns a mapping ordered by timestamp of all presentationNames
-*DefaultApi* | [**getQuestionByInputSourceIdandInputSource**](docs/DefaultApi.md#getQuestionByInputSourceIdandInputSource) | **GET** /bot/question/{inputSourceId}/{inputSource} | retrieves question by its InputSourceId and inputSource
+*DefaultApi* | [**getQuestionByInputSourceIdandInputSource**](docs/DefaultApi.md#getQuestionByInputSourceIdandInputSource) | **GET** /bot/question/sourceId/{inputSourceId} | retrieves question by its InputSourceId
+*DefaultApi* | [**getQuestionByInputSourceIdandInputSource_0**](docs/DefaultApi.md#getQuestionByInputSourceIdandInputSource_0) | **GET** /bot/question/sourceId/{inputSourceId}/source/{inputSource} | retrieves question by its InputSourceId and inputSource
 *DefaultApi* | [**getQuestionByObjectId**](docs/DefaultApi.md#getQuestionByObjectId) | **GET** /bot/question/{id} | retrieves question by its ObjectId
 *DefaultApi* | [**getReport**](docs/DefaultApi.md#getReport) | **GET** /bot/question/report/{num} | retrieves all questions report for specific lecture(slideSet)
 *DefaultApi* | [**getReport_0**](docs/DefaultApi.md#getReport_0) | **GET** /bot/question/report/general | retrieves all questions report for specific lecture(slideSet)

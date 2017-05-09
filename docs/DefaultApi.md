@@ -4,7 +4,8 @@ All URIs are relative to *http://localhost/api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**deleteQuestionByInputSourceIdandInputSource**](DefaultApi.md#deleteQuestionByInputSourceIdandInputSource) | **DELETE** /bot/question/{inputSourceId}/{inputSource} | deletes a given Question by using its inputSourceId and inputSource
+[**deleteQuestionByInputSourceId**](DefaultApi.md#deleteQuestionByInputSourceId) | **DELETE** /bot/question/sourceId/{inputSourceId} | deletes a given Question by using its inputSourceId
+[**deleteQuestionByInputSourceIdandInputSource**](DefaultApi.md#deleteQuestionByInputSourceIdandInputSource) | **DELETE** /bot/question/sourceId/{inputSourceId}/source/{inputSource} | deletes a given Question by using its inputSourceId and inputSource
 [**deleteQuestionInDB**](DefaultApi.md#deleteQuestionInDB) | **DELETE** /bot/question | deletes a given Question
 [**getActiveSlides**](DefaultApi.md#getActiveSlides) | **GET** /bot/slide/live | Returns an Array of active slides for (ppt, key, and dev)
 [**getAllBots**](DefaultApi.md#getAllBots) | **GET** /bot/bot | retrieves all bots 
@@ -18,7 +19,8 @@ Method | HTTP request | Description
 [**getLastNumTeacherQuestions**](DefaultApi.md#getLastNumTeacherQuestions) | **GET** /bot/quiz/last/{num} | retrieves last {num} quizzes
 [**getOpenQuestions**](DefaultApi.md#getOpenQuestions) | **GET** /bot/question/open | retrieves open Questions
 [**getPresentations**](DefaultApi.md#getPresentations) | **GET** /bot/presentation | Returns a mapping ordered by timestamp of all presentationNames
-[**getQuestionByInputSourceIdandInputSource**](DefaultApi.md#getQuestionByInputSourceIdandInputSource) | **GET** /bot/question/{inputSourceId}/{inputSource} | retrieves question by its InputSourceId and inputSource
+[**getQuestionByInputSourceIdandInputSource**](DefaultApi.md#getQuestionByInputSourceIdandInputSource) | **GET** /bot/question/sourceId/{inputSourceId} | retrieves question by its InputSourceId
+[**getQuestionByInputSourceIdandInputSource_0**](DefaultApi.md#getQuestionByInputSourceIdandInputSource_0) | **GET** /bot/question/sourceId/{inputSourceId}/source/{inputSource} | retrieves question by its InputSourceId and inputSource
 [**getQuestionByObjectId**](DefaultApi.md#getQuestionByObjectId) | **GET** /bot/question/{id} | retrieves question by its ObjectId
 [**getReport**](DefaultApi.md#getReport) | **GET** /bot/question/report/{num} | retrieves all questions report for specific lecture(slideSet)
 [**getReport_0**](DefaultApi.md#getReport_0) | **GET** /bot/question/report/general | retrieves all questions report for specific lecture(slideSet)
@@ -34,6 +36,60 @@ Method | HTTP request | Description
 [**saveQuizInDB**](DefaultApi.md#saveQuizInDB) | **PUT** /bot/quiz | saves a new Quiz 
 [**updateQuestionInDB**](DefaultApi.md#updateQuestionInDB) | **PUT** /bot/question | saves a new Question, updates it if already existent
 
+
+<a name="deleteQuestionByInputSourceId"></a>
+# **deleteQuestionByInputSourceId**
+> StudentQuestion deleteQuestionByInputSourceId(inputSourceId)
+
+deletes a given Question by using its inputSourceId
+
+
+
+### Example
+```java
+// Import classes:
+//import io.swagger.client.ApiClient;
+//import io.swagger.client.ApiException;
+//import io.swagger.client.Configuration;
+//import io.swagger.client.auth.*;
+//import io.swagger.client.api.DefaultApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure HTTP basic authorization: basic-auth
+HttpBasicAuth basic-auth = (HttpBasicAuth) defaultClient.getAuthentication("basic-auth");
+basic-auth.setUsername("YOUR USERNAME");
+basic-auth.setPassword("YOUR PASSWORD");
+
+DefaultApi apiInstance = new DefaultApi();
+String inputSourceId = "inputSourceId_example"; // String | 
+try {
+    StudentQuestion result = apiInstance.deleteQuestionByInputSourceId(inputSourceId);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling DefaultApi#deleteQuestionByInputSourceId");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **inputSourceId** | **String**|  |
+
+### Return type
+
+[**StudentQuestion**](StudentQuestion.md)
+
+### Authorization
+
+[basic-auth](../README.md#basic-auth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 <a name="deleteQuestionByInputSourceIdandInputSource"></a>
 # **deleteQuestionByInputSourceIdandInputSource**
@@ -754,7 +810,61 @@ This endpoint does not need any parameter.
 
 <a name="getQuestionByInputSourceIdandInputSource"></a>
 # **getQuestionByInputSourceIdandInputSource**
-> StudentQuestion getQuestionByInputSourceIdandInputSource(inputSourceId, inputSource)
+> StudentQuestion getQuestionByInputSourceIdandInputSource(inputSourceId)
+
+retrieves question by its InputSourceId
+
+
+
+### Example
+```java
+// Import classes:
+//import io.swagger.client.ApiClient;
+//import io.swagger.client.ApiException;
+//import io.swagger.client.Configuration;
+//import io.swagger.client.auth.*;
+//import io.swagger.client.api.DefaultApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure HTTP basic authorization: basic-auth
+HttpBasicAuth basic-auth = (HttpBasicAuth) defaultClient.getAuthentication("basic-auth");
+basic-auth.setUsername("YOUR USERNAME");
+basic-auth.setPassword("YOUR PASSWORD");
+
+DefaultApi apiInstance = new DefaultApi();
+String inputSourceId = "inputSourceId_example"; // String | 
+try {
+    StudentQuestion result = apiInstance.getQuestionByInputSourceIdandInputSource(inputSourceId);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling DefaultApi#getQuestionByInputSourceIdandInputSource");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **inputSourceId** | **String**|  |
+
+### Return type
+
+[**StudentQuestion**](StudentQuestion.md)
+
+### Authorization
+
+[basic-auth](../README.md#basic-auth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="getQuestionByInputSourceIdandInputSource_0"></a>
+# **getQuestionByInputSourceIdandInputSource_0**
+> StudentQuestion getQuestionByInputSourceIdandInputSource_0(inputSourceId, inputSource)
 
 retrieves question by its InputSourceId and inputSource
 
@@ -780,10 +890,10 @@ DefaultApi apiInstance = new DefaultApi();
 String inputSourceId = "inputSourceId_example"; // String | 
 String inputSource = "inputSource_example"; // String | 
 try {
-    StudentQuestion result = apiInstance.getQuestionByInputSourceIdandInputSource(inputSourceId, inputSource);
+    StudentQuestion result = apiInstance.getQuestionByInputSourceIdandInputSource_0(inputSourceId, inputSource);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling DefaultApi#getQuestionByInputSourceIdandInputSource");
+    System.err.println("Exception when calling DefaultApi#getQuestionByInputSourceIdandInputSource_0");
     e.printStackTrace();
 }
 ```

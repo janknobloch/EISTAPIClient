@@ -36,6 +36,22 @@ public class DefaultApiTest {
 
     
     /**
+     * deletes a given Question by using its inputSourceId
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void deleteQuestionByInputSourceIdTest() throws ApiException {
+        String inputSourceId = null;
+        StudentQuestion response = api.deleteQuestionByInputSourceId(inputSourceId);
+
+        // TODO: test validations
+    }
+    
+    /**
      * deletes a given Question by using its inputSourceId and inputSource
      *
      * 
@@ -251,7 +267,7 @@ public class DefaultApiTest {
     }
     
     /**
-     * retrieves question by its InputSourceId and inputSource
+     * retrieves question by its InputSourceId
      *
      * 
      *
@@ -261,8 +277,24 @@ public class DefaultApiTest {
     @Test
     public void getQuestionByInputSourceIdandInputSourceTest() throws ApiException {
         String inputSourceId = null;
+        StudentQuestion response = api.getQuestionByInputSourceIdandInputSource(inputSourceId);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * retrieves question by its InputSourceId and inputSource
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getQuestionByInputSourceIdandInputSource_0Test() throws ApiException {
+        String inputSourceId = null;
         String inputSource = null;
-        StudentQuestion response = api.getQuestionByInputSourceIdandInputSource(inputSourceId, inputSource);
+        StudentQuestion response = api.getQuestionByInputSourceIdandInputSource_0(inputSourceId, inputSource);
 
         // TODO: test validations
     }
