@@ -2,6 +2,8 @@ package de.tum.jk.application.model.students;
 
 import lombok.Getter;
 import lombok.Setter;
+
+import org.bson.types.ObjectId;
 import org.joda.time.DateTime;
 import org.mongodb.morphia.annotations.Entity;
 import org.mongodb.morphia.annotations.Id;
@@ -19,7 +21,7 @@ public abstract class DataItem {
 	@Id
 	@Getter
 	@Setter
-	protected String id;
+	protected ObjectId id;
 
 	@Property
 	@Getter

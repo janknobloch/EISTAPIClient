@@ -20,8 +20,8 @@ Method | HTTP request | Description
 [**getPresentations**](DefaultApi.md#getPresentations) | **GET** /bot/presentation | Returns a mapping ordered by timestamp of all presentationNames
 [**getQuestionByInputSourceIdandInputSource**](DefaultApi.md#getQuestionByInputSourceIdandInputSource) | **GET** /bot/question/{inputSourceId}/{inputSource} | retrieves question by its InputSourceId and inputSource
 [**getQuestionByObjectId**](DefaultApi.md#getQuestionByObjectId) | **GET** /bot/question/{id} | retrieves question by its ObjectId
-[**getReport**](DefaultApi.md#getReport) | **GET** /bot/question/report/{num} | retrieves all questions report for specific lecture(slideSet)
-[**getReport_0**](DefaultApi.md#getReport_0) | **GET** /bot/question/report/general | retrieves all questions report for specific lecture(slideSet)
+[**getReport**](DefaultApi.md#getReport) | **GET** /bot/question/report/general | retrieves all questions report for specific lecture(slideSet)
+[**getReport_0**](DefaultApi.md#getReport_0) | **GET** /bot/question/report/{num} | retrieves all questions report for specific lecture(slideSet)
 [**getSMSQuestion**](DefaultApi.md#getSMSQuestion) | **POST** /bot/sms | forwards a new SMS question
 [**getSlideForExerciseNumberAndSlideNumber**](DefaultApi.md#getSlideForExerciseNumberAndSlideNumber) | **GET** /bot/exercise/number/{exerciseNumber}/slide/number/{slideNumber} | Returns slidePath for ExerciseNumber / SlideNumber
 [**getSlideForPresentationNumberAndSlideNumber**](DefaultApi.md#getSlideForPresentationNumberAndSlideNumber) | **GET** /bot/presentation/number/{presentationNumber}/slide/number/{slideNumber} | Returns slidePath for PresentationNumber / SlideNumber
@@ -864,7 +864,56 @@ Name | Type | Description  | Notes
 
 <a name="getReport"></a>
 # **getReport**
-> getReport(num)
+> getReport()
+
+retrieves all questions report for specific lecture(slideSet)
+
+
+
+### Example
+```java
+// Import classes:
+//import io.swagger.client.ApiClient;
+//import io.swagger.client.ApiException;
+//import io.swagger.client.Configuration;
+//import io.swagger.client.auth.*;
+//import io.swagger.client.api.DefaultApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure HTTP basic authorization: basic-auth
+HttpBasicAuth basic-auth = (HttpBasicAuth) defaultClient.getAuthentication("basic-auth");
+basic-auth.setUsername("YOUR USERNAME");
+basic-auth.setPassword("YOUR PASSWORD");
+
+DefaultApi apiInstance = new DefaultApi();
+try {
+    apiInstance.getReport();
+} catch (ApiException e) {
+    System.err.println("Exception when calling DefaultApi#getReport");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[basic-auth](../README.md#basic-auth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/octet-stream
+
+<a name="getReport_0"></a>
+# **getReport_0**
+> getReport_0(num)
 
 retrieves all questions report for specific lecture(slideSet)
 
@@ -889,9 +938,9 @@ basic-auth.setPassword("YOUR PASSWORD");
 DefaultApi apiInstance = new DefaultApi();
 Integer num = 56; // Integer | 
 try {
-    apiInstance.getReport(num);
+    apiInstance.getReport_0(num);
 } catch (ApiException e) {
-    System.err.println("Exception when calling DefaultApi#getReport");
+    System.err.println("Exception when calling DefaultApi#getReport_0");
     e.printStackTrace();
 }
 ```
@@ -901,55 +950,6 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **num** | **Integer**|  |
-
-### Return type
-
-null (empty response body)
-
-### Authorization
-
-[basic-auth](../README.md#basic-auth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/octet-stream
-
-<a name="getReport_0"></a>
-# **getReport_0**
-> getReport_0()
-
-retrieves all questions report for specific lecture(slideSet)
-
-
-
-### Example
-```java
-// Import classes:
-//import io.swagger.client.ApiClient;
-//import io.swagger.client.ApiException;
-//import io.swagger.client.Configuration;
-//import io.swagger.client.auth.*;
-//import io.swagger.client.api.DefaultApi;
-
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure HTTP basic authorization: basic-auth
-HttpBasicAuth basic-auth = (HttpBasicAuth) defaultClient.getAuthentication("basic-auth");
-basic-auth.setUsername("YOUR USERNAME");
-basic-auth.setPassword("YOUR PASSWORD");
-
-DefaultApi apiInstance = new DefaultApi();
-try {
-    apiInstance.getReport_0();
-} catch (ApiException e) {
-    System.err.println("Exception when calling DefaultApi#getReport_0");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-This endpoint does not need any parameter.
 
 ### Return type
 

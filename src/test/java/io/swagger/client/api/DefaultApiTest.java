@@ -293,8 +293,7 @@ public class DefaultApiTest {
      */
     @Test
     public void getReportTest() throws ApiException {
-        Integer num = null;
-        api.getReport(num);
+        api.getReport();
 
         // TODO: test validations
     }
@@ -309,7 +308,8 @@ public class DefaultApiTest {
      */
     @Test
     public void getReport_0Test() throws ApiException {
-        api.getReport_0();
+        Integer num = null;
+        api.getReport_0(num);
 
         // TODO: test validations
     }
