@@ -81,8 +81,7 @@ public class StudentQuestion extends DataItem {
     }
 
     public String summarize() {
-        String summary = "Question ID: " + this.id + "\n" +
-                "Question: " + this.content + "\n" +
+        String summary = "Question: " + this.content + "\n" +
                 "Context: SlideSet:" + slideSet + "Slide:" + slide +
                 "\nContext URL: " + slideURL +
                 "\nVotes: " + upvotes;
@@ -99,7 +98,7 @@ public class StudentQuestion extends DataItem {
 
     public void finalAnswer(String message_ts) {
         for (Reply r : replies) {
-            if (r.getId().equals(message_ts)) {
+            if (r.getInputSourceId().equals(message_ts)) {
                 bestanswer = r;
             }
         }

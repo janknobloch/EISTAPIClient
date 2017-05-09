@@ -113,8 +113,8 @@ Class | Method | HTTP request | Description
 *DefaultApi* | [**getPresentations**](docs/DefaultApi.md#getPresentations) | **GET** /bot/presentation | Returns a mapping ordered by timestamp of all presentationNames
 *DefaultApi* | [**getQuestionByInputSourceIdandInputSource**](docs/DefaultApi.md#getQuestionByInputSourceIdandInputSource) | **GET** /bot/question/{inputSourceId}/{inputSource} | retrieves question by its InputSourceId and inputSource
 *DefaultApi* | [**getQuestionByObjectId**](docs/DefaultApi.md#getQuestionByObjectId) | **GET** /bot/question/{id} | retrieves question by its ObjectId
-*DefaultApi* | [**getReport**](docs/DefaultApi.md#getReport) | **GET** /bot/question/report/general | retrieves all questions report for specific lecture(slideSet)
-*DefaultApi* | [**getReport_0**](docs/DefaultApi.md#getReport_0) | **GET** /bot/question/report/{num} | retrieves all questions report for specific lecture(slideSet)
+*DefaultApi* | [**getReport**](docs/DefaultApi.md#getReport) | **GET** /bot/question/report/{num} | retrieves all questions report for specific lecture(slideSet)
+*DefaultApi* | [**getReport_0**](docs/DefaultApi.md#getReport_0) | **GET** /bot/question/report/general | retrieves all questions report for specific lecture(slideSet)
 *DefaultApi* | [**getSMSQuestion**](docs/DefaultApi.md#getSMSQuestion) | **POST** /bot/sms | forwards a new SMS question
 *DefaultApi* | [**getSlideForExerciseNumberAndSlideNumber**](docs/DefaultApi.md#getSlideForExerciseNumberAndSlideNumber) | **GET** /bot/exercise/number/{exerciseNumber}/slide/number/{slideNumber} | Returns slidePath for ExerciseNumber / SlideNumber
 *DefaultApi* | [**getSlideForPresentationNumberAndSlideNumber**](docs/DefaultApi.md#getSlideForPresentationNumberAndSlideNumber) | **GET** /bot/presentation/number/{presentationNumber}/slide/number/{slideNumber} | Returns slidePath for PresentationNumber / SlideNumber
@@ -130,7 +130,6 @@ Class | Method | HTTP request | Description
 
 ## Documentation for Models
 
- - [ObjectId](docs/ObjectId.md)
 
 
 ## Documentation for Authorization

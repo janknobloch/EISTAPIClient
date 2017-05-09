@@ -18,11 +18,6 @@ public abstract class DataItem {
 	public static String INPUTSOURCE_WHATSAPP = "WHATSAPP";
 	public static String INPUTSOURCE_SMS = "SMS";
 
-	@Id
-	@Getter
-	@Setter
-	protected ObjectId id;
-
 	@Property
 	@Getter
 	@Setter
