@@ -275,9 +275,9 @@ public class DefaultApiTest {
      *          if the Api call fails
      */
     @Test
-    public void getQuestionByInputSourceIdandInputSourceTest() throws ApiException {
+    public void getQuestionByInputSourceIdTest() throws ApiException {
         String inputSourceId = null;
-        StudentQuestion response = api.getQuestionByInputSourceIdandInputSource(inputSourceId);
+        StudentQuestion response = api.getQuestionByInputSourceId(inputSourceId);
 
         // TODO: test validations
     }
@@ -291,10 +291,10 @@ public class DefaultApiTest {
      *          if the Api call fails
      */
     @Test
-    public void getQuestionByInputSourceIdandInputSource_0Test() throws ApiException {
+    public void getQuestionByInputSourceIdandInputSourceTest() throws ApiException {
         String inputSourceId = null;
         String inputSource = null;
-        StudentQuestion response = api.getQuestionByInputSourceIdandInputSource_0(inputSourceId, inputSource);
+        StudentQuestion response = api.getQuestionByInputSourceIdandInputSource(inputSourceId, inputSource);
 
         // TODO: test validations
     }
@@ -438,9 +438,9 @@ public class DefaultApiTest {
      *          if the Api call fails
      */
     @Test
-    public void getWhatzappQuestionTest() throws ApiException {
+    public void getWhatsappQuestionTest() throws ApiException {
         StudentQuestion body = null;
-        StudentQuestion response = api.getWhatzappQuestion(body);
+        StudentQuestion response = api.getWhatsappQuestion(body);
 
         // TODO: test validations
     }
@@ -487,8 +487,8 @@ public class DefaultApiTest {
      */
     @Test
     public void postReplyAndCloseQuestionTest() throws ApiException {
-        String id = null;
-        StudentQuestion response = api.postReplyAndCloseQuestion(id);
+        String replyInputSourceId = null;
+        StudentQuestion response = api.postReplyAndCloseQuestion(replyInputSourceId);
 
         // TODO: test validations
     }

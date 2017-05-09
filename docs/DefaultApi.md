@@ -19,8 +19,8 @@ Method | HTTP request | Description
 [**getLastNumTeacherQuestions**](DefaultApi.md#getLastNumTeacherQuestions) | **GET** /bot/quiz/last/{num} | retrieves last {num} quizzes
 [**getOpenQuestions**](DefaultApi.md#getOpenQuestions) | **GET** /bot/question/open | retrieves open Questions
 [**getPresentations**](DefaultApi.md#getPresentations) | **GET** /bot/presentation | Returns a mapping ordered by timestamp of all presentationNames
-[**getQuestionByInputSourceIdandInputSource**](DefaultApi.md#getQuestionByInputSourceIdandInputSource) | **GET** /bot/question/sourceId/{inputSourceId} | retrieves question by its InputSourceId
-[**getQuestionByInputSourceIdandInputSource_0**](DefaultApi.md#getQuestionByInputSourceIdandInputSource_0) | **GET** /bot/question/sourceId/{inputSourceId}/source/{inputSource} | retrieves question by its InputSourceId and inputSource
+[**getQuestionByInputSourceId**](DefaultApi.md#getQuestionByInputSourceId) | **GET** /bot/question/sourceId/{inputSourceId} | retrieves question by its InputSourceId
+[**getQuestionByInputSourceIdandInputSource**](DefaultApi.md#getQuestionByInputSourceIdandInputSource) | **GET** /bot/question/sourceId/{inputSourceId}/source/{inputSource} | retrieves question by its InputSourceId and inputSource
 [**getQuestionByObjectId**](DefaultApi.md#getQuestionByObjectId) | **GET** /bot/question/{id} | retrieves question by its ObjectId
 [**getReport**](DefaultApi.md#getReport) | **GET** /bot/question/report/{num} | retrieves all questions report for specific lecture(slideSet)
 [**getReport_0**](DefaultApi.md#getReport_0) | **GET** /bot/question/report/general | retrieves all questions report for specific lecture(slideSet)
@@ -29,10 +29,10 @@ Method | HTTP request | Description
 [**getSlideForPresentationNumberAndSlideNumber**](DefaultApi.md#getSlideForPresentationNumberAndSlideNumber) | **GET** /bot/presentation/number/{presentationNumber}/slide/number/{slideNumber} | Returns slidePath for PresentationNumber / SlideNumber
 [**getSlidesForExerciseName**](DefaultApi.md#getSlidesForExerciseName) | **GET** /bot/exercise/name/{exerciseName}/slide | Returns all Slides for ExerciseName
 [**getSlidesForPresentationName**](DefaultApi.md#getSlidesForPresentationName) | **GET** /bot/presentation/name/{presentationName}/slide | Returns all Slides for PresentationName
-[**getWhatzappQuestion**](DefaultApi.md#getWhatzappQuestion) | **POST** /bot/whatsapp | forwards a new Whatsapp question
+[**getWhatsappQuestion**](DefaultApi.md#getWhatsappQuestion) | **POST** /bot/whatsapp | forwards a new Whatsapp question
 [**postFeedbackToDB**](DefaultApi.md#postFeedbackToDB) | **POST** /bot/feedback | saves a new Feedback, updates it if already existent
 [**postQuestionInDB**](DefaultApi.md#postQuestionInDB) | **POST** /bot/question | saves a new Question, updates it if already existent
-[**postReplyAndCloseQuestion**](DefaultApi.md#postReplyAndCloseQuestion) | **POST** /bot/question/close/{id} | saves a new Question, updates it if already existent
+[**postReplyAndCloseQuestion**](DefaultApi.md#postReplyAndCloseQuestion) | **POST** /bot/question/close/{replyInputSourceId} | saves a new Question, updates it if already existent
 [**saveQuizInDB**](DefaultApi.md#saveQuizInDB) | **PUT** /bot/quiz | saves a new Quiz 
 [**updateQuestionInDB**](DefaultApi.md#updateQuestionInDB) | **PUT** /bot/question | saves a new Question, updates it if already existent
 
@@ -808,9 +808,9 @@ This endpoint does not need any parameter.
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="getQuestionByInputSourceIdandInputSource"></a>
-# **getQuestionByInputSourceIdandInputSource**
-> StudentQuestion getQuestionByInputSourceIdandInputSource(inputSourceId)
+<a name="getQuestionByInputSourceId"></a>
+# **getQuestionByInputSourceId**
+> StudentQuestion getQuestionByInputSourceId(inputSourceId)
 
 retrieves question by its InputSourceId
 
@@ -835,10 +835,10 @@ basic-auth.setPassword("YOUR PASSWORD");
 DefaultApi apiInstance = new DefaultApi();
 String inputSourceId = "inputSourceId_example"; // String | 
 try {
-    StudentQuestion result = apiInstance.getQuestionByInputSourceIdandInputSource(inputSourceId);
+    StudentQuestion result = apiInstance.getQuestionByInputSourceId(inputSourceId);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling DefaultApi#getQuestionByInputSourceIdandInputSource");
+    System.err.println("Exception when calling DefaultApi#getQuestionByInputSourceId");
     e.printStackTrace();
 }
 ```
@@ -862,9 +862,9 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="getQuestionByInputSourceIdandInputSource_0"></a>
-# **getQuestionByInputSourceIdandInputSource_0**
-> StudentQuestion getQuestionByInputSourceIdandInputSource_0(inputSourceId, inputSource)
+<a name="getQuestionByInputSourceIdandInputSource"></a>
+# **getQuestionByInputSourceIdandInputSource**
+> StudentQuestion getQuestionByInputSourceIdandInputSource(inputSourceId, inputSource)
 
 retrieves question by its InputSourceId and inputSource
 
@@ -890,10 +890,10 @@ DefaultApi apiInstance = new DefaultApi();
 String inputSourceId = "inputSourceId_example"; // String | 
 String inputSource = "inputSource_example"; // String | 
 try {
-    StudentQuestion result = apiInstance.getQuestionByInputSourceIdandInputSource_0(inputSourceId, inputSource);
+    StudentQuestion result = apiInstance.getQuestionByInputSourceIdandInputSource(inputSourceId, inputSource);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling DefaultApi#getQuestionByInputSourceIdandInputSource_0");
+    System.err.println("Exception when calling DefaultApi#getQuestionByInputSourceIdandInputSource");
     e.printStackTrace();
 }
 ```
@@ -1341,9 +1341,9 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="getWhatzappQuestion"></a>
-# **getWhatzappQuestion**
-> StudentQuestion getWhatzappQuestion(body)
+<a name="getWhatsappQuestion"></a>
+# **getWhatsappQuestion**
+> StudentQuestion getWhatsappQuestion(body)
 
 forwards a new Whatsapp question
 
@@ -1359,10 +1359,10 @@ forwards a new Whatsapp question
 DefaultApi apiInstance = new DefaultApi();
 StudentQuestion body = new StudentQuestion(); // StudentQuestion | 
 try {
-    StudentQuestion result = apiInstance.getWhatzappQuestion(body);
+    StudentQuestion result = apiInstance.getWhatsappQuestion(body);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling DefaultApi#getWhatzappQuestion");
+    System.err.println("Exception when calling DefaultApi#getWhatsappQuestion");
     e.printStackTrace();
 }
 ```
@@ -1496,7 +1496,7 @@ Name | Type | Description  | Notes
 
 <a name="postReplyAndCloseQuestion"></a>
 # **postReplyAndCloseQuestion**
-> StudentQuestion postReplyAndCloseQuestion(id)
+> StudentQuestion postReplyAndCloseQuestion(replyInputSourceId)
 
 saves a new Question, updates it if already existent
 
@@ -1519,9 +1519,9 @@ basic-auth.setUsername("YOUR USERNAME");
 basic-auth.setPassword("YOUR PASSWORD");
 
 DefaultApi apiInstance = new DefaultApi();
-String id = "id_example"; // String | 
+String replyInputSourceId = "replyInputSourceId_example"; // String | 
 try {
-    StudentQuestion result = apiInstance.postReplyAndCloseQuestion(id);
+    StudentQuestion result = apiInstance.postReplyAndCloseQuestion(replyInputSourceId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling DefaultApi#postReplyAndCloseQuestion");
@@ -1533,7 +1533,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**|  |
+ **replyInputSourceId** | **String**|  |
 
 ### Return type
 

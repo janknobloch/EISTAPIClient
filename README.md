@@ -111,8 +111,8 @@ Class | Method | HTTP request | Description
 *DefaultApi* | [**getLastNumTeacherQuestions**](docs/DefaultApi.md#getLastNumTeacherQuestions) | **GET** /bot/quiz/last/{num} | retrieves last {num} quizzes
 *DefaultApi* | [**getOpenQuestions**](docs/DefaultApi.md#getOpenQuestions) | **GET** /bot/question/open | retrieves open Questions
 *DefaultApi* | [**getPresentations**](docs/DefaultApi.md#getPresentations) | **GET** /bot/presentation | Returns a mapping ordered by timestamp of all presentationNames
-*DefaultApi* | [**getQuestionByInputSourceIdandInputSource**](docs/DefaultApi.md#getQuestionByInputSourceIdandInputSource) | **GET** /bot/question/sourceId/{inputSourceId} | retrieves question by its InputSourceId
-*DefaultApi* | [**getQuestionByInputSourceIdandInputSource_0**](docs/DefaultApi.md#getQuestionByInputSourceIdandInputSource_0) | **GET** /bot/question/sourceId/{inputSourceId}/source/{inputSource} | retrieves question by its InputSourceId and inputSource
+*DefaultApi* | [**getQuestionByInputSourceId**](docs/DefaultApi.md#getQuestionByInputSourceId) | **GET** /bot/question/sourceId/{inputSourceId} | retrieves question by its InputSourceId
+*DefaultApi* | [**getQuestionByInputSourceIdandInputSource**](docs/DefaultApi.md#getQuestionByInputSourceIdandInputSource) | **GET** /bot/question/sourceId/{inputSourceId}/source/{inputSource} | retrieves question by its InputSourceId and inputSource
 *DefaultApi* | [**getQuestionByObjectId**](docs/DefaultApi.md#getQuestionByObjectId) | **GET** /bot/question/{id} | retrieves question by its ObjectId
 *DefaultApi* | [**getReport**](docs/DefaultApi.md#getReport) | **GET** /bot/question/report/{num} | retrieves all questions report for specific lecture(slideSet)
 *DefaultApi* | [**getReport_0**](docs/DefaultApi.md#getReport_0) | **GET** /bot/question/report/general | retrieves all questions report for specific lecture(slideSet)
@@ -121,10 +121,10 @@ Class | Method | HTTP request | Description
 *DefaultApi* | [**getSlideForPresentationNumberAndSlideNumber**](docs/DefaultApi.md#getSlideForPresentationNumberAndSlideNumber) | **GET** /bot/presentation/number/{presentationNumber}/slide/number/{slideNumber} | Returns slidePath for PresentationNumber / SlideNumber
 *DefaultApi* | [**getSlidesForExerciseName**](docs/DefaultApi.md#getSlidesForExerciseName) | **GET** /bot/exercise/name/{exerciseName}/slide | Returns all Slides for ExerciseName
 *DefaultApi* | [**getSlidesForPresentationName**](docs/DefaultApi.md#getSlidesForPresentationName) | **GET** /bot/presentation/name/{presentationName}/slide | Returns all Slides for PresentationName
-*DefaultApi* | [**getWhatzappQuestion**](docs/DefaultApi.md#getWhatzappQuestion) | **POST** /bot/whatsapp | forwards a new Whatsapp question
+*DefaultApi* | [**getWhatsappQuestion**](docs/DefaultApi.md#getWhatsappQuestion) | **POST** /bot/whatsapp | forwards a new Whatsapp question
 *DefaultApi* | [**postFeedbackToDB**](docs/DefaultApi.md#postFeedbackToDB) | **POST** /bot/feedback | saves a new Feedback, updates it if already existent
 *DefaultApi* | [**postQuestionInDB**](docs/DefaultApi.md#postQuestionInDB) | **POST** /bot/question | saves a new Question, updates it if already existent
-*DefaultApi* | [**postReplyAndCloseQuestion**](docs/DefaultApi.md#postReplyAndCloseQuestion) | **POST** /bot/question/close/{id} | saves a new Question, updates it if already existent
+*DefaultApi* | [**postReplyAndCloseQuestion**](docs/DefaultApi.md#postReplyAndCloseQuestion) | **POST** /bot/question/close/{replyInputSourceId} | saves a new Question, updates it if already existent
 *DefaultApi* | [**saveQuizInDB**](docs/DefaultApi.md#saveQuizInDB) | **PUT** /bot/quiz | saves a new Quiz 
 *DefaultApi* | [**updateQuestionInDB**](docs/DefaultApi.md#updateQuestionInDB) | **PUT** /bot/question | saves a new Question, updates it if already existent
 
