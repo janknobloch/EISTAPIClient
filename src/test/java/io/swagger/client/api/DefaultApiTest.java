@@ -14,8 +14,9 @@
 package io.swagger.client.api;
 
 import io.swagger.client.ApiException;
-import de.tum.jk.application.model.presenterTool.ActiveSlidePath;
+import de.tum.jk.application.model.presenterTool.ActiveSlide;
 import de.tum.jk.application.model.students.Feedback;
+import de.tum.jk.application.model.students.Reply;
 import de.tum.jk.application.model.students.StudentQuestion;
 import de.tum.jk.application.model.presenter.TeacherQuestion;
 import org.junit.Test;
@@ -34,6 +35,22 @@ public class DefaultApiTest {
 
     private final DefaultApi api = new DefaultApi();
 
+    
+    /**
+     * deletes a given Question
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void deleteQuestionTest() throws ApiException {
+        StudentQuestion body = null;
+        StudentQuestion response = api.deleteQuestion(body);
+
+        // TODO: test validations
+    }
     
     /**
      * deletes a given Question by using its inputSourceId
@@ -69,7 +86,7 @@ public class DefaultApiTest {
     }
     
     /**
-     * deletes a given Question
+     * deletes a reply by its inputSourceId
      *
      * 
      *
@@ -77,9 +94,9 @@ public class DefaultApiTest {
      *          if the Api call fails
      */
     @Test
-    public void deleteQuestionInDBTest() throws ApiException {
-        StudentQuestion body = null;
-        StudentQuestion response = api.deleteQuestionInDB(body);
+    public void deleteReplyTest() throws ApiException {
+        String inputSourceId = null;
+        StudentQuestion response = api.deleteReply(inputSourceId);
 
         // TODO: test validations
     }
@@ -94,7 +111,7 @@ public class DefaultApiTest {
      */
     @Test
     public void getActiveSlidesTest() throws ApiException {
-        ActiveSlidePath response = api.getActiveSlides();
+        ActiveSlide response = api.getActiveSlides();
 
         // TODO: test validations
     }
@@ -185,6 +202,22 @@ public class DefaultApiTest {
     @Test
     public void getAllStudentQuestionsTest() throws ApiException {
         List<StudentQuestion> response = api.getAllStudentQuestions();
+
+        // TODO: test validations
+    }
+    
+    /**
+     * retrieves all Questions
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getAllStudentQuestionsByInputSourceTest() throws ApiException {
+        String inputSource = null;
+        List<StudentQuestion> response = api.getAllStudentQuestionsByInputSource(inputSource);
 
         // TODO: test validations
     }
@@ -326,6 +359,38 @@ public class DefaultApiTest {
     public void getQuestionByObjectIdTest() throws ApiException {
         String id = null;
         StudentQuestion response = api.getQuestionByObjectId(id);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * retrieves question by looking for a certain reply.inputSourceId
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getQuestionByReplyInputSourceIdTest() throws ApiException {
+        String inputSourceId = null;
+        StudentQuestion response = api.getQuestionByReplyInputSourceId(inputSourceId);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * retrieves reply by looking for a certain reply.inputSourceId
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getReplyByInputSourceIdTest() throws ApiException {
+        String inputSourceId = null;
+        Reply response = api.getReplyByInputSourceId(inputSourceId);
 
         // TODO: test validations
     }
@@ -485,9 +550,9 @@ public class DefaultApiTest {
      *          if the Api call fails
      */
     @Test
-    public void postFeedbackToDBTest() throws ApiException {
+    public void postFeedbackTest() throws ApiException {
         Feedback body = null;
-        Feedback response = api.postFeedbackToDB(body);
+        Feedback response = api.postFeedback(body);
 
         // TODO: test validations
     }
@@ -501,9 +566,9 @@ public class DefaultApiTest {
      *          if the Api call fails
      */
     @Test
-    public void postQuestionInDBTest() throws ApiException {
+    public void postQuestionTest() throws ApiException {
         StudentQuestion body = null;
-        StudentQuestion response = api.postQuestionInDB(body);
+        StudentQuestion response = api.postQuestion(body);
 
         // TODO: test validations
     }
@@ -525,22 +590,6 @@ public class DefaultApiTest {
     }
     
     /**
-     * saves a new Quiz 
-     *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void saveQuizInDBTest() throws ApiException {
-        TeacherQuestion body = null;
-        TeacherQuestion response = api.saveQuizInDB(body);
-
-        // TODO: test validations
-    }
-    
-    /**
      * saves a new Question, updates it if already existent
      *
      * 
@@ -549,9 +598,25 @@ public class DefaultApiTest {
      *          if the Api call fails
      */
     @Test
-    public void updateQuestionInDBTest() throws ApiException {
+    public void putQuestionTest() throws ApiException {
         StudentQuestion body = null;
-        StudentQuestion response = api.updateQuestionInDB(body);
+        StudentQuestion response = api.putQuestion(body);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * saves a new Quiz 
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void putQuizTest() throws ApiException {
+        TeacherQuestion body = null;
+        TeacherQuestion response = api.putQuiz(body);
 
         // TODO: test validations
     }

@@ -4,9 +4,10 @@ All URIs are relative to *http://localhost/api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**deleteQuestion**](DefaultApi.md#deleteQuestion) | **DELETE** /bot/question | deletes a given Question
 [**deleteQuestionByInputSourceId**](DefaultApi.md#deleteQuestionByInputSourceId) | **DELETE** /bot/question/sourceId/{inputSourceId} | deletes a given Question by using its inputSourceId
 [**deleteQuestionByInputSourceIdandInputSource**](DefaultApi.md#deleteQuestionByInputSourceIdandInputSource) | **DELETE** /bot/question/sourceId/{inputSourceId}/source/{inputSource} | deletes a given Question by using its inputSourceId and inputSource
-[**deleteQuestionInDB**](DefaultApi.md#deleteQuestionInDB) | **DELETE** /bot/question | deletes a given Question
+[**deleteReply**](DefaultApi.md#deleteReply) | **DELETE** /bot/reply/{inputSourceId} | deletes a reply by its inputSourceId
 [**getActiveSlides**](DefaultApi.md#getActiveSlides) | **GET** /bot/slide/live | Returns an Array of active slides for (ppt, key, and dev)
 [**getAllBots**](DefaultApi.md#getAllBots) | **GET** /bot/bot | retrieves all bots 
 [**getAllClosedStudentQuestionsForExercises**](DefaultApi.md#getAllClosedStudentQuestionsForExercises) | **GET** /bot/question/exercise/report | retrieves all exercise questions report not including general questions - ordered by slideSet
@@ -14,6 +15,7 @@ Method | HTTP request | Description
 [**getAllPresenterSessions**](DefaultApi.md#getAllPresenterSessions) | **GET** /bot/presenter | Retrieves all Presenters
 [**getAllQuestionWallSessions**](DefaultApi.md#getAllQuestionWallSessions) | **GET** /bot/wall | retrieves all question wall listeners
 [**getAllStudentQuestions**](DefaultApi.md#getAllStudentQuestions) | **GET** /bot/question | retrieves all Questions
+[**getAllStudentQuestionsByInputSource**](DefaultApi.md#getAllStudentQuestionsByInputSource) | **GET** /bot/question/inputSource/{inputSource} | retrieves all Questions
 [**getClosedLastNumStudentQuestions**](DefaultApi.md#getClosedLastNumStudentQuestions) | **GET** /bot/question/closed/last/{num} | retrieves last {num} closed Questions
 [**getClosedStudentQuestions**](DefaultApi.md#getClosedStudentQuestions) | **GET** /bot/question/closed | retrieves closed Questions
 [**getExercises**](DefaultApi.md#getExercises) | **GET** /bot/exercise | Returns a mapping ordered by timestamp of all exerciseNames
@@ -23,6 +25,8 @@ Method | HTTP request | Description
 [**getQuestionByInputSourceId**](DefaultApi.md#getQuestionByInputSourceId) | **GET** /bot/question/sourceId/{inputSourceId} | retrieves question by its InputSourceId
 [**getQuestionByInputSourceIdandInputSource**](DefaultApi.md#getQuestionByInputSourceIdandInputSource) | **GET** /bot/question/sourceId/{inputSourceId}/source/{inputSource} | retrieves question by its InputSourceId and inputSource
 [**getQuestionByObjectId**](DefaultApi.md#getQuestionByObjectId) | **GET** /bot/question/{id} | retrieves question by its ObjectId
+[**getQuestionByReplyInputSourceId**](DefaultApi.md#getQuestionByReplyInputSourceId) | **GET** /bot/question/reply/sourceId/{inputSourceId} | retrieves question by looking for a certain reply.inputSourceId
+[**getReplyByInputSourceId**](DefaultApi.md#getReplyByInputSourceId) | **GET** /bot/reply/sourceId/{inputSourceId} | retrieves reply by looking for a certain reply.inputSourceId
 [**getReportForExercise**](DefaultApi.md#getReportForExercise) | **GET** /bot/question/report/exercise{num} | retrieves all questions report for specific exercise(slideSet)
 [**getReportForGeneral**](DefaultApi.md#getReportForGeneral) | **GET** /bot/question/report/general | retrieves all questions report for specific lecture(slideSet)
 [**getReportForLecture**](DefaultApi.md#getReportForLecture) | **GET** /bot/question/report/lecture/{num} | retrieves all questions report for specific lecture(slideSet)
@@ -32,12 +36,66 @@ Method | HTTP request | Description
 [**getSlidesForExerciseName**](DefaultApi.md#getSlidesForExerciseName) | **GET** /bot/exercise/name/{exerciseName}/slide | Returns all Slides for ExerciseName
 [**getSlidesForPresentationName**](DefaultApi.md#getSlidesForPresentationName) | **GET** /bot/presentation/name/{presentationName}/slide | Returns all Slides for PresentationName
 [**getWhatsappQuestion**](DefaultApi.md#getWhatsappQuestion) | **POST** /bot/whatsapp | forwards a new Whatsapp question
-[**postFeedbackToDB**](DefaultApi.md#postFeedbackToDB) | **POST** /bot/feedback | saves a new Feedback, updates it if already existent
-[**postQuestionInDB**](DefaultApi.md#postQuestionInDB) | **POST** /bot/question | saves a new Question, updates it if already existent
+[**postFeedback**](DefaultApi.md#postFeedback) | **POST** /bot/feedback | saves a new Feedback, updates it if already existent
+[**postQuestion**](DefaultApi.md#postQuestion) | **POST** /bot/question | saves a new Question, updates it if already existent
 [**postReplyAndCloseQuestion**](DefaultApi.md#postReplyAndCloseQuestion) | **POST** /bot/question/close/{replyInputSourceId} | saves a new Question, updates it if already existent
-[**saveQuizInDB**](DefaultApi.md#saveQuizInDB) | **PUT** /bot/quiz | saves a new Quiz 
-[**updateQuestionInDB**](DefaultApi.md#updateQuestionInDB) | **PUT** /bot/question | saves a new Question, updates it if already existent
+[**putQuestion**](DefaultApi.md#putQuestion) | **PUT** /bot/question | saves a new Question, updates it if already existent
+[**putQuiz**](DefaultApi.md#putQuiz) | **PUT** /bot/quiz | saves a new Quiz 
 
+
+<a name="deleteQuestion"></a>
+# **deleteQuestion**
+> StudentQuestion deleteQuestion(body)
+
+deletes a given Question
+
+
+
+### Example
+```java
+// Import classes:
+//import io.swagger.client.ApiClient;
+//import io.swagger.client.ApiException;
+//import io.swagger.client.Configuration;
+//import io.swagger.client.auth.*;
+//import io.swagger.client.api.DefaultApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure HTTP basic authorization: basic-auth
+HttpBasicAuth basic-auth = (HttpBasicAuth) defaultClient.getAuthentication("basic-auth");
+basic-auth.setUsername("YOUR USERNAME");
+basic-auth.setPassword("YOUR PASSWORD");
+
+DefaultApi apiInstance = new DefaultApi();
+StudentQuestion body = new StudentQuestion(); // StudentQuestion | 
+try {
+    StudentQuestion result = apiInstance.deleteQuestion(body);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling DefaultApi#deleteQuestion");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**StudentQuestion**](StudentQuestion.md)|  | [optional]
+
+### Return type
+
+[**StudentQuestion**](StudentQuestion.md)
+
+### Authorization
+
+[basic-auth](../README.md#basic-auth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 <a name="deleteQuestionByInputSourceId"></a>
 # **deleteQuestionByInputSourceId**
@@ -149,11 +207,11 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="deleteQuestionInDB"></a>
-# **deleteQuestionInDB**
-> StudentQuestion deleteQuestionInDB(body)
+<a name="deleteReply"></a>
+# **deleteReply**
+> StudentQuestion deleteReply(inputSourceId)
 
-deletes a given Question
+deletes a reply by its inputSourceId
 
 
 
@@ -174,12 +232,12 @@ basic-auth.setUsername("YOUR USERNAME");
 basic-auth.setPassword("YOUR PASSWORD");
 
 DefaultApi apiInstance = new DefaultApi();
-StudentQuestion body = new StudentQuestion(); // StudentQuestion | 
+String inputSourceId = "inputSourceId_example"; // String | 
 try {
-    StudentQuestion result = apiInstance.deleteQuestionInDB(body);
+    StudentQuestion result = apiInstance.deleteReply(inputSourceId);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling DefaultApi#deleteQuestionInDB");
+    System.err.println("Exception when calling DefaultApi#deleteReply");
     e.printStackTrace();
 }
 ```
@@ -188,7 +246,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**StudentQuestion**](StudentQuestion.md)|  | [optional]
+ **inputSourceId** | **String**|  |
 
 ### Return type
 
@@ -205,7 +263,7 @@ Name | Type | Description  | Notes
 
 <a name="getActiveSlides"></a>
 # **getActiveSlides**
-> ActiveSlidePath getActiveSlides()
+> ActiveSlide getActiveSlides()
 
 Returns an Array of active slides for (ppt, key, and dev)
 
@@ -229,7 +287,7 @@ basic-auth.setPassword("YOUR PASSWORD");
 
 DefaultApi apiInstance = new DefaultApi();
 try {
-    ActiveSlidePath result = apiInstance.getActiveSlides();
+    ActiveSlide result = apiInstance.getActiveSlides();
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling DefaultApi#getActiveSlides");
@@ -242,7 +300,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**ActiveSlidePath**](ActiveSlidePath.md)
+[**ActiveSlide**](ActiveSlide.md)
 
 ### Authorization
 
@@ -537,6 +595,60 @@ try {
 
 ### Parameters
 This endpoint does not need any parameter.
+
+### Return type
+
+[**List&lt;StudentQuestion&gt;**](StudentQuestion.md)
+
+### Authorization
+
+[basic-auth](../README.md#basic-auth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="getAllStudentQuestionsByInputSource"></a>
+# **getAllStudentQuestionsByInputSource**
+> List&lt;StudentQuestion&gt; getAllStudentQuestionsByInputSource(inputSource)
+
+retrieves all Questions
+
+
+
+### Example
+```java
+// Import classes:
+//import io.swagger.client.ApiClient;
+//import io.swagger.client.ApiException;
+//import io.swagger.client.Configuration;
+//import io.swagger.client.auth.*;
+//import io.swagger.client.api.DefaultApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure HTTP basic authorization: basic-auth
+HttpBasicAuth basic-auth = (HttpBasicAuth) defaultClient.getAuthentication("basic-auth");
+basic-auth.setUsername("YOUR USERNAME");
+basic-auth.setPassword("YOUR PASSWORD");
+
+DefaultApi apiInstance = new DefaultApi();
+String inputSource = "inputSource_example"; // String | 
+try {
+    List<StudentQuestion> result = apiInstance.getAllStudentQuestionsByInputSource(inputSource);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling DefaultApi#getAllStudentQuestionsByInputSource");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **inputSource** | **String**|  |
 
 ### Return type
 
@@ -1023,6 +1135,114 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+<a name="getQuestionByReplyInputSourceId"></a>
+# **getQuestionByReplyInputSourceId**
+> StudentQuestion getQuestionByReplyInputSourceId(inputSourceId)
+
+retrieves question by looking for a certain reply.inputSourceId
+
+
+
+### Example
+```java
+// Import classes:
+//import io.swagger.client.ApiClient;
+//import io.swagger.client.ApiException;
+//import io.swagger.client.Configuration;
+//import io.swagger.client.auth.*;
+//import io.swagger.client.api.DefaultApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure HTTP basic authorization: basic-auth
+HttpBasicAuth basic-auth = (HttpBasicAuth) defaultClient.getAuthentication("basic-auth");
+basic-auth.setUsername("YOUR USERNAME");
+basic-auth.setPassword("YOUR PASSWORD");
+
+DefaultApi apiInstance = new DefaultApi();
+String inputSourceId = "inputSourceId_example"; // String | 
+try {
+    StudentQuestion result = apiInstance.getQuestionByReplyInputSourceId(inputSourceId);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling DefaultApi#getQuestionByReplyInputSourceId");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **inputSourceId** | **String**|  |
+
+### Return type
+
+[**StudentQuestion**](StudentQuestion.md)
+
+### Authorization
+
+[basic-auth](../README.md#basic-auth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="getReplyByInputSourceId"></a>
+# **getReplyByInputSourceId**
+> Reply getReplyByInputSourceId(inputSourceId)
+
+retrieves reply by looking for a certain reply.inputSourceId
+
+
+
+### Example
+```java
+// Import classes:
+//import io.swagger.client.ApiClient;
+//import io.swagger.client.ApiException;
+//import io.swagger.client.Configuration;
+//import io.swagger.client.auth.*;
+//import io.swagger.client.api.DefaultApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure HTTP basic authorization: basic-auth
+HttpBasicAuth basic-auth = (HttpBasicAuth) defaultClient.getAuthentication("basic-auth");
+basic-auth.setUsername("YOUR USERNAME");
+basic-auth.setPassword("YOUR PASSWORD");
+
+DefaultApi apiInstance = new DefaultApi();
+String inputSourceId = "inputSourceId_example"; // String | 
+try {
+    Reply result = apiInstance.getReplyByInputSourceId(inputSourceId);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling DefaultApi#getReplyByInputSourceId");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **inputSourceId** | **String**|  |
+
+### Return type
+
+[**Reply**](Reply.md)
+
+### Authorization
+
+[basic-auth](../README.md#basic-auth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
 <a name="getReportForExercise"></a>
 # **getReportForExercise**
 > getReportForExercise(num)
@@ -1490,9 +1710,9 @@ No authorization required
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="postFeedbackToDB"></a>
-# **postFeedbackToDB**
-> Feedback postFeedbackToDB(body)
+<a name="postFeedback"></a>
+# **postFeedback**
+> Feedback postFeedback(body)
 
 saves a new Feedback, updates it if already existent
 
@@ -1517,10 +1737,10 @@ basic-auth.setPassword("YOUR PASSWORD");
 DefaultApi apiInstance = new DefaultApi();
 Feedback body = new Feedback(); // Feedback | 
 try {
-    Feedback result = apiInstance.postFeedbackToDB(body);
+    Feedback result = apiInstance.postFeedback(body);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling DefaultApi#postFeedbackToDB");
+    System.err.println("Exception when calling DefaultApi#postFeedback");
     e.printStackTrace();
 }
 ```
@@ -1544,9 +1764,9 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="postQuestionInDB"></a>
-# **postQuestionInDB**
-> StudentQuestion postQuestionInDB(body)
+<a name="postQuestion"></a>
+# **postQuestion**
+> StudentQuestion postQuestion(body)
 
 saves a new Question, updates it if already existent
 
@@ -1571,10 +1791,10 @@ basic-auth.setPassword("YOUR PASSWORD");
 DefaultApi apiInstance = new DefaultApi();
 StudentQuestion body = new StudentQuestion(); // StudentQuestion | 
 try {
-    StudentQuestion result = apiInstance.postQuestionInDB(body);
+    StudentQuestion result = apiInstance.postQuestion(body);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling DefaultApi#postQuestionInDB");
+    System.err.println("Exception when calling DefaultApi#postQuestion");
     e.printStackTrace();
 }
 ```
@@ -1652,63 +1872,9 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="saveQuizInDB"></a>
-# **saveQuizInDB**
-> TeacherQuestion saveQuizInDB(body)
-
-saves a new Quiz 
-
-
-
-### Example
-```java
-// Import classes:
-//import io.swagger.client.ApiClient;
-//import io.swagger.client.ApiException;
-//import io.swagger.client.Configuration;
-//import io.swagger.client.auth.*;
-//import io.swagger.client.api.DefaultApi;
-
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure HTTP basic authorization: basic-auth
-HttpBasicAuth basic-auth = (HttpBasicAuth) defaultClient.getAuthentication("basic-auth");
-basic-auth.setUsername("YOUR USERNAME");
-basic-auth.setPassword("YOUR PASSWORD");
-
-DefaultApi apiInstance = new DefaultApi();
-TeacherQuestion body = new TeacherQuestion(); // TeacherQuestion | 
-try {
-    TeacherQuestion result = apiInstance.saveQuizInDB(body);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling DefaultApi#saveQuizInDB");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | [**TeacherQuestion**](TeacherQuestion.md)|  | [optional]
-
-### Return type
-
-[**TeacherQuestion**](TeacherQuestion.md)
-
-### Authorization
-
-[basic-auth](../README.md#basic-auth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-<a name="updateQuestionInDB"></a>
-# **updateQuestionInDB**
-> StudentQuestion updateQuestionInDB(body)
+<a name="putQuestion"></a>
+# **putQuestion**
+> StudentQuestion putQuestion(body)
 
 saves a new Question, updates it if already existent
 
@@ -1733,10 +1899,10 @@ basic-auth.setPassword("YOUR PASSWORD");
 DefaultApi apiInstance = new DefaultApi();
 StudentQuestion body = new StudentQuestion(); // StudentQuestion | 
 try {
-    StudentQuestion result = apiInstance.updateQuestionInDB(body);
+    StudentQuestion result = apiInstance.putQuestion(body);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling DefaultApi#updateQuestionInDB");
+    System.err.println("Exception when calling DefaultApi#putQuestion");
     e.printStackTrace();
 }
 ```
@@ -1750,6 +1916,60 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**StudentQuestion**](StudentQuestion.md)
+
+### Authorization
+
+[basic-auth](../README.md#basic-auth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="putQuiz"></a>
+# **putQuiz**
+> TeacherQuestion putQuiz(body)
+
+saves a new Quiz 
+
+
+
+### Example
+```java
+// Import classes:
+//import io.swagger.client.ApiClient;
+//import io.swagger.client.ApiException;
+//import io.swagger.client.Configuration;
+//import io.swagger.client.auth.*;
+//import io.swagger.client.api.DefaultApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure HTTP basic authorization: basic-auth
+HttpBasicAuth basic-auth = (HttpBasicAuth) defaultClient.getAuthentication("basic-auth");
+basic-auth.setUsername("YOUR USERNAME");
+basic-auth.setPassword("YOUR PASSWORD");
+
+DefaultApi apiInstance = new DefaultApi();
+TeacherQuestion body = new TeacherQuestion(); // TeacherQuestion | 
+try {
+    TeacherQuestion result = apiInstance.putQuiz(body);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling DefaultApi#putQuiz");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**TeacherQuestion**](TeacherQuestion.md)|  | [optional]
+
+### Return type
+
+[**TeacherQuestion**](TeacherQuestion.md)
 
 ### Authorization
 

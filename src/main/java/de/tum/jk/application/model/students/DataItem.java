@@ -21,7 +21,7 @@ public abstract class DataItem {
 	@Id
 	@Getter
 	@Setter
-	ObjectId id;
+	protected String id = new ObjectId().toHexString();
 	
 	@Property
 	@Getter
