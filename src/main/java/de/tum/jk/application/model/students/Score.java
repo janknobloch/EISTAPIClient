@@ -1,6 +1,7 @@
 package de.tum.jk.application.model.students;
 
 import de.tum.jk.application.model.students.StudentQuestion;
+import lombok.Getter;
 import org.joda.time.DateTime;
 
 import java.util.*;
@@ -9,13 +10,13 @@ import java.util.stream.Collectors;
 public class Score {
 
 	private final List<StudentQuestion> questions;
-	private ArrayList<String> tutors;
-	private ArrayList<String> admins;
-	private Map<String, String> userIDMapping; // map userID to display name
-
+	@Getter
 	private Map<String, Integer> bestAnswersCount;
+	@Getter
 	private Map<String, Integer> questionsCount;
+	@Getter
 	private Map<String, Integer> upvotesCount;
+	@Getter
 	private ArrayList<Long> answerTime;
 
 	public Score(List<StudentQuestion> questions) {

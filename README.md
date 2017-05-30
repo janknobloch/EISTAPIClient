@@ -100,6 +100,7 @@ Class | Method | HTTP request | Description
 *DefaultApi* | [**deleteQuestionByInputSourceId**](docs/DefaultApi.md#deleteQuestionByInputSourceId) | **DELETE** /bot/question/sourceId/{inputSourceId} | deletes a given Question by using its inputSourceId
 *DefaultApi* | [**deleteQuestionByInputSourceIdandInputSource**](docs/DefaultApi.md#deleteQuestionByInputSourceIdandInputSource) | **DELETE** /bot/question/sourceId/{inputSourceId}/source/{inputSource} | deletes a given Question by using its inputSourceId and inputSource
 *DefaultApi* | [**deleteReply**](docs/DefaultApi.md#deleteReply) | **DELETE** /bot/reply/{inputSourceId} | deletes a reply by its inputSourceId
+*DefaultApi* | [**downvote**](docs/DefaultApi.md#downvote) | **GET** /bot/downvote/{inputSourceId} | upvotes a given DataItem using its inputSourceId
 *DefaultApi* | [**getActiveSlides**](docs/DefaultApi.md#getActiveSlides) | **GET** /bot/slide/live | Returns an Array of active slides for (ppt, key, and dev)
 *DefaultApi* | [**getAllBots**](docs/DefaultApi.md#getAllBots) | **GET** /bot/bot | retrieves all bots 
 *DefaultApi* | [**getAllClosedStudentQuestionsForExercises**](docs/DefaultApi.md#getAllClosedStudentQuestionsForExercises) | **GET** /bot/question/exercise/report | retrieves all exercise questions report not including general questions - ordered by slideSet
@@ -119,10 +120,12 @@ Class | Method | HTTP request | Description
 *DefaultApi* | [**getQuestionByObjectId**](docs/DefaultApi.md#getQuestionByObjectId) | **GET** /bot/question/{id} | retrieves question by its ObjectId
 *DefaultApi* | [**getQuestionByReplyInputSourceId**](docs/DefaultApi.md#getQuestionByReplyInputSourceId) | **GET** /bot/question/reply/sourceId/{inputSourceId} | retrieves question by looking for a certain reply.inputSourceId
 *DefaultApi* | [**getReplyByInputSourceId**](docs/DefaultApi.md#getReplyByInputSourceId) | **GET** /bot/reply/sourceId/{inputSourceId} | retrieves reply by looking for a certain reply.inputSourceId
+*DefaultApi* | [**getReplyForQuestionByContent**](docs/DefaultApi.md#getReplyForQuestionByContent) | **GET** /bot/question/sourceId/{inputSourceId}/reply/content/{content} | retrieves reply by looking for a certain reply.content
 *DefaultApi* | [**getReportForExercise**](docs/DefaultApi.md#getReportForExercise) | **GET** /bot/question/report/exercise{num} | retrieves all questions report for specific exercise(slideSet)
 *DefaultApi* | [**getReportForGeneral**](docs/DefaultApi.md#getReportForGeneral) | **GET** /bot/question/report/general | retrieves all questions report for specific lecture(slideSet)
 *DefaultApi* | [**getReportForLecture**](docs/DefaultApi.md#getReportForLecture) | **GET** /bot/question/report/lecture/{num} | retrieves all questions report for specific lecture(slideSet)
 *DefaultApi* | [**getSMSQuestion**](docs/DefaultApi.md#getSMSQuestion) | **POST** /bot/sms | forwards a new SMS question
+*DefaultApi* | [**getScoreforInputSource**](docs/DefaultApi.md#getScoreforInputSource) | **GET** /bot/score/inputSource/{inputSource} | generates Highscore for a given InputSource
 *DefaultApi* | [**getSlideForExerciseNumberAndSlideNumber**](docs/DefaultApi.md#getSlideForExerciseNumberAndSlideNumber) | **GET** /bot/exercise/number/{exerciseNumber}/slide/number/{slideNumber} | Returns slidePath for ExerciseNumber / SlideNumber
 *DefaultApi* | [**getSlideForPresentationNumberAndSlideNumber**](docs/DefaultApi.md#getSlideForPresentationNumberAndSlideNumber) | **GET** /bot/presentation/number/{presentationNumber}/slide/number/{slideNumber} | Returns slidePath for PresentationNumber / SlideNumber
 *DefaultApi* | [**getSlidesForExerciseName**](docs/DefaultApi.md#getSlidesForExerciseName) | **GET** /bot/exercise/name/{exerciseName}/slide | Returns all Slides for ExerciseName
@@ -130,13 +133,16 @@ Class | Method | HTTP request | Description
 *DefaultApi* | [**getWhatsappQuestion**](docs/DefaultApi.md#getWhatsappQuestion) | **POST** /bot/whatsapp | forwards a new Whatsapp question
 *DefaultApi* | [**postFeedback**](docs/DefaultApi.md#postFeedback) | **POST** /bot/feedback | saves a new Feedback, updates it if already existent
 *DefaultApi* | [**postQuestion**](docs/DefaultApi.md#postQuestion) | **POST** /bot/question | saves a new Question, updates it if already existent
+*DefaultApi* | [**postReply**](docs/DefaultApi.md#postReply) | **POST** /bot/reply | saves a new Reply, updates it if already existent
 *DefaultApi* | [**postReplyAndCloseQuestion**](docs/DefaultApi.md#postReplyAndCloseQuestion) | **POST** /bot/question/close/{replyInputSourceId} | saves a new Question, updates it if already existent
 *DefaultApi* | [**putQuestion**](docs/DefaultApi.md#putQuestion) | **PUT** /bot/question | saves a new Question, updates it if already existent
 *DefaultApi* | [**putQuiz**](docs/DefaultApi.md#putQuiz) | **PUT** /bot/quiz | saves a new Quiz 
+*DefaultApi* | [**upvote**](docs/DefaultApi.md#upvote) | **GET** /bot/upvote/{inputSourceId} | upvotes a given DataItem using its inputSourceId
 
 
 ## Documentation for Models
 
+ - [Score](docs/Score.md)
 
 
 ## Documentation for Authorization

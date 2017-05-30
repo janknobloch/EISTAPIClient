@@ -15,8 +15,10 @@ package io.swagger.client.api;
 
 import io.swagger.client.ApiException;
 import de.tum.jk.application.model.presenterTool.ActiveSlide;
+import de.tum.jk.application.model.students.DataItem;
 import de.tum.jk.application.model.students.Feedback;
 import de.tum.jk.application.model.students.Reply;
+import io.swagger.client.model.Score;
 import de.tum.jk.application.model.students.StudentQuestion;
 import de.tum.jk.application.model.presenter.TeacherQuestion;
 import org.junit.Test;
@@ -97,6 +99,22 @@ public class DefaultApiTest {
     public void deleteReplyTest() throws ApiException {
         String inputSourceId = null;
         StudentQuestion response = api.deleteReply(inputSourceId);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * upvotes a given DataItem using its inputSourceId
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void downvoteTest() throws ApiException {
+        String inputSourceId = null;
+        DataItem response = api.downvote(inputSourceId);
 
         // TODO: test validations
     }
@@ -396,6 +414,23 @@ public class DefaultApiTest {
     }
     
     /**
+     * retrieves reply by looking for a certain reply.content
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getReplyForQuestionByContentTest() throws ApiException {
+        String inputSourceId = null;
+        String content = null;
+        Reply response = api.getReplyForQuestionByContent(inputSourceId, content);
+
+        // TODO: test validations
+    }
+    
+    /**
      * retrieves all questions report for specific exercise(slideSet)
      *
      * 
@@ -455,6 +490,22 @@ public class DefaultApiTest {
         String from = null;
         String body = null;
         String response = api.getSMSQuestion(from, body);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * generates Highscore for a given InputSource
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getScoreforInputSourceTest() throws ApiException {
+        String inputSource = null;
+        Score response = api.getScoreforInputSource(inputSource);
 
         // TODO: test validations
     }
@@ -574,6 +625,22 @@ public class DefaultApiTest {
     }
     
     /**
+     * saves a new Reply, updates it if already existent
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void postReplyTest() throws ApiException {
+        Reply body = null;
+        StudentQuestion response = api.postReply(body);
+
+        // TODO: test validations
+    }
+    
+    /**
      * saves a new Question, updates it if already existent
      *
      * 
@@ -617,6 +684,22 @@ public class DefaultApiTest {
     public void putQuizTest() throws ApiException {
         TeacherQuestion body = null;
         TeacherQuestion response = api.putQuiz(body);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * upvotes a given DataItem using its inputSourceId
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void upvoteTest() throws ApiException {
+        String inputSourceId = null;
+        DataItem response = api.upvote(inputSourceId);
 
         // TODO: test validations
     }

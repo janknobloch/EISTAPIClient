@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**deleteQuestionByInputSourceId**](DefaultApi.md#deleteQuestionByInputSourceId) | **DELETE** /bot/question/sourceId/{inputSourceId} | deletes a given Question by using its inputSourceId
 [**deleteQuestionByInputSourceIdandInputSource**](DefaultApi.md#deleteQuestionByInputSourceIdandInputSource) | **DELETE** /bot/question/sourceId/{inputSourceId}/source/{inputSource} | deletes a given Question by using its inputSourceId and inputSource
 [**deleteReply**](DefaultApi.md#deleteReply) | **DELETE** /bot/reply/{inputSourceId} | deletes a reply by its inputSourceId
+[**downvote**](DefaultApi.md#downvote) | **GET** /bot/downvote/{inputSourceId} | upvotes a given DataItem using its inputSourceId
 [**getActiveSlides**](DefaultApi.md#getActiveSlides) | **GET** /bot/slide/live | Returns an Array of active slides for (ppt, key, and dev)
 [**getAllBots**](DefaultApi.md#getAllBots) | **GET** /bot/bot | retrieves all bots 
 [**getAllClosedStudentQuestionsForExercises**](DefaultApi.md#getAllClosedStudentQuestionsForExercises) | **GET** /bot/question/exercise/report | retrieves all exercise questions report not including general questions - ordered by slideSet
@@ -27,10 +28,12 @@ Method | HTTP request | Description
 [**getQuestionByObjectId**](DefaultApi.md#getQuestionByObjectId) | **GET** /bot/question/{id} | retrieves question by its ObjectId
 [**getQuestionByReplyInputSourceId**](DefaultApi.md#getQuestionByReplyInputSourceId) | **GET** /bot/question/reply/sourceId/{inputSourceId} | retrieves question by looking for a certain reply.inputSourceId
 [**getReplyByInputSourceId**](DefaultApi.md#getReplyByInputSourceId) | **GET** /bot/reply/sourceId/{inputSourceId} | retrieves reply by looking for a certain reply.inputSourceId
+[**getReplyForQuestionByContent**](DefaultApi.md#getReplyForQuestionByContent) | **GET** /bot/question/sourceId/{inputSourceId}/reply/content/{content} | retrieves reply by looking for a certain reply.content
 [**getReportForExercise**](DefaultApi.md#getReportForExercise) | **GET** /bot/question/report/exercise{num} | retrieves all questions report for specific exercise(slideSet)
 [**getReportForGeneral**](DefaultApi.md#getReportForGeneral) | **GET** /bot/question/report/general | retrieves all questions report for specific lecture(slideSet)
 [**getReportForLecture**](DefaultApi.md#getReportForLecture) | **GET** /bot/question/report/lecture/{num} | retrieves all questions report for specific lecture(slideSet)
 [**getSMSQuestion**](DefaultApi.md#getSMSQuestion) | **POST** /bot/sms | forwards a new SMS question
+[**getScoreforInputSource**](DefaultApi.md#getScoreforInputSource) | **GET** /bot/score/inputSource/{inputSource} | generates Highscore for a given InputSource
 [**getSlideForExerciseNumberAndSlideNumber**](DefaultApi.md#getSlideForExerciseNumberAndSlideNumber) | **GET** /bot/exercise/number/{exerciseNumber}/slide/number/{slideNumber} | Returns slidePath for ExerciseNumber / SlideNumber
 [**getSlideForPresentationNumberAndSlideNumber**](DefaultApi.md#getSlideForPresentationNumberAndSlideNumber) | **GET** /bot/presentation/number/{presentationNumber}/slide/number/{slideNumber} | Returns slidePath for PresentationNumber / SlideNumber
 [**getSlidesForExerciseName**](DefaultApi.md#getSlidesForExerciseName) | **GET** /bot/exercise/name/{exerciseName}/slide | Returns all Slides for ExerciseName
@@ -38,9 +41,11 @@ Method | HTTP request | Description
 [**getWhatsappQuestion**](DefaultApi.md#getWhatsappQuestion) | **POST** /bot/whatsapp | forwards a new Whatsapp question
 [**postFeedback**](DefaultApi.md#postFeedback) | **POST** /bot/feedback | saves a new Feedback, updates it if already existent
 [**postQuestion**](DefaultApi.md#postQuestion) | **POST** /bot/question | saves a new Question, updates it if already existent
+[**postReply**](DefaultApi.md#postReply) | **POST** /bot/reply | saves a new Reply, updates it if already existent
 [**postReplyAndCloseQuestion**](DefaultApi.md#postReplyAndCloseQuestion) | **POST** /bot/question/close/{replyInputSourceId} | saves a new Question, updates it if already existent
 [**putQuestion**](DefaultApi.md#putQuestion) | **PUT** /bot/question | saves a new Question, updates it if already existent
 [**putQuiz**](DefaultApi.md#putQuiz) | **PUT** /bot/quiz | saves a new Quiz 
+[**upvote**](DefaultApi.md#upvote) | **GET** /bot/upvote/{inputSourceId} | upvotes a given DataItem using its inputSourceId
 
 
 <a name="deleteQuestion"></a>
@@ -251,6 +256,60 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**StudentQuestion**](StudentQuestion.md)
+
+### Authorization
+
+[basic-auth](../README.md#basic-auth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="downvote"></a>
+# **downvote**
+> DataItem downvote(inputSourceId)
+
+upvotes a given DataItem using its inputSourceId
+
+
+
+### Example
+```java
+// Import classes:
+//import io.swagger.client.ApiClient;
+//import io.swagger.client.ApiException;
+//import io.swagger.client.Configuration;
+//import io.swagger.client.auth.*;
+//import io.swagger.client.api.DefaultApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure HTTP basic authorization: basic-auth
+HttpBasicAuth basic-auth = (HttpBasicAuth) defaultClient.getAuthentication("basic-auth");
+basic-auth.setUsername("YOUR USERNAME");
+basic-auth.setPassword("YOUR PASSWORD");
+
+DefaultApi apiInstance = new DefaultApi();
+String inputSourceId = "inputSourceId_example"; // String | 
+try {
+    DataItem result = apiInstance.downvote(inputSourceId);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling DefaultApi#downvote");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **inputSourceId** | **String**|  |
+
+### Return type
+
+[**DataItem**](DataItem.md)
 
 ### Authorization
 
@@ -1243,6 +1302,62 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+<a name="getReplyForQuestionByContent"></a>
+# **getReplyForQuestionByContent**
+> Reply getReplyForQuestionByContent(inputSourceId, content)
+
+retrieves reply by looking for a certain reply.content
+
+
+
+### Example
+```java
+// Import classes:
+//import io.swagger.client.ApiClient;
+//import io.swagger.client.ApiException;
+//import io.swagger.client.Configuration;
+//import io.swagger.client.auth.*;
+//import io.swagger.client.api.DefaultApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure HTTP basic authorization: basic-auth
+HttpBasicAuth basic-auth = (HttpBasicAuth) defaultClient.getAuthentication("basic-auth");
+basic-auth.setUsername("YOUR USERNAME");
+basic-auth.setPassword("YOUR PASSWORD");
+
+DefaultApi apiInstance = new DefaultApi();
+String inputSourceId = "inputSourceId_example"; // String | 
+String content = "content_example"; // String | 
+try {
+    Reply result = apiInstance.getReplyForQuestionByContent(inputSourceId, content);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling DefaultApi#getReplyForQuestionByContent");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **inputSourceId** | **String**|  |
+ **content** | **String**|  |
+
+### Return type
+
+[**Reply**](Reply.md)
+
+### Authorization
+
+[basic-auth](../README.md#basic-auth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
 <a name="getReportForExercise"></a>
 # **getReportForExercise**
 > getReportForExercise(num)
@@ -1444,6 +1559,60 @@ No authorization required
 
  - **Content-Type**: application/x-www-form-urlencoded
  - **Accept**: text/xml
+
+<a name="getScoreforInputSource"></a>
+# **getScoreforInputSource**
+> Score getScoreforInputSource(inputSource)
+
+generates Highscore for a given InputSource
+
+
+
+### Example
+```java
+// Import classes:
+//import io.swagger.client.ApiClient;
+//import io.swagger.client.ApiException;
+//import io.swagger.client.Configuration;
+//import io.swagger.client.auth.*;
+//import io.swagger.client.api.DefaultApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure HTTP basic authorization: basic-auth
+HttpBasicAuth basic-auth = (HttpBasicAuth) defaultClient.getAuthentication("basic-auth");
+basic-auth.setUsername("YOUR USERNAME");
+basic-auth.setPassword("YOUR PASSWORD");
+
+DefaultApi apiInstance = new DefaultApi();
+String inputSource = "inputSource_example"; // String | 
+try {
+    Score result = apiInstance.getScoreforInputSource(inputSource);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling DefaultApi#getScoreforInputSource");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **inputSource** | **String**|  |
+
+### Return type
+
+[**Score**](Score.md)
+
+### Authorization
+
+[basic-auth](../README.md#basic-auth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 <a name="getSlideForExerciseNumberAndSlideNumber"></a>
 # **getSlideForExerciseNumberAndSlideNumber**
@@ -1818,6 +1987,60 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+<a name="postReply"></a>
+# **postReply**
+> StudentQuestion postReply(body)
+
+saves a new Reply, updates it if already existent
+
+
+
+### Example
+```java
+// Import classes:
+//import io.swagger.client.ApiClient;
+//import io.swagger.client.ApiException;
+//import io.swagger.client.Configuration;
+//import io.swagger.client.auth.*;
+//import io.swagger.client.api.DefaultApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure HTTP basic authorization: basic-auth
+HttpBasicAuth basic-auth = (HttpBasicAuth) defaultClient.getAuthentication("basic-auth");
+basic-auth.setUsername("YOUR USERNAME");
+basic-auth.setPassword("YOUR PASSWORD");
+
+DefaultApi apiInstance = new DefaultApi();
+Reply body = new Reply(); // Reply | 
+try {
+    StudentQuestion result = apiInstance.postReply(body);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling DefaultApi#postReply");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**Reply**](Reply.md)|  | [optional]
+
+### Return type
+
+[**StudentQuestion**](StudentQuestion.md)
+
+### Authorization
+
+[basic-auth](../README.md#basic-auth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
 <a name="postReplyAndCloseQuestion"></a>
 # **postReplyAndCloseQuestion**
 > StudentQuestion postReplyAndCloseQuestion(replyInputSourceId)
@@ -1970,6 +2193,60 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**TeacherQuestion**](TeacherQuestion.md)
+
+### Authorization
+
+[basic-auth](../README.md#basic-auth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="upvote"></a>
+# **upvote**
+> DataItem upvote(inputSourceId)
+
+upvotes a given DataItem using its inputSourceId
+
+
+
+### Example
+```java
+// Import classes:
+//import io.swagger.client.ApiClient;
+//import io.swagger.client.ApiException;
+//import io.swagger.client.Configuration;
+//import io.swagger.client.auth.*;
+//import io.swagger.client.api.DefaultApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure HTTP basic authorization: basic-auth
+HttpBasicAuth basic-auth = (HttpBasicAuth) defaultClient.getAuthentication("basic-auth");
+basic-auth.setUsername("YOUR USERNAME");
+basic-auth.setPassword("YOUR PASSWORD");
+
+DefaultApi apiInstance = new DefaultApi();
+String inputSourceId = "inputSourceId_example"; // String | 
+try {
+    DataItem result = apiInstance.upvote(inputSourceId);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling DefaultApi#upvote");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **inputSourceId** | **String**|  |
+
+### Return type
+
+[**DataItem**](DataItem.md)
 
 ### Authorization
 
