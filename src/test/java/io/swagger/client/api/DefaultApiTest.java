@@ -114,7 +114,8 @@ public class DefaultApiTest {
     @Test
     public void downvoteTest() throws ApiException {
         String inputSourceId = null;
-        DataItem response = api.downvote(inputSourceId);
+        String author = null;
+        DataItem response = api.downvote(inputSourceId, author);
 
         // TODO: test validations
     }
@@ -699,7 +700,8 @@ public class DefaultApiTest {
     @Test
     public void upvoteTest() throws ApiException {
         String inputSourceId = null;
-        DataItem response = api.upvote(inputSourceId);
+        String author = null;
+        DataItem response = api.upvote(inputSourceId, author);
 
         // TODO: test validations
     }

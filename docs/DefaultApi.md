@@ -8,7 +8,7 @@ Method | HTTP request | Description
 [**deleteQuestionByInputSourceId**](DefaultApi.md#deleteQuestionByInputSourceId) | **DELETE** /bot/question/sourceId/{inputSourceId} | deletes a given Question by using its inputSourceId
 [**deleteQuestionByInputSourceIdandInputSource**](DefaultApi.md#deleteQuestionByInputSourceIdandInputSource) | **DELETE** /bot/question/sourceId/{inputSourceId}/source/{inputSource} | deletes a given Question by using its inputSourceId and inputSource
 [**deleteReply**](DefaultApi.md#deleteReply) | **DELETE** /bot/reply/{inputSourceId} | deletes a reply by its inputSourceId
-[**downvote**](DefaultApi.md#downvote) | **GET** /bot/downvote/{inputSourceId} | upvotes a given DataItem using its inputSourceId
+[**downvote**](DefaultApi.md#downvote) | **GET** /bot/downvote/{inputSourceId}/author/{author} | upvotes a given DataItem using its inputSourceId
 [**getActiveSlides**](DefaultApi.md#getActiveSlides) | **GET** /bot/slide/live | Returns an Array of active slides for (ppt, key, and dev)
 [**getAllBots**](DefaultApi.md#getAllBots) | **GET** /bot/bot | retrieves all bots 
 [**getAllClosedStudentQuestionsForExercises**](DefaultApi.md#getAllClosedStudentQuestionsForExercises) | **GET** /bot/question/exercise/report | retrieves all exercise questions report not including general questions - ordered by slideSet
@@ -45,7 +45,7 @@ Method | HTTP request | Description
 [**postReplyAndCloseQuestion**](DefaultApi.md#postReplyAndCloseQuestion) | **POST** /bot/question/close/{replyInputSourceId} | saves a new Question, updates it if already existent
 [**putQuestion**](DefaultApi.md#putQuestion) | **PUT** /bot/question | saves a new Question, updates it if already existent
 [**putQuiz**](DefaultApi.md#putQuiz) | **PUT** /bot/quiz | saves a new Quiz 
-[**upvote**](DefaultApi.md#upvote) | **GET** /bot/upvote/{inputSourceId} | upvotes a given DataItem using its inputSourceId
+[**upvote**](DefaultApi.md#upvote) | **GET** /bot/upvote/{inputSourceId}/author/{author} | upvotes a given DataItem using its inputSourceId
 
 
 <a name="deleteQuestion"></a>
@@ -268,7 +268,7 @@ Name | Type | Description  | Notes
 
 <a name="downvote"></a>
 # **downvote**
-> DataItem downvote(inputSourceId)
+> DataItem downvote(inputSourceId, author)
 
 upvotes a given DataItem using its inputSourceId
 
@@ -292,8 +292,9 @@ basic-auth.setPassword("YOUR PASSWORD");
 
 DefaultApi apiInstance = new DefaultApi();
 String inputSourceId = "inputSourceId_example"; // String | 
+String author = "author_example"; // String | 
 try {
-    DataItem result = apiInstance.downvote(inputSourceId);
+    DataItem result = apiInstance.downvote(inputSourceId, author);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling DefaultApi#downvote");
@@ -306,6 +307,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **inputSourceId** | **String**|  |
+ **author** | **String**|  |
 
 ### Return type
 
@@ -2205,7 +2207,7 @@ Name | Type | Description  | Notes
 
 <a name="upvote"></a>
 # **upvote**
-> DataItem upvote(inputSourceId)
+> DataItem upvote(inputSourceId, author)
 
 upvotes a given DataItem using its inputSourceId
 
@@ -2229,8 +2231,9 @@ basic-auth.setPassword("YOUR PASSWORD");
 
 DefaultApi apiInstance = new DefaultApi();
 String inputSourceId = "inputSourceId_example"; // String | 
+String author = "author_example"; // String | 
 try {
-    DataItem result = apiInstance.upvote(inputSourceId);
+    DataItem result = apiInstance.upvote(inputSourceId, author);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling DefaultApi#upvote");
@@ -2243,6 +2246,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **inputSourceId** | **String**|  |
+ **author** | **String**|  |
 
 ### Return type
 
