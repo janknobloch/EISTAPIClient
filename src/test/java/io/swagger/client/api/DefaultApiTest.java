@@ -39,6 +39,22 @@ public class DefaultApiTest {
 
     
     /**
+     * deletes the best answer
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void deleteBestAnswerTest() throws ApiException {
+        String body = null;
+        StudentQuestion response = api.deleteBestAnswer(body);
+
+        // TODO: test validations
+    }
+    
+    /**
      * deletes a given Question
      *
      * 
@@ -650,22 +666,6 @@ public class DefaultApiTest {
      *          if the Api call fails
      */
     @Test
-    public void postReplyAndCloseQuestionTest() throws ApiException {
-        String replyInputSourceId = null;
-        StudentQuestion response = api.postReplyAndCloseQuestion(replyInputSourceId);
-
-        // TODO: test validations
-    }
-    
-    /**
-     * saves a new Question, updates it if already existent
-     *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
     public void putQuestionTest() throws ApiException {
         StudentQuestion body = null;
         StudentQuestion response = api.putQuestion(body);
@@ -685,6 +685,22 @@ public class DefaultApiTest {
     public void putQuizTest() throws ApiException {
         TeacherQuestion body = null;
         TeacherQuestion response = api.putQuiz(body);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * saves a new Question, updates it if already existent
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void setBestAnswerTest() throws ApiException {
+        String replyInputSourceId = null;
+        StudentQuestion response = api.setBestAnswer(replyInputSourceId);
 
         // TODO: test validations
     }

@@ -4,6 +4,7 @@ All URIs are relative to *http://localhost/api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**deleteBestAnswer**](DefaultApi.md#deleteBestAnswer) | **DELETE** /bot/question/bestAnswer/{inputSourceId} | deletes the best answer
 [**deleteQuestion**](DefaultApi.md#deleteQuestion) | **DELETE** /bot/question | deletes a given Question
 [**deleteQuestionByInputSourceId**](DefaultApi.md#deleteQuestionByInputSourceId) | **DELETE** /bot/question/sourceId/{inputSourceId} | deletes a given Question by using its inputSourceId
 [**deleteQuestionByInputSourceIdandInputSource**](DefaultApi.md#deleteQuestionByInputSourceIdandInputSource) | **DELETE** /bot/question/sourceId/{inputSourceId}/source/{inputSource} | deletes a given Question by using its inputSourceId and inputSource
@@ -42,11 +43,65 @@ Method | HTTP request | Description
 [**postFeedback**](DefaultApi.md#postFeedback) | **POST** /bot/feedback | saves a new Feedback, updates it if already existent
 [**postQuestion**](DefaultApi.md#postQuestion) | **POST** /bot/question | saves a new Question, updates it if already existent
 [**postReply**](DefaultApi.md#postReply) | **POST** /bot/reply | saves a new Reply, updates it if already existent
-[**postReplyAndCloseQuestion**](DefaultApi.md#postReplyAndCloseQuestion) | **POST** /bot/question/close/{replyInputSourceId} | saves a new Question, updates it if already existent
 [**putQuestion**](DefaultApi.md#putQuestion) | **PUT** /bot/question | saves a new Question, updates it if already existent
 [**putQuiz**](DefaultApi.md#putQuiz) | **PUT** /bot/quiz | saves a new Quiz 
+[**setBestAnswer**](DefaultApi.md#setBestAnswer) | **POST** /bot/question/bestAnswer/{replyInputSourceId} | saves a new Question, updates it if already existent
 [**upvote**](DefaultApi.md#upvote) | **GET** /bot/upvote/{inputSourceId}/author/{author} | upvotes a given DataItem using its inputSourceId
 
+
+<a name="deleteBestAnswer"></a>
+# **deleteBestAnswer**
+> StudentQuestion deleteBestAnswer(body)
+
+deletes the best answer
+
+
+
+### Example
+```java
+// Import classes:
+//import io.swagger.client.ApiClient;
+//import io.swagger.client.ApiException;
+//import io.swagger.client.Configuration;
+//import io.swagger.client.auth.*;
+//import io.swagger.client.api.DefaultApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure HTTP basic authorization: basic-auth
+HttpBasicAuth basic-auth = (HttpBasicAuth) defaultClient.getAuthentication("basic-auth");
+basic-auth.setUsername("YOUR USERNAME");
+basic-auth.setPassword("YOUR PASSWORD");
+
+DefaultApi apiInstance = new DefaultApi();
+String body = "body_example"; // String | 
+try {
+    StudentQuestion result = apiInstance.deleteBestAnswer(body);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling DefaultApi#deleteBestAnswer");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | **String**|  | [optional]
+
+### Return type
+
+[**StudentQuestion**](StudentQuestion.md)
+
+### Authorization
+
+[basic-auth](../README.md#basic-auth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 <a name="deleteQuestion"></a>
 # **deleteQuestion**
@@ -2043,60 +2098,6 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="postReplyAndCloseQuestion"></a>
-# **postReplyAndCloseQuestion**
-> StudentQuestion postReplyAndCloseQuestion(replyInputSourceId)
-
-saves a new Question, updates it if already existent
-
-
-
-### Example
-```java
-// Import classes:
-//import io.swagger.client.ApiClient;
-//import io.swagger.client.ApiException;
-//import io.swagger.client.Configuration;
-//import io.swagger.client.auth.*;
-//import io.swagger.client.api.DefaultApi;
-
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure HTTP basic authorization: basic-auth
-HttpBasicAuth basic-auth = (HttpBasicAuth) defaultClient.getAuthentication("basic-auth");
-basic-auth.setUsername("YOUR USERNAME");
-basic-auth.setPassword("YOUR PASSWORD");
-
-DefaultApi apiInstance = new DefaultApi();
-String replyInputSourceId = "replyInputSourceId_example"; // String | 
-try {
-    StudentQuestion result = apiInstance.postReplyAndCloseQuestion(replyInputSourceId);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling DefaultApi#postReplyAndCloseQuestion");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **replyInputSourceId** | **String**|  |
-
-### Return type
-
-[**StudentQuestion**](StudentQuestion.md)
-
-### Authorization
-
-[basic-auth](../README.md#basic-auth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
 <a name="putQuestion"></a>
 # **putQuestion**
 > StudentQuestion putQuestion(body)
@@ -2195,6 +2196,60 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**TeacherQuestion**](TeacherQuestion.md)
+
+### Authorization
+
+[basic-auth](../README.md#basic-auth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="setBestAnswer"></a>
+# **setBestAnswer**
+> StudentQuestion setBestAnswer(replyInputSourceId)
+
+saves a new Question, updates it if already existent
+
+
+
+### Example
+```java
+// Import classes:
+//import io.swagger.client.ApiClient;
+//import io.swagger.client.ApiException;
+//import io.swagger.client.Configuration;
+//import io.swagger.client.auth.*;
+//import io.swagger.client.api.DefaultApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure HTTP basic authorization: basic-auth
+HttpBasicAuth basic-auth = (HttpBasicAuth) defaultClient.getAuthentication("basic-auth");
+basic-auth.setUsername("YOUR USERNAME");
+basic-auth.setPassword("YOUR PASSWORD");
+
+DefaultApi apiInstance = new DefaultApi();
+String replyInputSourceId = "replyInputSourceId_example"; // String | 
+try {
+    StudentQuestion result = apiInstance.setBestAnswer(replyInputSourceId);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling DefaultApi#setBestAnswer");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **replyInputSourceId** | **String**|  |
+
+### Return type
+
+[**StudentQuestion**](StudentQuestion.md)
 
 ### Authorization
 

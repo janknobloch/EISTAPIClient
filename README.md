@@ -77,12 +77,12 @@ public class DefaultApiExample {
         basic-auth.setPassword("YOUR PASSWORD");
 
         DefaultApi apiInstance = new DefaultApi();
-        StudentQuestion body = new StudentQuestion(); // StudentQuestion | 
+        String body = "body_example"; // String | 
         try {
-            StudentQuestion result = apiInstance.deleteQuestion(body);
+            StudentQuestion result = apiInstance.deleteBestAnswer(body);
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling DefaultApi#deleteQuestion");
+            System.err.println("Exception when calling DefaultApi#deleteBestAnswer");
             e.printStackTrace();
         }
     }
@@ -96,6 +96,7 @@ All URIs are relative to *http://localhost/api*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*DefaultApi* | [**deleteBestAnswer**](docs/DefaultApi.md#deleteBestAnswer) | **DELETE** /bot/question/bestAnswer/{inputSourceId} | deletes the best answer
 *DefaultApi* | [**deleteQuestion**](docs/DefaultApi.md#deleteQuestion) | **DELETE** /bot/question | deletes a given Question
 *DefaultApi* | [**deleteQuestionByInputSourceId**](docs/DefaultApi.md#deleteQuestionByInputSourceId) | **DELETE** /bot/question/sourceId/{inputSourceId} | deletes a given Question by using its inputSourceId
 *DefaultApi* | [**deleteQuestionByInputSourceIdandInputSource**](docs/DefaultApi.md#deleteQuestionByInputSourceIdandInputSource) | **DELETE** /bot/question/sourceId/{inputSourceId}/source/{inputSource} | deletes a given Question by using its inputSourceId and inputSource
@@ -134,9 +135,9 @@ Class | Method | HTTP request | Description
 *DefaultApi* | [**postFeedback**](docs/DefaultApi.md#postFeedback) | **POST** /bot/feedback | saves a new Feedback, updates it if already existent
 *DefaultApi* | [**postQuestion**](docs/DefaultApi.md#postQuestion) | **POST** /bot/question | saves a new Question, updates it if already existent
 *DefaultApi* | [**postReply**](docs/DefaultApi.md#postReply) | **POST** /bot/reply | saves a new Reply, updates it if already existent
-*DefaultApi* | [**postReplyAndCloseQuestion**](docs/DefaultApi.md#postReplyAndCloseQuestion) | **POST** /bot/question/close/{replyInputSourceId} | saves a new Question, updates it if already existent
 *DefaultApi* | [**putQuestion**](docs/DefaultApi.md#putQuestion) | **PUT** /bot/question | saves a new Question, updates it if already existent
 *DefaultApi* | [**putQuiz**](docs/DefaultApi.md#putQuiz) | **PUT** /bot/quiz | saves a new Quiz 
+*DefaultApi* | [**setBestAnswer**](docs/DefaultApi.md#setBestAnswer) | **POST** /bot/question/bestAnswer/{replyInputSourceId} | saves a new Question, updates it if already existent
 *DefaultApi* | [**upvote**](docs/DefaultApi.md#upvote) | **GET** /bot/upvote/{inputSourceId}/author/{author} | upvotes a given DataItem using its inputSourceId
 
 
