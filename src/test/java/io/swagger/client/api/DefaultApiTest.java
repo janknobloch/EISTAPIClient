@@ -39,6 +39,22 @@ public class DefaultApiTest {
 
     
     /**
+     * delete bestAnswer
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void deleteBestAnswerTest() throws ApiException {
+        String replyInputSourceId = null;
+        StudentQuestion response = api.deleteBestAnswer(replyInputSourceId);
+
+        // TODO: test validations
+    }
+    
+    /**
      * deletes a given Question
      *
      * 
@@ -114,7 +130,8 @@ public class DefaultApiTest {
     @Test
     public void downvoteTest() throws ApiException {
         String inputSourceId = null;
-        DataItem response = api.downvote(inputSourceId);
+        String userId = null;
+        DataItem response = api.downvote(inputSourceId, userId);
 
         // TODO: test validations
     }
@@ -593,6 +610,22 @@ public class DefaultApiTest {
     }
     
     /**
+     * saves a bestAnswer
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void postBestAnswerTest() throws ApiException {
+        String replyInputSourceId = null;
+        StudentQuestion response = api.postBestAnswer(replyInputSourceId);
+
+        // TODO: test validations
+    }
+    
+    /**
      * saves a new Feedback, updates it if already existent
      *
      * 
@@ -650,22 +683,6 @@ public class DefaultApiTest {
      *          if the Api call fails
      */
     @Test
-    public void postReplyAndCloseQuestionTest() throws ApiException {
-        String replyInputSourceId = null;
-        StudentQuestion response = api.postReplyAndCloseQuestion(replyInputSourceId);
-
-        // TODO: test validations
-    }
-    
-    /**
-     * saves a new Question, updates it if already existent
-     *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
     public void putQuestionTest() throws ApiException {
         StudentQuestion body = null;
         StudentQuestion response = api.putQuestion(body);
@@ -700,7 +717,8 @@ public class DefaultApiTest {
     @Test
     public void upvoteTest() throws ApiException {
         String inputSourceId = null;
-        DataItem response = api.upvote(inputSourceId);
+        String userId = null;
+        DataItem response = api.upvote(inputSourceId, userId);
 
         // TODO: test validations
     }

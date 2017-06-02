@@ -96,7 +96,7 @@ public class StudentQuestion extends DataItem {
         return summary;
     }
 
-    public void finalAnswer(String message_ts) {
+    public void searchAndsetBestAnswer(String message_ts) {
         for (Reply r : replies) {
             if (r.getInputSourceId().equals(message_ts)) {
                 bestanswer = r;
