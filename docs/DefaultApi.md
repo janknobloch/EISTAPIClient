@@ -4,12 +4,11 @@ All URIs are relative to *http://localhost/api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**deleteBestAnswer**](DefaultApi.md#deleteBestAnswer) | **DELETE** /bot/question/bestAnswer/{inputSourceId} | deletes the best answer
 [**deleteQuestion**](DefaultApi.md#deleteQuestion) | **DELETE** /bot/question | deletes a given Question
 [**deleteQuestionByInputSourceId**](DefaultApi.md#deleteQuestionByInputSourceId) | **DELETE** /bot/question/sourceId/{inputSourceId} | deletes a given Question by using its inputSourceId
 [**deleteQuestionByInputSourceIdandInputSource**](DefaultApi.md#deleteQuestionByInputSourceIdandInputSource) | **DELETE** /bot/question/sourceId/{inputSourceId}/source/{inputSource} | deletes a given Question by using its inputSourceId and inputSource
 [**deleteReply**](DefaultApi.md#deleteReply) | **DELETE** /bot/reply/{inputSourceId} | deletes a reply by its inputSourceId
-[**downvote**](DefaultApi.md#downvote) | **GET** /bot/downvote/{inputSourceId}/author/{author} | upvotes a given DataItem using its inputSourceId
+[**downvote**](DefaultApi.md#downvote) | **GET** /bot/downvote/{inputSourceId} | upvotes a given DataItem using its inputSourceId
 [**getActiveSlides**](DefaultApi.md#getActiveSlides) | **GET** /bot/slide/live | Returns an Array of active slides for (ppt, key, and dev)
 [**getAllBots**](DefaultApi.md#getAllBots) | **GET** /bot/bot | retrieves all bots 
 [**getAllClosedStudentQuestionsForExercises**](DefaultApi.md#getAllClosedStudentQuestionsForExercises) | **GET** /bot/question/exercise/report | retrieves all exercise questions report not including general questions - ordered by slideSet
@@ -42,66 +41,12 @@ Method | HTTP request | Description
 [**getWhatsappQuestion**](DefaultApi.md#getWhatsappQuestion) | **POST** /bot/whatsapp | forwards a new Whatsapp question
 [**postFeedback**](DefaultApi.md#postFeedback) | **POST** /bot/feedback | saves a new Feedback, updates it if already existent
 [**postQuestion**](DefaultApi.md#postQuestion) | **POST** /bot/question | saves a new Question, updates it if already existent
-[**postReply**](DefaultApi.md#postReply) | **POST** /bot/reply | saves a new Reply, updates it if already existent
+[**postReply**](DefaultApi.md#postReply) | **POST** /bot/question/{questionInputSourceId}/reply | saves a new Reply, updates it if already existent
+[**postReplyAndCloseQuestion**](DefaultApi.md#postReplyAndCloseQuestion) | **POST** /bot/question/close/{replyInputSourceId} | saves a new Question, updates it if already existent
 [**putQuestion**](DefaultApi.md#putQuestion) | **PUT** /bot/question | saves a new Question, updates it if already existent
 [**putQuiz**](DefaultApi.md#putQuiz) | **PUT** /bot/quiz | saves a new Quiz 
-[**setBestAnswer**](DefaultApi.md#setBestAnswer) | **POST** /bot/question/bestAnswer/{replyInputSourceId} | saves a new Question, updates it if already existent
-[**upvote**](DefaultApi.md#upvote) | **GET** /bot/upvote/{inputSourceId}/author/{author} | upvotes a given DataItem using its inputSourceId
+[**upvote**](DefaultApi.md#upvote) | **GET** /bot/upvote/{inputSourceId} | upvotes a given DataItem using its inputSourceId
 
-
-<a name="deleteBestAnswer"></a>
-# **deleteBestAnswer**
-> StudentQuestion deleteBestAnswer(body)
-
-deletes the best answer
-
-
-
-### Example
-```java
-// Import classes:
-//import io.swagger.client.ApiClient;
-//import io.swagger.client.ApiException;
-//import io.swagger.client.Configuration;
-//import io.swagger.client.auth.*;
-//import io.swagger.client.api.DefaultApi;
-
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure HTTP basic authorization: basic-auth
-HttpBasicAuth basic-auth = (HttpBasicAuth) defaultClient.getAuthentication("basic-auth");
-basic-auth.setUsername("YOUR USERNAME");
-basic-auth.setPassword("YOUR PASSWORD");
-
-DefaultApi apiInstance = new DefaultApi();
-String body = "body_example"; // String | 
-try {
-    StudentQuestion result = apiInstance.deleteBestAnswer(body);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling DefaultApi#deleteBestAnswer");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | **String**|  | [optional]
-
-### Return type
-
-[**StudentQuestion**](StudentQuestion.md)
-
-### Authorization
-
-[basic-auth](../README.md#basic-auth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
 
 <a name="deleteQuestion"></a>
 # **deleteQuestion**
@@ -323,7 +268,7 @@ Name | Type | Description  | Notes
 
 <a name="downvote"></a>
 # **downvote**
-> DataItem downvote(inputSourceId, author)
+> DataItem downvote(inputSourceId)
 
 upvotes a given DataItem using its inputSourceId
 
@@ -347,9 +292,8 @@ basic-auth.setPassword("YOUR PASSWORD");
 
 DefaultApi apiInstance = new DefaultApi();
 String inputSourceId = "inputSourceId_example"; // String | 
-String author = "author_example"; // String | 
 try {
-    DataItem result = apiInstance.downvote(inputSourceId, author);
+    DataItem result = apiInstance.downvote(inputSourceId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling DefaultApi#downvote");
@@ -362,7 +306,6 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **inputSourceId** | **String**|  |
- **author** | **String**|  |
 
 ### Return type
 
@@ -2046,7 +1989,7 @@ Name | Type | Description  | Notes
 
 <a name="postReply"></a>
 # **postReply**
-> StudentQuestion postReply(body)
+> StudentQuestion postReply(questionInputSourceId, body)
 
 saves a new Reply, updates it if already existent
 
@@ -2069,9 +2012,10 @@ basic-auth.setUsername("YOUR USERNAME");
 basic-auth.setPassword("YOUR PASSWORD");
 
 DefaultApi apiInstance = new DefaultApi();
+String questionInputSourceId = "questionInputSourceId_example"; // String | 
 Reply body = new Reply(); // Reply | 
 try {
-    StudentQuestion result = apiInstance.postReply(body);
+    StudentQuestion result = apiInstance.postReply(questionInputSourceId, body);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling DefaultApi#postReply");
@@ -2083,7 +2027,62 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **questionInputSourceId** | **String**|  |
  **body** | [**Reply**](Reply.md)|  | [optional]
+
+### Return type
+
+[**StudentQuestion**](StudentQuestion.md)
+
+### Authorization
+
+[basic-auth](../README.md#basic-auth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="postReplyAndCloseQuestion"></a>
+# **postReplyAndCloseQuestion**
+> StudentQuestion postReplyAndCloseQuestion(replyInputSourceId)
+
+saves a new Question, updates it if already existent
+
+
+
+### Example
+```java
+// Import classes:
+//import io.swagger.client.ApiClient;
+//import io.swagger.client.ApiException;
+//import io.swagger.client.Configuration;
+//import io.swagger.client.auth.*;
+//import io.swagger.client.api.DefaultApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure HTTP basic authorization: basic-auth
+HttpBasicAuth basic-auth = (HttpBasicAuth) defaultClient.getAuthentication("basic-auth");
+basic-auth.setUsername("YOUR USERNAME");
+basic-auth.setPassword("YOUR PASSWORD");
+
+DefaultApi apiInstance = new DefaultApi();
+String replyInputSourceId = "replyInputSourceId_example"; // String | 
+try {
+    StudentQuestion result = apiInstance.postReplyAndCloseQuestion(replyInputSourceId);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling DefaultApi#postReplyAndCloseQuestion");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **replyInputSourceId** | **String**|  |
 
 ### Return type
 
@@ -2206,63 +2205,9 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="setBestAnswer"></a>
-# **setBestAnswer**
-> StudentQuestion setBestAnswer(replyInputSourceId)
-
-saves a new Question, updates it if already existent
-
-
-
-### Example
-```java
-// Import classes:
-//import io.swagger.client.ApiClient;
-//import io.swagger.client.ApiException;
-//import io.swagger.client.Configuration;
-//import io.swagger.client.auth.*;
-//import io.swagger.client.api.DefaultApi;
-
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure HTTP basic authorization: basic-auth
-HttpBasicAuth basic-auth = (HttpBasicAuth) defaultClient.getAuthentication("basic-auth");
-basic-auth.setUsername("YOUR USERNAME");
-basic-auth.setPassword("YOUR PASSWORD");
-
-DefaultApi apiInstance = new DefaultApi();
-String replyInputSourceId = "replyInputSourceId_example"; // String | 
-try {
-    StudentQuestion result = apiInstance.setBestAnswer(replyInputSourceId);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling DefaultApi#setBestAnswer");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **replyInputSourceId** | **String**|  |
-
-### Return type
-
-[**StudentQuestion**](StudentQuestion.md)
-
-### Authorization
-
-[basic-auth](../README.md#basic-auth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
 <a name="upvote"></a>
 # **upvote**
-> DataItem upvote(inputSourceId, author)
+> DataItem upvote(inputSourceId)
 
 upvotes a given DataItem using its inputSourceId
 
@@ -2286,9 +2231,8 @@ basic-auth.setPassword("YOUR PASSWORD");
 
 DefaultApi apiInstance = new DefaultApi();
 String inputSourceId = "inputSourceId_example"; // String | 
-String author = "author_example"; // String | 
 try {
-    DataItem result = apiInstance.upvote(inputSourceId, author);
+    DataItem result = apiInstance.upvote(inputSourceId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling DefaultApi#upvote");
@@ -2301,7 +2245,6 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **inputSourceId** | **String**|  |
- **author** | **String**|  |
 
 ### Return type
 

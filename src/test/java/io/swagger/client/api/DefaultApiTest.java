@@ -39,22 +39,6 @@ public class DefaultApiTest {
 
     
     /**
-     * deletes the best answer
-     *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void deleteBestAnswerTest() throws ApiException {
-        String body = null;
-        StudentQuestion response = api.deleteBestAnswer(body);
-
-        // TODO: test validations
-    }
-    
-    /**
      * deletes a given Question
      *
      * 
@@ -130,8 +114,7 @@ public class DefaultApiTest {
     @Test
     public void downvoteTest() throws ApiException {
         String inputSourceId = null;
-        String author = null;
-        DataItem response = api.downvote(inputSourceId, author);
+        DataItem response = api.downvote(inputSourceId);
 
         // TODO: test validations
     }
@@ -651,8 +634,25 @@ public class DefaultApiTest {
      */
     @Test
     public void postReplyTest() throws ApiException {
+        String questionInputSourceId = null;
         Reply body = null;
-        StudentQuestion response = api.postReply(body);
+        StudentQuestion response = api.postReply(questionInputSourceId, body);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * saves a new Question, updates it if already existent
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void postReplyAndCloseQuestionTest() throws ApiException {
+        String replyInputSourceId = null;
+        StudentQuestion response = api.postReplyAndCloseQuestion(replyInputSourceId);
 
         // TODO: test validations
     }
@@ -690,22 +690,6 @@ public class DefaultApiTest {
     }
     
     /**
-     * saves a new Question, updates it if already existent
-     *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void setBestAnswerTest() throws ApiException {
-        String replyInputSourceId = null;
-        StudentQuestion response = api.setBestAnswer(replyInputSourceId);
-
-        // TODO: test validations
-    }
-    
-    /**
      * upvotes a given DataItem using its inputSourceId
      *
      * 
@@ -716,8 +700,7 @@ public class DefaultApiTest {
     @Test
     public void upvoteTest() throws ApiException {
         String inputSourceId = null;
-        String author = null;
-        DataItem response = api.upvote(inputSourceId, author);
+        DataItem response = api.upvote(inputSourceId);
 
         // TODO: test validations
     }

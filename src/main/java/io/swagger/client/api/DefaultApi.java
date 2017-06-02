@@ -60,119 +60,6 @@ public class DefaultApi {
         this.apiClient = apiClient;
     }
 
-    /* Build call for deleteBestAnswer */
-    private com.squareup.okhttp.Call deleteBestAnswerCall(String body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = body;
-        
-        // create path and map variables
-        String localVarPath = "/bot/question/bestAnswer/{inputSourceId}".replaceAll("\\{format\\}","json");
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "basic-auth" };
-        return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-    
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call deleteBestAnswerValidateBeforeCall(String body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
-        
-        com.squareup.okhttp.Call call = deleteBestAnswerCall(body, progressListener, progressRequestListener);
-        return call;
-
-        
-        
-        
-        
-    }
-
-    /**
-     * deletes the best answer
-     * 
-     * @param body  (optional)
-     * @return StudentQuestion
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public StudentQuestion deleteBestAnswer(String body) throws ApiException {
-        ApiResponse<StudentQuestion> resp = deleteBestAnswerWithHttpInfo(body);
-        return resp.getData();
-    }
-
-    /**
-     * deletes the best answer
-     * 
-     * @param body  (optional)
-     * @return ApiResponse&lt;StudentQuestion&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<StudentQuestion> deleteBestAnswerWithHttpInfo(String body) throws ApiException {
-        com.squareup.okhttp.Call call = deleteBestAnswerValidateBeforeCall(body, null, null);
-        Type localVarReturnType = new TypeToken<StudentQuestion>(){}.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     * deletes the best answer (asynchronously)
-     * 
-     * @param body  (optional)
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public com.squareup.okhttp.Call deleteBestAnswerAsync(String body, final ApiCallback<StudentQuestion> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
-        }
-
-        com.squareup.okhttp.Call call = deleteBestAnswerValidateBeforeCall(body, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<StudentQuestion>(){}.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
     /* Build call for deleteQuestion */
     private com.squareup.okhttp.Call deleteQuestionCall(StudentQuestion body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
@@ -653,13 +540,12 @@ public class DefaultApi {
         return call;
     }
     /* Build call for downvote */
-    private com.squareup.okhttp.Call downvoteCall(String inputSourceId, String author, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call downvoteCall(String inputSourceId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/bot/downvote/{inputSourceId}/author/{author}".replaceAll("\\{format\\}","json")
-        .replaceAll("\\{" + "inputSourceId" + "\\}", apiClient.escapeString(inputSourceId.toString()))
-        .replaceAll("\\{" + "author" + "\\}", apiClient.escapeString(author.toString()));
+        String localVarPath = "/bot/downvote/{inputSourceId}".replaceAll("\\{format\\}","json")
+        .replaceAll("\\{" + "inputSourceId" + "\\}", apiClient.escapeString(inputSourceId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
 
@@ -696,20 +582,15 @@ public class DefaultApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call downvoteValidateBeforeCall(String inputSourceId, String author, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call downvoteValidateBeforeCall(String inputSourceId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'inputSourceId' is set
         if (inputSourceId == null) {
             throw new ApiException("Missing the required parameter 'inputSourceId' when calling downvote(Async)");
         }
         
-        // verify the required parameter 'author' is set
-        if (author == null) {
-            throw new ApiException("Missing the required parameter 'author' when calling downvote(Async)");
-        }
         
-        
-        com.squareup.okhttp.Call call = downvoteCall(inputSourceId, author, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = downvoteCall(inputSourceId, progressListener, progressRequestListener);
         return call;
 
         
@@ -722,12 +603,11 @@ public class DefaultApi {
      * upvotes a given DataItem using its inputSourceId
      * 
      * @param inputSourceId  (required)
-     * @param author  (required)
      * @return DataItem
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public DataItem downvote(String inputSourceId, String author) throws ApiException {
-        ApiResponse<DataItem> resp = downvoteWithHttpInfo(inputSourceId, author);
+    public DataItem downvote(String inputSourceId) throws ApiException {
+        ApiResponse<DataItem> resp = downvoteWithHttpInfo(inputSourceId);
         return resp.getData();
     }
 
@@ -735,12 +615,11 @@ public class DefaultApi {
      * upvotes a given DataItem using its inputSourceId
      * 
      * @param inputSourceId  (required)
-     * @param author  (required)
      * @return ApiResponse&lt;DataItem&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<DataItem> downvoteWithHttpInfo(String inputSourceId, String author) throws ApiException {
-        com.squareup.okhttp.Call call = downvoteValidateBeforeCall(inputSourceId, author, null, null);
+    public ApiResponse<DataItem> downvoteWithHttpInfo(String inputSourceId) throws ApiException {
+        com.squareup.okhttp.Call call = downvoteValidateBeforeCall(inputSourceId, null, null);
         Type localVarReturnType = new TypeToken<DataItem>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -749,12 +628,11 @@ public class DefaultApi {
      * upvotes a given DataItem using its inputSourceId (asynchronously)
      * 
      * @param inputSourceId  (required)
-     * @param author  (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call downvoteAsync(String inputSourceId, String author, final ApiCallback<DataItem> callback) throws ApiException {
+    public com.squareup.okhttp.Call downvoteAsync(String inputSourceId, final ApiCallback<DataItem> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -775,7 +653,7 @@ public class DefaultApi {
             };
         }
 
-        com.squareup.okhttp.Call call = downvoteValidateBeforeCall(inputSourceId, author, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = downvoteValidateBeforeCall(inputSourceId, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<DataItem>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -4480,11 +4358,12 @@ public class DefaultApi {
         return call;
     }
     /* Build call for postReply */
-    private com.squareup.okhttp.Call postReplyCall(Reply body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call postReplyCall(String questionInputSourceId, Reply body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/bot/reply".replaceAll("\\{format\\}","json");
+        String localVarPath = "/bot/question/{questionInputSourceId}/reply".replaceAll("\\{format\\}","json")
+        .replaceAll("\\{" + "questionInputSourceId" + "\\}", apiClient.escapeString(questionInputSourceId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
 
@@ -4521,10 +4400,15 @@ public class DefaultApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call postReplyValidateBeforeCall(Reply body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call postReplyValidateBeforeCall(String questionInputSourceId, Reply body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'questionInputSourceId' is set
+        if (questionInputSourceId == null) {
+            throw new ApiException("Missing the required parameter 'questionInputSourceId' when calling postReply(Async)");
+        }
         
         
-        com.squareup.okhttp.Call call = postReplyCall(body, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = postReplyCall(questionInputSourceId, body, progressListener, progressRequestListener);
         return call;
 
         
@@ -4536,24 +4420,26 @@ public class DefaultApi {
     /**
      * saves a new Reply, updates it if already existent
      * 
+     * @param questionInputSourceId  (required)
      * @param body  (optional)
      * @return StudentQuestion
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public StudentQuestion postReply(Reply body) throws ApiException {
-        ApiResponse<StudentQuestion> resp = postReplyWithHttpInfo(body);
+    public StudentQuestion postReply(String questionInputSourceId, Reply body) throws ApiException {
+        ApiResponse<StudentQuestion> resp = postReplyWithHttpInfo(questionInputSourceId, body);
         return resp.getData();
     }
 
     /**
      * saves a new Reply, updates it if already existent
      * 
+     * @param questionInputSourceId  (required)
      * @param body  (optional)
      * @return ApiResponse&lt;StudentQuestion&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<StudentQuestion> postReplyWithHttpInfo(Reply body) throws ApiException {
-        com.squareup.okhttp.Call call = postReplyValidateBeforeCall(body, null, null);
+    public ApiResponse<StudentQuestion> postReplyWithHttpInfo(String questionInputSourceId, Reply body) throws ApiException {
+        com.squareup.okhttp.Call call = postReplyValidateBeforeCall(questionInputSourceId, body, null, null);
         Type localVarReturnType = new TypeToken<StudentQuestion>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -4561,12 +4447,13 @@ public class DefaultApi {
     /**
      * saves a new Reply, updates it if already existent (asynchronously)
      * 
+     * @param questionInputSourceId  (required)
      * @param body  (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call postReplyAsync(Reply body, final ApiCallback<StudentQuestion> callback) throws ApiException {
+    public com.squareup.okhttp.Call postReplyAsync(String questionInputSourceId, Reply body, final ApiCallback<StudentQuestion> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -4587,7 +4474,126 @@ public class DefaultApi {
             };
         }
 
-        com.squareup.okhttp.Call call = postReplyValidateBeforeCall(body, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = postReplyValidateBeforeCall(questionInputSourceId, body, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<StudentQuestion>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /* Build call for postReplyAndCloseQuestion */
+    private com.squareup.okhttp.Call postReplyAndCloseQuestionCall(String replyInputSourceId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+        
+        // create path and map variables
+        String localVarPath = "/bot/question/close/{replyInputSourceId}".replaceAll("\\{format\\}","json")
+        .replaceAll("\\{" + "replyInputSourceId" + "\\}", apiClient.escapeString(replyInputSourceId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "basic-auth" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call postReplyAndCloseQuestionValidateBeforeCall(String replyInputSourceId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'replyInputSourceId' is set
+        if (replyInputSourceId == null) {
+            throw new ApiException("Missing the required parameter 'replyInputSourceId' when calling postReplyAndCloseQuestion(Async)");
+        }
+        
+        
+        com.squareup.okhttp.Call call = postReplyAndCloseQuestionCall(replyInputSourceId, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * saves a new Question, updates it if already existent
+     * 
+     * @param replyInputSourceId  (required)
+     * @return StudentQuestion
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public StudentQuestion postReplyAndCloseQuestion(String replyInputSourceId) throws ApiException {
+        ApiResponse<StudentQuestion> resp = postReplyAndCloseQuestionWithHttpInfo(replyInputSourceId);
+        return resp.getData();
+    }
+
+    /**
+     * saves a new Question, updates it if already existent
+     * 
+     * @param replyInputSourceId  (required)
+     * @return ApiResponse&lt;StudentQuestion&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<StudentQuestion> postReplyAndCloseQuestionWithHttpInfo(String replyInputSourceId) throws ApiException {
+        com.squareup.okhttp.Call call = postReplyAndCloseQuestionValidateBeforeCall(replyInputSourceId, null, null);
+        Type localVarReturnType = new TypeToken<StudentQuestion>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * saves a new Question, updates it if already existent (asynchronously)
+     * 
+     * @param replyInputSourceId  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call postReplyAndCloseQuestionAsync(String replyInputSourceId, final ApiCallback<StudentQuestion> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = postReplyAndCloseQuestionValidateBeforeCall(replyInputSourceId, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<StudentQuestion>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -4818,133 +4824,13 @@ public class DefaultApi {
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /* Build call for setBestAnswer */
-    private com.squareup.okhttp.Call setBestAnswerCall(String replyInputSourceId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = null;
-        
-        // create path and map variables
-        String localVarPath = "/bot/question/bestAnswer/{replyInputSourceId}".replaceAll("\\{format\\}","json")
-        .replaceAll("\\{" + "replyInputSourceId" + "\\}", apiClient.escapeString(replyInputSourceId.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "basic-auth" };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-    
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call setBestAnswerValidateBeforeCall(String replyInputSourceId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
-        // verify the required parameter 'replyInputSourceId' is set
-        if (replyInputSourceId == null) {
-            throw new ApiException("Missing the required parameter 'replyInputSourceId' when calling setBestAnswer(Async)");
-        }
-        
-        
-        com.squareup.okhttp.Call call = setBestAnswerCall(replyInputSourceId, progressListener, progressRequestListener);
-        return call;
-
-        
-        
-        
-        
-    }
-
-    /**
-     * saves a new Question, updates it if already existent
-     * 
-     * @param replyInputSourceId  (required)
-     * @return StudentQuestion
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public StudentQuestion setBestAnswer(String replyInputSourceId) throws ApiException {
-        ApiResponse<StudentQuestion> resp = setBestAnswerWithHttpInfo(replyInputSourceId);
-        return resp.getData();
-    }
-
-    /**
-     * saves a new Question, updates it if already existent
-     * 
-     * @param replyInputSourceId  (required)
-     * @return ApiResponse&lt;StudentQuestion&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<StudentQuestion> setBestAnswerWithHttpInfo(String replyInputSourceId) throws ApiException {
-        com.squareup.okhttp.Call call = setBestAnswerValidateBeforeCall(replyInputSourceId, null, null);
-        Type localVarReturnType = new TypeToken<StudentQuestion>(){}.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     * saves a new Question, updates it if already existent (asynchronously)
-     * 
-     * @param replyInputSourceId  (required)
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public com.squareup.okhttp.Call setBestAnswerAsync(String replyInputSourceId, final ApiCallback<StudentQuestion> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
-        }
-
-        com.squareup.okhttp.Call call = setBestAnswerValidateBeforeCall(replyInputSourceId, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<StudentQuestion>(){}.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
     /* Build call for upvote */
-    private com.squareup.okhttp.Call upvoteCall(String inputSourceId, String author, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call upvoteCall(String inputSourceId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/bot/upvote/{inputSourceId}/author/{author}".replaceAll("\\{format\\}","json")
-        .replaceAll("\\{" + "inputSourceId" + "\\}", apiClient.escapeString(inputSourceId.toString()))
-        .replaceAll("\\{" + "author" + "\\}", apiClient.escapeString(author.toString()));
+        String localVarPath = "/bot/upvote/{inputSourceId}".replaceAll("\\{format\\}","json")
+        .replaceAll("\\{" + "inputSourceId" + "\\}", apiClient.escapeString(inputSourceId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
 
@@ -4981,20 +4867,15 @@ public class DefaultApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call upvoteValidateBeforeCall(String inputSourceId, String author, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call upvoteValidateBeforeCall(String inputSourceId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'inputSourceId' is set
         if (inputSourceId == null) {
             throw new ApiException("Missing the required parameter 'inputSourceId' when calling upvote(Async)");
         }
         
-        // verify the required parameter 'author' is set
-        if (author == null) {
-            throw new ApiException("Missing the required parameter 'author' when calling upvote(Async)");
-        }
         
-        
-        com.squareup.okhttp.Call call = upvoteCall(inputSourceId, author, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = upvoteCall(inputSourceId, progressListener, progressRequestListener);
         return call;
 
         
@@ -5007,12 +4888,11 @@ public class DefaultApi {
      * upvotes a given DataItem using its inputSourceId
      * 
      * @param inputSourceId  (required)
-     * @param author  (required)
      * @return DataItem
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public DataItem upvote(String inputSourceId, String author) throws ApiException {
-        ApiResponse<DataItem> resp = upvoteWithHttpInfo(inputSourceId, author);
+    public DataItem upvote(String inputSourceId) throws ApiException {
+        ApiResponse<DataItem> resp = upvoteWithHttpInfo(inputSourceId);
         return resp.getData();
     }
 
@@ -5020,12 +4900,11 @@ public class DefaultApi {
      * upvotes a given DataItem using its inputSourceId
      * 
      * @param inputSourceId  (required)
-     * @param author  (required)
      * @return ApiResponse&lt;DataItem&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<DataItem> upvoteWithHttpInfo(String inputSourceId, String author) throws ApiException {
-        com.squareup.okhttp.Call call = upvoteValidateBeforeCall(inputSourceId, author, null, null);
+    public ApiResponse<DataItem> upvoteWithHttpInfo(String inputSourceId) throws ApiException {
+        com.squareup.okhttp.Call call = upvoteValidateBeforeCall(inputSourceId, null, null);
         Type localVarReturnType = new TypeToken<DataItem>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -5034,12 +4913,11 @@ public class DefaultApi {
      * upvotes a given DataItem using its inputSourceId (asynchronously)
      * 
      * @param inputSourceId  (required)
-     * @param author  (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call upvoteAsync(String inputSourceId, String author, final ApiCallback<DataItem> callback) throws ApiException {
+    public com.squareup.okhttp.Call upvoteAsync(String inputSourceId, final ApiCallback<DataItem> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -5060,7 +4938,7 @@ public class DefaultApi {
             };
         }
 
-        com.squareup.okhttp.Call call = upvoteValidateBeforeCall(inputSourceId, author, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = upvoteValidateBeforeCall(inputSourceId, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<DataItem>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
