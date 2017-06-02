@@ -9,6 +9,7 @@ import org.mongodb.morphia.annotations.Entity;
 import org.mongodb.morphia.annotations.Id;
 import org.mongodb.morphia.annotations.Property;
 
+import java.time.Instant;
 import java.util.Date;
 
 /**
@@ -55,7 +56,7 @@ public abstract class DataItem {
 	@Property
 	@Setter
 	@Getter
-	protected Date date;
+	protected Instant date;
 
 	@Property
 	@Getter
@@ -75,11 +76,11 @@ public abstract class DataItem {
 	public DataItem() {
 	}
 
-	public DataItem(String content, String author, DateTime date, String inputSourceId, String inputSource) {
+	public DataItem(String content, String author, Instant instant, String inputSourceId, String inputSource) {
 
 		this.content = content;
 		this.author = author;
-		this.date = date.toDate();
+		this.date = instant;
 		this.inputSourceId = inputSourceId;
 		this.inputSource = inputSource;
 	}

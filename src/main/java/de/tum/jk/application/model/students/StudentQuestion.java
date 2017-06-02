@@ -9,6 +9,7 @@ import org.mongodb.morphia.annotations.Embedded;
 import org.mongodb.morphia.annotations.Entity;
 import org.mongodb.morphia.annotations.Property;
 
+import java.time.Instant;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -75,9 +76,9 @@ public class StudentQuestion extends DataItem {
 	@Setter
 	private long timeToAnswer;
 
-	public StudentQuestion(String text, String author, DateTime date, String inputSourceId, String inputSource) {
+	public StudentQuestion(String text, String author, Instant date, String inputSourceId, String inputSource) {
 		super(text, author, date, inputSourceId, inputSource);
-		this.date = date.toDate();
+		this.date = date;
 		this.replies = new ArrayList<Reply>();
 		this.author = author;
 	}
