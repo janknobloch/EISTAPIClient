@@ -3,6 +3,7 @@ package de.tum.jk.application.model.students;
 import lombok.Getter;
 import lombok.Setter;
 import org.joda.time.DateTime;
+import org.joda.time.Duration;
 import org.mongodb.morphia.annotations.Embedded;
 import org.mongodb.morphia.annotations.Entity;
 import org.mongodb.morphia.annotations.Property;
@@ -60,12 +61,17 @@ public class StudentQuestion extends DataItem {
     @Property
     @Getter
     @Setter
-    private String answerDate;
+    private DateTime answerDate;
     
     @Property
     @Getter
     @Setter
     private String questionType;
+    
+    @Property
+    @Getter
+    @Setter
+    private long timeToAnswer;
     
     public StudentQuestion(String text, String author, DateTime date, String inputSourceId, String inputSource) {
         super(text, author, date, inputSourceId, inputSource);
@@ -77,6 +83,8 @@ public class StudentQuestion extends DataItem {
     }
 
     public void addReply(Reply reply) {
+    	if (replies == null)
+    		replies = new ArrayList<Reply>();
         replies.add(reply);
     }
 
@@ -100,6 +108,10 @@ public class StudentQuestion extends DataItem {
         for (Reply r : replies) {
             if (r.getInputSourceId().equals(message_ts)) {
                 bestanswer = r;
+                Duration duration = new Duration(this.date, r.getDate());
+                timeToAnswer = duration.getStandardSeconds();
+                
+                
             }
         }
     }

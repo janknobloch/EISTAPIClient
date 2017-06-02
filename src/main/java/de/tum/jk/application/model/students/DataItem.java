@@ -11,6 +11,10 @@ import org.mongodb.morphia.annotations.Property;
 
 import java.util.Date;
 
+/**
+ * @author jan
+ *
+ */
 @Entity
 public abstract class DataItem {
 
@@ -49,9 +53,9 @@ public abstract class DataItem {
 	protected String anonymousAuthor;
 
 	@Property
-	@Getter
 	@Setter
-	protected String date;
+	@Getter
+	protected DateTime date;
 
 	@Property
 	@Getter
@@ -75,7 +79,7 @@ public abstract class DataItem {
 
 		this.content = content;
 		this.author = author;
-		this.date = date.toString();
+		this.date = date;
 		this.inputSourceId = inputSourceId;
 		this.inputSource = inputSource;
 	}
@@ -88,4 +92,30 @@ public abstract class DataItem {
 		this.upvotes--;
 	}
 
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((inputSourceId == null) ? 0 : inputSourceId.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		DataItem other = (DataItem) obj;
+		if (inputSourceId == null) {
+			if (other.inputSourceId != null)
+				return false;
+		} else if (!inputSourceId.equals(other.inputSourceId))
+			return false;
+		return true;
+	}
+
+	
 }
