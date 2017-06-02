@@ -55,7 +55,7 @@ public abstract class DataItem {
 	@Property
 	@Setter
 	@Getter
-	protected DateTime date;
+	protected Date date;
 
 	@Property
 	@Getter
@@ -79,7 +79,7 @@ public abstract class DataItem {
 
 		this.content = content;
 		this.author = author;
-		this.date = date;
+		this.date = date.toDate();
 		this.inputSourceId = inputSourceId;
 		this.inputSource = inputSource;
 	}
