@@ -64,7 +64,7 @@ public class StudentQuestion extends DataItem {
 	@Property
 	@Getter
 	@Setter
-	private Date answerDate;
+	private DateTime answerDate;
 
 	@Property
 	@Getter
@@ -76,7 +76,7 @@ public class StudentQuestion extends DataItem {
 	@Setter
 	private long timeToAnswer;
 
-	public StudentQuestion(String text, String author, Instant date, String inputSourceId, String inputSource) {
+	public StudentQuestion(String text, String author, DateTime date, String inputSourceId, String inputSource) {
 		super(text, author, date, inputSourceId, inputSource);
 		this.date = date;
 		this.replies = new ArrayList<Reply>();
