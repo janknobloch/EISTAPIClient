@@ -81,6 +81,7 @@ public class StudentQuestion extends DataItem {
 		this.date = date;
 		this.replies = new ArrayList<Reply>();
 		this.author = author;
+		this.answerDate = new DateTime(0);
 	}
 
 	public StudentQuestion() {
