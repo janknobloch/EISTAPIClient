@@ -8,6 +8,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
 
+import org.joda.time.DateTime;
 import org.mongodb.morphia.annotations.Entity;
 import org.mongodb.morphia.annotations.Id;
 import org.mongodb.morphia.annotations.Property;
@@ -30,7 +31,7 @@ public class TeacherQuestion {
 	@Property
 	@Getter
 	@Setter
-	protected String date;
+	protected DateTime date;
 
 	@Property
 	@Getter
