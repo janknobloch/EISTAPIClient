@@ -11,6 +11,7 @@ Method | HTTP request | Description
 [**deleteReply**](DefaultApi.md#deleteReply) | **DELETE** /bot/reply/{inputSourceId} | deletes a reply by its inputSourceId
 [**downvote**](DefaultApi.md#downvote) | **GET** /bot/downvote/{inputSourceId}/userId/{userId} | upvotes a given DataItem using its inputSourceId
 [**getActiveSlides**](DefaultApi.md#getActiveSlides) | **GET** /bot/slide/live | Returns an Array of active slides for (ppt, key, and dev)
+[**getAdminAnswer**](DefaultApi.md#getAdminAnswer) | **POST** /bot/answer | forwards a new Admin Answer
 [**getAllBots**](DefaultApi.md#getAllBots) | **GET** /bot/bot | retrieves all bots 
 [**getAllClosedStudentQuestionsForExercises**](DefaultApi.md#getAllClosedStudentQuestionsForExercises) | **GET** /bot/question/exercise/report | retrieves all exercise questions report not including general questions - ordered by slideSet
 [**getAllClosedStudentQuestionsForLectures**](DefaultApi.md#getAllClosedStudentQuestionsForLectures) | **GET** /bot/question/lecture/report | retrieves all lecture questions report not including general questions - ordered by slideSet
@@ -421,6 +422,51 @@ This endpoint does not need any parameter.
 ### Authorization
 
 [basic-auth](../README.md#basic-auth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="getAdminAnswer"></a>
+# **getAdminAnswer**
+> AdminAnswer getAdminAnswer(body)
+
+forwards a new Admin Answer
+
+
+
+### Example
+```java
+// Import classes:
+//import io.swagger.client.ApiException;
+//import io.swagger.client.api.DefaultApi;
+
+
+DefaultApi apiInstance = new DefaultApi();
+AdminAnswer body = new AdminAnswer(); // AdminAnswer | 
+try {
+    AdminAnswer result = apiInstance.getAdminAnswer(body);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling DefaultApi#getAdminAnswer");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**AdminAnswer**](AdminAnswer.md)|  | [optional]
+
+### Return type
+
+[**AdminAnswer**](AdminAnswer.md)
+
+### Authorization
+
+No authorization required
 
 ### HTTP request headers
 

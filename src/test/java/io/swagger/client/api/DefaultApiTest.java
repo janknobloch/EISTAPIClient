@@ -15,6 +15,7 @@ package io.swagger.client.api;
 
 import io.swagger.client.ApiException;
 import de.tum.jk.application.model.presenterTool.ActiveSlide;
+import de.tum.jk.application.model.students.AdminAnswer;
 import de.tum.jk.application.model.students.DataItem;
 import de.tum.jk.application.model.students.Feedback;
 import de.tum.jk.application.model.students.Reply;
@@ -147,6 +148,22 @@ public class DefaultApiTest {
     @Test
     public void getActiveSlidesTest() throws ApiException {
         ActiveSlide response = api.getActiveSlides();
+
+        // TODO: test validations
+    }
+    
+    /**
+     * forwards a new Admin Answer
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getAdminAnswerTest() throws ApiException {
+        AdminAnswer body = null;
+        AdminAnswer response = api.getAdminAnswer(body);
 
         // TODO: test validations
     }

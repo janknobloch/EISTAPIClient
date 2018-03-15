@@ -28,6 +28,7 @@ import java.io.IOException;
 
 
 import de.tum.jk.application.model.presenterTool.ActiveSlide;
+import de.tum.jk.application.model.students.AdminAnswer;
 import de.tum.jk.application.model.students.DataItem;
 import de.tum.jk.application.model.students.Feedback;
 import de.tum.jk.application.model.students.Reply;
@@ -893,6 +894,119 @@ public class DefaultApi {
 
         com.squareup.okhttp.Call call = getActiveSlidesValidateBeforeCall(progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<ActiveSlide>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /* Build call for getAdminAnswer */
+    private com.squareup.okhttp.Call getAdminAnswerCall(AdminAnswer body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body;
+        
+        // create path and map variables
+        String localVarPath = "/bot/answer".replaceAll("\\{format\\}","json");
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getAdminAnswerValidateBeforeCall(AdminAnswer body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        
+        com.squareup.okhttp.Call call = getAdminAnswerCall(body, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * forwards a new Admin Answer
+     * 
+     * @param body  (optional)
+     * @return AdminAnswer
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public AdminAnswer getAdminAnswer(AdminAnswer body) throws ApiException {
+        ApiResponse<AdminAnswer> resp = getAdminAnswerWithHttpInfo(body);
+        return resp.getData();
+    }
+
+    /**
+     * forwards a new Admin Answer
+     * 
+     * @param body  (optional)
+     * @return ApiResponse&lt;AdminAnswer&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<AdminAnswer> getAdminAnswerWithHttpInfo(AdminAnswer body) throws ApiException {
+        com.squareup.okhttp.Call call = getAdminAnswerValidateBeforeCall(body, null, null);
+        Type localVarReturnType = new TypeToken<AdminAnswer>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * forwards a new Admin Answer (asynchronously)
+     * 
+     * @param body  (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call getAdminAnswerAsync(AdminAnswer body, final ApiCallback<AdminAnswer> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getAdminAnswerValidateBeforeCall(body, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<AdminAnswer>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

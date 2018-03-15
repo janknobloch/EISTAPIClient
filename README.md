@@ -103,6 +103,7 @@ Class | Method | HTTP request | Description
 *DefaultApi* | [**deleteReply**](docs/DefaultApi.md#deleteReply) | **DELETE** /bot/reply/{inputSourceId} | deletes a reply by its inputSourceId
 *DefaultApi* | [**downvote**](docs/DefaultApi.md#downvote) | **GET** /bot/downvote/{inputSourceId}/userId/{userId} | upvotes a given DataItem using its inputSourceId
 *DefaultApi* | [**getActiveSlides**](docs/DefaultApi.md#getActiveSlides) | **GET** /bot/slide/live | Returns an Array of active slides for (ppt, key, and dev)
+*DefaultApi* | [**getAdminAnswer**](docs/DefaultApi.md#getAdminAnswer) | **POST** /bot/answer | forwards a new Admin Answer
 *DefaultApi* | [**getAllBots**](docs/DefaultApi.md#getAllBots) | **GET** /bot/bot | retrieves all bots 
 *DefaultApi* | [**getAllClosedStudentQuestionsForExercises**](docs/DefaultApi.md#getAllClosedStudentQuestionsForExercises) | **GET** /bot/question/exercise/report | retrieves all exercise questions report not including general questions - ordered by slideSet
 *DefaultApi* | [**getAllClosedStudentQuestionsForLectures**](docs/DefaultApi.md#getAllClosedStudentQuestionsForLectures) | **GET** /bot/question/lecture/report | retrieves all lecture questions report not including general questions - ordered by slideSet
