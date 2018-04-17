@@ -13,8 +13,8 @@ public class Reply extends DataItem {
 
 	}
 
-	public Reply(String text, String author, String inputSourceId, String inputSource) {
-		super(text,author,DateTime.now(),inputSourceId,inputSource);
+	public Reply(String text, String author, String inputSourceId, String inputSource, String slackChannel) {
+		super(text,author,DateTime.now(),inputSourceId,inputSource, slackChannel);
 	}
 
 }

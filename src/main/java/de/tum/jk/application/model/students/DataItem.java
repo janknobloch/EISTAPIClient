@@ -73,16 +73,22 @@ public abstract class DataItem {
 	@Setter
 	protected String inputSource;
 
+	@Property
+	@Getter
+	@Setter
+	protected String slackChannel;
+	
 	public DataItem() {
 	}
 
-	public DataItem(String content, String author, DateTime date, String inputSourceId, String inputSource) {
+	public DataItem(String content, String author, DateTime date, String inputSourceId, String inputSource, String slackChannel) {
 
 		this.content = content;
 		this.author = author;
 		this.date = date;
 		this.inputSourceId = inputSourceId;
 		this.inputSource = inputSource;
+		this.slackChannel = slackChannel;
 	}
 
 	public void voteUp() {

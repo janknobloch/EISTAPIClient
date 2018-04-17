@@ -76,8 +76,8 @@ public class StudentQuestion extends DataItem {
 	@Setter
 	private long timeToAnswer;
 
-	public StudentQuestion(String text, String author, DateTime date, String inputSourceId, String inputSource) {
-		super(text, author, date, inputSourceId, inputSource);
+	public StudentQuestion(String text, String author, DateTime date, String inputSourceId, String inputSource, String slackChannel) {
+		super(text, author, date, inputSourceId, inputSource, slackChannel);
 		this.date = date;
 		this.replies = new ArrayList<Reply>();
 		this.author = author;

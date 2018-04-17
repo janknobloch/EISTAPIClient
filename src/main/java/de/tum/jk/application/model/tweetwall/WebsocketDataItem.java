@@ -8,6 +8,7 @@ public class WebsocketDataItem {
 	public static final String STUDENT_QUESTION = "student-question";
 	public static final String TEACHER_QUESTION = "teacher-question";
 	public static final String ADMIN_ANSWER = "admin-answer";
+	public static final String STUDENT_QUESTION_ARRAY = "student-question-array";
 	
 	@Getter
 	@Setter

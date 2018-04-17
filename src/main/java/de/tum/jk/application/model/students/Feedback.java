@@ -12,8 +12,8 @@ public class Feedback extends DataItem {
 	public Feedback() {
 	}
 
-	public Feedback(String text, DateTime date, String inputSourceId, String inputSource) {
-		super(text,"anonymous",date, inputSourceId, inputSource);
+	public Feedback(String text, DateTime date, String inputSourceId, String inputSource, String slackChannel) {
+		super(text,"anonymous",date, inputSourceId, inputSource, slackChannel);
 	}
 
 }

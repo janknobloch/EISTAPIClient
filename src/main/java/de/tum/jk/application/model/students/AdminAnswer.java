@@ -24,13 +24,23 @@ public class AdminAnswer {
 	@Getter
 	@Setter
 	String questionInputSourceId;
+	@Getter
+	@Setter
+	String slackChannel;
 
-	public AdminAnswer(String answer, String author, String questionId, String questionInputSourceId) {
+	public AdminAnswer() {
+
+	}
+
+	public AdminAnswer(String answer, String author, String questionId, String questionInputSourceId, String slackChannel) {
 		super();
 		this.answer = answer;
 		this.author = author;
 		this.questionId = questionId;
 		this.questionInputSourceId = questionInputSourceId;
+		this.slackChannel = slackChannel;
 	}
+
+	
 
 }

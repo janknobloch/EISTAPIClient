@@ -25,7 +25,7 @@ import java.util.Map;
 /**
  * Score
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-03-15T14:37:56.943+01:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-04-17T17:38:27.966+02:00")
 public class Score {
   @SerializedName("bestAnswersCount")
   private Map<String, Integer> bestAnswersCount = new HashMap<String, Integer>();
